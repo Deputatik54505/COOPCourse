@@ -6,12 +6,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Password extends Request {
-    private String password;
+    private final String password;
     private final ArrayList<Character> forbidChar = new ArrayList<>(Arrays.asList(
             '?', '/', '%', '*', '(', ')', '[', ']', '{', '}',
             '<', '>', '&', '#', '$', '^', '@', '"', ' ', '!',
             ',','.',';','-','+','=','_'
     ));
+
+    public Password(String password) {
+        this.password = password;
+        this.length = password.length();
+    }
+
     @Override
     protected boolean isSuitableLength(int len) {
         return this.length >= len;

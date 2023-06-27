@@ -1,9 +1,10 @@
 package org.example.entities.validation.passport;
 
-import org.example.entities.validation.Processor;
-
 public class ValidatePassport {
-    Processor chain;
+    PProcessor chain;
+    public ValidatePassport() {
+        buildChain();
+    }
     private void buildChain(){
         this.chain = new LengthProcessor(new ExistProcessor(new ValidateProcessor(null)));
     }
@@ -12,9 +13,20 @@ public class ValidatePassport {
     }
 }
 
-class LengthProcessor extends Processor {
+abstract class PProcessor {
+    private final PProcessor nextProcessor;
+    public PProcessor(PProcessor nextProcessor){
+        this.nextProcessor = nextProcessor;
+    };
+    public void process(Passport request){
+        if(nextProcessor != null)
+            nextProcessor.process(request);
+    };
+}
+
+class LengthProcessor extends PProcessor {
     final int minPassLength = 8;
-    public LengthProcessor(Processor nextProcessor) {
+    public LengthProcessor(PProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Passport request) {
@@ -26,8 +38,8 @@ class LengthProcessor extends Processor {
     }
 }
 
-class ValidateProcessor extends Processor {
-    public ValidateProcessor(Processor nextProcessor) {
+class ValidateProcessor extends PProcessor {
+    public ValidateProcessor(PProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Passport request) {
@@ -39,8 +51,8 @@ class ValidateProcessor extends Processor {
     }
 }
 
-class ExistProcessor extends Processor {
-    public ExistProcessor(Processor nextProcessor) {
+class ExistProcessor extends PProcessor {
+    public ExistProcessor(PProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Passport request) {

@@ -1,9 +1,10 @@
 package org.example.entities.validation.login;
 
-import org.example.entities.validation.Processor;
-
 public class ValidateLogin {
-    Processor chain;
+    LProcessor chain;
+    public ValidateLogin() {
+        buildChain();
+    }
     private void buildChain(){
         this.chain = new LengthProcessor(new UniqueProcessor(new ValidateProcessor(null)));
     }
@@ -12,22 +13,34 @@ public class ValidateLogin {
     }
 }
 
-class LengthProcessor extends Processor {
+abstract class LProcessor {
+    private final LProcessor nextProcessor;
+    public LProcessor(LProcessor nextProcessor){
+        this.nextProcessor = nextProcessor;
+    };
+    public void process(Login request){
+        if(nextProcessor != null) {
+            nextProcessor.process(request);
+        }
+    };
+}
+
+class LengthProcessor extends LProcessor {
     private final int minLogLength = 6;
-    public LengthProcessor(Processor nextProcessor) {
+    public LengthProcessor(LProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Login request) {
         if (request.isSuitableLength(this.minLogLength)) {
             super.process(request);
         } else {
-            System.out.println("The login must contain at least 6 characters.");
+            System.out.println("The login must contain at least 6 characters and no more than 16 characters.");
         }
     }
 }
 
-class ValidateProcessor extends Processor {
-    public ValidateProcessor(Processor nextProcessor) {
+class ValidateProcessor extends LProcessor {
+    public ValidateProcessor(LProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Login request) {
@@ -39,8 +52,8 @@ class ValidateProcessor extends Processor {
     }
 }
 
-class UniqueProcessor extends Processor {
-    public UniqueProcessor(Processor nextProcessor) {
+class UniqueProcessor extends LProcessor {
+    public UniqueProcessor(LProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Login request) {

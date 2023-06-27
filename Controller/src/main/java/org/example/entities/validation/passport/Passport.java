@@ -3,7 +3,13 @@ package org.example.entities.validation.passport;
 import org.example.entities.validation.Request;
 
 public class Passport extends Request {
-    private String passport;
+    private final String passport;
+
+    public Passport(String passport) {
+        this.passport = passport;
+        this.length = passport.length();
+    }
+
     @Override
     protected boolean isSuitableLength(int len) {
         return this.length == len;

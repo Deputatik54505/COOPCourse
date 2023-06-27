@@ -1,9 +1,7 @@
 package org.example.entities.validation.password;
 
-import org.example.entities.validation.Processor;
-
 public class ValidatePassword {
-    Processor chain;
+    PProcessor chain;
     public ValidatePassword() {
         buildChain();
     }
@@ -15,9 +13,22 @@ public class ValidatePassword {
     }
 }
 
-class LengthProcessor extends Processor {
+abstract class PProcessor {
+    private final PProcessor nextProcessor;
+
+    public PProcessor(PProcessor nextProcessor){
+        this.nextProcessor = nextProcessor;
+    };
+
+    public void process(Password request){
+        if(nextProcessor != null)
+            nextProcessor.process(request);
+    };
+}
+
+class LengthProcessor extends PProcessor {
     final int minPassLength = 8;
-    public LengthProcessor(Processor nextProcessor) {
+    public LengthProcessor(PProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Password request) {
@@ -29,8 +40,8 @@ class LengthProcessor extends Processor {
     }
 }
 
-class LetterProcessor extends Processor {
-    public LetterProcessor(Processor nextProcessor) {
+class LetterProcessor extends PProcessor {
+    public LetterProcessor(PProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Password request) {
@@ -42,8 +53,8 @@ class LetterProcessor extends Processor {
     }
 }
 
-class NumberProcessor extends Processor {
-    public NumberProcessor(Processor nextProcessor) {
+class NumberProcessor extends PProcessor {
+    public NumberProcessor(PProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Password request) {
@@ -55,8 +66,8 @@ class NumberProcessor extends Processor {
     }
 }
 
-class ValidateProcessor extends Processor {
-    public ValidateProcessor(Processor nextProcessor) {
+class ValidateProcessor extends PProcessor {
+    public ValidateProcessor(PProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Password request) {
