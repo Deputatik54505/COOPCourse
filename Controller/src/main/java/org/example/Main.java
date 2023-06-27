@@ -1,11 +1,11 @@
 package org.example;
 
-import org.example.entities.validation.login.Login;
-import org.example.entities.validation.login.ValidateLogin;
-import org.example.entities.validation.passport.Passport;
-import org.example.entities.validation.passport.ValidatePassport;
-import org.example.entities.validation.password.Password;
-import org.example.entities.validation.password.ValidatePassword;
+import org.example.validation.login.Login;
+import org.example.validation.login.ValidateLogin;
+import org.example.validation.passport.Passport;
+import org.example.validation.passport.ValidatePassport;
+import org.example.validation.password.Password;
+import org.example.validation.password.ValidatePassword;
 
 public class Main {
     public static void main(String[] args) {
