@@ -1,32 +1,33 @@
 package org.example.validation.passport;
 
 public class ValidatePassport {
-    PProcessor chain;
+    private PassportProcessor chain;
     public ValidatePassport() {
-        buildChain();
+        this.buildChain();
     }
     private void buildChain(){
-        this.chain = new LengthProcessor(new ExistProcessor(new ValidateProcessor(null)));
+        this.chain = new LengthProcessor(new ValidateProcessor(null));
     }
-    public void process(Passport request) {
+    public void validate(Passport request) {
         this.chain.process(request);
     }
 }
 
-abstract class PProcessor {
-    private final PProcessor nextProcessor;
-    public PProcessor(PProcessor nextProcessor){
+abstract class PassportProcessor {
+    private final PassportProcessor nextProcessor;
+    public PassportProcessor(PassportProcessor nextProcessor){
         this.nextProcessor = nextProcessor;
     };
     public void process(Passport request){
-        if(nextProcessor != null)
+        if(nextProcessor != null) {
             nextProcessor.process(request);
+        }
     };
 }
 
-class LengthProcessor extends PProcessor {
+class LengthProcessor extends PassportProcessor {
     final int minPassLength = 8;
-    public LengthProcessor(PProcessor nextProcessor) {
+    public LengthProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Passport request) {
@@ -38,8 +39,8 @@ class LengthProcessor extends PProcessor {
     }
 }
 
-class ValidateProcessor extends PProcessor {
-    public ValidateProcessor(PProcessor nextProcessor) {
+class ValidateProcessor extends PassportProcessor {
+    public ValidateProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Passport request) {
@@ -51,15 +52,15 @@ class ValidateProcessor extends PProcessor {
     }
 }
 
-class ExistProcessor extends PProcessor {
-    public ExistProcessor(PProcessor nextProcessor) {
+class CreateProcessor extends PassportProcessor {
+    public CreateProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Passport request) {
-        if (request.isExist()) {
+        if (request.createPassport()) {
             super.process(request);
         } else {
-            System.out.println("The login must be unique.");
+            System.out.println("Error with input data.");
         }
     }
 }

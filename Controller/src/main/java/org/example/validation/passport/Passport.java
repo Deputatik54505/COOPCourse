@@ -3,10 +3,12 @@ package org.example.validation.passport;
 import org.example.validation.Request;
 
 public class Passport extends Request {
-    private final String passport;
+    private final PassportData passportData;
+    private final int lenSer = 4;
+    private final int lenNum = 6;
 
     public Passport(String passport) {
-        this.passport = passport;
+        this.passportData = new PassportData(passport);
         this.length = passport.length();
     }
 
@@ -16,15 +18,15 @@ public class Passport extends Request {
     }
     @Override
     protected boolean isValidInput() {
-        for (int i = 0; i < this.passport.length(); i++) {
-            if (!(this.passport.charAt(i) >= '0' && this.passport.charAt(i) <= '9')) {
+        for (int i = 0; i < this.passportData.passport.length(); i++) {
+            if (!(this.passportData.passport.charAt(i) >= '0' &&
+                    this.passportData.passport.charAt(i) <= '9')) {
                 return false;
             }
         }
         return true;
     }
-    public boolean isExist() {
-        // TODO: check existence of password
-        return true;
+    public boolean createPassport() {
+        return this.passportData.splitData(this.lenSer, this.lenNum);
     }
 }

@@ -1,21 +1,21 @@
 package org.example.validation.login;
 
 public class ValidateLogin {
-    LProcessor chain;
+    private LoginProcessor chain;
     public ValidateLogin() {
-        buildChain();
+        this.buildChain();
     }
     private void buildChain(){
         this.chain = new LengthProcessor(new UniqueProcessor(new ValidateProcessor(null)));
     }
-    public void process(Login request) {
-        this.chain.process(request);
+    public void validate(Login login) {
+        this.chain.process(login);
     }
 }
 
-abstract class LProcessor {
-    private final LProcessor nextProcessor;
-    public LProcessor(LProcessor nextProcessor){
+abstract class LoginProcessor {
+    private final LoginProcessor nextProcessor;
+    public LoginProcessor(LoginProcessor nextProcessor){
         this.nextProcessor = nextProcessor;
     };
     public void process(Login request){
@@ -25,9 +25,9 @@ abstract class LProcessor {
     };
 }
 
-class LengthProcessor extends LProcessor {
+class LengthProcessor extends LoginProcessor {
     private final int minLogLength = 6;
-    public LengthProcessor(LProcessor nextProcessor) {
+    public LengthProcessor(LoginProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Login request) {
@@ -39,8 +39,8 @@ class LengthProcessor extends LProcessor {
     }
 }
 
-class ValidateProcessor extends LProcessor {
-    public ValidateProcessor(LProcessor nextProcessor) {
+class ValidateProcessor extends LoginProcessor {
+    public ValidateProcessor(LoginProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Login request) {
@@ -52,8 +52,8 @@ class ValidateProcessor extends LProcessor {
     }
 }
 
-class UniqueProcessor extends LProcessor {
-    public UniqueProcessor(LProcessor nextProcessor) {
+class UniqueProcessor extends LoginProcessor {
+    public UniqueProcessor(LoginProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Login request) {

@@ -1,34 +1,35 @@
 package org.example.validation.password;
 
 public class ValidatePassword {
-    PProcessor chain;
+    private PasswordProcessor chain;
     public ValidatePassword() {
-        buildChain();
+        this.buildChain();
     }
     public void process(Password request) {
         this.chain.process(request);
     }
     private void buildChain(){
-        this.chain = new LengthProcessor(new LetterProcessor(new NumberProcessor(new ValidateProcessor(null))));
+        this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(null)))));
     }
 }
 
-abstract class PProcessor {
-    private final PProcessor nextProcessor;
+abstract class PasswordProcessor {
+    private final PasswordProcessor nextProcessor;
 
-    public PProcessor(PProcessor nextProcessor){
+    public PasswordProcessor(PasswordProcessor nextProcessor){
         this.nextProcessor = nextProcessor;
     };
 
     public void process(Password request){
-        if(nextProcessor != null)
+        if(nextProcessor != null) {
             nextProcessor.process(request);
+        }
     };
 }
 
-class LengthProcessor extends PProcessor {
+class LengthProcessor extends PasswordProcessor {
     final int minPassLength = 8;
-    public LengthProcessor(PProcessor nextProcessor) {
+    public LengthProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Password request) {
@@ -40,34 +41,53 @@ class LengthProcessor extends PProcessor {
     }
 }
 
-class LetterProcessor extends PProcessor {
-    public LetterProcessor(PProcessor nextProcessor) {
+class UpProcessor extends PasswordProcessor {
+    private AlphaChecker alphaChecker;
+    public UpProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Password request) {
-        if (request.isConEnLetter()) {
+        this.alphaChecker = new AlphaChecker(request);
+        if (this.alphaChecker.isUpLetter()) {
             super.process(request);
         } else {
-            System.out.println("The password must contain at least one English letter.");
+            System.out.println("The password must contain at least one uppercase character.");
         }
     }
 }
 
-class NumberProcessor extends PProcessor {
-    public NumberProcessor(PProcessor nextProcessor) {
+class LowProcessor extends PasswordProcessor {
+    private AlphaChecker alphaChecker;
+    public LowProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Password request) {
-        if (request.isConNum()) {
+        this.alphaChecker = new AlphaChecker(request);
+        if (this.alphaChecker.isLowLetter()) {
             super.process(request);
         } else {
-            System.out.println("The password must contain at least one number.");
+            System.out.println("The password must contain at least one lowercase character.");
         }
     }
 }
 
-class ValidateProcessor extends PProcessor {
-    public ValidateProcessor(PProcessor nextProcessor) {
+class NumProcessor extends PasswordProcessor {
+    private AlphaChecker alphaChecker;
+    public NumProcessor(PasswordProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+    public void process(Password request) {
+        this.alphaChecker = new AlphaChecker(request);
+        if (this.alphaChecker.isNum()) {
+            super.process(request);
+        } else {
+            System.out.println("The password must contain at least one number character.");
+        }
+    }
+}
+
+class ValidateProcessor extends PasswordProcessor {
+    public ValidateProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Password request) {

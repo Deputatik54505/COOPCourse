@@ -2,17 +2,9 @@ package org.example.validation.login;
 
 import org.example.validation.Request;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Login extends Request {
     private final String login;
     private final int maxLen = 16;
-    private final ArrayList<Character> forbidChar = new ArrayList<>(Arrays.asList(
-            '?', '/', '%', '*', '(', ')', '[', ']', '{', '}',
-            '<', '>', '&', '#', '$', '^', '@', '"', ' ', '!',
-            ',','.',';','-','+','=','_'
-    ));
     public Login(String login) {
         this.login = login;
         this.length = login.length();
