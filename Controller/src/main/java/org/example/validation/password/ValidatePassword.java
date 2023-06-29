@@ -1,12 +1,17 @@
 package org.example.validation.password;
 
+import org.example.validation.exceptions.LengthException;
+import org.example.validation.exceptions.SyntaxException;
+
 public class ValidatePassword {
     private PasswordProcessor chain;
+    private Password request;
     public ValidatePassword() {
         this.buildChain();
     }
-    public void process(Password request) {
-        this.chain.process(request);
+    public void validate(String password) throws Exception {
+        this.request = new Password(password);
+        this.chain.process(this.request);
     }
     private void buildChain(){
         this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(null)))));
@@ -20,9 +25,9 @@ abstract class PasswordProcessor {
         this.nextProcessor = nextProcessor;
     };
 
-    public void process(Password request){
+    public void process(Password request) throws Exception {
         if(nextProcessor != null) {
-            nextProcessor.process(request);
+            this.nextProcessor.process(request);
         }
     };
 }
@@ -32,11 +37,11 @@ class LengthProcessor extends PasswordProcessor {
     public LengthProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
-    public void process(Password request) {
+    public void process(Password request) throws Exception {
         if (request.isSuitableLength(this.minPassLength)) {
             super.process(request);
         } else {
-            System.out.println("The password must contain at least 8 characters.");
+            throw new LengthException();
         }
     }
 }
@@ -46,12 +51,12 @@ class UpProcessor extends PasswordProcessor {
     public UpProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
-    public void process(Password request) {
+    public void process(Password request) throws Exception {
         this.alphaChecker = new AlphaChecker(request);
         if (this.alphaChecker.isUpLetter()) {
             super.process(request);
         } else {
-            System.out.println("The password must contain at least one uppercase character.");
+            throw new SyntaxException();
         }
     }
 }
@@ -61,12 +66,12 @@ class LowProcessor extends PasswordProcessor {
     public LowProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
-    public void process(Password request) {
+    public void process(Password request) throws Exception {
         this.alphaChecker = new AlphaChecker(request);
         if (this.alphaChecker.isLowLetter()) {
             super.process(request);
         } else {
-            System.out.println("The password must contain at least one lowercase character.");
+            throw new SyntaxException();
         }
     }
 }
@@ -76,12 +81,12 @@ class NumProcessor extends PasswordProcessor {
     public NumProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
-    public void process(Password request) {
+    public void process(Password request) throws Exception {
         this.alphaChecker = new AlphaChecker(request);
         if (this.alphaChecker.isNum()) {
             super.process(request);
         } else {
-            System.out.println("The password must contain at least one number character.");
+            throw new SyntaxException();
         }
     }
 }
@@ -90,11 +95,11 @@ class ValidateProcessor extends PasswordProcessor {
     public ValidateProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
-    public void process(Password request) {
+    public void process(Password request) throws Exception {
         if (request.isValidInput()) {
             super.process(request);
         } else {
-            System.out.println("The password contain forbidden letters.");
+            throw new SyntaxException();
         }
     }
 }

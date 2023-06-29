@@ -20,7 +20,7 @@ abstract class LoginProcessor {
     };
     public void process(Login request){
         if(nextProcessor != null) {
-            nextProcessor.process(request);
+            this.nextProcessor.process(request);
         }
     };
 }
