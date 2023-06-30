@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="Modules for MVC created" />
+    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="feat: add mail validation">
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/Verification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/LengthException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/SyntaxException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/VerificationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/login/ValidateLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/login/ValidateLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/Mail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/ValidateMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/ValidateMail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/passport/ValidatePassport.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/passport/ValidatePassport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/ValidatePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/ValidatePassword.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +70,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UserEntities" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -89,7 +110,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687864354910</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix: validation">
+      <created>1687873756545</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687873756545</updated>
+    </task>
+    <task id="LOCAL-00003" summary="style: changing the folder location">
+      <created>1687875128965</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687875128965</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: add mail validation">
+      <created>1687963478780</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687963478780</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +180,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modules for MVC created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modules for MVC created" />
+    <MESSAGE value="fix: validation" />
+    <MESSAGE value="style: changing the folder location" />
+    <MESSAGE value="feat: add mail validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add mail validation" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/validation/processor/RFactory.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
