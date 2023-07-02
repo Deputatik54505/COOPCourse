@@ -26,7 +26,7 @@ abstract class PasswordProcessor {
     };
 
     public void process(Password request) throws Exception {
-        if(nextProcessor != null) {
+        if (this.nextProcessor != null) {
             this.nextProcessor.process(request);
         }
     };

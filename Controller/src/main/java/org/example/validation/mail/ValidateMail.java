@@ -1,5 +1,7 @@
 package org.example.validation.mail;
 
+import org.example.entities.user.Users;
+import org.example.validation.exceptions.DuplicationException;
 import org.example.validation.exceptions.LengthException;
 import org.example.validation.exceptions.SyntaxException;
 
@@ -10,10 +12,10 @@ public class ValidateMail {
         this.buildChain();
     }
     private void buildChain(){
-        this.chain = new LengthProcessor(new ValidProcessor(null));
+        this.chain = new LengthProcessor(new ValidProcessor(new UniqueProcessor(null)));
     }
-    public void validate(String mail) throws Exception {
-        this.request = new Mail(mail);
+    public void validate(String mail, Users users) throws Exception {
+        this.request = new Mail(mail, users);
         this.chain.process(this.request);
     }
 }
@@ -24,7 +26,7 @@ abstract class MailProcessor {
         this.nextProcessor = nextProcessor;
     };
     public void process(Mail request) throws Exception {
-        if(nextProcessor != null) {
+        if (this.nextProcessor != null) {
             this.nextProcessor.process(request);
         }
     };
@@ -53,6 +55,19 @@ class ValidProcessor extends MailProcessor {
             super.process(request);
         } else {
             throw new SyntaxException();
+        }
+    }
+}
+
+class UniqueProcessor extends MailProcessor {
+    public UniqueProcessor(MailProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+    public void process(Mail request) throws Exception {
+        if (request.isUnique()) {
+            super.process(request);
+        } else {
+            throw new DuplicationException();
         }
     }
 }

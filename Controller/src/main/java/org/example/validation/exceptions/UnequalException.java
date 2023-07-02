@@ -1,8 +1,8 @@
 package org.example.validation.exceptions;
 
-public class VerificationException extends Exception {
+public class UnequalException extends Exception {
     @Override
     public String toString() {
-        return "Verification failed!";
+        return "Passwords don't match!";
     }
 }
