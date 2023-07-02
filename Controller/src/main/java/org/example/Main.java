@@ -1,27 +1,21 @@
 package org.example;
 
-import org.example.entities.product.Users;
-import org.example.validation.Verification;
-import org.example.validation.mail.Mail;
-import org.example.validation.password.Password;
+import org.example.entities.user.Users;
+import org.example.validation.LogIn;
+import org.example.validation.SignIn;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Verification verification = new Verification();
         Users users = new Users();
-        boolean flag = true;
-        while (flag) {
-            try {
-                verification.verifyUser(users, scanner.nextLine(), scanner.nextLine());
-                System.out.println("Success!");
-                flag = false;
-            } catch (Exception e) {
-                System.out.println(e.toString());
-            }
-        }
 
+        //log in
+        LogIn logIn = new LogIn(users);
+        logIn.logIn();
+        //sign in
+        SignIn signIn = new SignIn(users);
+        signIn.signIn();
     }
 }

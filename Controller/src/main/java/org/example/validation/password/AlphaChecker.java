@@ -1,7 +1,7 @@
 package org.example.validation.password;
 
 public class AlphaChecker {
-    Password cPassword;
+    private final Password cPassword;
     public AlphaChecker(Password password) {
         this.cPassword = password;
     }

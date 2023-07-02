@@ -5,10 +5,11 @@ import org.example.validation.Request;
 public class Mail extends Request {
     private final String mail;
 
-    private SyntacticValidation syntacticValidation;
+    private final SyntacticValidation syntacticValidation;
 
     public Mail(String mail) {
         this.mail = mail;
+        this.syntacticValidation = new SyntacticValidation(this);
         this.length = mail.length();
     }
 
@@ -19,7 +20,6 @@ public class Mail extends Request {
 
     @Override
     protected boolean isValidInput() {
-        this.syntacticValidation = new SyntacticValidation(this);
         return this.syntacticValidation.validation(this.mail);
     }
 }

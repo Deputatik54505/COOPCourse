@@ -1,4 +1,4 @@
-package org.example.entities.product;
+package org.example.entities.user;
 
 import org.example.validation.exceptions.NotFoundException;
 
