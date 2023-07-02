@@ -1,15 +1,19 @@
 package org.example.validation.mail;
 
+import org.example.entities.user.Users;
 import org.example.validation.Request;
 
 public class Mail extends Request {
     private final String mail;
 
+    private final Users users;
+
     private final SyntacticValidation syntacticValidation;
 
-    public Mail(String mail) {
+    public Mail(String mail, Users users) {
         this.mail = mail;
-        this.syntacticValidation = new SyntacticValidation(this);
+        this.users = users;
+        this.syntacticValidation = new SyntacticValidation(mail);
         this.length = mail.length();
     }
 
@@ -20,6 +24,15 @@ public class Mail extends Request {
 
     @Override
     protected boolean isValidInput() {
-        return this.syntacticValidation.validation(this.mail);
+        return this.syntacticValidation.validation();
+    }
+
+    public boolean isUnique() {
+        try {
+            this.users.findUser(this.mail);
+            return false;
+        } catch (Exception e) {
+            return true;
+        }
     }
 }

@@ -19,7 +19,7 @@ abstract class LoginProcessor {
         this.nextProcessor = nextProcessor;
     };
     public void process(Login request){
-        if(nextProcessor != null) {
+        if (this.nextProcessor != null) {
             this.nextProcessor.process(request);
         }
     };

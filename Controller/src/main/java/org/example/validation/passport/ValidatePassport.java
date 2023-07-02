@@ -19,7 +19,7 @@ abstract class PassportProcessor {
         this.nextProcessor = nextProcessor;
     };
     public void process(Passport request){
-        if(nextProcessor != null) {
+        if (this.nextProcessor != null) {
             this.nextProcessor.process(request);
         }
     };

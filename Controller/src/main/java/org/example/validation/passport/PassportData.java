@@ -1,7 +1,7 @@
 package org.example.validation.passport;
 
 public class PassportData {
-    protected String passport;
+    protected final String passport;
     private String series;
     private String number;
     public PassportData(String passport) {
