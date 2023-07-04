@@ -6,7 +6,7 @@ public class ValidateLogin {
         this.buildChain();
     }
     private void buildChain(){
-        this.chain = new LengthProcessor(new UniqueProcessor(new ValidateProcessor(null)));
+        this.chain = new LengthProcessor(new ValidateProcessor(null));
     }
     public void validate(Login login) {
         this.chain.process(login);
@@ -26,12 +26,13 @@ abstract class LoginProcessor {
 }
 
 class LengthProcessor extends LoginProcessor {
-    private final int minLogLength = 6;
+    private final int minLength = 6;
+    private final int maxLength = 16;
     public LengthProcessor(LoginProcessor nextProcessor) {
         super(nextProcessor);
     }
     public void process(Login request) {
-        if (request.isSuitableLength(this.minLogLength)) {
+        if (request.isSuitableLength(new int[]{this.minLength, this.maxLength})) {
             super.process(request);
         } else {
             System.out.println("The login must contain at least 6 characters and no more than 16 characters.");
@@ -48,19 +49,6 @@ class ValidateProcessor extends LoginProcessor {
             super.process(request);
         } else {
             System.out.println("The login contain forbidden letters.");
-        }
-    }
-}
-
-class UniqueProcessor extends LoginProcessor {
-    public UniqueProcessor(LoginProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-    public void process(Login request) {
-        if (request.isUnique()) {
-            super.process(request);
-        } else {
-            System.out.println("The login must be unique.");
         }
     }
 }

@@ -6,12 +6,9 @@ import org.example.validation.exceptions.LengthException;
 import org.example.validation.exceptions.SyntaxException;
 
 public class ValidateMail {
-    private MailProcessor chain;
+    private final MailProcessor chain;
     private Mail request;
     public ValidateMail() {
-        this.buildChain();
-    }
-    private void buildChain(){
         this.chain = new LengthProcessor(new ValidProcessor(new UniqueProcessor(null)));
     }
     public void validate(String mail, Users users) throws Exception {
@@ -38,7 +35,7 @@ class LengthProcessor extends MailProcessor {
         super(nextProcessor);
     }
     public void process(Mail request) throws Exception {
-        if (request.isSuitableLength(this.minLogLength)) {
+        if (request.isSuitableLength(new int[]{this.minLogLength})) {
             super.process(request);
         } else {
             throw new LengthException();

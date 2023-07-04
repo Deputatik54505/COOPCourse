@@ -3,30 +3,27 @@ package org.example.validation.passport;
 import org.example.validation.Request;
 
 public class Passport extends Request {
-    private final PassportData passportData;
-    private final int lenSer = 4;
-    private final int lenNum = 6;
 
-    public Passport(String passport) {
-        this.passportData = new PassportData(passport);
-        this.length = passport.length();
+    private final PassportPC passportPC;
+    private final PassportSN passportSN;
+
+    public Passport(String publisher, String code,
+                    String series, String number) {
+        this.passportPC = new PassportPC(publisher, code);
+        this.passportSN = new PassportSN(series, number);
     }
 
     @Override
-    protected boolean isSuitableLength(int len) {
-        return this.length == len;
+    protected boolean isSuitableLength(int[] args) {
+        return this.passportSN.checkLen(args[0]) && this.passportPC.checkLen(args[1]);
     }
+
     @Override
     protected boolean isValidInput() {
-        for (int i = 0; i < this.passportData.passport.length(); i++) {
-            if (!(this.passportData.passport.charAt(i) >= '0' &&
-                    this.passportData.passport.charAt(i) <= '9')) {
-                return false;
-            }
-        }
-        return true;
+        return this.passportSN.validate() && this.passportPC.validate();
     }
-    public boolean createPassport() {
-        return this.passportData.splitData(this.lenSer, this.lenNum);
+
+    public Passport item() {
+        return this;
     }
 }

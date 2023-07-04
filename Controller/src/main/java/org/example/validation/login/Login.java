@@ -4,14 +4,13 @@ import org.example.validation.Request;
 
 public class Login extends Request {
     private final String login;
-    private final int maxLen = 16;
     public Login(String login) {
         this.login = login;
         this.length = login.length();
     }
     @Override
-    protected boolean isSuitableLength(int len) {
-        return this.length >= len && this.length <= this.maxLen;
+    protected boolean isSuitableLength(int[] args) {
+        return this.length >= args[0] && this.length <= args[1];
     }
     @Override
     protected boolean isValidInput() {
@@ -24,8 +23,7 @@ public class Login extends Request {
         }
         return true;
     }
-    public boolean isUnique() {
-        //TODO: check uniqueness of login
-        return true;
+    public Login item() {
+        return this;
     }
 }

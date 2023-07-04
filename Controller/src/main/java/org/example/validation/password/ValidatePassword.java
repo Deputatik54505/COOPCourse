@@ -4,17 +4,14 @@ import org.example.validation.exceptions.LengthException;
 import org.example.validation.exceptions.SyntaxException;
 
 public class ValidatePassword {
-    private PasswordProcessor chain;
+    private final PasswordProcessor chain;
     private Password request;
     public ValidatePassword() {
-        this.buildChain();
+        this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(null)))));
     }
     public void validate(String password) throws Exception {
         this.request = new Password(password);
         this.chain.process(this.request);
-    }
-    private void buildChain(){
-        this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(null)))));
     }
 }
 
@@ -38,7 +35,7 @@ class LengthProcessor extends PasswordProcessor {
         super(nextProcessor);
     }
     public void process(Password request) throws Exception {
-        if (request.isSuitableLength(this.minPassLength)) {
+        if (request.isSuitableLength(new int[]{this.minPassLength})) {
             super.process(request);
         } else {
             throw new LengthException();

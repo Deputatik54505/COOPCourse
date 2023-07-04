@@ -10,6 +10,6 @@ public abstract class Request {
             '<', '>', '&', '#', '$', '^', '@', '"', ' ', '!',
             ',','.',';','-','+','=','_'
     ));
-    protected abstract boolean isSuitableLength(int len);
+    protected abstract boolean isSuitableLength(int[] args);
     protected abstract boolean isValidInput();
 }
