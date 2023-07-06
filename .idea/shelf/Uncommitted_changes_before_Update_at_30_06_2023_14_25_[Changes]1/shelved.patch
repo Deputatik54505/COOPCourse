@@ -1,0 +1,86 @@
+Index: Controller/src/main/java/org/example/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Controller/src/main/java/org/example/Main.java b/Controller/src/main/java/org/example/Main.java
+--- a/Controller/src/main/java/org/example/Main.java	
++++ b/Controller/src/main/java/org/example/Main.java	
+@@ -1,7 +1,11 @@
+ package org.example;
+ 
++import org.example.entities.validation.login.Login;
++
+ public class Main {
+     public static void main(String[] args) {
+ 
++        var login = new Login();
++
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,7 +4,18 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="Modules for MVC created" />
++    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="Skeleton for Product created">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/Processor.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/Request.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/login/Login.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/login/ValidateLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/login/ValidateLogin.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/passport/Passport.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/passport/Passport.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/passport/ValidatePassport.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/passport/ValidatePassport.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/password/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/password/Password.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/password/ValidatePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/validation/password/ValidatePassword.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -54,6 +65,13 @@
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GithubProjectSettings">
++    <option name="branchProtectionPatterns">
++      <list>
++        <option value="master" />
++      </list>
++    </option>
++  </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
+@@ -69,7 +87,11 @@
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;
++    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+   }
+ }</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+@@ -81,6 +103,9 @@
+       <option name="presentableId" value="Default" />
+       <updated>1687863934624</updated>
+       <workItem from="1687863936148" duration="3616000" />
++      <workItem from="1687873771686" duration="1180000" />
++      <workItem from="1687887888178" duration="1290000" />
++      <workItem from="1688019724546" duration="9000" />
+     </task>
+     <task id="LOCAL-00001" summary="Modules for MVC created">
+       <created>1687864354910</created>
