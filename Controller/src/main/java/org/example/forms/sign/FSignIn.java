@@ -8,26 +8,22 @@ import java.util.Scanner;
 public class FSignIn {
     private final SignVerification signVerification;
 
-    //temporary field, in the future data will be provided from ui form
-    private final Scanner scanner;
-
     private User user;
 
     public FSignIn(Users users) {
         this.signVerification = new SignVerification(users);
-        this.scanner = new Scanner(System.in);
     }
 
     public FSignIn withUsers(Users users) {
         return new FSignIn(users);
     }
 
-    public User verify() {
+    public User verify(Scanner scanner) {
         while (true) {
             try {
                 this.user = this.signVerification.verifyUser(
-                        this.scanner.nextLine(),
-                        this.scanner.nextLine()
+                        scanner.nextLine(),
+                        scanner.nextLine()
                 );
                 System.out.println("Success!");
                 return this.user;

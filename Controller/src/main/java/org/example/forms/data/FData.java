@@ -7,13 +7,10 @@ import java.util.Scanner;
 public class FData {
     private final User user;
 
-    private final Scanner scanner;
-
     private final DataVerification dataVerification;
 
     public FData(User user) {
         this.user = user;
-        this.scanner = new Scanner(System.in);
         this.dataVerification = new DataVerification();
     }
 
@@ -21,14 +18,14 @@ public class FData {
         return new FData(newUser);
     }
 
-    public void verify() {
+    public void verify(Scanner scanner) {
         while (true) {
             try {
                 this.dataVerification.verifyData(
                         this.user,
-                        this.scanner.nextLine(),
-                        this.scanner.nextLine(),
-                        this.scanner.nextLine());
+                        scanner.nextLine(),
+                        scanner.nextLine(),
+                        scanner.nextLine());
                 System.out.println("Success!");
                 break;
             } catch (Exception e) {

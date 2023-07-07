@@ -7,14 +7,10 @@ import java.util.Scanner;
 public class FLogIn {
     private final Users users;
 
-    //temporary field, in the future data will be provided from ui form
-    private final Scanner scanner;
-
     private final LogVerification logVerification;
 
     public FLogIn(Users users) {
         this.users = users;
-        this.scanner = new Scanner(System.in);
         this.logVerification = new LogVerification();
     }
 
@@ -22,13 +18,14 @@ public class FLogIn {
         return new FLogIn(users);
     }
 
-    public void verify() {
+    public void verify(Scanner scanner) {
         while (true) {
             try {
-                this.logVerification.verifyUser(this.users,
-                        this.scanner.nextLine(),
-                        this.scanner.nextLine(),
-                        this.scanner.nextLine());
+                this.logVerification.verifyUser(
+                        this.users,
+                        scanner.nextLine(),
+                        scanner.nextLine(),
+                        scanner.nextLine());
                 System.out.println("Success!");
                 break;
             } catch (Exception e) {

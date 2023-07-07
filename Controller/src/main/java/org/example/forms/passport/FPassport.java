@@ -7,14 +7,11 @@ import java.util.Scanner;
 public class FPassport {
     private final User user;
 
-    private final Scanner scanner;
-
     private final PassportVerification passportVerification;
 
 
     public FPassport(User user) {
         this.user = user;
-        this.scanner = new Scanner(System.in);
         this.passportVerification = new PassportVerification();
     }
 
@@ -22,15 +19,15 @@ public class FPassport {
         return new FPassport(user);
     }
 
-    public void verify() {
+    public void verify(Scanner scanner) {
         while (true) {
             try {
                 this.passportVerification.verifyPassport(
                         this.user,
-                        this.scanner.nextLine(),
-                        this.scanner.nextLine(),
-                        this.scanner.nextLine(),
-                        this.scanner.nextLine()
+                        scanner.nextLine(),
+                        scanner.nextLine(),
+                        scanner.nextLine(),
+                        scanner.nextLine()
                 );
                 System.out.println("Success!");
                 break;
