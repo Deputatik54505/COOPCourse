@@ -2,6 +2,7 @@ package org.example.validation.passport;
 
 public class PassportPC {
     private final String publisher;
+
     private final String code;
 
     public PassportPC(String publisher, String code) {

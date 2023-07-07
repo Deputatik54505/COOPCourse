@@ -5,10 +5,13 @@ import org.example.validation.exceptions.SyntaxException;
 
 public class ValidatePassword {
     private final PasswordProcessor chain;
+
     private Password request;
+
     public ValidatePassword() {
         this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(null)))));
     }
+
     public void validate(String password) throws Exception {
         this.request = new Password(password);
         this.chain.process(this.request);
@@ -31,9 +34,11 @@ abstract class PasswordProcessor {
 
 class LengthProcessor extends PasswordProcessor {
     final int minPassLength = 8;
+
     public LengthProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
+
     public void process(Password request) throws Exception {
         if (request.isSuitableLength(new int[]{this.minPassLength})) {
             super.process(request);
@@ -45,9 +50,11 @@ class LengthProcessor extends PasswordProcessor {
 
 class UpProcessor extends PasswordProcessor {
     private AlphaChecker alphaChecker;
+
     public UpProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
+
     public void process(Password request) throws Exception {
         this.alphaChecker = new AlphaChecker(request);
         if (this.alphaChecker.isUpLetter()) {
@@ -60,9 +67,11 @@ class UpProcessor extends PasswordProcessor {
 
 class LowProcessor extends PasswordProcessor {
     private AlphaChecker alphaChecker;
+
     public LowProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
+
     public void process(Password request) throws Exception {
         this.alphaChecker = new AlphaChecker(request);
         if (this.alphaChecker.isLowLetter()) {
@@ -75,9 +84,11 @@ class LowProcessor extends PasswordProcessor {
 
 class NumProcessor extends PasswordProcessor {
     private AlphaChecker alphaChecker;
+
     public NumProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
+
     public void process(Password request) throws Exception {
         this.alphaChecker = new AlphaChecker(request);
         if (this.alphaChecker.isNum()) {
@@ -92,6 +103,7 @@ class ValidateProcessor extends PasswordProcessor {
     public ValidateProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
+
     public void process(Password request) throws Exception {
         if (request.isValidInput()) {
             super.process(request);

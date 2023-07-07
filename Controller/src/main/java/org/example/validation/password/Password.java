@@ -26,5 +26,4 @@ public class Password extends Request {
         }
         return true;
     }
-
 }

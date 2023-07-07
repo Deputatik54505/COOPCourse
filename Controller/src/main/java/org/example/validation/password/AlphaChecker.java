@@ -2,9 +2,11 @@ package org.example.validation.password;
 
 public class AlphaChecker {
     private final Password cPassword;
+
     public AlphaChecker(Password password) {
         this.cPassword = password;
     }
+
     public boolean isUpLetter() {
         for (int i = 0; i < this.cPassword.password.length(); i++) {
             if (this.cPassword.password.charAt(i) >= 'A' &&
@@ -14,6 +16,7 @@ public class AlphaChecker {
         }
         return false;
     }
+
     public boolean isLowLetter() {
         for (int i = 0; i < this.cPassword.password.length(); i++) {
             if (this.cPassword.password.charAt(i) >= 'a' &&
@@ -23,6 +26,7 @@ public class AlphaChecker {
         }
         return false;
     }
+
     public boolean isNum() {
         for (int i = 0; i < this.cPassword.password.length(); i++) {
             if (this.cPassword.password.charAt(i) >= '0' &&

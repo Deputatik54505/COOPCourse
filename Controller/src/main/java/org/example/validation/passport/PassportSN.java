@@ -2,7 +2,9 @@ package org.example.validation.passport;
 
 public class PassportSN {
     private final String series;
+
     private final String number;
+
     public PassportSN(String series, String number) {
         this.series = series;
         this.number = number;

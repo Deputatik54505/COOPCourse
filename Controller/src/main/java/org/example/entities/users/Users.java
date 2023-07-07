@@ -1,5 +1,6 @@
-package org.example.entities.user;
+package org.example.entities.users;
 
+import org.example.entities.user.User;
 import org.example.validation.exceptions.NotFoundException;
 
 import java.util.ArrayList;

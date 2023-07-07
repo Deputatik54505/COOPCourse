@@ -1,25 +1,28 @@
 package org.example.verification.log;
 
-import org.example.entities.user.Users;
+import org.example.entities.users.Users;
 
 import java.util.Scanner;
 
-public class LogIn {
+public class FLogIn {
     private final Users users;
+
     //temporary field, in the future data will be provided from ui form
     private final Scanner scanner;
 
     private final LogVerification logVerification;
 
-    public LogIn(Users users) {
+    public FLogIn(Users users) {
         this.users = users;
         this.scanner = new Scanner(System.in);
         this.logVerification = new LogVerification();
     }
-    public LogIn withUsers(Users users) {
-        return new LogIn(users);
+
+    public FLogIn withUsers(Users users) {
+        return new FLogIn(users);
     }
-    public void logIn() {
+
+    public void verify() {
         while (true) {
             try {
                 this.logVerification.verifyUser(this.users,

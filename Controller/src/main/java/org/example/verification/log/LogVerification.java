@@ -1,7 +1,7 @@
 package org.example.verification.log;
 
 import org.example.entities.user.User;
-import org.example.entities.user.Users;
+import org.example.entities.users.Users;
 import org.example.validation.exceptions.UnequalException;
 import org.example.validation.mail.ValidateMail;
 import org.example.validation.password.ValidatePassword;
