@@ -1,34 +1,37 @@
-package org.example.verification.data;
+package org.example.forms.passport;
 
 import org.example.entities.user.User;
 
 import java.util.Scanner;
 
-public class FData {
+public class FPassport {
     private final User user;
 
     private final Scanner scanner;
 
-    private final DataVerification dataVerification;
+    private final PassportVerification passportVerification;
 
-    public FData(User user) {
+
+    public FPassport(User user) {
         this.user = user;
         this.scanner = new Scanner(System.in);
-        this.dataVerification = new DataVerification();
+        this.passportVerification = new PassportVerification();
     }
 
-    public FData withUser(User newUser) {
-        return new FData(newUser);
+    public FPassport withUser(User user) {
+        return new FPassport(user);
     }
 
     public void verify() {
         while (true) {
             try {
-                this.dataVerification.verifyData(
+                this.passportVerification.verifyPassport(
                         this.user,
                         this.scanner.nextLine(),
                         this.scanner.nextLine(),
-                        this.scanner.nextLine());
+                        this.scanner.nextLine(),
+                        this.scanner.nextLine()
+                );
                 System.out.println("Success!");
                 break;
             } catch (Exception e) {
@@ -36,4 +39,5 @@ public class FData {
             }
         }
     }
+
 }

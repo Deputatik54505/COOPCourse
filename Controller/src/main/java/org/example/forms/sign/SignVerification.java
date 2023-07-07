@@ -1,4 +1,4 @@
-package org.example.verification.sign;
+package org.example.forms.sign;
 
 import org.example.entities.user.User;
 import org.example.entities.users.Users;

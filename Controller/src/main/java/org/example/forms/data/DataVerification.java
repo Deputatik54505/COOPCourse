@@ -1,4 +1,4 @@
-package org.example.verification.data;
+package org.example.forms.data;
 
 import org.example.entities.user.User;
 import org.example.entities.user.UserData;

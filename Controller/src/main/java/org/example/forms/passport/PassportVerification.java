@@ -1,4 +1,4 @@
-package org.example.verification.passport;
+package org.example.forms.passport;
 
 import org.example.entities.user.User;
 import org.example.entities.user.UserPassport;

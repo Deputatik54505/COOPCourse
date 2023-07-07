@@ -1,4 +1,4 @@
-package org.example.verification.log;
+package org.example.forms.log;
 
 import org.example.entities.users.Users;
 
