@@ -1,6 +1,6 @@
 package org.example.validation.mail;
 
-import org.example.entities.user.Users;
+import org.example.entities.users.Users;
 import org.example.validation.Request;
 
 public class Mail extends Request {
@@ -18,8 +18,8 @@ public class Mail extends Request {
     }
 
     @Override
-    protected boolean isSuitableLength(int len) {
-        return this.length >= len;
+    protected boolean isSuitableLength(int[] args) {
+        return this.length >= args[0];
     }
 
     @Override

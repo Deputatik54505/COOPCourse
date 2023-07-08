@@ -1,24 +1,33 @@
 package org.example.validation.passport;
 
+import org.example.validation.exceptions.LengthException;
+import org.example.validation.exceptions.SyntaxException;
+
 public class ValidatePassport {
-    private PassportProcessor chain;
+    private final PassportProcessor chain;
+
+    private Passport request;
+
     public ValidatePassport() {
-        this.buildChain();
+        this.chain = new LengthProcessor(new ValidProcessor(null));
     }
-    private void buildChain(){
-        this.chain = new LengthProcessor(new ValidateProcessor(null));
-    }
-    public void validate(Passport request) {
-        this.chain.process(request);
+
+    public void validate(String publisher, String code,
+                         String series, String number) throws Exception {
+        this.request = new Passport(publisher, code,
+                series, number);
+        this.chain.process(this.request);
     }
 }
 
 abstract class PassportProcessor {
     private final PassportProcessor nextProcessor;
+
     public PassportProcessor(PassportProcessor nextProcessor){
         this.nextProcessor = nextProcessor;
     };
-    public void process(Passport request){
+
+    public void process(Passport request) throws Exception {
         if (this.nextProcessor != null) {
             this.nextProcessor.process(request);
         }
@@ -26,41 +35,33 @@ abstract class PassportProcessor {
 }
 
 class LengthProcessor extends PassportProcessor {
-    final int minPassLength = 8;
+    private final int lenSN = 10;
+
+    private final int lenC = 6;
+
     public LengthProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
-    public void process(Passport request) {
-        if (request.isSuitableLength(this.minPassLength)) {
+
+    public void process(Passport request) throws Exception {
+        if (request.isSuitableLength(new int[]{this.lenSN, this.lenC})) {
             super.process(request);
         } else {
-            System.out.println("The password must contain at least 8 characters.");
+            throw new LengthException();
         }
     }
 }
 
-class ValidateProcessor extends PassportProcessor {
-    public ValidateProcessor(PassportProcessor nextProcessor) {
+class ValidProcessor extends PassportProcessor {
+    public ValidProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
-    public void process(Passport request) {
+
+    public void process(Passport request) throws Exception {
         if (request.isValidInput()) {
             super.process(request);
         } else {
-            System.out.println("The passport contain forbidden letters.");
-        }
-    }
-}
-
-class CreateProcessor extends PassportProcessor {
-    public CreateProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-    public void process(Passport request) {
-        if (request.createPassport()) {
-            super.process(request);
-        } else {
-            System.out.println("Error with input data.");
+            throw new SyntaxException();
         }
     }
 }
