@@ -1,0 +1,47 @@
+Index: Controller/src/main/java/org/example/entities/product/Users.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Controller/src/main/java/org/example/entities/product/Users.java b/Controller/src/main/java/org/example/entities/user/Users.java
+rename from Controller/src/main/java/org/example/entities/product/Users.java
+rename to Controller/src/main/java/org/example/entities/user/Users.java
+--- a/Controller/src/main/java/org/example/entities/product/Users.java	
++++ b/Controller/src/main/java/org/example/entities/user/Users.java	
+@@ -1,4 +1,4 @@
+-package org.example.entities.product;
++package org.example.entities.user;
+ 
+ import org.example.validation.exceptions.NotFoundException;
+ 
+Index: Controller/src/main/java/org/example/entities/product/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Controller/src/main/java/org/example/entities/product/User.java b/Controller/src/main/java/org/example/entities/user/User.java
+rename from Controller/src/main/java/org/example/entities/product/User.java
+rename to Controller/src/main/java/org/example/entities/user/User.java
+--- a/Controller/src/main/java/org/example/entities/product/User.java	
++++ b/Controller/src/main/java/org/example/entities/user/User.java	
+@@ -1,4 +1,4 @@
+-package org.example.entities.product;
++package org.example.entities.user;
+ 
+ public class User {
+     private final String mail;
+Index: Controller/src/main/java/org/example/validation/Verification.java
+===================================================================
+diff --git a/Controller/src/main/java/org/example/validation/Verification.java b/Controller/src/main/java/org/example/validation/Verification.java
+--- a/Controller/src/main/java/org/example/validation/Verification.java	
++++ b/Controller/src/main/java/org/example/validation/Verification.java	
+@@ -1,7 +1,7 @@
+ package org.example.validation;
+ 
+-import org.example.entities.product.User;
+-import org.example.entities.product.Users;
++import org.example.entities.user.User;
++import org.example.entities.user.Users;
+ import org.example.validation.exceptions.VerificationException;
+ import org.example.validation.mail.ValidateMail;
+ import org.example.validation.password.ValidatePassword;

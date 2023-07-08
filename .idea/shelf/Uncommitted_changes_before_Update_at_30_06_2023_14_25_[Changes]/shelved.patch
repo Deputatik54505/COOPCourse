@@ -1,0 +1,13 @@
+Index: Controller/src/main/java/org/example/entities/validation/Processor.java
+===================================================================
+diff --git a/Controller/src/main/java/org/example/entities/validation/Processor.java b/Controller/src/main/java/org/example/entities/validation/Processor.java
+--- a/Controller/src/main/java/org/example/entities/validation/Processor.java	
++++ b/Controller/src/main/java/org/example/entities/validation/Processor.java	
+@@ -5,6 +5,7 @@
+     public Processor(Processor nextProcessor){
+         this.nextProcessor = nextProcessor;
+     };
++
+     public void process(Request request){
+         if(this.nextProcessor != null) {
+             this.nextProcessor.process(request);

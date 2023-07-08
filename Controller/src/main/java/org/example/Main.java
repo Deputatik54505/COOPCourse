@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Users users = new Users();
         //temporary field, in the future the data will be written from forms
         Scanner scanner = new Scanner(System.in);
