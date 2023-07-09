@@ -33,14 +33,15 @@ abstract class PasswordProcessor {
 }
 
 class LengthProcessor extends PasswordProcessor {
-    final int minPassLength = 8;
-
     public LengthProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Password request) throws Exception {
-        if (request.isSuitableLength(new int[]{this.minPassLength})) {
+        if (request.isSuitableLength(new int[]{
+                PasswordLen.MIN.len,
+                PasswordLen.MAX.len
+        })) {
             super.process(request);
         } else {
             throw new LengthException();
