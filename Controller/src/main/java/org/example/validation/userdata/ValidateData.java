@@ -3,8 +3,6 @@ package org.example.validation.userdata;
 import org.example.validation.exceptions.LengthException;
 import org.example.validation.exceptions.SyntaxException;
 
-import javax.sound.sampled.DataLine;
-
 public class ValidateData {
     private final DataProcessor chain;
 
@@ -39,7 +37,6 @@ abstract class DataProcessor {
 }
 
 class LengthProcessor extends DataProcessor {
-
     public LengthProcessor(DataProcessor nextProcessor) {
         super(nextProcessor);
     }
@@ -68,16 +65,5 @@ class ValidateProcessor extends DataProcessor {
         } else {
             throw new SyntaxException();
         }
-    }
-}
-
-enum DataLen {
-    NAME(20),
-    SURNAME(20),
-    BIRTH(10);
-    public final int len;
-
-    DataLen(int len) {
-        this.len = len;
     }
 }
