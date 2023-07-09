@@ -3,9 +3,9 @@ package org.example.validation.passport;
 import org.example.validation.Request;
 
 public class Passport extends Request {
-    private final PassportPC passportPC;
+    protected final PassportPC passportPC;
 
-    private final PassportSN passportSN;
+    protected final PassportSN passportSN;
 
     public Passport(String publisher, String code,
                     String series, String number) {

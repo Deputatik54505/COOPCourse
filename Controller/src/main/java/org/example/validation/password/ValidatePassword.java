@@ -9,7 +9,7 @@ public class ValidatePassword {
     private Password request;
 
     public ValidatePassword() {
-        this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(null)))));
+        this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(new SpecialProcessor(null))))));
     }
 
     public void validate(String password) throws Exception {
@@ -49,15 +49,15 @@ class LengthProcessor extends PasswordProcessor {
 }
 
 class UpProcessor extends PasswordProcessor {
-    private AlphaChecker alphaChecker;
+    private UpPassword upPassword;
 
     public UpProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Password request) throws Exception {
-        this.alphaChecker = new AlphaChecker(request);
-        if (this.alphaChecker.isUpLetter()) {
+        this.upPassword = new UpPassword(request);
+        if (this.upPassword.isUpLetter()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -66,15 +66,15 @@ class UpProcessor extends PasswordProcessor {
 }
 
 class LowProcessor extends PasswordProcessor {
-    private AlphaChecker alphaChecker;
+    private LowPassword lowPassword;
 
     public LowProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Password request) throws Exception {
-        this.alphaChecker = new AlphaChecker(request);
-        if (this.alphaChecker.isLowLetter()) {
+        this.lowPassword = new LowPassword(request);
+        if (this.lowPassword.isLowLetter()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -83,15 +83,32 @@ class LowProcessor extends PasswordProcessor {
 }
 
 class NumProcessor extends PasswordProcessor {
-    private AlphaChecker alphaChecker;
+    private NumPassword numPassword;
 
     public NumProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Password request) throws Exception {
-        this.alphaChecker = new AlphaChecker(request);
-        if (this.alphaChecker.isNum()) {
+        this.numPassword = new NumPassword(request);
+        if (this.numPassword.isNum()) {
+            super.process(request);
+        } else {
+            throw new SyntaxException();
+        }
+    }
+}
+
+class SpecialProcessor extends PasswordProcessor {
+    private SpecialPassword specialPassword;
+
+    public SpecialProcessor(PasswordProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Password request) throws Exception {
+        this.specialPassword = new SpecialPassword(request);
+        if (this.specialPassword.isSpecialChar()) {
             super.process(request);
         } else {
             throw new SyntaxException();

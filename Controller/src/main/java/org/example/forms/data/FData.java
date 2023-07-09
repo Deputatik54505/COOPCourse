@@ -25,7 +25,8 @@ public class FData {
                         this.user,
                         scanner.nextLine(),
                         scanner.nextLine(),
-                        scanner.nextLine());
+                        scanner.nextLine()
+                );
                 System.out.println("Success!");
                 break;
             } catch (Exception e) {

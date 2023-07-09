@@ -3,6 +3,8 @@ package org.example.validation.userdata;
 import org.example.validation.exceptions.LengthException;
 import org.example.validation.exceptions.SyntaxException;
 
+import javax.sound.sampled.DataLine;
+
 public class ValidateData {
     private final DataProcessor chain;
 
@@ -37,14 +39,17 @@ abstract class DataProcessor {
 }
 
 class LengthProcessor extends DataProcessor {
-    final int minPassLength = 8;
 
     public LengthProcessor(DataProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Data request) throws Exception {
-        if (request.isSuitableLength(new int[]{this.minPassLength})) {
+        if (request.isSuitableLength(new int[]{
+                DataLen.NAME.len,
+                DataLen.SURNAME.len,
+                DataLen.BIRTH.len
+        })) {
             super.process(request);
         } else {
             throw new LengthException();
@@ -63,5 +68,16 @@ class ValidateProcessor extends DataProcessor {
         } else {
             throw new SyntaxException();
         }
+    }
+}
+
+enum DataLen {
+    NAME(20),
+    SURNAME(20),
+    BIRTH(10);
+    public final int len;
+
+    DataLen(int len) {
+        this.len = len;
     }
 }

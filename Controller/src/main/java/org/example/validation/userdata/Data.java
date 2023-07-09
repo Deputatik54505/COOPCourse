@@ -17,7 +17,9 @@ public class Data extends Request {
 
     @Override
     protected boolean isSuitableLength(int[] args) {
-        return true;
+        return this.name.length() <= args[0] &&
+                this.surname.length() <= args[1] &&
+                this.birth.length() <= args[2];
     }
 
     @Override

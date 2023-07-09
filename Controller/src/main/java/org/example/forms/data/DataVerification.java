@@ -13,7 +13,11 @@ public class DataVerification {
     }
 
     public void verifyData(User user, String name, String surname, String birth) throws Exception {
-        this.validateData.validate(name, surname, birth);
+        this.validateData.validate(
+                name,
+                surname,
+                birth
+        );
         new UserData(user).fillData(new Data(
                 name,
                 surname,
