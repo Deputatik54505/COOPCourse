@@ -12,7 +12,9 @@ public class Password extends Request {
 
     @Override
     protected boolean isSuitableLength(int[] args) {
-        return this.length >= args[0];
+        return
+                this.length >= args[0] &&
+                this.length <= args[1];
     }
 
     @Override

@@ -4,124 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="save changes">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4b9e28e0-f648-4297-94a8-b216c27a6556.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f046aec-64dc-439c-9fad-5891279a0e6a.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f046aec-64dc-439c-9fad-5891279a0e6a/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f046aec-64dc-439c-9fad-5891279a0e6a/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f046aec-64dc-439c-9fad-5891279a0e6a/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f046aec-64dc-439c-9fad-5891279a0e6a/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Model.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_07_2023_9_33__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/buildOutputCleanup1.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/executionHistory1.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/executionHistory1.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/file-system.probe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/file-system1.probe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/fileHashes1.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/fileHashes1.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/outputFiles1.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/file-system.probe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_16_01_[Changes]/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_16_01_[Changes]/gradle-wrapper1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_16_01_[Changes]/gradle-wrapper2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_16_08_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_16_08__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2023_14_25_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2023_14_25_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2023_14_25__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2023_14_25__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/product/Product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/product/ProductConnector.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/product/ProductPrice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/user/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/user/Users.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/Request.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/exceptions/DuplicationException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/exceptions/LengthException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/exceptions/NotFoundException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/exceptions/SyntaxException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/exceptions/UnequalException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/login/LengthProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/login/Login.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/login/LoginProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/login/UniqueProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/login/ValidateLogin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/login/ValidateProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/mail/LengthProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/mail/Mail.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/mail/MailProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/mail/SyntacticValidation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/mail/UniqueProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/mail/ValidProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/mail/ValidateMail.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/passport/CreateProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/passport/LengthProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/passport/Passport.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/passport/PassportData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/passport/PassportProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/passport/ValidatePassport.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/passport/ValidateProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/AlphaChecker.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/LengthProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/LowProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/NumProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/Password.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/PasswordProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/UpProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/ValidatePassword.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/validation/password/ValidateProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/verification/log/LogIn.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/verification/log/LogVerification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/verification/sign/SignIn.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/verification/sign/SignVerification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/utils/PropertiesUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/applicaton.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/build/classes/java/main/org/example/DatabaseConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/build/classes/java/main/org/example/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/build/resources/main/product.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/src/main/resources/product.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Product.java" afterDir="false" />
+    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="feat: added user's data validation">
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/PasswordLen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/Password.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/ValidatePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/ValidatePassword.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +47,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -252,7 +139,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688823023053</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: added passport validation">
+      <created>1688923050437</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688923050437</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: added user's data validation">
+      <created>1688926230515</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688926230515</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +164,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="account_validation" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
         <entry key="b1356f87-6e22-4644-a3fe-d0cec856c414">
@@ -307,7 +220,9 @@
     <MESSAGE value="feat: add user verification" />
     <MESSAGE value="Created database&#10;Product.java evolve to use database" />
     <MESSAGE value="save changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="save changes" />
+    <MESSAGE value="feat: added passport validation" />
+    <MESSAGE value="feat: added user's data validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added user's data validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

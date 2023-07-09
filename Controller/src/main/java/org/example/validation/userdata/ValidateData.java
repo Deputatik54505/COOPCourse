@@ -37,14 +37,16 @@ abstract class DataProcessor {
 }
 
 class LengthProcessor extends DataProcessor {
-    final int minPassLength = 8;
-
     public LengthProcessor(DataProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Data request) throws Exception {
-        if (request.isSuitableLength(new int[]{this.minPassLength})) {
+        if (request.isSuitableLength(new int[]{
+                DataLen.NAME.len,
+                DataLen.SURNAME.len,
+                DataLen.BIRTH.len
+        })) {
             super.process(request);
         } else {
             throw new LengthException();

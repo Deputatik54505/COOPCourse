@@ -9,7 +9,7 @@ public class ValidatePassport {
     private Passport request;
 
     public ValidatePassport() {
-        this.chain = new LengthProcessor(new ValidProcessor(null));
+        this.chain = new LengthProcessor(new ValidProcessor(new UpProcessor(new LowProcessor(new NumProcessor(new SpecialProcessor(null))))));
     }
 
     public void validate(String publisher, String code,
@@ -59,6 +59,74 @@ class ValidProcessor extends PassportProcessor {
 
     public void process(Passport request) throws Exception {
         if (request.isValidInput()) {
+            super.process(request);
+        } else {
+            throw new SyntaxException();
+        }
+    }
+}
+
+class UpProcessor extends PassportProcessor {
+    private UpPassport upPassport;
+
+    public UpProcessor(PassportProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Passport request) throws Exception {
+        this.upPassport = new UpPassport(request);
+        if (this.upPassport.isUpLetter()) {
+            super.process(request);
+        } else {
+            throw new SyntaxException();
+        }
+    }
+}
+
+class LowProcessor extends PassportProcessor {
+    private LowPassport lowPassport;
+
+    public LowProcessor(PassportProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Passport request) throws Exception {
+        this.lowPassport = new LowPassport(request);
+        if (this.lowPassport.isLowLetter()) {
+            super.process(request);
+        } else {
+            throw new SyntaxException();
+        }
+    }
+}
+
+class NumProcessor extends PassportProcessor {
+    private NumPassport numPassport;
+
+    public NumProcessor(PassportProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Passport request) throws Exception {
+        this.numPassport = new NumPassport(request);
+        if (this.numPassport.isNum()) {
+            super.process(request);
+        } else {
+            throw new SyntaxException();
+        }
+    }
+}
+
+class SpecialProcessor extends PassportProcessor {
+    private SpecialPassport specialPassport;
+
+    public SpecialProcessor(PassportProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Passport request) throws Exception {
+        this.specialPassport = new SpecialPassport(request);
+        if (this.specialPassport.isSpecialChar()) {
             super.process(request);
         } else {
             throw new SyntaxException();
