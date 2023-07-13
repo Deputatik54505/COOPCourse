@@ -6,8 +6,12 @@ import java.util.Arrays;
 public class SpecialPassword {
     private final Password password;
 
+    /**
+     * \u201e - is a code of sharp(#) symbol
+     * \u2013 - is a code of Num (№) symbol
+     */
     private final ArrayList<Character> specChar = new ArrayList<>(Arrays.asList(
-            '#', '№', '@', '&'
+            '\u201e', '\u2013', '@', '&'
     ));
 
     public SpecialPassword(Password password) {
