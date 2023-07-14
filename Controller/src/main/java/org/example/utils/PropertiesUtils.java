@@ -1,6 +1,6 @@
 package org.example.utils;
 
-import org.example.entities.product.ProductConnector;
+import org.example.database.Connector;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +29,7 @@ public class PropertiesUtils {
 
     private Properties loadProperties() {
         Properties properties = new Properties();
-        try (InputStream inputStream = ProductConnector.class.getClassLoader().getResourceAsStream("application.properties")) {
+        try (InputStream inputStream = Connector.class.getClassLoader().getResourceAsStream("application.properties")) {
             properties.load(inputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
