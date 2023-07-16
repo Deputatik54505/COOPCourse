@@ -43,9 +43,9 @@ class LengthProcessor extends DataProcessor {
 
     public void process(Data request) throws Exception {
         if (request.isSuitableLength(new int[]{
-                DataLen.NAME.len,
-                DataLen.SURNAME.len,
-                DataLen.BIRTH.len
+                DataFields.NAME.len,
+                DataFields.SURNAME.len,
+                DataFields.BIRTH.len
         })) {
             super.process(request);
         } else {
