@@ -23,15 +23,22 @@ public class MainController {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    SceneSwitch.changeScene(event, "/fxml/log_in_form.fxml", "Shop");
+                    new SceneSwitch().changeScene(event, "/fxml/log_in_form.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
         });
 
-        this.UserSignIn.setOnMouseClicked(event -> {
-            System.out.println("sign in");
+        this.UserSignIn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/sign_in_form.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
+            }
         });
 
     }

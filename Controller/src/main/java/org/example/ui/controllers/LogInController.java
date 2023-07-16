@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.example.entities.users.Users;
 import org.example.forms.log.FLogIn;
+import org.example.ui.models.SceneSwitch;
 
 public class LogInController {
 
@@ -44,7 +45,7 @@ public class LogInController {
                             UserRepeatPassword.getText()
                     );
 
-                    //TODO change page
+                    new SceneSwitch().changeScene(event, "/fxml/main_page_authorized.fxml");
 
                 } catch (Exception e) {
                     System.out.println(e.toString());

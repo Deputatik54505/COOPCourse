@@ -26,10 +26,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
-//        //Form: sign in
-//        FSignIn fSignIn = new FSignIn(users);
-//        User particularUser = fSignIn.verify(scanner);
-//
+
 //        //Form: add passport
 //        FPassport fPassport = new FPassport(particularUser);
 //        fPassport.verify(scanner);

@@ -2,8 +2,6 @@ package org.example.forms.log;
 
 import org.example.entities.users.Users;
 
-import java.util.Scanner;
-
 public class FLogIn {
     private final Users users;
 
