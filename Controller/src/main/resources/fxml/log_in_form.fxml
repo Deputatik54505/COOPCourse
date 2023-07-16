@@ -25,6 +25,9 @@
                                     <HBox.margin>
                                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                     </HBox.margin>
+                           <image>
+                              <Image url="@../assets/image/logo.png" />
+                           </image>
                                 </ImageView>
                                 <Label text="Useless Shop">
                                     <HBox.margin>

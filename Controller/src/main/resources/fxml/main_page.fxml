@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.MainController">
     <children>
         <HBox alignment="CENTER" prefHeight="16.0" prefWidth="600.0" style="-fx-background-color: #1baa9d;" VBox.vgrow="NEVER">
@@ -23,6 +22,9 @@
                                     <HBox.margin>
                                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                     </HBox.margin>
+                           <image>
+                              <Image url="@../assets/image/logo.png" />
+                           </image>
                                 </ImageView>
                                 <Label text="Useless Shop">
                                     <HBox.margin>

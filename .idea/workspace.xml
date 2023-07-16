@@ -4,30 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="Created database&#10;Product.java evolve to use database">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Controller.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/LogInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SignInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/models/SceneSwitch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/log_in_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/main_page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_07_2023_18_10__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_16_08__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_16_08__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2023_14_25__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2023_14_25__Changes_.xml" afterDir="false" />
+    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="Create simple UI interface">
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/assets/image/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductPrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductPrice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/FLogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/FLogIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/DataFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/DataFields.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/DataLen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/ValidateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/ValidateData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/log_in_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/log_in_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/main_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/main_page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,18 +83,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "18",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -178,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688926230515</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Create simple UI interface">
+      <created>1689478573902</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1689478573902</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +240,8 @@
     <MESSAGE value="save changes" />
     <MESSAGE value="feat: added passport validation" />
     <MESSAGE value="feat: added user's data validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added user's data validation" />
+    <MESSAGE value="Create simple UI interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create simple UI interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

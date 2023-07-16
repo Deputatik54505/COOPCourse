@@ -26,15 +26,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
-//123As123fg@
-//        Users users = new Users();
-//        //temporary field, in the future the data will be written from forms
-//        Scanner scanner = new Scanner(System.in);
-//
-//        //Form: log in
-//        FLogIn fLogIn = new FLogIn(users);
-//        fLogIn.verify(scanner);
-//
 //        //Form: sign in
 //        FSignIn fSignIn = new FSignIn(users);
 //        User particularUser = fSignIn.verify(scanner);

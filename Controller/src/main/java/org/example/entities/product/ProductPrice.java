@@ -1,6 +1,6 @@
 package org.example.entities.product;
 
-//import java.awt.color.ProfileDataException;
+import java.awt.color.ProfileDataException;
 
 class ProductPrice {
     private double price;
@@ -11,7 +11,7 @@ class ProductPrice {
 
     public double calculateCost(int quantity) {
         if (price == 0) {
-           // throw new ProfileDataException("price is not defined");
+           throw new ProfileDataException("price is not defined");
         }
         return price * quantity;
     }
