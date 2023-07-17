@@ -1,9 +1,15 @@
 package org.example.validation.userdata;
 
 public enum DataFields {
-    NAME,
+    NAME(20),
 
-    SURNAME,
+    SURNAME(20),
 
-    BIRTH;
+    BIRTH(10);
+
+    public final int len;
+
+    DataFields(int len) {
+        this.len = len;
+    }
 }

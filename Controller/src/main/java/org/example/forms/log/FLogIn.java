@@ -2,8 +2,6 @@ package org.example.forms.log;
 
 import org.example.tables.Users;
 
-import java.util.Scanner;
-
 public class FLogIn {
     private final Users users;
 
@@ -18,19 +16,16 @@ public class FLogIn {
         return new FLogIn(users);
     }
 
-    public void verify(Scanner scanner) {
+    public void verify(String mail, String password, String repeatPassword) throws Exception {
         while (true) {
-            try {
-                this.logVerification.verifyUser(
-                        this.users,
-                        scanner.nextLine(),
-                        scanner.nextLine(),
-                        scanner.nextLine());
-                System.out.println("Success!");
-                break;
-            } catch (Exception e) {
-                System.out.println(e.toString());
-            }
+            this.logVerification.verifyUser(
+                    this.users,
+                    mail,
+                    password,
+                    repeatPassword
+            );
+            System.out.println("Success!");
+            break;
         }
     }
 }
