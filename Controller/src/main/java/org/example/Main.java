@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.entities.user.User;
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 import org.example.forms.data.FData;
 import org.example.forms.log.FLogIn;
 import org.example.forms.passport.FPassport;
@@ -15,6 +15,7 @@ public class Main {
         Users users = new Users();
         //temporary field, in the future the data will be written from forms
         Scanner scanner = new Scanner(System.in);
+
 
         //Form: log in
         FLogIn fLogIn = new FLogIn(users);

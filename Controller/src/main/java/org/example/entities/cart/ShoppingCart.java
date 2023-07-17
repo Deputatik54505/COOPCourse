@@ -1,6 +1,7 @@
-package org.example.entities.shcart;
+package org.example.entities.cart;
 
 import org.example.entities.product.Product;
+import org.example.validation.exceptions.NotFoundException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,9 +21,9 @@ public class ShoppingCart {
         }
     }
 
-    public void removePurchase(Product remPurchase) {
+    public void removePurchase(Product remPurchase) throws NotFoundException {
         if (!this.purchases.containsKey(remPurchase)) {
-            // throw exception
+            throw new NotFoundException();
         }
         this.purchases.put(remPurchase, this.purchases.get(remPurchase) - 1);
         if (this.purchases.get(remPurchase) == 0) {
@@ -30,12 +31,12 @@ public class ShoppingCart {
         }
     }
 
-    public Product searchPurchase(Product neededPurchase) {
+    public Product searchPurchase(Product neededPurchase) throws NotFoundException {
         for (Map.Entry<Product, Integer> entry: this.purchases.entrySet()) {
             if (entry.getKey().equals(neededPurchase)) {
                 return entry.getKey();
             }
         }
-        throw new SecurityException(); //change exception
+        throw new NotFoundException();
     }
 }

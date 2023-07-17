@@ -1,6 +1,6 @@
 package org.example.forms.log;
 
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 
 import java.util.Scanner;
 

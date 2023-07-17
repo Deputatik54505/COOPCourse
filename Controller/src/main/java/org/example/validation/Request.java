@@ -8,7 +8,7 @@ public abstract class Request {
 
     protected final ArrayList<Character> forbidChar = new ArrayList<>(Arrays.asList(
             '?', '/', '%', '*', '(', ')', '[', ']', '{', '}',
-            '<', '>', '&', '#', '$', '^', '@', '"', ' ', '!',
+            '<', '>', '$', '^', '"', ' ', '!',
             ',','.',';','-','+','=','_'
     ));
 

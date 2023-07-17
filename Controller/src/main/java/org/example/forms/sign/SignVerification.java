@@ -1,7 +1,7 @@
 package org.example.forms.sign;
 
 import org.example.entities.user.User;
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 
 public class SignVerification {
     private final Users users;

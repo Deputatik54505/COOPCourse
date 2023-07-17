@@ -1,6 +1,6 @@
 package org.example.validation.mail;
 
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 import org.example.validation.Request;
 
 public class Mail extends Request {

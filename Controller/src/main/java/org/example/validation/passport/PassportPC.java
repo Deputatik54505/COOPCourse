@@ -10,7 +10,7 @@ public class PassportPC {
 
     private final ArrayList<Character> forbidChar = new ArrayList<>(Arrays.asList(
             '?', '/', '%', '*', '(', ')', '[', ']', '{', '}',
-            '<', '>', '&', '#', '$', '^', '@', '"', '!',
+            '<', '>', '$', '^', '"', '!',
             ';','+','=','_'
     ));
 
