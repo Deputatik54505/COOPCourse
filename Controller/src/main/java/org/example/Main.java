@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.entities.user.User;
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 import org.example.forms.data.FData;
 import org.example.forms.log.FLogIn;
 import org.example.forms.passport.FPassport;

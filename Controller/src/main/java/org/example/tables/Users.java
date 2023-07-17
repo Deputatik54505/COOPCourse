@@ -1,4 +1,4 @@
-package org.example.entities.users;
+package org.example.tables;
 
 import org.example.entities.user.User;
 import org.example.validation.exceptions.NotFoundException;
@@ -6,7 +6,7 @@ import org.example.validation.exceptions.NotFoundException;
 import java.util.ArrayList;
 
 public class Users {
-    ArrayList<User> list;
+    private final ArrayList<User> list;
     public Users() {
         this.list = new ArrayList<>();
     }
@@ -17,9 +17,9 @@ public class Users {
         this.list.remove(user);
     }
     public User findUser(String mail) throws Exception {
-        for (int i = 0; i < this.list.size(); i++) {
-            if (this.list.get(i).isFind(mail)) {
-                return this.list.get(i);
+        for (User user : this.list) {
+            if (user.isFind(mail)) {
+                return user;
             }
         }
         throw new NotFoundException();

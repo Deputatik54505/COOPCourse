@@ -1,6 +1,6 @@
 package org.example.forms.sign;
 
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 import org.example.entities.user.User;
 
 import java.util.Scanner;
