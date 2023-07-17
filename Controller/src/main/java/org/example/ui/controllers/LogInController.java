@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 import org.example.forms.log.FLogIn;
 import org.example.ui.models.SceneSwitch;
 
