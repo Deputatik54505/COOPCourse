@@ -4,44 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="Add more pages">
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/PSearchByDesc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/PSearchByTittle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/search/Search.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/tables/ProductsMain.java" afterDir="false" />
+    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="Created database&#10;Product.java evolve to use database">
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/database/IConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/database/IQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/database/Query.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/IProductCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/Buyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/Buyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/BuyerFGlobal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/shcart/SCSearchDesc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/shcart/SCSearchTittle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/shcart/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/cart/ShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/users/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/tables/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/FLogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/FLogIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/LogVerification.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/LogVerification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/sign/FSignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/sign/FSignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/sign/SignVerification.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/sign/SignVerification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/NotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/Mail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/ValidateMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/ValidateMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/passport/PassportPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/passport/PassportPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/passport/ValidatePassport.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/passport/ValidatePassport.java" afterDir="false" />
-    <list default="true" id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="Fix DB coonection">
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/MainAuthorizedController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/main_page_authorized.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/sign_in_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/FLogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/FLogIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/sign/FSignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/sign/FSignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/LogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/models/SceneSwitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/models/SceneSwitch.java" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/database/Connector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/utils/PropertiesUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/utils/PropertiesUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,24 +51,32 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
-        <option value="module-info" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UI" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Rmn4VWFwXFcZsUokzzIyLc2xb1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -110,10 +90,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -128,6 +105,7 @@
       <workItem from="1688488139371" duration="327000" />
       <workItem from="1688531916682" duration="1217000" />
       <workItem from="1688571323848" duration="6137000" />
+      <workItem from="1689258073862" duration="10988000" />
     </task>
     <task id="LOCAL-00001" summary="Modules for MVC created">
       <created>1687864354910</created>
@@ -185,21 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688926230515</updated>
     </task>
-    <task id="LOCAL-00009" summary="Create simple UI interface">
-      <created>1689478573902</created>
+    <task id="LOCAL-00009" summary="Created database&#10;Product.java evolve to use database">
+      <created>1689258120575</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1689478573902</updated>
+      <updated>1689258120575</updated>
     </task>
-    <task id="LOCAL-00010" summary="Fix DB coonection">
-      <created>1689508251726</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1689508251726</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,13 +235,11 @@
     <MESSAGE value="style: changing the folder location" />
     <MESSAGE value="feat: add mail validation" />
     <MESSAGE value="feat: add user verification" />
-    <MESSAGE value="Created database&#10;Product.java evolve to use database" />
     <MESSAGE value="save changes" />
     <MESSAGE value="feat: added passport validation" />
     <MESSAGE value="feat: added user's data validation" />
-    <MESSAGE value="Create simple UI interface" />
-    <MESSAGE value="Fix DB coonection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix DB coonection" />
+    <MESSAGE value="Created database&#10;Product.java evolve to use database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created database&#10;Product.java evolve to use database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -279,14 +248,6 @@
           <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/validation/processor/RFactory.java</url>
           <line>9</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-       <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="6" />
-          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/Password.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
