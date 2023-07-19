@@ -9,7 +9,7 @@ public class ValidatePassport {
     private Passport request;
 
     public ValidatePassport() {
-        this.chain = new LengthProcessor(new ValidProcessor(new UpProcessor(new LowProcessor(new NumProcessor(new SpecialProcessor(null))))));
+        this.chain = new LengthProcessor(new ValidProcessor(new UpProcessor(new LowProcessor(new NumProcessor(null)))));
     }
 
     public void validate(String publisher, String code,
