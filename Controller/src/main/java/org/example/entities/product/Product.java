@@ -10,8 +10,8 @@ import java.sql.SQLException;
 
 public class Product {
     private ProductPrice price;
-    private String name;
-    private String description;
+    protected String name;
+    protected String description;
     private int id;
     private IProductCategory category;
     private final IQuery query;

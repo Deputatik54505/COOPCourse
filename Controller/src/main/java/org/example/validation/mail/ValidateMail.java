@@ -1,6 +1,6 @@
 package org.example.validation.mail;
 
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 import org.example.validation.exceptions.DuplicationException;
 import org.example.validation.exceptions.LengthException;
 import org.example.validation.exceptions.SyntaxException;

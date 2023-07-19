@@ -1,6 +1,6 @@
 package org.example.forms.sign;
 
-import org.example.entities.users.Users;
+import org.example.tables.Users;
 import org.example.entities.user.User;
 
 import java.util.Scanner;
@@ -18,18 +18,14 @@ public class FSignIn {
         return new FSignIn(users);
     }
 
-    public User verify(Scanner scanner) {
+    public void verify(String mail, String password) throws Exception {
         while (true) {
-            try {
-                this.user = this.signVerification.verifyUser(
-                        scanner.nextLine(),
-                        scanner.nextLine()
-                );
-                System.out.println("Success!");
-                return this.user;
-            } catch (Exception e) {
-                System.out.println(e.toString());
-            }
+            this.user = this.signVerification.verifyUser(
+                    mail,
+                    password
+            );
+            System.out.println("Success!");
+            break;
         }
     }
 }

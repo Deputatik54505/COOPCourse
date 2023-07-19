@@ -29,9 +29,9 @@ public class Data extends Request {
     @Override
     protected boolean isSuitableLength(int[] args) {
         return
-                this.name.length() <= args[DataLen.NAME.len] &&
-                this.surname.length() <= args[DataLen.SURNAME.len] &&
-                this.birth.length() <= args[DataLen.BIRTH.len];
+                this.name.length() <= args[DataFields.NAME.ordinal()] &&
+                this.surname.length() <= args[DataFields.SURNAME.ordinal()] &&
+                this.birth.length() <= args[DataFields.BIRTH.ordinal()];
     }
 
     @Override

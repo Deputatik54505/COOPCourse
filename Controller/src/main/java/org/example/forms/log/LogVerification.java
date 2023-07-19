@@ -1,7 +1,7 @@
 package org.example.forms.log;
 
-import org.example.entities.user.User;
-import org.example.entities.users.Users;
+import org.example.entities.buyer.Buyer;
+import org.example.tables.Users;
 import org.example.validation.exceptions.UnequalException;
 import org.example.validation.mail.ValidateMail;
 import org.example.validation.password.ValidatePassword;
@@ -10,8 +10,6 @@ public class LogVerification {
     private final ValidateMail validateMail;
 
     private final ValidatePassword validatePassword;
-
-    private User user;
 
     public LogVerification() {
         this.validateMail = new ValidateMail();
@@ -23,8 +21,7 @@ public class LogVerification {
         this.validateMail.validate(uMail, users);
         this.validatePassword.validate(uPass1);
 
-        this.user = new User(uMail, uPass1);
-        users.addUser(this.user);
+        users.addUser(new Buyer(uMail, uPass1));
     }
 
     private void isEqual(String pass1, String pass2) throws UnequalException {
