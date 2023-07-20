@@ -4,6 +4,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.entities.product.Product;
+import org.example.entities.user.User;
+import org.example.tables.Users;
+import org.example.forms.data.FData;
+import org.example.forms.log.FLogIn;
+import org.example.forms.passport.FPassport;
+import org.example.forms.sign.FSignIn;
 
 public class Main extends Application {
     @Override
@@ -17,6 +24,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        Product product = new Product();
+        product.loadById(1);
+        //launch();
     }
 }
