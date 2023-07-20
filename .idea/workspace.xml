@@ -4,25 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Created database&#10;Product.java evolve to use database">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="migrated to postgres &#10;deployed to supabase">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/database/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/database/Connector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/applicaton.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/applicaton.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/database/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/database/Query.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/build/classes/java/main/org/example/DatabaseConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/build/classes/java/main/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Model/build/classes/java/main/org/example/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Model/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/View/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/View/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/View/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -76,7 +73,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="databaseDeploy" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -106,13 +103,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/plato/Desktop/JDBCTutorial&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e4fd93c1-fb18-4a25-bdea-44fc017ac2e5" name="Changes" comment="" />
+      <changelist id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="migrated to postgres &#10;deployed to supabase" />
       <created>1687863934624</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -122,6 +120,7 @@
       <workItem from="1688531916682" duration="1217000" />
       <workItem from="1688571323848" duration="6137000" />
       <workItem from="1689258073862" duration="10988000" />
+      <workItem from="1689828606594" duration="4475000" />
     </task>
     <task id="LOCAL-00001" summary="Modules for MVC created">
       <created>1687864354910</created>
@@ -264,6 +263,21 @@
           <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/validation/processor/RFactory.java</url>
           <line>9</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/database/Connector.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/database/Query.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/database/Connector.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
