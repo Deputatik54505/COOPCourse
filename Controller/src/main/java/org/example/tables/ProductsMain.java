@@ -21,7 +21,6 @@ public class ProductsMain {
     }
 
     public ArrayList<Product> loadProducts() throws NotFoundException {
-        //TODO use the table Products in BD instead of variable 'products'
         if (this.products.isEmpty()) {
             throw new NotFoundException();
         }

@@ -16,8 +16,6 @@ public class Search {
 
     private ArrayList<Product> products;
 
-    private Product product;
-
     public Search() {
         this.foundProducts = new ArrayList<>();
         this.productsMain = new ProductsMain();
@@ -30,10 +28,9 @@ public class Search {
 
     public ArrayList<Product> search(String str) throws NotFoundException {
         for (Product value : this.products) {
-            this.product = value;
-            if (new PSearchByTittle(this.product).isFindTittle(str) ||
-                    new PSearchByDesc(this.product).isFindDesc(str)) {
-                this.foundProducts.add(this.product);
+            if (new PSearchByTittle(value).isFindTittle(str) ||
+                    new PSearchByDesc(value).isFindDesc(str)) {
+                this.foundProducts.add(value);
             }
         }
         if (this.foundProducts.size() == 0) {

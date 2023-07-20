@@ -17,15 +17,12 @@ public class FLogIn {
     }
 
     public void verify(String mail, String password, String repeatPassword) throws Exception {
-        while (true) {
-            this.logVerification.verifyUser(
-                    this.users,
-                    mail,
-                    password,
-                    repeatPassword
-            );
-            System.out.println("Success!");
-            break;
-        }
+        this.logVerification.verifyUser(
+                this.users,
+                mail,
+                password,
+                repeatPassword
+        );
+        System.out.println("Success!");
     }
 }
