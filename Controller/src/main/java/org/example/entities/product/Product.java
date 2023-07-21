@@ -1,7 +1,5 @@
 package org.example.entities.product;
 
-import org.example.database.Connector;
-import org.example.database.IConnector;
 import org.example.database.IQuery;
 import org.example.database.Query;
 
@@ -21,7 +19,7 @@ public class Product {
     }
 
     public void loadById(int id) {
-        try (ResultSet resultSet = query.executeQuery(String.format("SELECT * FROM Product WHERE id=%d", id))) {
+        try (ResultSet resultSet = query.executeQuery(String.format("SELECT * FROM product WHERE id=%d;", id))) {
             if (resultSet.next()) {
                 price = new ProductPrice(resultSet.getFloat("price"));
                 name = resultSet.getString("name");

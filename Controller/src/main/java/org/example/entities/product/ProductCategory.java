@@ -67,16 +67,19 @@ public class ProductCategory implements IProductCategory {
     }
 
     public IProductCategory loadById(int id) {
-        try (var resultSet = query.executeQuery(String.format("SELECT * FROM Category WHERE id='{%d}'", id))) {
+        try (var resultSet = query.executeQuery(String.format("SELECT * FROM Category WHERE id=%d", id))) {
             if (!resultSet.next())
                 throw new IllegalArgumentException("Id is not exists in database");
-            Integer superId = resultSet.getInt("parentId");
-            List<Integer> childIds = Arrays.stream(resultSet
-                            .getString("childrenIds")
-                            .split("\\."))
-                    .map(Integer::parseInt)
-                    .toList();
             String name = resultSet.getString("name");
+            Integer superId = resultSet.getInt("parentId");
+            var children = resultSet.getString("childrenIds");
+            List<Integer> childIds = new ArrayList<>();
+            if (children != null) {
+                childIds = Arrays.stream(children
+                                .split("\\."))
+                        .map(Integer::parseInt)
+                        .toList();
+            }
             return new ProductCategory(id, name, childIds, superId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
