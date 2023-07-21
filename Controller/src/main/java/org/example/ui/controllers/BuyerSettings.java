@@ -95,6 +95,17 @@ public class BuyerSettings {
             }
         });
 
+        this.basketFavourites.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_favourites.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
+            }
+        });
+
 
     }
 

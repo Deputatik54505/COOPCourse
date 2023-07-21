@@ -8,13 +8,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import org.example.ui.models.SceneSwitch;
 
-public class BuyerData {
+public class BuyerFavourites {
 
     @FXML
     private ResourceBundle resources;
@@ -23,43 +21,31 @@ public class BuyerData {
     private URL location;
 
     @FXML
-    private Button userBasket;
-
-    @FXML
     private Group home;
 
     @FXML
     private Circle userAvatar;
 
     @FXML
-    private Button basketFavourites;
+    private Button userBasket;
 
     @FXML
-    private DatePicker userBirth;
+    private Button userData;
 
     @FXML
     private Button userLogOut;
 
     @FXML
-    private Label userName;
-
-    @FXML
     private Button userSettings;
 
     @FXML
-    private Label userSurname;
-
-    @FXML
     void initialize() {
-        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert basketFavourites != null : "fx:id=\"basketFavourites\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert userBirth != null : "fx:id=\"userBirth\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert userName != null : "fx:id=\"userName\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert userSurname != null : "fx:id=\"userSurname\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
+        assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'buyer_acc_favourites.fxml'.";
+        assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'buyer_acc_favourites.fxml'.";
+        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'buyer_acc_favourites.fxml'.";
+        assert userData != null : "fx:id=\"userData\" was not injected: check your FXML file 'buyer_acc_favourites.fxml'.";
+        assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'buyer_acc_favourites.fxml'.";
+        assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'buyer_acc_favourites.fxml'.";
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -83,11 +69,11 @@ public class BuyerData {
             }
         });
 
-        this.basketFavourites.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.userData.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_favourites.fxml");
+                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_data.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
