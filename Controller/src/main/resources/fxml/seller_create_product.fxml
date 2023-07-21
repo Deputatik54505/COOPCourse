@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,7 +20,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.BuyerFavourites">
+<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.SellerProduct">
     <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
         <Group fx:id="home">
             <HBox.margin>
@@ -91,7 +92,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Favourites" textFill="#444444">
+                            <Button fx:id="userGoods" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="My goods" textFill="#444444">
                                 <VBox.margin>
                                     <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                 </VBox.margin>
@@ -99,8 +100,30 @@
                                     <Font name="System Bold" size="12.0" />
                                 </font>
                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Button>
+                            <Button fx:id="userOrders" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="My orders" textFill="#444444">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                                <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                </VBox.margin>
+                            </Button>
+                            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Create product" textFill="#444444" wrapText="true">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                                <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                 </cursor>
+                                <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                </VBox.margin>
                         <effect>
                            <DropShadow height="37.0" offsetX="5.0" offsetY="5.0" radius="18.0" width="37.0">
                               <color>
@@ -138,7 +161,7 @@
             </ScrollPane>
             <SplitPane dividerPositions="0.061806656101426306" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                 <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #75cdbf;">
-                    <Label text="Favourites" textFill="#444444">
+                    <Label text="Create product" textFill="#444444" wrapText="true">
                         <font>
                             <Font name="System Bold" size="16.0" />
                         </font>
@@ -146,39 +169,93 @@
                 </HBox>
                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="577.0">
                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0" style="-fx-background-color: #c4eaf7;">
-                        <TilePane alignment="TOP_CENTER" hgap="20.0" prefHeight="200.0" prefWidth="200.0" vgap="20.0">
-                            <HBox prefHeight="125.0" prefWidth="523.0" style="-fx-background-color: green;">
-                                <TilePane.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
-                                </TilePane.margin>
-                                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                                    <Label text="Title"/>
-                                    <Pane prefHeight="200.0" prefWidth="200.0"/>
-                                    <Label text="Description"/>
-                                </VBox>
-                                <VBox alignment="TOP_RIGHT" prefHeight="126.0" prefWidth="226.0">
-                                    <Label text="Remove"/>
-                                    <Pane prefHeight="200.0" prefWidth="200.0"/>
-                                    <Label text="500"/>
-                                </VBox>
-                            </HBox>
-                            <HBox prefHeight="125.0" prefWidth="523.0" style="-fx-background-color: green;">
-                                <TilePane.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
-                                </TilePane.margin>
-                                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                                    <Label text="Title"/>
-                                    <Pane prefHeight="200.0" prefWidth="200.0"/>
-                                    <Label text="Description"/>
-                                </VBox>
-                                <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0"
-                                      HBox.hgrow="ALWAYS">
-                                    <Label text="Remove"/>
-                                    <Pane prefHeight="200.0" prefWidth="200.0"/>
-                                    <Label text="500"/>
-                                </VBox>
-                            </HBox>
-                        </TilePane>
+                        <HBox prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </VBox.margin>
+                            <Label text="Title:" wrapText="true">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                     <TextField fx:id="productTitle" promptText="Default name">
+                        <HBox.margin>
+                           <Insets left="10.0" />
+                        </HBox.margin>
+                     </TextField>
+                        </HBox>
+                        <HBox prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </VBox.margin>
+                            <Label text="Description:" wrapText="true">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                     <TextField fx:id="productDesc" promptText="Default surname">
+                        <HBox.margin>
+                           <Insets left="10.0" />
+                        </HBox.margin>
+                     </TextField>
+                        </HBox>
+                        <HBox prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </VBox.margin>
+                            <Label text="Cost:" wrapText="true">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                     <TextField fx:id="productCost" promptText="Default cost">
+                        <HBox.margin>
+                           <Insets left="10.0" />
+                        </HBox.margin>
+                     </TextField>
+                        </HBox>
+                        <HBox prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </VBox.margin>
+                            <Label text="Category:" wrapText="true">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                     <TextField fx:id="typeCategory" promptText="Default category">
+                        <HBox.margin>
+                           <Insets left="10.0" />
+                        </HBox.margin>
+                     </TextField>
+                        </HBox>
+                        <HBox prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </VBox.margin>
+                            <Label text="Number of products:" wrapText="true">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="productsNumber" promptText="Default number">
+                                <HBox.margin>
+                                    <Insets left="10.0" />
+                                </HBox.margin>
+                            </TextField>
+                        </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="addProduct" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm" textFill="#444444">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </VBox.margin>
+                  </HBox>
                     </VBox>
                 </ScrollPane>
             </SplitPane>
