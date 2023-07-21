@@ -18,7 +18,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/main_page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 700);
+        Scene scene = new Scene(fxmlLoader.load());
 
         primaryStage.setTitle("Shop");
         primaryStage.setScene(scene);
@@ -26,13 +26,10 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+//        Product product = new Product();
+//        product.loadById(1);
 
-
-
-        Product product = new Product();
-        product.loadById(1);
-
-//        launch();
+        launch();
 
 //        //Form: add passport
 //        FPassport fPassport = new FPassport(particularUser);

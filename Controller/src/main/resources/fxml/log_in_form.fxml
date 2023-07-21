@@ -2,178 +2,130 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.LogInController">
-    <children>
-        <HBox alignment="CENTER" prefHeight="16.0" prefWidth="600.0" style="-fx-background-color: #1baa9d;" VBox.vgrow="NEVER">
-            <children>
-                <HBox alignment="TOP_RIGHT" prefHeight="56.0" prefWidth="500.0">
-                    <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="226.0" HBox.hgrow="ALWAYS">
-                            <children>
-                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                    <HBox.margin>
-                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                    </HBox.margin>
-                           <image>
-                              <Image url="@../assets/image/logo.png" />
-                           </image>
-                                </ImageView>
-                                <Label text="Useless Shop">
-                                    <HBox.margin>
-                                        <Insets left="4.0" />
-                                    </HBox.margin>
-                                </Label>
-                            </children>
-                        </HBox>
-                        <ButtonBar buttonMinWidth="30.0" prefHeight="24.0" prefWidth="270.0" HBox.hgrow="ALWAYS">
-                            <buttons>
-                                <Label alignment="CENTER" text="Search" textAlignment="CENTER" />
-                                <Label alignment="CENTER" text="Cart" textAlignment="CENTER" />
-                                <Label fx:id="UserSignIn" alignment="CENTER" text="Sign in" textAlignment="CENTER">
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                </Label>
-                                <Label fx:id="UserLogIn" alignment="CENTER" text="Log in" textAlignment="CENTER">
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                </Label>
-                            </buttons>
-                        </ButtonBar>
-                    </children>
-                    <HBox.margin>
-                        <Insets left="4.0" right="4.0" />
-                    </HBox.margin>
-                </HBox>
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #aedebe;" VBox.vgrow="ALWAYS">
-            <children>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="500.0">
-                    <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
-                            <children>
-                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                    <children>
-                                        <Label text="Register form">
-                                            <VBox.margin>
-                                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                            </VBox.margin>
-                                        </Label>
-                                        <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="NEVER">
-                                            <children>
-                                                <Label text="Enter your mail" />
-                                                <TextField fx:id="UserMail" promptText="mail" />
-                                            </children>
-                                            <VBox.margin>
-                                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                            </VBox.margin>
-                                        </VBox>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
-                                            <children>
-                                                <Label text="Enter your password" />
-                                                <PasswordField fx:id="UserPassword" promptText="password" />
-                                            </children>
-                                            <VBox.margin>
-                                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                            </VBox.margin>
-                                        </VBox>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
-                                            <children>
-                                                <Label text="Repeat your password" />
-                                                <PasswordField fx:id="UserRepeatPassword" promptText="password" />
-                                            </children>
-                                            <VBox.margin>
-                                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                            </VBox.margin>
-                                        </VBox>
-                                        <Button fx:id="BtnRegister" mnemonicParsing="false" text="Log in">
-                                            <VBox.margin>
-                                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                            </VBox.margin>
-                                        </Button>
-                                    </children>
-                                </VBox>
-                            </children>
-                        </VBox>
-                    </children></HBox>
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="87.0" prefWidth="600.0" style="-fx-background-color: #fffbd1;">
-            <children>
-                <HBox prefHeight="90.0" prefWidth="500.0">
-                    <children>
-                        <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                            <children>
-                                <Label text="Help" textFill="#0d0e93">
-                                    <VBox.margin>
-                                        <Insets left="4.0" right="4.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <AnchorPane VBox.vgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Support" textFill="#67a9ef" />
-                                        <Label layoutY="17.600000381469727" text="Privacy" textFill="#67a9ef" />
-                                        <Label layoutY="35.19999885559082" text="Track Order" textFill="#67a9ef" />
-                                    </children>
-                                    <VBox.margin>
-                                        <Insets left="4.0" right="4.0" top="6.0" />
-                                    </VBox.margin>
-                                </AnchorPane>
-                            </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                            <children>
-                                <Label text="About" textFill="#0d0e93">
-                                    <VBox.margin>
-                                        <Insets left="4.0" right="4.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <AnchorPane VBox.vgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Story" textFill="#67a9ef" />
-                                        <Label layoutY="17.600000381469727" text="Blog" textFill="#67a9ef" />
-                                    </children>
-                                    <VBox.margin>
-                                        <Insets left="4.0" right="4.0" top="6.0" />
-                                    </VBox.margin>
-                                </AnchorPane>
-                            </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                            <children>
-                                <Label minWidth="-Infinity" text="Contact" textFill="#0d0e93">
-                                    <VBox.margin>
-                                        <Insets left="4.0" right="4.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <AnchorPane VBox.vgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Facebook" textFill="#67a9ef" />
-                                        <Label layoutY="17.600000381469727" text="Instagram" textFill="#67a9ef" />
-                                        <Label layoutY="35.19999885559082" text="Twitter" textFill="#67a9ef" />
-                                    </children>
-                                    <VBox.margin>
-                                        <Insets left="4.0" right="4.0" top="6.0" />
-                                    </VBox.margin>
-                                </AnchorPane>
-                            </children>
-                        </VBox>
-                    </children>
-                </HBox>
-            </children>
-        </HBox>
-    </children>
+<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.LogInController">
+    <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
+        <Group fx:id="home">
+            <HBox.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+            </HBox.margin>
+            <ImageView blendMode="DIFFERENCE" fitHeight="32.0" fitWidth="32.0" layoutX="-2.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../assets/image/logo.jpg" />
+            </ImageView>
+            <Label layoutX="32.0" layoutY="1.0" text="Useless Shop" textAlignment="CENTER" textFill="#aee1f2" wrapText="true">
+                <font>
+                    <Font size="20.0" />
+                </font>
+                <padding>
+                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                </padding>
+            </Label>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Group>
+        <Pane HBox.hgrow="ALWAYS" />
+        <TilePane alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefTileWidth="100.0" tileAlignment="CENTER_RIGHT">
+            <HBox.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+            </HBox.margin>
+            <Button fx:id="UserSignIn" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: node;" text="Sign in" textFill="#aee1f2" wrapText="true">
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: #aee1f2; -fx-background-radius: 16;" text="Log in" textFill="#444444" wrapText="true">
+                <cursor>
+                    <Cursor fx:constant="DEFAULT" />
+                </cursor>
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+        </TilePane>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #d7f5ff;" VBox.vgrow="ALWAYS">
+        <StackPane prefHeight="150.0" prefWidth="200.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                <Label text="Registration">
+                    <VBox.margin>
+                        <Insets top="4.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <VBox VBox.vgrow="NEVER">
+                    <VBox.margin>
+                        <Insets bottom="4.0" top="4.0" />
+                    </VBox.margin>
+                    <Label text="Enter your mail" wrapText="true">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="UserMail" promptText="mail" />
+                </VBox>
+                <VBox>
+                    <VBox.margin>
+                        <Insets bottom="4.0" top="4.0" />
+                    </VBox.margin>
+                    <Label text="Enter your password" wrapText="true">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <PasswordField fx:id="UserPassword" promptText="password" />
+                </VBox>
+                <VBox>
+                    <VBox.margin>
+                        <Insets bottom="4.0" top="4.0" />
+                    </VBox.margin>
+                    <Label text="Repeat your password" wrapText="true">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <PasswordField fx:id="UserRepeatPassword" promptText="password" />
+                </VBox>
+                <Button fx:id="BtnRegister" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 8;" text="Register">
+                    <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                    </VBox.margin>
+                </Button>
+            <StackPane.margin>
+               <Insets left="4.0" right="4.0" />
+            </StackPane.margin>
+            </VBox>
+        </StackPane>
+    </HBox>
+    <HBox id="HBox" alignment="CENTER" spacing="5.0" style="-fx-background-color: #444444;" VBox.vgrow="NEVER">
+        <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+        </padding>
+        <Label text="Copyright" textFill="#aee1f2">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+    </HBox>
 </VBox>
