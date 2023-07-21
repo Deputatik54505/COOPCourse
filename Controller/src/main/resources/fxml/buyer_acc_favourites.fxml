@@ -145,41 +145,9 @@
                     </Label>
                 </HBox>
                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="577.0">
-                    <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0" style="-fx-background-color: #c4eaf7;">
-                        <TilePane alignment="TOP_CENTER" hgap="20.0" prefHeight="200.0" prefWidth="200.0" vgap="20.0">
-                            <HBox prefHeight="125.0" prefWidth="523.0" style="-fx-background-color: green;">
-                                <TilePane.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
-                                </TilePane.margin>
-                                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                                    <Label text="Title"/>
-                                    <Pane prefHeight="200.0" prefWidth="200.0"/>
-                                    <Label text="Description"/>
-                                </VBox>
-                                <VBox alignment="TOP_RIGHT" prefHeight="126.0" prefWidth="226.0">
-                                    <Label text="Remove"/>
-                                    <Pane prefHeight="200.0" prefWidth="200.0"/>
-                                    <Label text="500"/>
-                                </VBox>
-                            </HBox>
-                            <HBox prefHeight="125.0" prefWidth="523.0" style="-fx-background-color: green;">
-                                <TilePane.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
-                                </TilePane.margin>
-                                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                                    <Label text="Title"/>
-                                    <Pane prefHeight="200.0" prefWidth="200.0"/>
-                                    <Label text="Description"/>
-                                </VBox>
-                                <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0"
-                                      HBox.hgrow="ALWAYS">
-                                    <Label text="Remove"/>
-                                    <Pane prefHeight="200.0" prefWidth="200.0"/>
-                                    <Label text="500"/>
-                                </VBox>
-                            </HBox>
-                        </TilePane>
-                    </VBox>
+               <content>
+                  <TilePane fx:id="listOfFavourites" hgap="20.0" prefHeight="200.0" prefTileHeight="150.0" prefTileWidth="150.0" prefWidth="200.0" style="-fx-background-color: #c4eaf7;" vgap="20.0" />
+               </content>
                 </ScrollPane>
             </SplitPane>
         </SplitPane>

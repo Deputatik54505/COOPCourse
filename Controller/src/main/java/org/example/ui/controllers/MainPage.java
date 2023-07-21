@@ -73,7 +73,7 @@ public class MainPage {
         this.listOfCategories.getChildren().addAll(this.addCategories(root));
 
         BackgroundImage addToCart = new BackgroundImage(
-                new Image("/assets/image/icons/add-to-cart.png"), //BD
+                new Image("/assets/image/icons/add-to-cart.png"),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
