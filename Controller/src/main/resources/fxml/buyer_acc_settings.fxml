@@ -148,160 +148,160 @@
                 </HBox>
                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="577.0">
                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0" style="-fx-background-color: #c4eaf7;">
-                  <TilePane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" prefHeight="100.0" prefWidth="663.0" vgap="20.0">
-                     <children>
-                        <VBox alignment="CENTER" prefWidth="210.0">
-                           <children>
-                              <Label text="Change name" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="New name">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <Button fx:id="confirmName" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefWidth="210.0">
-                           <children>
-                              <Label text="Change surname" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="New surname">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <Button fx:id="confirmSurname" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefWidth="210.0">
-                           <children>
-                              <Label text="Change date of birth" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <DatePicker maxWidth="1.7976931348623157E308" prefWidth="176.0" promptText="New date of birth">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </DatePicker>
-                              <Button fx:id="confirmDateBirth" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefWidth="210.0">
-                           <children>
-                              <Label text="Change mail" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="New mail">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <Button fx:id="confirmMail" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefWidth="210.0">
-                           <children>
-                              <Label text="Change password" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="Old password">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <PasswordField maxWidth="1.7976931348623157E308" promptText="New password">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <Button fx:id="confirmPassword" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </VBox>
-                     </children>
-                  </TilePane>
+                        <TilePane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" prefHeight="100.0"
+                                  prefWidth="663.0" vgap="20.0">
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change name" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="New name">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <Button fx:id="confirmName" mnemonicParsing="false"
+                                        style="-fx-background-color: #75cdbf; -fx-background-radius: 12;"
+                                        text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change surname" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="New surname">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <Button fx:id="confirmSurname" mnemonicParsing="false"
+                                        style="-fx-background-color: #75cdbf; -fx-background-radius: 12;"
+                                        text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change date of birth" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <DatePicker maxWidth="1.7976931348623157E308" prefWidth="176.0"
+                                            promptText="New date of birth">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </DatePicker>
+                                <Button fx:id="confirmDateBirth" mnemonicParsing="false"
+                                        style="-fx-background-color: #75cdbf; -fx-background-radius: 12;"
+                                        text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change mail" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="New mail">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <Button fx:id="confirmMail" mnemonicParsing="false"
+                                        style="-fx-background-color: #75cdbf; -fx-background-radius: 12;"
+                                        text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change password" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="Old password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="New password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <Button fx:id="confirmPassword" mnemonicParsing="false"
+                                        style="-fx-background-color: #75cdbf; -fx-background-radius: 12;"
+                                        text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </VBox>
+                        </TilePane>
                     </VBox>
                 </ScrollPane>
             </SplitPane>

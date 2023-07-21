@@ -105,91 +105,82 @@
                   </padding>
                </Label>
                 </HBox>
-                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="497.0" prefWidth="676.0">
-               <content>
-                  <TilePane fx:id="listOfProducts" hgap="40.0" prefColumns="1" prefTileHeight="120.0" prefTileWidth="500.0" style="-fx-background-color: #c4eaf7;" tileAlignment="TOP_LEFT" vgap="20.0" />
-               </content>
+                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="497.0"
+                            prefWidth="676.0">
+                    <TilePane fx:id="listOfProducts" hgap="40.0" prefColumns="1" prefTileHeight="120.0"
+                              prefTileWidth="500.0" style="-fx-background-color: #c4eaf7;" tileAlignment="TOP_LEFT"
+                              vgap="20.0"/>
                 </ScrollPane>
             </SplitPane>
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity" minWidth="-Infinity">
                 <AnchorPane prefHeight="532.0" prefWidth="260.0" style="-fx-background-color: #4759a3;">
-               <VBox layoutX="8.0" layoutY="14.0" prefHeight="229.0" prefWidth="246.0">
-                  <children>
-                          <Label alignment="CENTER" style="&#10;" text="Order" textAlignment="CENTER" textFill="#aee1f2">
-                              <font>
-                                  <Font name="System Bold" size="18.0" fx:id="x1" />
-                              </font>
-                              <opaqueInsets>
-                                  <Insets />
-                              </opaqueInsets>
-                        <padding>
-                           <Insets left="15.0" />
-                        </padding>
-                          </Label>
-                     <VBox VBox.vgrow="NEVER">
-                        <children>
-                           <Label text="Point of delivery" textFill="#aee1f2" wrapText="true">
-                              <font>
-                                 <Font size="16.0" />
-                              </font>
-                           </Label>
-                           <TextField fx:id="pointDelivery" text="Default point" />
-                        </children>
-                        <VBox.margin>
-                           <Insets top="8.0" />
-                        </VBox.margin>
-                     </VBox>
-                     <VBox>
-                        <children>
-                           <Label text="Payment" textFill="#aee1f2" wrapText="true">
-                              <font>
-                                 <Font size="16.0" />
-                              </font>
-                           </Label>
-                           <TextField fx:id="cardNumber" text="Card number" />
-                        </children>
-                        <VBox.margin>
-                           <Insets bottom="10.0" top="10.0" />
-                        </VBox.margin>
-                     </VBox>
-                     <VBox>
-                        <children>
-                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="266.0">
-                              <children>
-                                 <Label text="Subtotal:" textFill="#aee1f2" wrapText="true">
+                    <VBox layoutX="8.0" layoutY="14.0" prefHeight="229.0" prefWidth="246.0">
+                        <Label alignment="CENTER" style="&#10;" text="Order" textAlignment="CENTER" textFill="#aee1f2">
+                            <font>
+                                <Font name="System Bold" size="18.0" fx:id="x1"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="15.0"/>
+                            </padding>
+                        </Label>
+                        <VBox VBox.vgrow="NEVER">
+                            <VBox.margin>
+                                <Insets top="8.0"/>
+                            </VBox.margin>
+                            <Label text="Point of delivery" textFill="#aee1f2" wrapText="true">
+                                <font>
+                                    <Font size="16.0"/>
+                                </font>
+                            </Label>
+                            <TextField fx:id="pointDelivery" text="Default point"/>
+                        </VBox>
+                        <VBox>
+                            <VBox.margin>
+                                <Insets bottom="10.0" top="10.0"/>
+                            </VBox.margin>
+                            <Label text="Payment" textFill="#aee1f2" wrapText="true">
+                                <font>
+                                    <Font size="16.0"/>
+                                </font>
+                            </Label>
+                            <TextField fx:id="cardNumber" text="Card number"/>
+                        </VBox>
+                        <VBox>
+                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="266.0">
+                                <VBox.margin>
+                                    <Insets bottom="10.0"/>
+                                </VBox.margin>
+                                <Label text="Subtotal:" textFill="#aee1f2" wrapText="true">
                                     <font>
-                                       <Font size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
-                                 </Label>
-                                 <Label fx:id="subtotalCost" text="0" textFill="#aee1f2">
+                                </Label>
+                                <Label fx:id="subtotalCost" text="0" textFill="#aee1f2">
                                     <font>
-                                       <Font size="20.0" />
+                                        <Font size="20.0"/>
                                     </font>
                                     <HBox.margin>
-                                       <Insets left="12.0" />
+                                        <Insets left="12.0"/>
                                     </HBox.margin>
-                                 </Label>
-                              </children>
-                              <VBox.margin>
-                                 <Insets bottom="10.0" />
-                              </VBox.margin>
-                           </HBox>
-                        </children>
-                     </VBox>
-                     <StackPane>
-                        <children>
-                           <Button fx:id="buyPurchase" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #75cdbf; -fx-background-radius: 16;" text="PAY" textFill="#444444">
-                              <font>
-                                 <Font name="System Bold" size="14.0" />
-                              </font>
-                              <cursor>
-                                 <Cursor fx:constant="HAND" />
-                              </cursor>
-                           </Button>
-                        </children>
-                     </StackPane>
-                  </children>
-               </VBox>
+                                </Label>
+                            </HBox>
+                        </VBox>
+                        <StackPane>
+                            <Button fx:id="buyPurchase" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0"
+                                    style="-fx-background-color: #75cdbf; -fx-background-radius: 16;" text="PAY"
+                                    textFill="#444444">
+                                <font>
+                                    <Font name="System Bold" size="14.0"/>
+                                </font>
+                                <cursor>
+                                    <Cursor fx:constant="HAND"/>
+                                </cursor>
+                            </Button>
+                        </StackPane>
+                    </VBox>
                 </AnchorPane>
             </ScrollPane>
         </SplitPane>
