@@ -2,7 +2,6 @@ package org.example.ui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -15,18 +14,14 @@ import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
-import org.example.entities.product.Product;
-import org.example.search.Search;
 import org.example.ui.models.SceneSwitch;
-import org.example.validation.exceptions.NotFoundException;
 
-public class CartController {
+public class Cart {
 
     @FXML
     private ResourceBundle resources;
@@ -35,7 +30,7 @@ public class CartController {
     private URL location;
 
     @FXML
-    private Button UserAccount;
+    private Button userAccount;
 
     @FXML
     private TextField UserSearch;
@@ -66,7 +61,7 @@ public class CartController {
 
     @FXML
     void initialize() {
-        assert UserAccount != null : "fx:id=\"UserAccount\" was not injected: check your FXML file 'shopping_cart.fxml'.";
+        assert userAccount != null : "fx:id=\"userAccount\" was not injected: check your FXML file 'shopping_cart.fxml'.";
         assert UserSearch != null : "fx:id=\"UserSearch\" was not injected: check your FXML file 'shopping_cart.fxml'.";
         assert buyPurchase != null : "fx:id=\"buyPurchase\" was not injected: check your FXML file 'shopping_cart.fxml'.";
         assert cardNumber != null : "fx:id=\"cardNumber\" was not injected: check your FXML file 'shopping_cart.fxml'.";
@@ -105,10 +100,14 @@ public class CartController {
             }
         });
 
-        this.UserAccount.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.userAccount.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_data.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
             }
         });
 

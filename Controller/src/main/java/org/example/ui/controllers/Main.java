@@ -14,7 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.text.Font;
 import org.example.ui.models.SceneSwitch;
 
-public class MainController {
+public class Main {
 
     @FXML
     private ResourceBundle resources;

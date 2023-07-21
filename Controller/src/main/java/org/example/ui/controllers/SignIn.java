@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.example.ui.models.SceneSwitch;
 
-public class SignInController {
+public class SignIn {
 
     @FXML
     private ResourceBundle resources;
