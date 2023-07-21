@@ -1,14 +1,8 @@
 package org.example.entities.product;
 
-import java.util.Collection;
+public abstract class IProductCategory {
+    IProductCategorySpecifications specifications;
+    IProductCategoryHierarchy hierarchy;
 
-public interface IProductCategory {
-    Collection<IProductCategory> directSubcategories();
-    Collection<Integer> allSubcategoryIds();
-
-    IProductCategory superCategory();
-    IProductCategory loadById(int id);
-    boolean isRootCategory();
-
-    boolean isLeafCategory();
+    public abstract void loadById();
 }
