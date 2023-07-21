@@ -74,7 +74,7 @@ public class ProductCategory implements IProductCategory {
             Integer superId = resultSet.getInt("parentId");
             var children = resultSet.getString("childrenIds");
             List<Integer> childIds = new ArrayList<>();
-            if (children != null) {
+            if (children != null && !children.trim().isEmpty()){
                 childIds = Arrays.stream(children
                                 .split("\\."))
                         .map(Integer::parseInt)
