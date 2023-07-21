@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/seller_acc_orders.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/seller_create_product.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         primaryStage.setTitle("Shop");
@@ -26,9 +26,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-//        Product product = new Product();
-//        product.loadById(1);
-
         launch();
 
 //        //Form: add passport

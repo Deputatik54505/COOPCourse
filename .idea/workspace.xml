@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Add seller's goods page">
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerOrders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_orders.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_goods.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_goods.fxml" afterDir="false" />
+    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Add seller's orders page">
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_create_product.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689956847196</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add seller's orders page">
+      <created>1689957189549</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689957189549</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +288,8 @@
     <MESSAGE value="Add user's favourites page" />
     <MESSAGE value="Add seller's data page" />
     <MESSAGE value="Add seller's goods page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add seller's goods page" />
+    <MESSAGE value="Add seller's orders page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add seller's orders page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
