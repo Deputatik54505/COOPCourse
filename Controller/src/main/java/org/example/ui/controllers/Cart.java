@@ -19,6 +19,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import org.example.ui.models.SceneSwitch;
 
 public class Cart {
@@ -157,13 +158,13 @@ public class Cart {
 
         Label title = new Label("Title"); //BD
         title.setPadding(new Insets(16.0, 0.0, 0.0, 16.0));
-        title.setFont(Font.font("System Bold", 16.0));
+        title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
         Label desc = new Label("Description"); //BD
         desc.setPadding(new Insets(0.0, 0.0, 12.0, 12.0));
         desc.setFont(Font.font(14.0));
 
-        Label cost = new Label(Integer.toString(i * 230)); //BD
+        Label cost = new Label(Integer.toString((i + 1) * 230)); //BD
         cost.setPadding(new Insets(0.0, 8.0, 8.0, 0.0));
         cost.setFont(Font.font(16.0));
 
