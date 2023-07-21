@@ -9,18 +9,16 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.Main">
+<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.MainPage">
     <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
         <Group fx:id="home">
             <HBox.margin>
@@ -46,7 +44,7 @@
             <HBox.margin>
                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
             </HBox.margin>
-            <TextField fx:id="UserSearch" alignment="CENTER" focusTraversable="false" promptText="search" style="-fx-background-color: none; -fx-border-color: #aee1f2; -fx-border-radius: 12; -fx-border-width: 2; -fx-text-fill: #aee1f2; -fx-prompt-text-fill: #aee1f2;" TilePane.alignment="CENTER">
+            <TextField fx:id="userSearch" alignment="CENTER" focusTraversable="false" promptText="search" style="-fx-background-color: none; -fx-border-color: #aee1f2; -fx-border-radius: 12; -fx-border-width: 2; -fx-text-fill: #aee1f2; -fx-prompt-text-fill: #aee1f2;" TilePane.alignment="CENTER">
                 <cursor>
                     <Cursor fx:constant="TEXT" />
                 </cursor>
@@ -54,7 +52,7 @@
                     <Font size="16.0" />
                 </font>
             </TextField>
-            <Button fx:id="UserSignIn" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: node;" text="Sign in" textFill="#aee1f2" wrapText="true">
+            <Button fx:id="userSignIn" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: node;" text="Sign in" textFill="#aee1f2" wrapText="true">
                 <opaqueInsets>
                     <Insets />
                 </opaqueInsets>
@@ -65,7 +63,7 @@
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button fx:id="UserLogIn" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: none;" text="Log in" textFill="#aee1f2" wrapText="true">
+            <Button fx:id="userLogIn" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: none;" text="Log in" textFill="#aee1f2" wrapText="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
@@ -82,28 +80,21 @@
             </HBox.margin>
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity" minWidth="-Infinity">
                 <AnchorPane prefHeight="532.0" prefWidth="200.0" style="-fx-background-color: #4759a3;">
-                    <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" style="&#10;" text="Categories" textAlignment="CENTER" textFill="#aee1f2">
-                        <font>
-                            <Font size="18.0" fx:id="x1" />
-                        </font>
-                        <opaqueInsets>
-                            <Insets />
-                        </opaqueInsets>
-                    </Label>
-                    <Accordion layoutX="10.0" layoutY="41.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="78.0" prefWidth="172.0">
-                        <panes>
-                            <TitledPane animated="false" focusTraversable="false" text="Furniture">
-                                <Accordion>
-                                    <panes>
-                                        <TitledPane animated="false" text="untitled 1" />
-                                        <TitledPane animated="false" text="untitled 2" />
-                                    </panes>
-                                </Accordion>
-                            </TitledPane>
-                            <TitledPane animated="false" focusTraversable="false" text="For home" />
-                            <TitledPane animated="false" focusTraversable="false" text="Toys" />
-                        </panes>
-                    </Accordion>
+                    <VBox layoutX="7.0" layoutY="14.0" prefWidth="178.0">
+                        <Label alignment="CENTER" minWidth="60.0" style="&#10;" text="Categories" textAlignment="CENTER" textFill="#aee1f2">
+                            <font>
+                                <Font size="18.0" fx:id="x1" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Accordion />
+                  <VBox fx:id="listOfCategories" prefWidth="100.0" />
+                    </VBox>
                 </AnchorPane>
             </ScrollPane>
             <SplitPane dividerPositions="0.0660377358490566" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
@@ -118,21 +109,7 @@
                     </Label>
                 </HBox>
                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="577.0">
-                    <TilePane fx:id="listOfProducts" alignment="TOP_CENTER" focusTraversable="true" hgap="60.0" nodeOrientation="LEFT_TO_RIGHT" prefColumns="3" prefHeight="530.0" prefRows="3" prefTileHeight="300.0" prefTileWidth="160.0" prefWidth="602.0" style="-fx-background-color: #c4eaf7;" vgap="15.0">
-                        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #444444;">
-                            <top>
-                                <Label prefHeight="18.0" prefWidth="37.0" text="Label" textFill="#aee1f2" BorderPane.alignment="CENTER" />
-                            </top>
-                            <bottom>
-                                <Label prefHeight="18.0" prefWidth="35.0" text="Label" textFill="#aee1f2" BorderPane.alignment="CENTER" />
-                            </bottom>
-                            <center>
-                                <ImageView fitHeight="100.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../assets/image/logo.jpg" />
-                                </ImageView>
-                            </center>
-                        </BorderPane>
-                    </TilePane>
+                    <TilePane fx:id="listOfProducts" alignment="TOP_CENTER" focusTraversable="true" hgap="20.0" nodeOrientation="LEFT_TO_RIGHT" prefColumns="3" prefHeight="530.0" prefRows="3" prefTileHeight="150.0" prefTileWidth="150.0" prefWidth="602.0" style="-fx-background-color: #c4eaf7;" vgap="20.0" />
                 </ScrollPane>
             </SplitPane>
         </SplitPane>
