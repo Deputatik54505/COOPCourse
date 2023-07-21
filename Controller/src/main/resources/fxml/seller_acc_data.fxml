@@ -96,7 +96,7 @@
                                     </DropShadow>
                                 </effect>
                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
+                                    <Cursor fx:constant="DEFAULT" />
                                 </cursor>
                             </Button>
                             <Button fx:id="userGoods" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="My goods" textFill="#444444">

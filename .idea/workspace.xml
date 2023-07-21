@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Fixed main page">
+    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Fixed buyer's account">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerFavourites.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerFavourites.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerGoods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/buyer_acc_favourites.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/buyer_acc_favourites.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_data.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_data.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_goods.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_goods.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_create_product.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_create_product.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689980864655</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed buyer's account">
+      <created>1689981684674</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1689981684674</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +318,8 @@
     <MESSAGE value="Add seller's create product page" />
     <MESSAGE value="Added getProducts, delete, editPrice, and editDescription methods to Product.java" />
     <MESSAGE value="Fixed main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed main page" />
+    <MESSAGE value="Fixed buyer's account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed buyer's account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

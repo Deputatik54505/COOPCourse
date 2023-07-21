@@ -70,7 +70,7 @@ public class MainPage {
 
         TitledPane root = new TitledPane();
 
-        this.listOfCategories.getChildren().addAll(this.addCategories(root));
+        this.listOfCategories.getChildren().addAll(this.loadCategories(root));
 
         BackgroundImage addToCart = new BackgroundImage(
                 new Image("/assets/image/icons/add-to-cart.png"),
@@ -81,7 +81,7 @@ public class MainPage {
         );
 
         for (int i = 0; i < 20; i++) {
-            VBox product = this.addProduct(i, addToCart);
+            VBox product = this.loadProduct(i, addToCart);
             this.listOfProducts.getChildren().add(product);
         }
 
@@ -120,7 +120,7 @@ public class MainPage {
 
     }
 
-    public VBox addProduct(int i, BackgroundImage addToCart) {
+    public VBox loadProduct(int i, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
                 new Image("/assets/image/logo.jpg"), //BD
                 BackgroundRepeat.NO_REPEAT,
@@ -175,7 +175,7 @@ public class MainPage {
         return container;
     }
 
-    public Accordion addCategories(TitledPane parent) {
+    public Accordion loadCategories(TitledPane parent) {
         Accordion accordion = new Accordion();
         parent.setContent(accordion);
         int k = 0;
@@ -184,7 +184,7 @@ public class MainPage {
                 TitledPane container = new TitledPane();
                 container.setText(parent.getText() + i + ".");
                 accordion.getPanes().add(container);
-                addCategories(container);
+                loadCategories(container);
             }
         } else {
             TitledPane container = new TitledPane();

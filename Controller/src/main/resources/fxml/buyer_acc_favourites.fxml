@@ -146,7 +146,7 @@
                 </HBox>
                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="577.0">
                <content>
-                  <TilePane fx:id="listOfFavourites" hgap="20.0" prefHeight="200.0" prefTileHeight="150.0" prefTileWidth="150.0" prefWidth="200.0" style="-fx-background-color: #c4eaf7;" vgap="20.0" />
+                  <TilePane fx:id="listOfFavourites" alignment="TOP_CENTER" hgap="20.0" prefHeight="200.0" prefTileHeight="150.0" prefTileWidth="150.0" prefWidth="200.0" style="-fx-background-color: #c4eaf7;" vgap="20.0" />
                </content>
                 </ScrollPane>
             </SplitPane>
