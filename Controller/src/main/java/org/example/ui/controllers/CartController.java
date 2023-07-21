@@ -35,7 +35,7 @@ public class CartController {
     private URL location;
 
     @FXML
-    private Button UserAccount;
+    private Button userAccount;
 
     @FXML
     private TextField UserSearch;
@@ -66,7 +66,7 @@ public class CartController {
 
     @FXML
     void initialize() {
-        assert UserAccount != null : "fx:id=\"UserAccount\" was not injected: check your FXML file 'shopping_cart.fxml'.";
+        assert userAccount != null : "fx:id=\"userAccount\" was not injected: check your FXML file 'shopping_cart.fxml'.";
         assert UserSearch != null : "fx:id=\"UserSearch\" was not injected: check your FXML file 'shopping_cart.fxml'.";
         assert buyPurchase != null : "fx:id=\"buyPurchase\" was not injected: check your FXML file 'shopping_cart.fxml'.";
         assert cardNumber != null : "fx:id=\"cardNumber\" was not injected: check your FXML file 'shopping_cart.fxml'.";
@@ -105,10 +105,14 @@ public class CartController {
             }
         });
 
-        this.UserAccount.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.userAccount.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_data.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
             }
         });
 

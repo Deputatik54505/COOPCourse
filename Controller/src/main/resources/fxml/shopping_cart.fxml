@@ -63,7 +63,7 @@
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button fx:id="UserAccount" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: none;" text="Account" textFill="#aee1f2" wrapText="true">
+            <Button fx:id="userAccount" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: none;" text="Account" textFill="#aee1f2" wrapText="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
