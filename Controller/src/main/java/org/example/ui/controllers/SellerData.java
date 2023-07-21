@@ -110,6 +110,39 @@ public class SellerData {
             }
         });
 
+        this.userOrders.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_orders.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
+            }
+        });
+
+        this.createProduct.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/seller_create_product.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
+            }
+        });
+
+        this.userSettings.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_settings.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
+            }
+        });
+
     }
 
 }

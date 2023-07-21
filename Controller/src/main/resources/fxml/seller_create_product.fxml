@@ -229,23 +229,21 @@
                         </HBox.margin>
                      </TextField>
                         </HBox>
-                  <HBox prefWidth="200.0">
-                     <children>
-                        <Label text="Number of products:" wrapText="true">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="productsNumber" promptText="Default number">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </VBox.margin>
-                  </HBox>
+                        <HBox prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </VBox.margin>
+                            <Label text="Number of products:" wrapText="true">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="productsNumber" promptText="Default number">
+                                <HBox.margin>
+                                    <Insets left="10.0" />
+                                </HBox.margin>
+                            </TextField>
+                        </HBox>
                   <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                      <children>
                         <Button fx:id="addProduct" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm" textFill="#444444">

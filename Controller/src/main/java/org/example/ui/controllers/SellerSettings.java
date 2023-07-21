@@ -8,12 +8,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import org.example.ui.models.SceneSwitch;
 
-public class SellerProduct {
+public class SellerSettings {
 
     @FXML
     private ResourceBundle resources;
@@ -22,25 +21,25 @@ public class SellerProduct {
     private URL location;
 
     @FXML
-    private Button addProduct;
+    private Button confirmDateBirth;
+
+    @FXML
+    private Button confirmMail;
+
+    @FXML
+    private Button confirmName;
+
+    @FXML
+    private Button confirmPassword;
+
+    @FXML
+    private Button confirmSurname;
+
+    @FXML
+    private Button createProduct;
 
     @FXML
     private Group home;
-
-    @FXML
-    private TextField productCost;
-
-    @FXML
-    private TextField productDesc;
-
-    @FXML
-    private TextField productTitle;
-
-    @FXML
-    private TextField productsNumber;
-
-    @FXML
-    private TextField typeCategory;
 
     @FXML
     private Circle userAvatar;
@@ -61,24 +60,20 @@ public class SellerProduct {
     private Button userOrders;
 
     @FXML
-    private Button userSettings;
-
-    @FXML
     void initialize() {
-        assert addProduct != null : "fx:id=\"addProduct\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert productCost != null : "fx:id=\"productCost\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert productDesc != null : "fx:id=\"productDesc\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert productTitle != null : "fx:id=\"productTitle\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert productsNumber != null : "fx:id=\"productsNumber\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert typeCategory != null : "fx:id=\"typeCategory\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert userData != null : "fx:id=\"userData\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert userGoods != null : "fx:id=\"userGoods\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert userOrders != null : "fx:id=\"userOrders\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'seller_create_product.fxml'.";
+        assert confirmDateBirth != null : "fx:id=\"confirmDateBirth\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert confirmMail != null : "fx:id=\"confirmMail\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert confirmName != null : "fx:id=\"confirmName\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert confirmPassword != null : "fx:id=\"confirmPassword\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert confirmSurname != null : "fx:id=\"confirmSurname\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert createProduct != null : "fx:id=\"createProduct\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert userData != null : "fx:id=\"userData\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert userGoods != null : "fx:id=\"userGoods\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert userOrders != null : "fx:id=\"userOrders\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -135,11 +130,11 @@ public class SellerProduct {
             }
         });
 
-        this.userSettings.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.createProduct.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_settings.fxml");
+                    new SceneSwitch().changeScene(event, "/fxml/seller_create_product.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
