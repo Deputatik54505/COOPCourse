@@ -5,6 +5,8 @@ import org.example.database.Query;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Product {
     private final IQuery query;
@@ -18,6 +20,15 @@ public class Product {
         query = new Query();
     }
 
+    public List<String> represent() {
+        List<String> container = new ArrayList<>();
+        container.add(name);
+        container.add(description);
+        container.add(String.format("%.2f", price));
+        return container;
+    }
+
+    //region db interaction
     public void loadById() {
         try (ResultSet resultSet = query.executeQuery(
                 String.format("SELECT * FROM product WHERE id=%d;", id))) {
@@ -59,4 +70,6 @@ public class Product {
             return false;
         }
     }
+
+    //endregion
 }
