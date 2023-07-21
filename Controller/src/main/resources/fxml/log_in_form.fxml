@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -66,21 +67,21 @@
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #d7f5ff;" VBox.vgrow="ALWAYS">
         <StackPane prefHeight="150.0" prefWidth="200.0">
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                <Label text="Registration">
+                <Label text="Registration" textFill="#444444">
                     <VBox.margin>
                         <Insets top="4.0" />
                     </VBox.margin>
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
                 <VBox VBox.vgrow="NEVER">
                     <VBox.margin>
                         <Insets bottom="4.0" top="4.0" />
                     </VBox.margin>
-                    <Label text="Enter your mail" wrapText="true">
+                    <Label text="Enter your mail" textFill="#444444" wrapText="true">
                         <font>
-                            <Font size="14.0" />
+                            <Font name="System Bold" size="14.0" />
                         </font>
                     </Label>
                     <TextField fx:id="UserMail" promptText="mail" />
@@ -89,9 +90,9 @@
                     <VBox.margin>
                         <Insets bottom="4.0" top="4.0" />
                     </VBox.margin>
-                    <Label text="Enter your password" wrapText="true">
+                    <Label text="Enter your password" textFill="#444444" wrapText="true">
                         <font>
-                            <Font size="14.0" />
+                            <Font name="System Bold" size="14.0" />
                         </font>
                     </Label>
                     <PasswordField fx:id="UserPassword" promptText="password" />
@@ -100,12 +101,26 @@
                     <VBox.margin>
                         <Insets bottom="4.0" top="4.0" />
                     </VBox.margin>
-                    <Label text="Repeat your password" wrapText="true">
+                    <Label text="Repeat your password" textFill="#444444" wrapText="true">
                         <font>
-                            <Font size="14.0" />
+                            <Font name="System Bold" size="14.0" />
                         </font>
                     </Label>
                     <PasswordField fx:id="UserRepeatPassword" promptText="password" />
+               <VBox>
+                  <children>
+                     <RadioButton fx:id="userBuyer" mnemonicParsing="false" text="I am buyer" textFill="#444444">
+                        <VBox.margin>
+                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                        </VBox.margin>
+                     </RadioButton>
+                     <RadioButton fx:id="userSeller" mnemonicParsing="false" text="I am seller" textFill="#444444">
+                        <VBox.margin>
+                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                        </VBox.margin>
+                     </RadioButton>
+                  </children>
+               </VBox>
                 </VBox>
                 <Button fx:id="BtnRegister" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 8;" text="Register">
                     <VBox.margin>

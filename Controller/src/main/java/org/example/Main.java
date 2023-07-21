@@ -22,7 +22,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/seller_acc_data.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/log_in_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         primaryStage.setTitle("Shop");
