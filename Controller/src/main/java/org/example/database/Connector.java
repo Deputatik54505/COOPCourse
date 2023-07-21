@@ -4,38 +4,23 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Properties;
 
-import org.postgresql.ds.PGPoolingDataSource;
-import org.postgresql.ds.PGSimpleDataSource;
-
-public class Connector implements IConnector {
+public class Connector implements IConnector{
 
     private DataSource ds;
-
     public DataSource dataSource() {
         if (this.ds == null) {
-//            var properties = new Properties();
-//            properties.setProperty("dataSourceClassName","org.postgresql.ds.PGPoolingDataSource");
-//            properties.setProperty("dataSource.user", "postgres");
-//            properties.setProperty("dataSource.password", "vJGj9uL2$d{wNc$");
-//            properties.setProperty("dataSource.databaseName", "crm");
-
-//            var config = new HikariConfig(properties);
-//            config.setJdbcUrl("jdbc:postgresql://db.wfbsubesqynyfvpisvtv.supabase.co:5432/crm");
-//            config.setPassword("vJGj9uL2$d{wNc$");
-//            config.setUsername("postgres");
-//            this.ds = new HikariDataSource(config);
+            Properties props = new Properties();
+            props.setProperty("dataSourceClassName", "org.postgresql.ds.PGSimpleDataSource");
+            props.setProperty("dataSource.user", "postgres");
+            props.setProperty("dataSource.password", "vJGj9uL2$d{wNc$");
 
 
-            var ds = new PGSimpleDataSource();
-            ds.setServerName("db.wfbsubesqynyfvpisvtv.supabase.co:5432");
-            ds.setDatabaseName("crm");
-            ds.setUser("postgres");
-            ds.setPassword("vJGj9uL2$d{wNc$");
+            HikariConfig config = new HikariConfig(props);
+            config.setJdbcUrl("jdbc:postgresql://db.wfbsubesqynyfvpisvtv.supabase.co:5432/crm");
+            this.ds = new HikariDataSource(config);
+
         }
         return ds;
     }
