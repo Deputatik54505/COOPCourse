@@ -99,6 +99,17 @@ public class SellerData {
             }
         });
 
+        this.userGoods.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_goods.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
+            }
+        });
+
     }
 
 }

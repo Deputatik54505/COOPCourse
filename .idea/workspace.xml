@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Add user's favourites page">
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_data.fxml" afterDir="false" />
+    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Add seller's data page">
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerGoods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_goods.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/buyer_acc_favourites.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/buyer_acc_favourites.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/buyer_acc_settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/buyer_acc_settings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/shopping_cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/shopping_cart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_data.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/resources/fxml/seller_acc_data.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689902493625</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add seller's data page">
+      <created>1689917215147</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689917215147</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +273,8 @@
     <MESSAGE value="Add user's data page" />
     <MESSAGE value="Add user's settings page" />
     <MESSAGE value="Add user's favourites page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add user's favourites page" />
+    <MESSAGE value="Add seller's data page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add seller's data page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
