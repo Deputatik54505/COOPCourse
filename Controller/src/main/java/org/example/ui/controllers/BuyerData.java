@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import org.example.ui.models.SceneSwitch;
 
-public class BuyerDataController {
+public class BuyerData {
 
     @FXML
     private ResourceBundle resources;
@@ -77,6 +77,17 @@ public class BuyerDataController {
             public void handle(MouseEvent event) {
                 try {
                     new SceneSwitch().changeScene(event, "/fxml/shopping_cart.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
+            }
+        });
+
+        this.userSettings.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_settings.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

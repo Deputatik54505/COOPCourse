@@ -2,7 +2,6 @@ package org.example.ui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -15,18 +14,14 @@ import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
-import org.example.entities.product.Product;
-import org.example.search.Search;
 import org.example.ui.models.SceneSwitch;
-import org.example.validation.exceptions.NotFoundException;
 
-public class CartController {
+public class Cart {
 
     @FXML
     private ResourceBundle resources;

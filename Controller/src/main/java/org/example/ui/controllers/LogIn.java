@@ -15,7 +15,7 @@ import javafx.scene.Group;
 import org.example.tables.Users;
 import org.example.ui.models.SceneSwitch;
 
-public class LogInController {
+public class LogIn {
 
     @FXML
     private ResourceBundle resources;

@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.BuyerDataController">
+<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.BuyerData">
     <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
         <Group fx:id="home">
             <HBox.margin>
@@ -99,7 +99,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <Button fx:id="basketFavourites" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Fav" textFill="#444444">
+                            <Button fx:id="basketFavourites" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Favourites" textFill="#444444">
                                 <VBox.margin>
                                     <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                 </VBox.margin>
