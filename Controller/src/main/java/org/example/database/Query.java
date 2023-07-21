@@ -19,7 +19,7 @@ public class Query implements IQuery {
     public ResultSet executeQuery(String query) {
 //        var dataSource = connector.dataSource();
         ResultSet resultSet;
-        try (var connection = DriverManager.getConnection("jdbc:postgresql://db.wfbsubesqynyfvpisvtv.supabase.co:5432/crm", "postgres", "vJGj9uL2$d{wNc$")) {
+        try (var connection = DriverManager.getConnection("jdbc:postgresql://db.wfbsubesqynyfvpisvtv.supabase.co:5432/postgres", "postgres", "vJGj9uL2$d{wNc$")) {
             var queryStatement = connection.prepareStatement(query);
             resultSet = queryStatement.executeQuery();
         } catch (SQLException e) {

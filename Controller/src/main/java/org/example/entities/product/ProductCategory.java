@@ -10,8 +10,6 @@ import java.util.List;
 public class ProductCategory extends IProductCategory {
     private final IQuery query;
     private final int id;
-    public IProductCategoryHierarchy hierarchy;
-    public IProductCategorySpecifications specifications;
 
     public ProductCategory(int id) {
         this.id = id;
@@ -30,14 +28,14 @@ public class ProductCategory extends IProductCategory {
             List<Integer> childIds = null;
             if (children != null && !children.trim().isEmpty()) {
                 childIds = Arrays.stream(children
-                                .split("\\."))
+                                .split(","))
                         .map(Integer::parseInt)
                         .toList();
             }
 
-            hierarchy = new ProductCategoryHierarchy(childIds, superCategoryId);
-            specifications = new ProductCategorySpecification(superCategoryId == 0,
-                    childIds == null,
+            this.hierarchy = new ProductCategoryHierarchy(childIds, superCategoryId == 0 ? null : superCategoryId);
+            this.specifications = new ProductCategorySpecification(superCategoryId != 0,
+                    childIds != null,
                     name);
 
         } catch (SQLException e) {
