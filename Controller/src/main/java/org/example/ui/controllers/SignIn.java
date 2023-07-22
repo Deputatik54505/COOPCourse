@@ -55,6 +55,13 @@ public class SignIn {
             }
         });
 
+        this.BtnAuthorize.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                //TODO signed in the user
+            }
+        });
+
         this.UserLogIn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

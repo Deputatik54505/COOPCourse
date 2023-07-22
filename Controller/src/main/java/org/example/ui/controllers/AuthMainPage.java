@@ -2,7 +2,10 @@ package org.example.ui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import java.util.Set;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,18 +16,18 @@ import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.example.ui.models.SceneSwitch;
 
-public class SellerGoods {
+public class AuthMainPage {
 
     @FXML
     private ResourceBundle resources;
@@ -33,43 +36,41 @@ public class SellerGoods {
     private URL location;
 
     @FXML
-    private TilePane listOfProducts;
-
-    @FXML
-    private Button createProduct;
-
-    @FXML
     private Group home;
 
     @FXML
-    private Circle userAvatar;
+    private TilePane listOfProducts;
+
+    @FXML
+    private VBox listOfCategories;
+
+    @FXML
+    private Button userAccount;
 
     @FXML
     private Button userBasket;
 
     @FXML
-    private Button userData;
+    private TextField userSearch;
 
     @FXML
-    private Button userLogOut;
+    private Font x1;
 
-    @FXML
-    private Button userOrders;
-
-    @FXML
-    private Button userSettings;
+    private final Scanner scanner = new Scanner(System.in);
 
     @FXML
     void initialize() {
-        assert createProduct != null : "fx:id=\"createProduct\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert listOfProducts != null : "fx:id=\"listOfProducts\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userData != null : "fx:id=\"userData\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userOrders != null : "fx:id=\"userOrders\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
+        assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'main_page.fxml'.";
+        assert listOfProducts != null : "fx:id=\"listOfProducts\" was not injected: check your FXML file 'main_page.fxml'.";
+        assert userAccount != null : "fx:id=\"userAccount\" was not injected: check your FXML file 'auth_main_page.fxml'.";
+        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'auth_main_page.fxml'.";
+        assert listOfCategories != null : "fx:id=\"listOfCategories\" was not injected: check your FXML file 'main_page.fxml'.";
+        assert userSearch != null : "fx:id=\"userSearch\" was not injected: check your FXML file 'main_page.fxml'.";
+        assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
+
+        TitledPane root = new TitledPane();
+
+        this.listOfCategories.getChildren().addAll(this.loadCategories(root));
 
         BackgroundImage addToCart = new BackgroundImage(
                 new Image("/assets/image/icons/add-to-cart.png"),
@@ -101,60 +102,17 @@ public class SellerGoods {
                 try {
                     new SceneSwitch().changeScene(event, "/fxml/shopping_cart.fxml");
                 } catch (IOException e) {
-                    throw new RuntimeException();
+                    throw new RuntimeException(e);
                 }
             }
         });
 
-        this.userData.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.userAccount.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                //TODO check user's status (buyer or seller)
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_data.fxml");
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.userOrders.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_orders.fxml");
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.createProduct.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_create_product.fxml");
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.userSettings.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_settings.fxml");
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.userLogOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new SceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_data.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -218,4 +176,25 @@ public class SellerGoods {
         return container;
     }
 
+    public Accordion loadCategories(TitledPane parent) {
+        Accordion accordion = new Accordion();
+        parent.setContent(accordion);
+        int k = 0;
+        if (k != 0) {
+            for (int i = 0; i < k; i++) {
+                TitledPane container = new TitledPane();
+                container.setText(parent.getText() + i + ".");
+                accordion.getPanes().add(container);
+                loadCategories(container);
+            }
+        } else {
+            TitledPane container = new TitledPane();
+            container.setText(parent.getText() + "leaf");
+            accordion.getPanes().add(container);
+        }
+        return accordion;
+    }
+
 }
+
+

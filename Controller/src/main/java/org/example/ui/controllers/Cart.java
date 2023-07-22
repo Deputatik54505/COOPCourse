@@ -94,7 +94,7 @@ public class Cart {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new SceneSwitch().changeScene(event, "/fxml/auth_main_page.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -102,6 +102,7 @@ public class Cart {
         });
 
         this.userAccount.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            //TODO check user's status (buyer or seller)
             @Override
             public void handle(MouseEvent event) {
                 try {
@@ -113,6 +114,7 @@ public class Cart {
         });
 
         this.UserSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            //TODO implement search in the basket
             @Override
             public void handle(KeyEvent event) {
                 if (event.getCode().equals(KeyCode.ENTER)) {
@@ -124,7 +126,7 @@ public class Cart {
         this.buyPurchase.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //validate place and card number
+                //TODO validate place and card number, remove from basket
             }
         });
 

@@ -65,7 +65,7 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new SceneSwitch().changeScene(event, "/fxml/auth_main_page.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -99,6 +99,18 @@ public class BuyerData {
             public void handle(MouseEvent event) {
                 try {
                     new SceneSwitch().changeScene(event, "/fxml/buyer_acc_settings.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
+            }
+        });
+
+        this.userLogOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                //TODO logged out the user
+                try {
+                    new SceneSwitch().changeScene(event, "/fxml/main_page.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
