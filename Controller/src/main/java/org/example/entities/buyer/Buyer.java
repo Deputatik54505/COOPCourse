@@ -15,6 +15,10 @@ public class Buyer {
         this.shoppingCart = new ShoppingCart();
     }
 
+    public boolean isExist() {
+        return this.user.userType.equals("Buyer");
+    }
+
     public void buyProduct(Product product) throws NotFoundException {
         this.shoppingCart.removePurchase(product);
         //TODO remove the product from BD

@@ -6,12 +6,18 @@ import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Group;
+import javafx.stage.Stage;
+import org.example.entities.buyer.Buyer;
+import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
 import org.example.ui.models.SceneSwitch;
 
@@ -95,9 +101,9 @@ public class LogIn {
 
                     String type;
                     if (userBuyer.isSelected()) {
-                        type = "buyer";
+                        type = "Buyer";
                     } else {
-                        type = "seller";
+                        type = "Seller";
                     }
 
                     User user = new User(
@@ -105,9 +111,27 @@ public class LogIn {
                             UserPassword.getText(),
                             type
                     );
+
                     user.selfRegistration(UserRepeatPassword.getText());
                     //TODO add the user to DB
-                    new SceneSwitch().changeScene(event, "/fxml/auth_main_page.fxml");
+
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    AuthMainPage authMainPage = loader.getController();
+                    if (userBuyer.isSelected()) {
+                        //TODO add the buyer to DB
+                        authMainPage.initBuyer(new Buyer(user));
+                    } else {
+                        //TODO add the seller to DB
+                        authMainPage.initSeller(new Seller(user));
+                    }
+
+                    Stage primaryStage = (Stage) BtnRegister.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
 
                 } catch (Exception e) {
                     System.out.println(e.toString());
@@ -123,6 +147,14 @@ public class LogIn {
             @Override
             public void handle(MouseEvent event) {
                 try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/sign_in_form.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Stage primaryStage = (Stage) UserSignIn.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                     new SceneSwitch().changeScene(event, "/fxml/sign_in_form.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();

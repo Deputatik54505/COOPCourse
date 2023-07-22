@@ -14,12 +14,12 @@ public class PassportVerification {
 
     public void verifyPassport(User user, String publisher, String code, String series, String number) throws Exception {
         this.validatePassport.validate(publisher, code, series, number);
-        new UserPassport(user).fillPassport(new Passport(
-                publisher,
-                code,
-                series,
-                number
-        ));
+//        new UserPassport(user).fillPassport(new Passport(
+//                publisher,
+//                code,
+//                series,
+//                number
+//        ));
     }
 
 }

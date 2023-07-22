@@ -2,32 +2,37 @@ package org.example.ui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-import java.util.Set;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
-import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+import org.example.entities.buyer.Buyer;
+import org.example.entities.seller.Seller;
+import org.example.entities.user.User;
 import org.example.ui.models.SceneSwitch;
 
 public class AuthMainPage {
+
+    private Buyer currBuyer;
+
+    private Seller currSeller;
 
     @FXML
     private ResourceBundle resources;
@@ -89,7 +94,21 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/auth_main_page.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    AuthMainPage authMainPage = loader.getController();
+                    if (currBuyer.isExist()) {
+                        authMainPage.initBuyer(currBuyer);
+                    } else if (currSeller.isExist()) {
+                        authMainPage.initSeller(currSeller);
+                    }
+
+                    Stage primaryStage = (Stage) home.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -100,7 +119,21 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/shopping_cart.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/shopping_cart.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Basket basket = loader.getController();
+                    if (currBuyer.isExist()) {
+                        basket.initBuyer(currBuyer);
+                    } else if (currSeller.isExist()) {
+                        basket.initSeller(currSeller);
+                    }
+
+                    Stage primaryStage = (Stage) userBasket.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -112,13 +145,46 @@ public class AuthMainPage {
             public void handle(MouseEvent event) {
                 //TODO check user's status (buyer or seller)
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_data.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    if (currBuyer.isExist()) {
+                        loader.setLocation(getClass().getResource("/fxml/buyer_acc_data.fxml"));
+                        Parent root = loader.load();
+                        Scene newScene = new Scene(root);
+
+                        BuyerData buyerData = loader.getController();
+                        buyerData.initBuyer(currBuyer);
+
+                        Stage primaryStage = (Stage) home.getScene().getWindow();
+                        primaryStage.setScene(newScene);
+                        primaryStage.show();
+                    } else if (currSeller.isExist()) {
+                        loader.setLocation(getClass().getResource("/fxml/seller_acc_data.fxml"));
+                        Parent root = loader.load();
+                        Scene newScene = new Scene(root);
+
+                        SellerData sellerData = loader.getController();
+                        sellerData.initSeller(currSeller);
+
+                        Stage primaryStage = (Stage) userAccount.getScene().getWindow();
+                        primaryStage.setScene(newScene);
+                        primaryStage.show();
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
             }
         });
 
+    }
+
+    public void initBuyer(Buyer buyer) {
+        this.currBuyer = buyer;
+        this.currSeller = new Seller(new User("", "", "None"));
+    }
+
+    public void initSeller(Seller seller) {
+        this.currBuyer = new Buyer(new User("", "", "None"));
+        this.currSeller = seller;
     }
 
     public VBox loadProduct(int i, BackgroundImage addToCart) {

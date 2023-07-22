@@ -6,15 +6,22 @@ import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import org.example.entities.seller.Seller;
 import org.example.ui.models.SceneSwitch;
 
 public class SellerData {
+
+    private Seller currSeller;
 
     @FXML
     private ResourceBundle resources;
@@ -81,7 +88,19 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/auth_main_page.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    AuthMainPage authMainPage = loader.getController();
+                    if (currSeller.isExist()) {
+                        authMainPage.initSeller(currSeller);
+                    }
+
+                    Stage primaryStage = (Stage) home.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -92,7 +111,19 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/shopping_cart.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/shopping_cart.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Basket basket = loader.getController();
+                    if (currSeller.isExist()) {
+                        basket.initSeller(currSeller);
+                    }
+
+                    Stage primaryStage = (Stage) userBasket.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -103,7 +134,19 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_goods.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/seller_acc_goods.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    SellerGoods sellerGoods = loader.getController();
+                    if (currSeller.isExist()) {
+                        sellerGoods.initSeller(currSeller);
+                    }
+
+                    Stage primaryStage = (Stage) userGoods.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -114,7 +157,19 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_orders.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/seller_acc_orders.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    SellerOrders sellerOrders = loader.getController();
+                    if (currSeller.isExist()) {
+                        sellerOrders.initSeller(currSeller);
+                    }
+
+                    Stage primaryStage = (Stage) userOrders.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -125,7 +180,19 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_create_product.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/seller_create_product.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    SellerProduct sellerProduct = loader.getController();
+                    if (currSeller.isExist()) {
+                        sellerProduct.initSeller(currSeller);
+                    }
+
+                    Stage primaryStage = (Stage) createProduct.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -136,7 +203,19 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/seller_acc_settings.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/seller_acc_settings.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    SellerSettings sellerSettings = loader.getController();
+                    if (currSeller.isExist()) {
+                        sellerSettings.initSeller(currSeller);
+                    }
+
+                    Stage primaryStage = (Stage) userSettings.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -147,13 +226,23 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/main_page.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Stage primaryStage = (Stage) userLogOut.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
             }
         });
+    }
 
+    public void initSeller(Seller seller) {
+        this.currSeller = seller;
     }
 
 }

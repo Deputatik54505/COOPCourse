@@ -9,7 +9,7 @@ public class User {
 
     private final String userPassword;
 
-    private final String userType;
+    public final String userType;
 
     public User(String mail, String password, String type) {
         this.userMail = mail;
