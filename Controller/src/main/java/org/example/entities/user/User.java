@@ -21,7 +21,7 @@ public class User {
         new LogVerification().verifyUser(this.userMail, this.userPassword, repeatPassword);
     }
 
-    public void selfAuthorization() {
+    public void selfAuthorization() throws Exception {
         new SignVerification().verifyUser(this.userMail, this.userPassword);
     }
 
