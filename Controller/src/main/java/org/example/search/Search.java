@@ -1,40 +1,37 @@
 package org.example.search;
 
+import org.example.entities.product.IProductCategory;
 import org.example.entities.product.Product;
-import org.example.tables.ProductsMain;
+import org.example.entities.product.ProductCategory;
 import org.example.validation.exceptions.NotFoundException;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Search {
-    private final ProductsMain productsMain;
 
-    private final ArrayList<Product> foundProducts;
-
-    private ArrayList<Product> products;
-
-    private Product product;
+    private final IProductCategory productCategory;
+    private Collection<Product> products;
 
     public Search() {
-        this.foundProducts = new ArrayList<>();
-        this.productsMain = new ProductsMain();
         this.products = new ArrayList<>();
+        productCategory = new ProductCategory(1);
     }
 
-    public void initSearch() throws NotFoundException {
-        this.products = this.productsMain.loadProducts();
+    public void initSearch() {
+        this.products = productCategory.getProducts();
     }
 
     public ArrayList<Product> search(String str) throws NotFoundException {
+        var suitableProducts = new ArrayList<Product>();
         for (Product value : this.products) {
-            this.product = value;
-            if (product.data.hasWord(str)) {
-                this.foundProducts.add(this.product);
+            if (value.data.hasWord(str)) {
+                suitableProducts.add(value);
             }
         }
-        if (this.foundProducts.size() == 0) {
+        if (suitableProducts.size() == 0) {
             throw new NotFoundException();
         }
-        return this.foundProducts;
+        return suitableProducts;
     }
 }

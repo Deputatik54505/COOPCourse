@@ -17,15 +17,15 @@ public class Product {
     }
 
 
-    public void loadById() {
+    public void load() {
         try (ResultSet resultSet = query.executeQuery(
                 String.format("SELECT * FROM product WHERE id=%d;", id))) {
             if (resultSet.next()) {
                 var price = resultSet.getFloat("price");
                 var name = resultSet.getString("name");
                 var description = resultSet.getString("description");
-
-                data = new ProductData(name, description, price);
+                var available = resultSet.getInt("available");
+                data = new ProductData(name, description, price, available);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -41,8 +41,36 @@ public class Product {
         }
     }
 
+    /**
+     * Increases or decreases number of available products
+     *
+     * @param numberOfProducts positive or negative integer
+     *                         which is representing number of added amount of products.
+     */
+    public void addAmount(int numberOfProducts) {
+        if (numberOfProducts == 0)
+            throw new IllegalArgumentException("It is impossible to add 0 products");
+        if (!data.isAvailable(-numberOfProducts))
+            throw new IllegalArgumentException(String.format(
+                    "Current amount of products is less then %d", numberOfProducts));
+
+        var currentData = data.represent();
+        var available = Integer.parseInt(currentData.get(3)) + numberOfProducts;
+        this.data = new ProductData(currentData.get(0),
+                currentData.get(1),
+                Float.parseFloat(currentData.get(2)),
+                available);
+        query.executeQuery(
+                String.format("update product set available=%d where id=%d;", available, id));
+
+    }
+
     public boolean editPrice(float price) {
-        this.data = new ProductData(data.represent().get(0), data.represent().get(1), price);
+        var currentData = data.represent();
+        this.data = new ProductData(currentData.get(0),
+                currentData.get(1),
+                price,
+                Integer.parseInt(currentData.get(3)));
         try (var resultSet = query.executeQuery(
                 String.format("update product set price=%f where id=%d;", price, id))) {
             return resultSet.isLast();
@@ -52,8 +80,11 @@ public class Product {
     }
 
     public boolean editDescription(String description) {
-        this.data = new ProductData(data.represent().get(0), description,
-                Float.parseFloat(data.represent().get(2)));
+        var currentData = data.represent();
+        this.data = new ProductData(currentData.get(0),
+                description,
+                Float.parseFloat(currentData.get(2)),
+                Integer.parseInt(currentData.get(3)));
         try (var resultSet = query.executeQuery(
                 String.format("update product set description=%s where id=%d;", description, id))) {
             return resultSet.isLast();
