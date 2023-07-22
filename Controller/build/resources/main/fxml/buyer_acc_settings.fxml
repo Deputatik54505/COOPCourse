@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.BuyerSettings">
+    <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
+        <Group fx:id="home">
+            <HBox.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+            </HBox.margin>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <ImageView blendMode="DIFFERENCE" fitHeight="32.0" fitWidth="32.0" layoutX="-2.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../assets/image/logo.jpg" />
+            </ImageView>
+            <Label layoutX="32.0" layoutY="1.0" text="Useless Shop" textAlignment="CENTER" textFill="#aee1f2" wrapText="true">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+                <padding>
+                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                </padding>
+            </Label>
+        </Group>
+        <Pane HBox.hgrow="ALWAYS" />
+        <TilePane alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefTileWidth="100.0">
+            <HBox.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+            </HBox.margin>
+            <Button fx:id="userBasket" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: node;" text="Basket" textFill="#aee1f2" wrapText="true">
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Button>
+            <Button focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: #aee1f2; -fx-background-radius: 16;" text="Account" textFill="#444444" wrapText="true">
+                <cursor>
+                    <Cursor fx:constant="DEFAULT" />
+                </cursor>
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Button>
+        </TilePane>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="558.0" style="-fx-background-color: #d7f5ff;" VBox.vgrow="ALWAYS">
+        <SplitPane dividerPositions="0.2294589178356713" prefHeight="600.0" prefWidth="1400.0" style="-fx-background-color: none;">
+            <HBox.margin>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </HBox.margin>
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity" minWidth="-Infinity">
+                <AnchorPane prefHeight="532.0" prefWidth="200.0" style="-fx-background-color: #4759a3;">
+                    <VBox layoutX="7.0" layoutY="7.0" prefHeight="484.0" prefWidth="186.0">
+                        <Circle fx:id="userAvatar" fill="#1f93ff" radius="93.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="pane">
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </Circle>
+                        <VBox prefWidth="100.0">
+                            <Button fx:id="userData" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Data" textFill="#444444">
+                                <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="12.0" />
+                                </VBox.margin>
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Button>
+                            <Button fx:id="basketFavourites" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Favourites" textFill="#444444">
+                                <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                </VBox.margin>
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Button>
+                            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Settings" textFill="#444444">
+                                <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                </VBox.margin>
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                                <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                </cursor>
+                        <effect>
+                           <DropShadow height="37.0" offsetX="5.0" offsetY="5.0" radius="18.0" width="37.0">
+                              <color>
+                                 <Color red="0.2666666805744171" green="0.2666666805744171" blue="0.2666666805744171" />
+                              </color>
+                           </DropShadow>
+                        </effect>
+                            </Button>
+                            <Pane maxHeight="-Infinity" prefHeight="150.0" prefWidth="200.0" />
+                            <Button fx:id="userLogOut" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: f28500; -fx-background-radius: 12;" text="Log out" textFill="#4759a3">
+                                <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                </VBox.margin>
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Button>
+                        </VBox>
+                    </VBox>
+                </AnchorPane>
+            </ScrollPane>
+            <SplitPane dividerPositions="0.061806656101426306" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #75cdbf;">
+                    <Label text="Settings" textFill="#444444">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="577.0">
+                    <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0" style="-fx-background-color: #c4eaf7;">
+                        <TilePane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" prefHeight="100.0" prefWidth="663.0" vgap="20.0">
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change name" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="New name">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <Button fx:id="confirmName" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                                </Button>
+                            </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change surname" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="New surname">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <Button fx:id="confirmSurname" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                                </Button>
+                            </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change date of birth" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <DatePicker maxWidth="1.7976931348623157E308" prefWidth="176.0" promptText="New date of birth">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </DatePicker>
+                                <Button fx:id="confirmDateBirth" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                                </Button>
+                            </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change mail" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="New mail">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <Button fx:id="confirmMail" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                                </Button>
+                            </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change password" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="Old password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField maxWidth="1.7976931348623157E308" promptText="New password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </PasswordField>
+                                <Button fx:id="confirmPassword" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                                </Button>
+                            </VBox>
+                        </TilePane>
+                    </VBox>
+                </ScrollPane>
+            </SplitPane>
+        </SplitPane>
+    </HBox>
+    <HBox id="HBox" alignment="CENTER" prefHeight="66.0" spacing="5.0" style="-fx-background-color: #444444;" VBox.vgrow="NEVER">
+        <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+        </padding>
+        <Label text="Copyright" textFill="#aee1f2">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+    </HBox>
+</VBox>
