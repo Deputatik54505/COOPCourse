@@ -1,11 +1,9 @@
 package org.example.validation.userdata;
 
-import org.example.validation.Request;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Data extends Request {
+public class Data {
     private final String name;
 
     private final String surname;
@@ -18,7 +16,7 @@ public class Data extends Request {
         this.birth = birth;
     }
 
-    public ArrayList<String> represent() {
+    public ArrayList<String> provideData() {
         return new ArrayList<>(Arrays.asList(
                 this.name,
                 this.surname,
@@ -26,19 +24,11 @@ public class Data extends Request {
         ));
     }
 
-    @Override
-    protected boolean isSuitableLength(int[] args) {
-        return
-                this.name.length() <= args[DataFields.NAME.ordinal()] &&
-                this.surname.length() <= args[DataFields.SURNAME.ordinal()] &&
-                this.birth.length() <= args[DataFields.BIRTH.ordinal()];
-    }
-
-    @Override
-    protected boolean isValidInput() {
-        return
-                new DataName(this).isValid() &&
-                new DataSurname(this).isValid() &&
-                new DataBirth(this).isValid();
+    public boolean isSuitableLength() {
+        return this.name.length() >= DataFields.MIN_NAME.requiredLen &&
+                this.name.length() <= DataFields.MAX_NAME.requiredLen &&
+                this.surname.length() >= DataFields.MIN_SURNAME.requiredLen &&
+                this.surname.length() <= DataFields.MAX_SURNAME.requiredLen &&
+                this.birth.length() == DataFields.BIRTH.requiredLen;
     }
 }

@@ -15,9 +15,9 @@ public class DataBirth {
         this.counter = 0;
     }
 
-    public boolean isValid() {
+    public boolean isValidInput() {
         return
-                splitBirth(this.data.represent().get(DataFields.BIRTH.ordinal())) &&
+                splitBirth(this.data.provideData().get(DataFields.BIRTH.ordinal())) &&
                 isNum(this.ddmmyyyy.get(DMY.DAY.ordinal())) &&
                 isNum(this.ddmmyyyy.get(DMY.MONTH.ordinal())) &&
                 isNum(this.ddmmyyyy.get(DMY.YEAR.ordinal()));
@@ -34,7 +34,7 @@ public class DataBirth {
 
     private boolean splitBirth(String birth) {
         for (int i = 0; i < birth.length(); i++) {
-            if (birth.charAt(i) == '/') {
+            if (birth.charAt(i) == '.') {
                 this.counter++;
             }
         }
@@ -43,7 +43,7 @@ public class DataBirth {
         }
         this.counter = 0;
         for (int i = 0; i < birth.length(); i++) {
-            while (birth.charAt(i) != '/') {
+            while (birth.charAt(i) != '.') {
                 this.ddmmyyyy.set(this.counter, this.ddmmyyyy.get(this.counter) + birth.charAt(i));
                 i++;
             }

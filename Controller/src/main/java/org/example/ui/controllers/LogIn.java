@@ -11,9 +11,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.example.forms.log.FLogIn;
 import javafx.scene.Group;
-import org.example.tables.Users;
+import org.example.entities.user.User;
 import org.example.ui.models.SceneSwitch;
 
 public class LogIn {
@@ -59,6 +58,9 @@ public class LogIn {
         assert userBuyer != null : "fx:id=\"userBuyer\" was not injected: check your FXML file 'log_in_form.fxml'.";
         assert userSeller != null : "fx:id=\"userSeller\" was not injected: check your FXML file 'log_in_form.fxml'.";
 
+        this.userBuyer.setSelected(true);
+        this.userSeller.setSelected(false);
+
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -73,40 +75,38 @@ public class LogIn {
         this.userBuyer.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (userBuyer.isSelected()) {
-                    userBuyer.setSelected(false);
-                } else {
-                    userBuyer.setSelected(true);
-                    userSeller.setSelected(false);
-                }
+                userBuyer.setSelected(true);
+                userSeller.setSelected(false);
             }
         });
 
         this.userSeller.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (userSeller.isSelected()) {
-                    userSeller.setSelected(false);
-                } else {
-                    userBuyer.setSelected(false);
-                    userSeller.setSelected(true);
-                }
+                userBuyer.setSelected(false);
+                userSeller.setSelected(true);
             }
         });
 
         this.BtnRegister.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO replace Users to table in the DB
                 try {
-                    FLogIn fLogIn = new FLogIn(new Users());
 
-                    fLogIn.verify(
+                    String type;
+                    if (userBuyer.isSelected()) {
+                        type = "buyer";
+                    } else {
+                        type = "seller";
+                    }
+
+                    User user = new User(
                             UserMail.getText(),
                             UserPassword.getText(),
-                            UserRepeatPassword.getText()
+                            type
                     );
-
+                    user.selfRegistration(UserRepeatPassword.getText());
+                    //TODO add the user to DB
                     new SceneSwitch().changeScene(event, "/fxml/auth_main_page.fxml");
 
                 } catch (Exception e) {

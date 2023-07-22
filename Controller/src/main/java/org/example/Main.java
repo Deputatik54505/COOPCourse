@@ -5,19 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
-    public static void main(String[] args) {
-        launch();
+import java.util.Scanner;
 
-//        //Form: add passport
-//        FPassport fPassport = new FPassport(particularUser);
-//        fPassport.verify(scanner);
-//
-//        //Form: add user data (name, surname, date of birth)
-//        FData fData = new FData(particularUser);
-//        fData.verify(scanner);
-//
-//        fLogIn.verify(scanner);
+public class Main extends Application {
+    public static void main(String[] args) throws Exception {
+        launch();
     }
 
     @Override

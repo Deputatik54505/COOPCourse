@@ -8,9 +8,9 @@ public class NumPassword {
     }
 
     public boolean isNum() {
-        for (int i = 0; i < this.password.password.length(); i++) {
-            if (this.password.password.charAt(i) >= '0' &&
-                    this.password.password.charAt(i) <= '9') {
+        for (int i = 0; i < this.password.userPassword.length(); i++) {
+            if (this.password.userPassword.charAt(i) >= '0' &&
+                    this.password.userPassword.charAt(i) <= '9') {
                 return true;
             }
         }

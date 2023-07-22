@@ -3,20 +3,20 @@ package org.example.validation.mail;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SyntacticValidation {
-    private final String mail;
+public class SyntacticMail {
+    private final Mail mail;
 
     private Pattern pattern;
 
     private Matcher matcher;
 
-    public SyntacticValidation(String mail) {
+    public SyntacticMail(Mail mail) {
         this.mail = mail;
     }
 
-    public boolean validation() {
+    public boolean isValidInput() {
         this.pattern = Pattern.compile("[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+");
-        this.matcher = pattern.matcher(this.mail);
+        this.matcher = pattern.matcher(this.mail.userMail);
         return this.matcher.find();
     }
 }

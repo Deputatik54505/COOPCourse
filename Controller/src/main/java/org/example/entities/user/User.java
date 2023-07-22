@@ -1,31 +1,32 @@
 package org.example.entities.user;
 
-import org.example.entities.account.Account;
-import org.example.validation.exceptions.NotFoundException;
+import org.example.forms.log.LogVerification;
+import org.example.forms.sign.SignVerification;
 import org.example.validation.exceptions.UnequalException;
 
 public class User {
-    private final String mail;
+    private final String userMail;
 
-    private final String password;
+    private final String userPassword;
 
-    protected Account account;
+    private final String userType;
 
-    public User(String uMail, String uPass) {
-        this.mail = uMail;
-        this.password = uPass;
-        this.account = new Account();
+    public User(String mail, String password, String type) {
+        this.userMail = mail;
+        this.userPassword = password;
+        this.userType = type;
     }
 
-    public boolean isFind(String mail) throws NotFoundException {
-        if (this.mail.equals(mail)) {
-            return true;
-        }
-        throw new NotFoundException();
+    public void selfRegistration(String repeatPassword) throws Exception {
+        new LogVerification().verifyUser(this.userMail, this.userPassword, repeatPassword);
+    }
+
+    public void selfAuthorization() throws Exception {
+        new SignVerification().verifyUser(this.userMail, this.userPassword);
     }
 
     public void isEqual(String pass) throws UnequalException {
-        if (this.password.equals(pass)) {
+        if (this.userPassword.equals(pass)) {
             return;
         }
         throw new UnequalException();

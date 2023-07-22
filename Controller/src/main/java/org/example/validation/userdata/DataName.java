@@ -9,8 +9,8 @@ public class DataName {
         this.data = data;
     }
 
-    public boolean isValid() {
-        this.name = this.data.represent().get(DataFields.NAME.ordinal());
+    public boolean isValidInput() {
+        this.name = this.data.provideData().get(DataFields.MIN_NAME.ordinal());
         for (int i = 0; i < this.name.length(); i++) {
             if (!(
                     (this.name.charAt(i) >= 'a' &&

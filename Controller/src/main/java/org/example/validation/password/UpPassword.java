@@ -8,9 +8,9 @@ public class UpPassword {
     }
 
     public boolean isUpLetter() {
-        for (int i = 0; i < this.password.password.length(); i++) {
-            if (this.password.password.charAt(i) >= 'A' &&
-                    this.password.password.charAt(i) <= 'Z') {
+        for (int i = 0; i < this.password.userPassword.length(); i++) {
+            if (this.password.userPassword.charAt(i) >= 'A' &&
+                    this.password.userPassword.charAt(i) <= 'Z') {
                 return true;
             }
         }

@@ -9,7 +9,7 @@ public class UserData {
         this.user = user;
     }
 
-    public void fillData(Data data) {
-        this.user.account = this.user.account.withData(data);
-    }
+//    public void fillData(Data data) {
+//        this.user.account = this.user.account.withData(data);
+//    }
 }

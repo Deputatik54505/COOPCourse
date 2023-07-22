@@ -10,12 +10,10 @@ public class PassportSN {
         this.number = number;
     }
 
-    public String printData() {
-        return this.series + "&" + this.number;
-    }
-
-    public boolean checkLen(int len) {
-        return (this.series.length() + this.number.length()) == len;
+    public boolean checkLen() {
+        return
+                this.series.length() == PassportFields.SERIES.requiredLen &&
+                this.number.length() == PassportFields.NUMBER.requiredLen;
     }
 
     public boolean validate() {

@@ -1,38 +1,45 @@
 package org.example.validation.mail;
 
-import org.example.tables.Users;
-import org.example.validation.Request;
+public class Mail {
+    protected final String userMail;
 
-public class Mail extends Request {
-    private final String mail;
+    private int localPart;
 
-    private final Users users;
+    private int domenPart;
 
-    private final SyntacticValidation syntacticValidation;
 
-    public Mail(String mail, Users users) {
-        this.mail = mail;
-        this.users = users;
-        this.syntacticValidation = new SyntacticValidation(mail);
-        this.length = mail.length();
+    public Mail(String mail) {
+        this.userMail = mail;
+        this.localPart = 0;
+        this.domenPart = 0;
     }
 
-    @Override
-    protected boolean isSuitableLength(int[] args) {
-        return this.length >= args[0];
+    public boolean isSuitableLength() {
+        this.localPartLen();
+        this.domenPartLen();
+
+        return
+                this.localPart >= MailFields.MIN_LOCAL_PART.requiredLen &&
+                this.localPart <= MailFields.MAX_LOCAL_PART.requiredLen &&
+                this.domenPart >= MailFields.MIN_DOMEN_PART.requiredLen &&
+                this.domenPart <= MailFields.MAX_DOMEN_PART.requiredLen;
     }
 
-    @Override
-    protected boolean isValidInput() {
-        return this.syntacticValidation.validation();
+    private void localPartLen() {
+        for (int i = 0; i < this.userMail.length(); i++) {
+            if (this.userMail.charAt(i) == '@') {
+                break;
+            }
+            this.localPart++;
+        }
     }
 
-    public boolean isUnique() {
-        try {
-            this.users.findUser(this.mail);
-            return false;
-        } catch (Exception e) {
-            return true;
+    private void domenPartLen() {
+        for (int i = this.userMail.length() - 1; i >= 0; i--) {
+            if (this.userMail.charAt(i) == '@') {
+                break;
+            }
+            this.domenPart++;
         }
     }
 }
