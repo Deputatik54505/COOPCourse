@@ -18,7 +18,7 @@ public class Data extends Request {
         this.birth = birth;
     }
 
-    public ArrayList<String> print() {
+    public ArrayList<String> represent() {
         return new ArrayList<>(Arrays.asList(
                 this.name,
                 this.surname,

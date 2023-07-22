@@ -10,7 +10,7 @@ public class DataSurname {
     }
 
     public boolean isValid() {
-        this.surname = this.data.print().get(DataFields.SURNAME.ordinal());
+        this.surname = this.data.represent().get(DataFields.SURNAME.ordinal());
         for (int i = 0; i < this.surname.length(); i++) {
             if (!(
                     (this.surname.charAt(i) >= 'a' &&

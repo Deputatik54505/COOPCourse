@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class DataBirth {
     private final Data data;
 
-    private ArrayList<String> ddmmyyyy;
+    private final ArrayList<String> ddmmyyyy;
 
     private int counter;
 
@@ -17,7 +17,7 @@ public class DataBirth {
 
     public boolean isValid() {
         return
-                splitBirth(this.data.print().get(DataFields.BIRTH.ordinal())) &&
+                splitBirth(this.data.represent().get(DataFields.BIRTH.ordinal())) &&
                 isNum(this.ddmmyyyy.get(DMY.DAY.ordinal())) &&
                 isNum(this.ddmmyyyy.get(DMY.MONTH.ordinal())) &&
                 isNum(this.ddmmyyyy.get(DMY.YEAR.ordinal()));
