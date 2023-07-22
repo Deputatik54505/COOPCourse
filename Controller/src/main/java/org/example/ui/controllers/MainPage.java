@@ -70,10 +70,18 @@ public class MainPage {
 
         TitledPane root = new TitledPane();
 
-        this.listOfCategories.getChildren().addAll(this.addCategories(root));
+        this.listOfCategories.getChildren().addAll(this.loadCategories(root));
+
+        BackgroundImage addToCart = new BackgroundImage(
+                new Image("/assets/image/icons/add-to-cart.png"),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT
+        );
 
         for (int i = 0; i < 20; i++) {
-            VBox product = this.addProduct(i);
+            VBox product = this.loadProduct(i, addToCart);
             this.listOfProducts.getChildren().add(product);
         }
 
@@ -112,7 +120,7 @@ public class MainPage {
 
     }
 
-    public VBox addProduct(int i) {
+    public VBox loadProduct(int i, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
                 new Image("/assets/image/logo.jpg"), //BD
                 BackgroundRepeat.NO_REPEAT,
@@ -121,10 +129,12 @@ public class MainPage {
                 new BackgroundSize(1.0, 1.0, true, true, false, false)
         );
 
-        Image image = new Image("/assets/image/icons/add-to-cart.png");
-        ImageView addToCart = new ImageView(image);
-        addToCart.setCursor(Cursor.HAND);
-        addToCart.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        Button add = new Button();
+        add.setPrefSize(32.0, 32.0);
+        add.setBackground(new Background(addToCart));
+        add.setCursor(Cursor.HAND);
+
+        add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 //TODO add to User's shopping cart
@@ -158,23 +168,23 @@ public class MainPage {
         costContainer.setAlignment(Pos.CENTER);
 
         costContainer.getChildren().addAll(cost);
-        bottom.getChildren().addAll(costContainer, hDivider, addToCart);
+        bottom.getChildren().addAll(costContainer, hDivider, add);
         container.getChildren().addAll(title, vDivider, bottom);
         container.setBackground(new Background(backgroundImage));
 
         return container;
     }
 
-    public Accordion addCategories(TitledPane parent) {
+    public Accordion loadCategories(TitledPane parent) {
         Accordion accordion = new Accordion();
         parent.setContent(accordion);
-        int k = Integer.parseInt(scanner.nextLine());
+        int k = 0;
         if (k != 0) {
             for (int i = 0; i < k; i++) {
                 TitledPane container = new TitledPane();
                 container.setText(parent.getText() + i + ".");
                 accordion.getPanes().add(container);
-                addCategories(container);
+                loadCategories(container);
             }
         } else {
             TitledPane container = new TitledPane();
