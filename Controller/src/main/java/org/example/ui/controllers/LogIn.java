@@ -107,7 +107,7 @@ public class LogIn {
                             UserRepeatPassword.getText()
                     );
 
-                    new SceneSwitch().changeScene(event, "/fxml/main_page_authorized.fxml");
+                    new SceneSwitch().changeScene(event, "/fxml/auth_main_page.fxml");
 
                 } catch (Exception e) {
                     System.out.println(e.toString());
