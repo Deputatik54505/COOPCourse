@@ -4,7 +4,9 @@ import org.example.database.IQuery;
 import org.example.database.Query;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class ProductCategory extends IProductCategory {
@@ -16,7 +18,7 @@ public class ProductCategory extends IProductCategory {
         query = new Query();
     }
 
-    public void loadById() {
+    public void load() {
         try (var resultSet = query.executeQuery(String.format("SELECT * FROM Category WHERE id=%d", id))) {
 
             if (!resultSet.next())
@@ -41,6 +43,30 @@ public class ProductCategory extends IProductCategory {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public Collection<Product> getProducts() {
+        var ids = hierarchy.allSubcategoryIds();
+        StringBuilder queryBuilder = new StringBuilder("SELECT id FROM Product WHERE \"categoryId\" in (");
+        for (int id : ids){
+            queryBuilder.append(id);
+            queryBuilder.append(",");
+        }
+        queryBuilder.deleteCharAt(queryBuilder.lastIndexOf(","));
+        queryBuilder.append(");");
+
+        Collection<Product> products = new ArrayList<>();
+        try (var resultSet = query.executeQuery(queryBuilder.toString())){
+            while (resultSet.next()){
+                var product = new Product(resultSet.getInt("id"));
+                product.load();
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return products;
     }
 
 
