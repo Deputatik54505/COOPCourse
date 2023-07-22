@@ -106,6 +106,7 @@ public class LogIn {
                         type = "Seller";
                     }
 
+
                     User user = new User(
                             UserMail.getText(),
                             UserPassword.getText(),
