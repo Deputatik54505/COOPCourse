@@ -2,30 +2,23 @@ package org.example.ui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-import java.util.Set;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Stage;
-import org.example.ui.models.SceneSwitch;
+import org.example.ui.models.DefaultSceneSwitch;
 
 public class MainPage {
 
@@ -89,14 +82,7 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/main_page.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    Stage primaryStage = (Stage) home.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
+                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -107,14 +93,7 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/log_in_form.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    Stage primaryStage = (Stage) userLogIn.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
+                    new DefaultSceneSwitch().changeScene(event, "/fxml/log_in_form.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -125,14 +104,7 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/sign_in_form.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    Stage primaryStage = (Stage) userSignIn.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
+                    new DefaultSceneSwitch().changeScene(event, "/fxml/sign_in_form.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
-import org.example.ui.models.SceneSwitch;
+import org.example.ui.models.DefaultSceneSwitch;
 
 public class LogIn {
 
@@ -30,22 +30,22 @@ public class LogIn {
     private URL location;
 
     @FXML
-    private Button BtnRegister;
+    private Button btnRegister;
 
     @FXML
-    private TextField UserMail;
+    private TextField userMail;
 
     @FXML
-    private PasswordField UserPassword;
+    private PasswordField userPassword;
 
     @FXML
-    private PasswordField UserRepeatPassword;
+    private PasswordField userRepeatPassword;
 
     @FXML
     private Group home;
 
     @FXML
-    private Button UserSignIn;
+    private Button userSignIn;
 
     @FXML
     private RadioButton userBuyer;
@@ -55,11 +55,11 @@ public class LogIn {
 
     @FXML
     void initialize() {
-        assert BtnRegister != null : "fx:id=\"BtnRegister\" was not injected: check your FXML file 'log_in_form.fxml'.";
-        assert UserMail != null : "fx:id=\"UserMail\" was not injected: check your FXML file 'log_in_form.fxml'.";
-        assert UserPassword != null : "fx:id=\"UserPassword\" was not injected: check your FXML file 'log_in_form.fxml'.";
-        assert UserRepeatPassword != null : "fx:id=\"UserRepeatPassword\" was not injected: check your FXML file 'log_in_form.fxml'.";
-        assert UserSignIn != null : "fx:id=\"UserSignIn\" was not injected: check your FXML file 'log_in_form.fxml'.";
+        assert btnRegister != null : "fx:id=\"btnRegister\" was not injected: check your FXML file 'log_in_form.fxml'.";
+        assert userMail != null : "fx:id=\"userMail\" was not injected: check your FXML file 'log_in_form.fxml'.";
+        assert userPassword != null : "fx:id=\"userPassword\" was not injected: check your FXML file 'log_in_form.fxml'.";
+        assert userRepeatPassword != null : "fx:id=\"userRepeatPassword\" was not injected: check your FXML file 'log_in_form.fxml'.";
+        assert userSignIn != null : "fx:id=\"userSignIn\" was not injected: check your FXML file 'log_in_form.fxml'.";
         assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'log_in_form.fxml'.";
         assert userBuyer != null : "fx:id=\"userBuyer\" was not injected: check your FXML file 'log_in_form.fxml'.";
         assert userSeller != null : "fx:id=\"userSeller\" was not injected: check your FXML file 'log_in_form.fxml'.";
@@ -71,7 +71,7 @@ public class LogIn {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -94,7 +94,7 @@ public class LogIn {
             }
         });
 
-        this.BtnRegister.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.btnRegister.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 try {
@@ -108,12 +108,12 @@ public class LogIn {
 
 
                     User user = new User(
-                            UserMail.getText(),
-                            UserPassword.getText(),
+                            userMail.getText(),
+                            userPassword.getText(),
                             type
                     );
 
-                    user.selfRegistration(UserRepeatPassword.getText());
+                    user.selfRegistration(userRepeatPassword.getText());
                     //TODO add the user to DB
 
                     FXMLLoader loader = new FXMLLoader();
@@ -130,33 +130,25 @@ public class LogIn {
                         authMainPage.initSeller(new Seller(user));
                     }
 
-                    Stage primaryStage = (Stage) BtnRegister.getScene().getWindow();
+                    Stage primaryStage = (Stage) btnRegister.getScene().getWindow();
                     primaryStage.setScene(newScene);
                     primaryStage.show();
 
                 } catch (Exception e) {
                     System.out.println(e.toString());
                 } finally {
-                    UserMail.clear();
-                    UserPassword.clear();
-                    UserRepeatPassword.clear();
+                    userMail.clear();
+                    userPassword.clear();
+                    userRepeatPassword.clear();
                 }
             }
         });
 
-        this.UserSignIn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.userSignIn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/sign_in_form.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    Stage primaryStage = (Stage) UserSignIn.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
-                    new SceneSwitch().changeScene(event, "/fxml/sign_in_form.fxml");
+                    new DefaultSceneSwitch().changeScene(event, "/fxml/sign_in_form.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

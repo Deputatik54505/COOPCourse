@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
-import org.example.ui.models.SceneSwitch;
+import org.example.ui.models.*;
 
 public class BuyerSettings {
 
@@ -73,19 +73,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    AuthMainPage authMainPage = loader.getController();
-                    if (currBuyer.isExist()) {
-                        authMainPage.initBuyer(currBuyer);
-                    }
-
-                    Stage primaryStage = (Stage) home.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
+                    new BuyerHomeSwitch().changeScene(currBuyer, event);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -96,19 +84,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/shopping_cart.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    Basket basket = loader.getController();
-                    if (currBuyer.isExist()) {
-                        basket.initBuyer(currBuyer);
-                    }
-
-                    Stage primaryStage = (Stage) userBasket.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
+                    new BuyerBasketSwitch().changeScene(currBuyer, event);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -119,19 +95,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/buyer_acc_data.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    BuyerData buyerData = loader.getController();
-                    if (currBuyer.isExist()) {
-                        buyerData.initBuyer(currBuyer);
-                    }
-
-                    Stage primaryStage = (Stage) userData.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
+                    new BuyerDataSwitch().changeScene(currBuyer, event);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -142,19 +106,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/buyer_acc_favourites.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    BuyerFavourites buyerFavourites = loader.getController();
-                    if (currBuyer.isExist()) {
-                        buyerFavourites.initBuyer(currBuyer);
-                    }
-
-                    Stage primaryStage = (Stage) basketFavourites.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
+                    new BuyerFavouritesSwitch().changeScene(currBuyer, event);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -165,14 +117,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/main_page.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    Stage primaryStage = (Stage) userLogOut.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
+                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

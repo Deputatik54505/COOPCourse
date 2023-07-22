@@ -53,7 +53,7 @@
                     <Font name="System Bold" size="16.0" />
                 </font>
             </Button>
-            <Button fx:id="UserLogIn" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: none;" text="Log in" textFill="#aee1f2" wrapText="true">
+            <Button fx:id="userLogIn" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: none;" text="Log in" textFill="#aee1f2" wrapText="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
@@ -83,7 +83,7 @@
                             <Font name="System Bold" size="14.0" />
                         </font>
                     </Label>
-                    <TextField fx:id="UserMail" promptText="mail" />
+                    <TextField fx:id="userMail" promptText="mail" />
                 </VBox>
                 <VBox>
                     <VBox.margin>
@@ -94,9 +94,9 @@
                             <Font name="System Bold" size="14.0" />
                         </font>
                     </Label>
-                    <PasswordField fx:id="UserPassword" promptText="password" />
+                    <PasswordField fx:id="userPassword" promptText="password" />
                 </VBox>
-                <Button fx:id="BtnAuthorize" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 8;" text="Authorize" textFill="#444444">
+                <Button fx:id="btnAuthorize" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 8;" text="Authorize" textFill="#444444">
                     <VBox.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                     </VBox.margin>
