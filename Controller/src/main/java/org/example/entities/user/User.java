@@ -21,7 +21,7 @@ public class User {
 
         var query = new Query();
         query.executeQuery(
-                String.format("insert into \"userTable\" (email, password) values ('%s', '%s')", userMail, userPassword));
+                String.format("insert into \"userTable\" (email, password, type) values ('%s', '%s', '%s')", userMail, userPassword, userType));
     }
 
     public void selfAuthorization() {
