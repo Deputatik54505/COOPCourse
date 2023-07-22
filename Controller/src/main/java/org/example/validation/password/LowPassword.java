@@ -8,9 +8,9 @@ public class LowPassword {
     }
 
     public boolean isLowLetter() {
-        for (int i = 0; i < this.password.password.length(); i++) {
-            if (this.password.password.charAt(i) >= 'a' &&
-                    this.password.password.charAt(i) <= 'z') {
+        for (int i = 0; i < this.password.userPassword.length(); i++) {
+            if (this.password.userPassword.charAt(i) >= 'a' &&
+                    this.password.userPassword.charAt(i) <= 'z') {
                 return true;
             }
         }

@@ -6,17 +6,12 @@ import org.example.validation.exceptions.SyntaxException;
 public class ValidatePassport {
     private final PassportProcessor chain;
 
-    private Passport request;
-
     public ValidatePassport() {
         this.chain = new LengthProcessor(new ValidProcessor(new UpProcessor(new LowProcessor(new NumProcessor(null)))));
     }
 
-    public void validate(String publisher, String code,
-                         String series, String number) throws Exception {
-        this.request = new Passport(publisher, code,
-                series, number);
-        this.chain.process(this.request);
+    public void validate(String publisher, String code, String series, String number) throws Exception {
+        this.chain.process(new Passport(publisher, code, series, number));
     }
 }
 
@@ -25,26 +20,22 @@ abstract class PassportProcessor {
 
     public PassportProcessor(PassportProcessor nextProcessor){
         this.nextProcessor = nextProcessor;
-    };
+    }
 
     public void process(Passport request) throws Exception {
         if (this.nextProcessor != null) {
             this.nextProcessor.process(request);
         }
-    };
+    }
 }
 
 class LengthProcessor extends PassportProcessor {
-    private final int lenSN = 10;
-
-    private final int lenC = 6;
-
     public LengthProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Passport request) throws Exception {
-        if (request.isSuitableLength(new int[]{this.lenSN, this.lenC})) {
+        if (request.isSuitableLength()) {
             super.process(request);
         } else {
             throw new LengthException();
@@ -67,15 +58,12 @@ class ValidProcessor extends PassportProcessor {
 }
 
 class UpProcessor extends PassportProcessor {
-    private UpPassport upPassport;
-
     public UpProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Passport request) throws Exception {
-        this.upPassport = new UpPassport(request);
-        if (this.upPassport.isUpLetter()) {
+        if (new UpPassport(request).isUpLetter()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -84,15 +72,12 @@ class UpProcessor extends PassportProcessor {
 }
 
 class LowProcessor extends PassportProcessor {
-    private LowPassport lowPassport;
-
     public LowProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Passport request) throws Exception {
-        this.lowPassport = new LowPassport(request);
-        if (this.lowPassport.isLowLetter()) {
+        if (new LowPassport(request).isLowLetter()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -101,15 +86,12 @@ class LowProcessor extends PassportProcessor {
 }
 
 class NumProcessor extends PassportProcessor {
-    private NumPassport numPassport;
-
     public NumProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Passport request) throws Exception {
-        this.numPassport = new NumPassport(request);
-        if (this.numPassport.isNum()) {
+        if (new NumPassport(request).isNum()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -118,15 +100,12 @@ class NumProcessor extends PassportProcessor {
 }
 
 class SpecialProcessor extends PassportProcessor {
-    private SpecialPassport specialPassport;
-
     public SpecialProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Passport request) throws Exception {
-        this.specialPassport = new SpecialPassport(request);
-        if (this.specialPassport.isSpecialChar()) {
+        if (new SpecialPassport(request).isSpecialChar()) {
             super.process(request);
         } else {
             throw new SyntaxException();

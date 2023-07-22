@@ -3,31 +3,31 @@ package org.example.entities.account;
 import org.example.validation.userdata.Data;
 import org.example.validation.passport.Passport;
 
-public class Account {
+public class AccountBuyer {
 
     private final Passport passport;
 
     private final Data data;
 
-    public Account() {
+    public AccountBuyer() {
         this.passport = new Passport("", "", "", "");
         this.data = new Data("", "", "");
     }
 
-    public Account(Passport passport, Data data) {
+    public AccountBuyer(Passport passport, Data data) {
         this.passport = passport;
         this.data = data;
     }
 
-    public Account withPassport(Passport newPassport) {
-        return new Account(
+    public AccountBuyer withPassport(Passport newPassport) {
+        return new AccountBuyer(
                 newPassport,
                 this.data
         );
     }
 
-    public Account withData(Data newData) {
-        return new Account(
+    public AccountBuyer withData(Data newData) {
+        return new AccountBuyer(
                 this.passport,
                 newData
         );

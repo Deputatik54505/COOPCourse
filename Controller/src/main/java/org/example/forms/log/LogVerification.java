@@ -1,7 +1,7 @@
 package org.example.forms.log;
 
-import org.example.entities.buyer.Buyer;
-import org.example.tables.Users;
+import org.example.validation.exceptions.LengthException;
+import org.example.validation.exceptions.SyntaxException;
 import org.example.validation.exceptions.UnequalException;
 import org.example.validation.mail.ValidateMail;
 import org.example.validation.password.ValidatePassword;
@@ -16,12 +16,15 @@ public class LogVerification {
         this.validatePassword = new ValidatePassword();
     }
 
-    public void verifyUser(Users users, String uMail, String uPass1, String uPass2) throws Exception {
-        this.isEqual(uPass1, uPass2);
-        this.validateMail.validate(uMail, users);
-        this.validatePassword.validate(uPass1);
+    public void verifyUser(String userMail, String userPassword, String repeatPassword) throws UnequalException, SyntaxException, LengthException {
+        try {
+            this.isEqual(userPassword, repeatPassword);
+            this.validateMail.validate(userMail);
+            this.validatePassword.validate(userPassword);
+        } catch (UnequalException | LengthException | SyntaxException e) {
+            throw e;
+        }
 
-        users.addUser(new Buyer(uMail, uPass1));
     }
 
     private void isEqual(String pass1, String pass2) throws UnequalException {

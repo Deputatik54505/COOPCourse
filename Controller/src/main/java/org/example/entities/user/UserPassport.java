@@ -9,7 +9,7 @@ public class UserPassport {
         this.user = user;
     }
 
-    public void fillPassport(Passport passport) {
-        this.user.account = this.user.account.withPassport(passport);
-    }
+//    public void fillPassport(Passport passport) {
+//        this.user. = this.user.account.withPassport(passport);
+//    }
 }

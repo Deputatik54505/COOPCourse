@@ -19,12 +19,11 @@ public class PassportPC {
         this.code = code;
     }
 
-    public String printData() {
-        return this.publisher + "&" + this.code;
-    }
-
-    public boolean checkLen(int len) {
-        return this.code.length() == len;
+    public boolean checkLen() {
+        return
+                this.publisher.length() >= PassportFields.MIN_PUBLISHER.requiredLen &&
+                this.publisher.length() <= PassportFields.MAX_PUBLISHER.requiredLen &&
+                this.code.length() == PassportFields.CODE.requiredLen;
     }
 
     public boolean validate() {

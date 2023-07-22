@@ -1,49 +1,41 @@
 package org.example.validation.mail;
 
-import org.example.tables.Users;
-import org.example.validation.exceptions.DuplicationException;
 import org.example.validation.exceptions.LengthException;
 import org.example.validation.exceptions.SyntaxException;
 
 public class ValidateMail {
     private final MailProcessor chain;
 
-    private Mail request;
-
     public ValidateMail() {
-        this.chain = new LengthProcessor(new ValidProcessor(new UniqueProcessor(null)));
+        this.chain = new LengthProcessor(new ValidProcessor(null));
     }
 
-    public void validate(String mail, Users users) throws Exception {
-        this.request = new Mail(mail, users);
-        this.chain.process(this.request);
+    public void validate(String mail) throws LengthException, SyntaxException {
+        this.chain.process(new Mail(mail));
     }
 }
 
 abstract class MailProcessor {
     private final MailProcessor nextProcessor;
 
-
     public MailProcessor(MailProcessor nextProcessor){
         this.nextProcessor = nextProcessor;
-    };
+    }
 
-    public void process(Mail request) throws Exception {
+    public void process(Mail request) throws LengthException, SyntaxException {
         if (this.nextProcessor != null) {
             this.nextProcessor.process(request);
         }
-    };
+    }
 }
 
 class LengthProcessor extends MailProcessor {
-    private final int minLogLength = 3;
-
     public LengthProcessor(MailProcessor nextProcessor) {
         super(nextProcessor);
     }
 
-    public void process(Mail request) throws Exception {
-        if (request.isSuitableLength(new int[]{this.minLogLength})) {
+    public void process(Mail request) throws LengthException, SyntaxException {
+        if (request.isSuitableLength()) {
             super.process(request);
         } else {
             throw new LengthException();
@@ -56,25 +48,11 @@ class ValidProcessor extends MailProcessor {
         super(nextProcessor);
     }
 
-    public void process(Mail request) throws Exception {
-        if (request.isValidInput()) {
+    public void process(Mail request) throws LengthException, SyntaxException {
+        if (new SyntacticMail(request).isValidInput()) {
             super.process(request);
         } else {
             throw new SyntaxException();
-        }
-    }
-}
-
-class UniqueProcessor extends MailProcessor {
-    public UniqueProcessor(MailProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
-    public void process(Mail request) throws Exception {
-        if (request.isUnique()) {
-            super.process(request);
-        } else {
-            throw new DuplicationException();
         }
     }
 }

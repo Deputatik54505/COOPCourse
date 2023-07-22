@@ -1,31 +1,15 @@
 package org.example.validation.password;
 
-import org.example.validation.Request;
-
-public class Password extends Request {
-    protected final String password;
+public class Password {
+    protected final String userPassword;
 
     public Password(String password) {
-        this.password = password;
-        this.length = password.length();
+        this.userPassword = password;
     }
 
-    @Override
-    protected boolean isSuitableLength(int[] args) {
+    public boolean isSuitableLength() {
         return
-                this.length >= args[0] &&
-                this.length <= args[1];
-    }
-
-    @Override
-    protected boolean isValidInput() {
-        for (int i = 0; i < this.password.length(); i++) {
-            for (Character character : this.forbidChar) {
-                if (this.password.charAt(i) == character) {
-                    return false;
-                }
-            }
-        }
-        return true;
+                this.userPassword.length() >= PasswordFields.MIN_LEN.requiredLen &&
+                this.userPassword.length() <= PasswordFields.MAX_LEN.requiredLen;
     }
 }

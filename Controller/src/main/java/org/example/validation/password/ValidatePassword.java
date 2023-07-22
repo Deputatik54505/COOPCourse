@@ -6,15 +6,12 @@ import org.example.validation.exceptions.SyntaxException;
 public class ValidatePassword {
     private final PasswordProcessor chain;
 
-    private Password request;
-
     public ValidatePassword() {
         this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(new SpecialProcessor(null))))));
     }
 
-    public void validate(String password) throws Exception {
-        this.request = new Password(password);
-        this.chain.process(this.request);
+    public void validate(String password) throws LengthException, SyntaxException {
+        this.chain.process(new Password(password));
     }
 }
 
@@ -23,13 +20,13 @@ abstract class PasswordProcessor {
 
     public PasswordProcessor(PasswordProcessor nextProcessor){
         this.nextProcessor = nextProcessor;
-    };
+    }
 
-    public void process(Password request) throws Exception {
+    public void process(Password request) throws LengthException, SyntaxException {
         if (this.nextProcessor != null) {
             this.nextProcessor.process(request);
         }
-    };
+    }
 }
 
 class LengthProcessor extends PasswordProcessor {
@@ -37,11 +34,8 @@ class LengthProcessor extends PasswordProcessor {
         super(nextProcessor);
     }
 
-    public void process(Password request) throws Exception {
-        if (request.isSuitableLength(new int[]{
-                PasswordLen.MIN.len,
-                PasswordLen.MAX.len
-        })) {
+    public void process(Password request) throws LengthException, SyntaxException {
+        if (request.isSuitableLength()) {
             super.process(request);
         } else {
             throw new LengthException();
@@ -50,15 +44,12 @@ class LengthProcessor extends PasswordProcessor {
 }
 
 class UpProcessor extends PasswordProcessor {
-    private UpPassword upPassword;
-
     public UpProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
-    public void process(Password request) throws Exception {
-        this.upPassword = new UpPassword(request);
-        if (this.upPassword.isUpLetter()) {
+    public void process(Password request) throws LengthException, SyntaxException {
+        if (new UpPassword(request).isUpLetter()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -67,15 +58,12 @@ class UpProcessor extends PasswordProcessor {
 }
 
 class LowProcessor extends PasswordProcessor {
-    private LowPassword lowPassword;
-
     public LowProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
-    public void process(Password request) throws Exception {
-        this.lowPassword = new LowPassword(request);
-        if (this.lowPassword.isLowLetter()) {
+    public void process(Password request) throws LengthException, SyntaxException {
+        if (new LowPassword(request).isLowLetter()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -84,15 +72,12 @@ class LowProcessor extends PasswordProcessor {
 }
 
 class NumProcessor extends PasswordProcessor {
-    private NumPassword numPassword;
-
     public NumProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
-    public void process(Password request) throws Exception {
-        this.numPassword = new NumPassword(request);
-        if (this.numPassword.isNum()) {
+    public void process(Password request) throws LengthException, SyntaxException {
+        if (new NumPassword(request).isNum()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -101,15 +86,12 @@ class NumProcessor extends PasswordProcessor {
 }
 
 class SpecialProcessor extends PasswordProcessor {
-    private SpecialPassword specialPassword;
-
     public SpecialProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
-    public void process(Password request) throws Exception {
-        this.specialPassword = new SpecialPassword(request);
-        if (this.specialPassword.isSpecialChar()) {
+    public void process(Password request) throws LengthException, SyntaxException {
+        if (new SpecialPassword(request).isSpecialChar()) {
             super.process(request);
         } else {
             throw new SyntaxException();
@@ -122,8 +104,8 @@ class ValidateProcessor extends PasswordProcessor {
         super(nextProcessor);
     }
 
-    public void process(Password request) throws Exception {
-        if (request.isValidInput()) {
+    public void process(Password request) throws LengthException, SyntaxException {
+        if (new SyntacticPassword(request).isValidInput()) {
             super.process(request);
         } else {
             throw new SyntaxException();
