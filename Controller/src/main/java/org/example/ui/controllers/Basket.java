@@ -89,14 +89,14 @@ public class Basket {
                 BackgroundSize.DEFAULT
         );
 
-        this.numPurchases.setText(Integer.toString(10));
-
-        //TODO load goods from user's shopping cart
-        //add products
+        //TODO load all purchases from user's shopping cart: loadProduct(someProduct, trashCan)
         for (int i = 0; i < 10; i++) {
-            HBox hBox = addProduct(i, trashCan);
+            HBox hBox = loadProduct(i, trashCan);
             this.listOfProducts.getChildren().add(hBox);
         }
+
+        //TODO set the number of purchases: setText(...)
+        this.numPurchases.setText(Integer.toString(10));
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -123,7 +123,7 @@ public class Basket {
         this.UserSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                //TODO implement search by ENTER in the basket
+                //TODO implement search by pressing ENTER in the basket
                 if (event.getCode().equals(KeyCode.ENTER)) {
 
                 }
@@ -133,7 +133,7 @@ public class Basket {
         this.buyPurchase.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO validate place and card number, remove from basket
+                //TODO validate place and card number, remove from basket DB
             }
         });
 
@@ -147,8 +147,9 @@ public class Basket {
         });
     }
 
-    public HBox addProduct(int i, BackgroundImage trashCan) {
+    public HBox loadProduct(int i, BackgroundImage trashCan) {
         BackgroundImage backgroundImage = new BackgroundImage(
+                //TODO load image from DB
                 new Image("/assets/image/logo.jpg"), //BD
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
@@ -165,14 +166,17 @@ public class Basket {
         Pane pane3 = new Pane();
         VBox.setVgrow(pane3, Priority.ALWAYS);
 
-        Label title = new Label("Title"); //BD
+        //TODO load title from DB
+        Label title = new Label("Title");
         title.setPadding(new Insets(16.0, 0.0, 0.0, 16.0));
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
-        Label desc = new Label("Description"); //BD
+        //TODO load description from DB
+        Label desc = new Label("Description");
         desc.setPadding(new Insets(0.0, 0.0, 12.0, 12.0));
         desc.setFont(Font.font(14.0));
 
+        //TODO cost description from DB
         Label cost = new Label(Integer.toString((i + 1) * 230)); //BD
         cost.setPadding(new Insets(0.0, 8.0, 8.0, 0.0));
         cost.setFont(Font.font(16.0));
@@ -181,7 +185,6 @@ public class Basket {
         VBox.setMargin(include, new Insets(8.0, 8.0, 0.0, 0.0));
         include.setMnemonicParsing(false);
         include.setSelected(false);
-        include.setId(Integer.toString(i));
         include.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {

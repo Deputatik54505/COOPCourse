@@ -13,6 +13,8 @@ import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
@@ -61,8 +63,8 @@ public class MainPage {
         assert userSignIn != null : "fx:id=\"userSignIn\" was not injected: check your FXML file 'main_page.fxml'.";
         assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
 
+        //TODO load all categories from DB: addAll(this.loadCategories(root, someCategory))
         TitledPane root = new TitledPane();
-
         this.listOfCategories.getChildren().addAll(this.loadCategories(root));
 
         BackgroundImage addToCart = new BackgroundImage(
@@ -73,6 +75,7 @@ public class MainPage {
                 BackgroundSize.DEFAULT
         );
 
+        //TODO load all products through DB, call loadProduct(someProduct, addToCart)
         for (int i = 0; i < 20; i++) {
             VBox product = this.loadProduct(i, addToCart);
             this.listOfProducts.getChildren().add(product);
@@ -85,6 +88,16 @@ public class MainPage {
                     new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
                 } catch (IOException e) {
                     throw new RuntimeException();
+                }
+            }
+        });
+
+        this.userSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                //TODO implement search by pressing ENTER in the basket
+                if (event.getCode().equals(KeyCode.ENTER)) {
+
                 }
             }
         });
@@ -115,7 +128,8 @@ public class MainPage {
 
     public VBox loadProduct(int i, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
-                new Image("/assets/image/logo.jpg"), //BD
+                //TODO load image from DB
+                new Image("/assets/image/logo.jpg"),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
@@ -130,18 +144,20 @@ public class MainPage {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO add to User's shopping cart
+                //TODO add to Buyer's or Seller's shopping cart (check the type of the user calling isExist())
             }
         });
 
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
+        //TODO load title from DB
         Label title = new Label("Title");
         title.setTextFill(Paint.valueOf("#444444"));
         title.setWrapText(true);
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
+        //TODO load cost from DB, put it inside Integer.toString(...)
         Label cost = new Label(Integer.toString((i + 1) * 132));
         cost.setAlignment(Pos.CENTER);
         cost.setTextFill(Paint.valueOf("#444444"));
@@ -171,16 +187,19 @@ public class MainPage {
     public Accordion loadCategories(TitledPane parent) {
         Accordion accordion = new Accordion();
         parent.setContent(accordion);
+        //TODO load the number of directed children of particular category: k = cat.loadDirectChild(...)
         int k = 0;
         if (k != 0) {
             for (int i = 0; i < k; i++) {
                 TitledPane container = new TitledPane();
+                //TODO load and set text for the non-leaf category inside setText(...)
                 container.setText(parent.getText() + i + ".");
                 accordion.getPanes().add(container);
                 loadCategories(container);
             }
         } else {
             TitledPane container = new TitledPane();
+            //TODO load and set text for the leaf category inside setText(...)
             container.setText(parent.getText() + "leaf");
             accordion.getPanes().add(container);
         }
