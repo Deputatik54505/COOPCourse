@@ -7,11 +7,13 @@ public class ProductData {
     private final float price;
     private final String name;
     private final String description;
+    private final int available;
 
-    public ProductData(String name, String description, float price) {
+    public ProductData(String name, String description, float price, int available) {
         this.description = description;
         this.name = name;
         this.price = price;
+        this.available = available;
     }
 
     public List<String> represent() {
@@ -19,6 +21,7 @@ public class ProductData {
         container.add(name);
         container.add(description);
         container.add(String.format("%.2f", price));
+        container.add(String.valueOf(available));
         return container;
     }
 
@@ -30,5 +33,9 @@ public class ProductData {
      */
     public boolean hasWord(String search) {
         return name.contains(search) || description.contains(search);
+    }
+
+    public boolean isAvailable(int numberOfProducts) {
+        return available < numberOfProducts;
     }
 }

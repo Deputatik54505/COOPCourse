@@ -18,7 +18,7 @@ public class ProductCategoryHierarchy implements IProductCategoryHierarchy {
         Collection<IProductCategory> collection = new ArrayList<>(directSubcategories.size());
         for (var categoryId : directSubcategories) {
             var category = new ProductCategory(categoryId);
-            category.loadById();
+            category.load();
             collection.add(category);
         }
         return collection;
@@ -43,7 +43,7 @@ public class ProductCategoryHierarchy implements IProductCategoryHierarchy {
         if (superCategoryId == null)
             return null;
         var category = new ProductCategory(superCategoryId);
-        category.loadById();
+        category.load();
         return category;
     }
 }

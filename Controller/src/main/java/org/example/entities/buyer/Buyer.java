@@ -17,6 +17,6 @@ public class Buyer {
 
     public void buyProduct(Product product) throws NotFoundException {
         this.shoppingCart.removePurchase(product);
-        //TODO remove the product from BD
+        product.addAmount(-1);
     }
 }
