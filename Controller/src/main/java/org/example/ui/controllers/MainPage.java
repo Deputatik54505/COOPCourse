@@ -11,12 +11,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
-import javafx.scene.Group;
-import javafx.scene.Node;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,6 +24,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import org.example.ui.models.SceneSwitch;
 
 public class MainPage {
@@ -89,7 +89,14 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/main_page.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Stage primaryStage = (Stage) home.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -100,7 +107,14 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/log_in_form.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/log_in_form.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Stage primaryStage = (Stage) userLogIn.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -111,7 +125,14 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/sign_in_form.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/sign_in_form.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Stage primaryStage = (Stage) userSignIn.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

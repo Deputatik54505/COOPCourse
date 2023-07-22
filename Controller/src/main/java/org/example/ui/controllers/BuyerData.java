@@ -6,15 +6,23 @@ import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import org.example.entities.buyer.Buyer;
+import org.example.entities.seller.Seller;
 import org.example.ui.models.SceneSwitch;
 
 public class BuyerData {
+
+    private Buyer currBuyer;
 
     @FXML
     private ResourceBundle resources;
@@ -65,7 +73,19 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/auth_main_page.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    AuthMainPage authMainPage = loader.getController();
+                    if (currBuyer.isExist()) {
+                        authMainPage.initBuyer(currBuyer);
+                    }
+
+                    Stage primaryStage = (Stage) home.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -76,7 +96,19 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/shopping_cart.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/shopping_cart.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Basket basket = loader.getController();
+                    if (currBuyer.isExist()) {
+                        basket.initBuyer(currBuyer);
+                    }
+
+                    Stage primaryStage = (Stage) userBasket.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -87,7 +119,19 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_favourites.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/buyer_acc_favourites.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    BuyerFavourites buyerFavourites = loader.getController();
+                    if (currBuyer.isExist()) {
+                        buyerFavourites.initBuyer(currBuyer);
+                    }
+
+                    Stage primaryStage = (Stage) basketFavourites.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -98,7 +142,19 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/buyer_acc_settings.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/buyer_acc_settings.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    BuyerSettings buyerSettings = loader.getController();
+                    if (currBuyer.isExist()) {
+                        buyerSettings.initBuyer(currBuyer);
+                    }
+
+                    Stage primaryStage = (Stage) userSettings.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -108,15 +164,24 @@ public class BuyerData {
         this.userLogOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO logged out the user
                 try {
-                    new SceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/main_page.fxml"));
+                    Parent root = loader.load();
+                    Scene newScene = new Scene(root);
+
+                    Stage primaryStage = (Stage) userLogOut.getScene().getWindow();
+                    primaryStage.setScene(newScene);
+                    primaryStage.show();
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
             }
         });
+    }
 
+    public void initBuyer(Buyer buyer) {
+        this.currBuyer = buyer;
     }
 
 }

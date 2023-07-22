@@ -18,10 +18,10 @@ public class DataVerification {
                 surname,
                 birth
         );
-        new UserData(user).fillData(new Data(
-                name,
-                surname,
-                birth
-        ));
+//        new UserData(user).fillData(new Data(
+//                name,
+//                surname,
+//                birth
+//        ));
     }
 }

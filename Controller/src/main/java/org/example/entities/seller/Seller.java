@@ -1,4 +1,19 @@
 package org.example.entities.seller;
 
+import org.example.entities.cart.ShoppingCart;
+import org.example.entities.user.User;
+
 public class Seller {
+    private final User user;
+
+    protected final ShoppingCart shoppingCart;
+
+    public Seller(User user) {
+        this.user = user;
+        this.shoppingCart = new ShoppingCart();
+    }
+
+    public boolean isExist() {
+        return this.user.userType.equals("Seller");
+    }
 }

@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.Scanner;
-
 public class Main extends Application {
     public static void main(String[] args) throws Exception {
         launch();
@@ -14,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/log_in_form.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/main_page.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         primaryStage.setTitle("Shop");
