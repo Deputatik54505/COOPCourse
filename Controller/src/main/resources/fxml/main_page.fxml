@@ -29,7 +29,7 @@
             </ImageView>
             <Label layoutX="32.0" layoutY="1.0" text="Useless Shop" textAlignment="CENTER" textFill="#aee1f2" wrapText="true">
                 <font>
-                    <Font size="20.0" />
+                    <Font name="System Bold" size="20.0" />
                 </font>
                 <padding>
                     <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -49,7 +49,7 @@
                     <Cursor fx:constant="TEXT" />
                 </cursor>
                 <font>
-                    <Font size="16.0" />
+                    <Font name="System Bold" size="16.0" />
                 </font>
             </TextField>
             <Button fx:id="userSignIn" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: node;" text="Sign in" textFill="#aee1f2" wrapText="true">
@@ -60,7 +60,7 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
                 <font>
-                    <Font size="16.0" />
+                    <Font name="System Bold" size="16.0" />
                 </font>
             </Button>
             <Button fx:id="userLogIn" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: none;" text="Log in" textFill="#aee1f2" wrapText="true">
@@ -68,7 +68,7 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
                 <font>
-                    <Font size="16.0" />
+                    <Font name="System Bold" size="16.0" />
                 </font>
             </Button>
         </TilePane>
@@ -83,7 +83,7 @@
                     <VBox layoutX="7.0" layoutY="14.0" prefWidth="178.0">
                         <Label alignment="CENTER" minWidth="60.0" style="&#10;" text="Categories" textAlignment="CENTER" textFill="#aee1f2">
                             <font>
-                                <Font size="18.0" fx:id="x1" />
+                                <Font name="System Bold" size="18.0" fx:id="x1" />
                             </font>
                             <opaqueInsets>
                                 <Insets />

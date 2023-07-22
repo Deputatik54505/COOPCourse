@@ -35,7 +35,7 @@
             </ImageView>
             <Label layoutX="32.0" layoutY="1.0" text="Useless Shop" textAlignment="CENTER" textFill="#aee1f2" wrapText="true">
                 <font>
-                    <Font size="20.0" />
+                    <Font name="System Bold" size="20.0" />
                 </font>
                 <padding>
                     <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -55,7 +55,7 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
                 <font>
-                    <Font size="16.0" />
+                    <Font name="System Bold" size="16.0" />
                 </font>
             </Button>
             <Button focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: #aee1f2; -fx-background-radius: 16;" text="Account" textFill="#444444" wrapText="true">
@@ -63,7 +63,7 @@
                     <Cursor fx:constant="DEFAULT" />
                 </cursor>
                 <font>
-                    <Font size="16.0" />
+                    <Font name="System Bold" size="16.0" />
                 </font>
             </Button>
         </TilePane>
@@ -197,6 +197,9 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                                 </Button>
                             </VBox>
                             <VBox alignment="CENTER" prefWidth="210.0">
@@ -225,6 +228,9 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                                 </Button>
                             </VBox>
                             <VBox alignment="CENTER" prefWidth="210.0">
@@ -253,6 +259,9 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                                 </Button>
                             </VBox>
                             <VBox alignment="CENTER" prefWidth="210.0">
@@ -281,6 +290,9 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                                 </Button>
                             </VBox>
                             <VBox alignment="CENTER" prefWidth="210.0">
@@ -309,6 +321,9 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                                 </Button>
                             </VBox>
                         </TilePane>
