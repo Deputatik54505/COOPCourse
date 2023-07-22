@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SceneSwitch {
-    public SceneSwitch() { }
+public class DefaultSceneSwitch {
+    public DefaultSceneSwitch() { }
 
     public void changeScene(MouseEvent event, String fxmlFile) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));

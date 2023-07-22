@@ -43,7 +43,7 @@
             <HBox.margin>
                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
             </HBox.margin>
-            <Button fx:id="UserSignIn" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: node;" text="Sign in" textFill="#aee1f2" wrapText="true">
+            <Button fx:id="userSignIn" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: node;" text="Sign in" textFill="#aee1f2" wrapText="true">
                 <opaqueInsets>
                     <Insets />
                 </opaqueInsets>
@@ -84,7 +84,7 @@
                             <Font name="System Bold" size="14.0" />
                         </font>
                     </Label>
-                    <TextField fx:id="UserMail" promptText="mail" />
+                    <TextField fx:id="userMail" promptText="mail" />
                 </VBox>
                 <VBox>
                     <VBox.margin>
@@ -95,7 +95,7 @@
                             <Font name="System Bold" size="14.0" />
                         </font>
                     </Label>
-                    <PasswordField fx:id="UserPassword" promptText="password" />
+                    <PasswordField fx:id="userPassword" promptText="password" />
                 </VBox>
                 <VBox>
                     <VBox.margin>
@@ -106,7 +106,7 @@
                             <Font name="System Bold" size="14.0" />
                         </font>
                     </Label>
-                    <PasswordField fx:id="UserRepeatPassword" promptText="password" />
+                    <PasswordField fx:id="userRepeatPassword" promptText="password" />
                <VBox>
                   <children>
                      <RadioButton fx:id="userBuyer" mnemonicParsing="false" text="I am buyer" textFill="#444444">
@@ -122,7 +122,7 @@
                   </children>
                </VBox>
                 </VBox>
-                <Button fx:id="BtnRegister" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 8;" text="Register">
+                <Button fx:id="btnRegister" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 8;" text="Register">
                     <VBox.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                     </VBox.margin>
