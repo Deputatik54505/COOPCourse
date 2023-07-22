@@ -84,6 +84,7 @@ public class SellerGoods {
                 BackgroundSize.DEFAULT
         );
 
+        //TODO load all seller's goods from DB: this.loadProduct(product, addToCart)
         for (int i = 0; i < 20; i++) {
             VBox product = this.loadProduct(i, addToCart);
             this.listOfProducts.getChildren().add(product);
@@ -170,7 +171,8 @@ public class SellerGoods {
 
     public VBox loadProduct(int i, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
-                new Image("/assets/image/logo.jpg"), //BD
+                //TODO load image from DB
+                new Image("/assets/image/logo.jpg"),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
@@ -185,18 +187,20 @@ public class SellerGoods {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO add to User's shopping cart
+                //TODO add to Buyer's or Seller's shopping cart (check the type of the user calling isExist())
             }
         });
 
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
+        //TODO load title from DB
         Label title = new Label("Title");
         title.setTextFill(Paint.valueOf("#444444"));
         title.setWrapText(true);
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
+        //TODO load cost from DB, put it inside Integer.toString(...)
         Label cost = new Label(Integer.toString((i + 1) * 132));
         cost.setAlignment(Pos.CENTER);
         cost.setTextFill(Paint.valueOf("#444444"));

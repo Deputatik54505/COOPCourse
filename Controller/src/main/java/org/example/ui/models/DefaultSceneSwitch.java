@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class DefaultSceneSwitch {
     public DefaultSceneSwitch() { }
-
     public void changeScene(MouseEvent event, String fxmlFile) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -19,5 +18,4 @@ public class DefaultSceneSwitch {
         stage.setScene(scene);
         stage.show();
     }
-
 }

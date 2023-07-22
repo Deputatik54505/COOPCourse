@@ -76,8 +76,10 @@ public class BuyerFavourites {
                 BackgroundSize.DEFAULT
         );
 
+        //TODO load all favourite products from DB: loadProduct(someProduct, addToCart)
+
         for (int i = 0; i < 20; i++) {
-            VBox product = this.addProduct(i, addToCart);
+            VBox product = this.loadProduct(i, addToCart);
             this.listOfFavourites.getChildren().add(product);
         }
 
@@ -141,8 +143,9 @@ public class BuyerFavourites {
         this.currBuyer = buyer;
     }
 
-    public VBox addProduct(int i, BackgroundImage addToCart) {
+    public VBox loadProduct(int i, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
+                //TODO load image from DB
                 new Image("/assets/image/logo.jpg"), //BD
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
@@ -165,11 +168,13 @@ public class BuyerFavourites {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
+        //TODO load title from DB
         Label title = new Label("Title");
         title.setTextFill(Paint.valueOf("#444444"));
         title.setWrapText(true);
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
+        //TODO cost description from DB
         Label cost = new Label(Integer.toString((i + 1) * 132));
         cost.setAlignment(Pos.CENTER);
         cost.setTextFill(Paint.valueOf("#444444"));

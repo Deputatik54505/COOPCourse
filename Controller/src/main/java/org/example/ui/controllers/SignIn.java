@@ -58,7 +58,7 @@ public class SignIn {
         this.btnAuthorize.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO signed in the user
+                //TODO sign in the user (check its type)
 
             }
         });
