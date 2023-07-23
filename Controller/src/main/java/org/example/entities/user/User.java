@@ -6,6 +6,7 @@ import org.example.forms.sign.SignVerification;
 import org.example.validation.exceptions.UnequalException;
 
 public class User {
+    public UserData data;
     public final String userType;
     private final String userMail;
     private final String userPassword;
@@ -14,6 +15,7 @@ public class User {
         this.userMail = mail;
         this.userPassword = password;
         this.userType = type;
+        data = new UserData();
     }
 
     public void selfRegistration(String repeatPassword) throws Exception {
@@ -21,11 +23,14 @@ public class User {
 
         var query = new Query();
         query.executeQuery(
-                String.format("insert into \"userTable\" (email, password, type) values ('%s', '%s', '%s')", userMail, userPassword, userType));
+                String.format("insert into \"userTable\" (email, password, type) values ('%s', '%s', '%s')",
+                        userMail, userPassword, userType));
+        data.load(userMail);
     }
 
     public void selfAuthorization() {
         new SignVerification().verifyUser(this.userMail, this.userPassword);
+        data.load(userMail);
     }
 
     public void isEqual(String pass) throws UnequalException {

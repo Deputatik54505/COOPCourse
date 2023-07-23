@@ -6,16 +6,12 @@ import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
-import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.ui.models.*;
 
@@ -68,8 +64,8 @@ public class BuyerData {
         assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert userSurname != null : "fx:id=\"userSurname\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
 
-        //TODO load general data (name, surname, birth) from DB
-
+        //TODO use general data (name, surname, birth) from DB
+        var generalData = currBuyer.user.data.represent();
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

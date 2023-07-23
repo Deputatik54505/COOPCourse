@@ -6,7 +6,7 @@ import org.example.entities.user.User;
 import org.example.validation.exceptions.NotFoundException;
 
 public class Buyer {
-    private final User user;
+    public final User user;
 
     protected final ShoppingCart shoppingCart;
 
