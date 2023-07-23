@@ -1,7 +1,6 @@
 package org.example.validation.passport;
 
-import org.example.validation.exceptions.LengthException;
-import org.example.validation.exceptions.SyntaxException;
+import org.example.validation.exceptions.*;
 
 public class ValidatePassport {
     private final PassportProcessor chain;
@@ -38,7 +37,7 @@ class LengthProcessor extends PassportProcessor {
         if (request.isSuitableLength()) {
             super.process(request);
         } else {
-            throw new LengthException();
+            throw new LengthPassportExc();
         }
     }
 }
@@ -52,7 +51,7 @@ class ValidProcessor extends PassportProcessor {
         if (request.isValidInput()) {
             super.process(request);
         } else {
-            throw new SyntaxException();
+            throw new SyntaxPassportExc();
         }
     }
 }
@@ -66,7 +65,7 @@ class UpProcessor extends PassportProcessor {
         if (new UpPassport(request).isUpLetter()) {
             super.process(request);
         } else {
-            throw new SyntaxException();
+            throw new UpPassportExc();
         }
     }
 }
@@ -80,7 +79,7 @@ class LowProcessor extends PassportProcessor {
         if (new LowPassport(request).isLowLetter()) {
             super.process(request);
         } else {
-            throw new SyntaxException();
+            throw new LowPassportExc();
         }
     }
 }
@@ -94,7 +93,7 @@ class NumProcessor extends PassportProcessor {
         if (new NumPassport(request).isNum()) {
             super.process(request);
         } else {
-            throw new SyntaxException();
+            throw new NumPassportExc();
         }
     }
 }
@@ -108,7 +107,7 @@ class SpecialProcessor extends PassportProcessor {
         if (new SpecialPassport(request).isSpecialChar()) {
             super.process(request);
         } else {
-            throw new SyntaxException();
+            throw new SpecialPassportExc();
         }
     }
 }

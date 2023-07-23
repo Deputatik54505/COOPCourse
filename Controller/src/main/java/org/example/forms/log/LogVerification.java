@@ -1,8 +1,6 @@
 package org.example.forms.log;
 
-import org.example.validation.exceptions.LengthException;
-import org.example.validation.exceptions.SyntaxException;
-import org.example.validation.exceptions.UnequalException;
+import org.example.validation.exceptions.UnequalPasswordExc;
 import org.example.validation.mail.ValidateMail;
 import org.example.validation.password.ValidatePassword;
 
@@ -16,22 +14,22 @@ public class LogVerification {
         this.validatePassword = new ValidatePassword();
     }
 
-    public void verifyUser(String userMail, String userPassword, String repeatPassword) throws UnequalException, SyntaxException, LengthException {
+    public void verifyUser(String userMail, String userPassword, String repeatPassword) throws Exception {
         try {
             this.isEqual(userPassword, repeatPassword);
             this.validateMail.validate(userMail);
             this.validatePassword.validate(userPassword);
-        } catch (UnequalException | LengthException | SyntaxException e) {
+        } catch (Exception e) {
             throw e;
         }
 
     }
 
-    private void isEqual(String pass1, String pass2) throws UnequalException {
+    private void isEqual(String pass1, String pass2) throws UnequalPasswordExc {
         if (pass1.equals(pass2)) {
             return;
         }
-        throw new UnequalException();
+        throw new UnequalPasswordExc();
     }
 
 }
