@@ -3,7 +3,7 @@ package org.example.search;
 import org.example.entities.product.IProductCategory;
 import org.example.entities.product.Product;
 import org.example.entities.product.ProductCategory;
-import org.example.validation.exceptions.NotFoundException;
+import org.example.validation.exceptions.ProductNotFoundExc;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,7 +22,7 @@ public class Search {
         this.products = productCategory.getProducts();
     }
 
-    public ArrayList<Product> search(String str) throws NotFoundException {
+    public ArrayList<Product> search(String str) throws ProductNotFoundExc {
         var suitableProducts = new ArrayList<Product>();
         for (Product value : this.products) {
             if (value.data.hasWord(str)) {
@@ -30,7 +30,7 @@ public class Search {
             }
         }
         if (suitableProducts.size() == 0) {
-            throw new NotFoundException();
+            throw new ProductNotFoundExc();
         }
         return suitableProducts;
     }

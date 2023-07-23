@@ -1,8 +1,8 @@
 package org.example.validation.exceptions;
 
-public class SyntaxException extends Exception {
+public class SyntaxSurnameExc extends Exception {
     @Override
     public String toString() {
-        return "IncorrectSyntax!";
+        return "Incorrect surname syntax";
     }
 }

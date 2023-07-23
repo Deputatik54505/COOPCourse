@@ -1,8 +1,8 @@
 package org.example.validation.exceptions;
 
-public class UnequalException extends Exception {
+public class NumPasswordExc extends Exception {
     @Override
     public String toString() {
-        return "Passwords don't match!";
+        return "Password must contain digit.";
     }
 }

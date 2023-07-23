@@ -1,7 +1,9 @@
 package org.example.validation.userdata;
 
-import org.example.validation.exceptions.LengthException;
-import org.example.validation.exceptions.SyntaxException;
+import org.example.validation.exceptions.LengthDataExc;
+import org.example.validation.exceptions.SyntaxBirthExc;
+import org.example.validation.exceptions.SyntaxNameExc;
+import org.example.validation.exceptions.SyntaxSurnameExc;
 
 public class ValidateData {
     private final DataProcessor chain;
@@ -38,7 +40,7 @@ class LengthProcessor extends DataProcessor {
         if (request.isSuitableLength()) {
             super.process(request);
         } else {
-            throw new LengthException();
+            throw new LengthDataExc();
         }
     }
 }
@@ -52,7 +54,7 @@ class ValidateBirth extends DataProcessor {
         if (new DataBirth(request).isValidInput()) {
             super.process(request);
         } else {
-            throw new SyntaxException();
+            throw new SyntaxBirthExc();
         }
     }
 }
@@ -66,7 +68,7 @@ class ValidateName extends DataProcessor {
         if (new DataName(request).isValidInput()) {
             super.process(request);
         } else {
-            throw new SyntaxException();
+            throw new SyntaxNameExc();
         }
     }
 }
@@ -80,7 +82,7 @@ class ValidateSurname extends DataProcessor {
         if (new DataSurname(request).isValidInput()) {
             super.process(request);
         } else {
-            throw new SyntaxException();
+            throw new SyntaxSurnameExc();
         }
     }
 }

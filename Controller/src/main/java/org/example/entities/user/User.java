@@ -3,7 +3,7 @@ package org.example.entities.user;
 import org.example.database.Query;
 import org.example.forms.log.LogVerification;
 import org.example.forms.sign.SignVerification;
-import org.example.validation.exceptions.UnequalException;
+import org.example.validation.exceptions.UnequalPasswordExc;
 
 public class User {
     public UserData data;
@@ -33,10 +33,10 @@ public class User {
         data.load(userMail);
     }
 
-    public void isEqual(String pass) throws UnequalException {
+    public void isEqual(String pass) throws UnequalPasswordExc {
         if (this.userPassword.equals(pass)) {
             return;
         }
-        throw new UnequalException();
+        throw new UnequalPasswordExc();
     }
 }

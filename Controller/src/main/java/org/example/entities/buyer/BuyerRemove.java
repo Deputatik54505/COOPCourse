@@ -1,7 +1,7 @@
 package org.example.entities.buyer;
 
 import org.example.entities.product.Product;
-import org.example.validation.exceptions.NotFoundException;
+import org.example.validation.exceptions.ProductNotFoundExc;
 
 public class BuyerRemove {
     private final Buyer buyer;
@@ -10,7 +10,7 @@ public class BuyerRemove {
         this.buyer = buyer;
     }
 
-    public void removeFromCart(Product product) throws NotFoundException {
+    public void removeFromCart(Product product) throws ProductNotFoundExc {
         this.buyer.shoppingCart.removePurchase(product);
     }
 }
