@@ -25,17 +25,18 @@ public class ProductCategoryHierarchy implements IProductCategoryHierarchy {
     }
 
     @Override
-    public Collection<Integer> allSubcategoryIds() {
-        Collection<Integer> ids = new ArrayList<>();
+    public Collection<IProductCategory> allSubcategories() {
+        Collection<IProductCategory> ids = new ArrayList<>();
         if (directSubcategories == null)
             return null;
         for (var category : directSubcategories()) {
+            ids.add(category);
             if (!category.specifications.isLeafCategory())
                 continue;
-            ids.addAll(category.hierarchy.allSubcategoryIds());
+
+            ids.addAll(category.hierarchy.allSubcategories());
         }
         return ids;
-
     }
 
     @Override

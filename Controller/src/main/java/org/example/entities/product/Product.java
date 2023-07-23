@@ -24,7 +24,7 @@ public class Product {
                 var price = resultSet.getFloat("price");
                 var name = resultSet.getString("name");
                 var description = resultSet.getString("description");
-                var available = resultSet.getInt("available");
+                var available = resultSet.getInt(6);
                 data = new ProductData(name, description, price, available);
             }
         } catch (SQLException e) {

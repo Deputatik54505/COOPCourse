@@ -11,7 +11,6 @@ import java.util.List;
 
 public class ProductCategory extends IProductCategory {
     private final IQuery query;
-    private final int id;
 
     public ProductCategory(int id) {
         this.id = id;
@@ -27,7 +26,7 @@ public class ProductCategory extends IProductCategory {
 
             int superCategoryId = resultSet.getInt("parentId");
             var children = resultSet.getString("childrenIds");
-            List<Integer> childIds = null;
+            List<Integer> childIds = new ArrayList<>();
             if (children != null && !children.trim().isEmpty()) {
                 childIds = Arrays.stream(children
                                 .split(","))
@@ -35,9 +34,9 @@ public class ProductCategory extends IProductCategory {
                         .toList();
             }
 
-            this.hierarchy = new ProductCategoryHierarchy(childIds, superCategoryId == 0 ? null : superCategoryId);
+            this.hierarchy = new ProductCategoryHierarchy(childIds, superCategoryId);
             this.specifications = new ProductCategorySpecification(superCategoryId != 0,
-                    childIds != null,
+                    childIds.size() != 0,
                     name);
 
         } catch (SQLException e) {
@@ -47,19 +46,21 @@ public class ProductCategory extends IProductCategory {
 
     @Override
     public Collection<Product> getProducts() {
-        var ids = hierarchy.allSubcategoryIds();
+        var categories = hierarchy.allSubcategories();
+        categories.add(this);
         StringBuilder queryBuilder = new StringBuilder("SELECT id FROM Product WHERE \"categoryId\" in (");
-        for (int id : ids){
-            queryBuilder.append(id);
+        for (var category : categories) {
+            queryBuilder.append(category.id);
             queryBuilder.append(",");
         }
         queryBuilder.deleteCharAt(queryBuilder.lastIndexOf(","));
         queryBuilder.append(");");
 
         Collection<Product> products = new ArrayList<>();
-        try (var resultSet = query.executeQuery(queryBuilder.toString())){
-            while (resultSet.next()){
-                var product = new Product(resultSet.getInt("id"));
+        try (var resultSet = query.executeQuery(queryBuilder.toString())) {
+            while (resultSet.next()) {
+                int prid = resultSet.getInt("id");
+                var product = new Product(prid);
                 product.load();
                 products.add(product);
             }

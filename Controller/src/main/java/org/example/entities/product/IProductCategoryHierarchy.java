@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public interface IProductCategoryHierarchy {
     Collection<IProductCategory> directSubcategories();
-    Collection<Integer> allSubcategoryIds();
+    Collection<IProductCategory> allSubcategories();
 
     IProductCategory superCategory();
 }
