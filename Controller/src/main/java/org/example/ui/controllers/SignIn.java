@@ -12,10 +12,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.example.entities.user.User;
-import org.example.ui.models.DefaultSceneSwitch;
+import org.example.ui.models.LogInSwitch;
+import org.example.ui.models.NotAuthMainSwitch;
 
 public class SignIn {
+    private final Stage primaryStage;
 
     @FXML
     private ResourceBundle resources;
@@ -41,6 +44,10 @@ public class SignIn {
     @FXML
     private Group home;
 
+    public SignIn(Stage stage) {
+        this.primaryStage = stage;
+    }
+
     @FXML
     void initialize() {
         assert btnAuthorize != null : "fx:id=\"btnAuthorize\" was not injected: check your FXML file 'sign_in_form.fxml'.";
@@ -53,7 +60,7 @@ public class SignIn {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new NotAuthMainSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -84,7 +91,7 @@ public class SignIn {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/log_in_form.fxml");
+                    new LogInSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

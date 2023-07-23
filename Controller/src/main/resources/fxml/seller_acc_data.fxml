@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.SellerData">
+<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
         <Group fx:id="home">
             <HBox.margin>

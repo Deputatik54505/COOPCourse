@@ -25,15 +25,12 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+import org.example.entities.buyer.Buyer;
 import org.example.entities.product.Product;
 import org.example.entities.seller.Seller;
-import org.example.ui.models.DefaultSceneSwitch;
-import org.example.ui.models.SellerBasketSwitch;
-import org.example.ui.models.SellerDataSwitch;
-import org.example.ui.models.SellerHomeSwitch;
-import org.example.ui.models.SellerOrdersSwitch;
-import org.example.ui.models.SellerProductSwitch;
-import org.example.ui.models.SellerSettingsSwitch;
+import org.example.entities.user.User;
+import org.example.ui.models.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,8 +38,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SellerGoods {
+    private final Seller currSeller;
 
-    private Seller currSeller;
+    private final Stage primaryStage;
 
     @FXML
     private ResourceBundle resources;
@@ -77,6 +75,11 @@ public class SellerGoods {
     @FXML
     private Button userSettings;
 
+    public SellerGoods(Seller seller, Stage stage) {
+        this.currSeller = seller;
+        this.primaryStage = stage;
+    }
+
     @FXML
     void initialize() {
         assert createProduct != null : "fx:id=\"createProduct\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
@@ -109,7 +112,11 @@ public class SellerGoods {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerHomeSwitch().changeScene(currSeller, event);
+                    new AuthMainSwitch().changeScene(
+                            new Buyer(new User("", "", "None")),
+                            currSeller,
+                            primaryStage
+                    );
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -120,7 +127,11 @@ public class SellerGoods {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerBasketSwitch().changeScene(currSeller, event);
+                    new BasketSwitch().changeScene(
+                            new Buyer(new User("", "", "None")),
+                            currSeller,
+                            primaryStage
+                    );
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -131,7 +142,7 @@ public class SellerGoods {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerDataSwitch().changeScene(currSeller, event);
+                    new SellerDataSwitch().changeScene(currSeller, primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -142,7 +153,7 @@ public class SellerGoods {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerOrdersSwitch().changeScene(currSeller, event);
+                    new SellerOrdersSwitch().changeScene(currSeller, primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -153,7 +164,7 @@ public class SellerGoods {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerProductSwitch().changeScene(currSeller, event);
+                    new SellerProductSwitch().changeScene(currSeller, primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -164,7 +175,7 @@ public class SellerGoods {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerSettingsSwitch().changeScene(currSeller, event);
+                    new SellerSettingsSwitch().changeScene(currSeller, primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -175,7 +186,7 @@ public class SellerGoods {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new NotAuthMainSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -242,9 +253,4 @@ public class SellerGoods {
 
         return container;
     }
-
-    public void initSeller(Seller seller) {
-        this.currSeller = seller;
-    }
-
 }

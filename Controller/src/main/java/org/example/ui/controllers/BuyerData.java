@@ -8,16 +8,20 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
+import org.example.entities.seller.Seller;
+import org.example.entities.user.User;
 import org.example.ui.models.*;
 
 public class BuyerData {
 
-    private Buyer currBuyer;
+    private final Buyer currBuyer;
+
+    private final Stage primaryStage;
 
     @FXML
     private ResourceBundle resources;
@@ -64,6 +68,11 @@ public class BuyerData {
     @FXML
     private Label userSurname;
 
+    public BuyerData(Buyer buyer, Stage stage) {
+        this.currBuyer = buyer;
+        this.primaryStage = stage;
+    }
+
     @FXML
     void initialize() {
         assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
@@ -94,7 +103,11 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerHomeSwitch().changeScene(currBuyer, event);
+                    new AuthMainSwitch().changeScene(
+                            currBuyer,
+                            new Seller(new User("", "", "None")),
+                            primaryStage
+                    );
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -105,7 +118,11 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerBasketSwitch().changeScene(currBuyer, event);
+                    new BasketSwitch().changeScene(
+                            currBuyer,
+                            new Seller(new User("", "", "None")),
+                            primaryStage
+                    );
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -116,7 +133,7 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerFavouritesSwitch().changeScene(currBuyer, event);
+                    new BuyerFavouritesSwitch().changeScene(currBuyer, primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -127,7 +144,7 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerSettingsSwitch().changeScene(currBuyer, event);
+                    new BuyerSettingsSwitch().changeScene(currBuyer, primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -138,16 +155,11 @@ public class BuyerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new NotAuthMainSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
             }
         });
     }
-
-    public void initBuyer(Buyer buyer) {
-        this.currBuyer = buyer;
-    }
-
 }

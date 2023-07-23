@@ -21,7 +21,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.BuyerSettings">
+<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
         <Group fx:id="home">
             <HBox.margin>
@@ -149,49 +149,52 @@
                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="577.0">
                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0" style="-fx-background-color: #c4eaf7;">
                         <TilePane alignment="CENTER" hgap="40.0" maxHeight="-Infinity" prefHeight="100.0" prefWidth="663.0" vgap="40.0">
-                     <VBox alignment="CENTER" prefWidth="210.0">
-                        <children>
-                           <Label text="Change general data" wrapText="true">
-                              <VBox.margin>
-                                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                              </VBox.margin>
-                              <font>
-                                 <Font name="System Bold" size="14.0" />
-                              </font>
-                           </Label>
-                           <PasswordField fx:id="userPassword" maxWidth="1.7976931348623157E308" promptText="password">
-                              <VBox.margin>
-                                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                              </VBox.margin>
-                           </PasswordField>
-                           <PasswordField fx:id="newName" maxWidth="1.7976931348623157E308" promptText="New name">
-                              <VBox.margin>
-                                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                              </VBox.margin>
-                           </PasswordField>
-                           <PasswordField fx:id="newSurname" maxWidth="1.7976931348623157E308" promptText="New surname">
-                              <VBox.margin>
-                                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                              </VBox.margin>
-                           </PasswordField>
-                                   <DatePicker fx:id="newDateBirth" maxWidth="1.7976931348623157E308" prefWidth="176.0" promptText="New date of birth">
-                                       <VBox.margin>
-                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                       </VBox.margin>
-                                   </DatePicker>
-                           <Button fx:id="confirmData" mnemonicParsing="false" style="-fx-background-color: #75cdbf; -fx-background-radius: 12;" text="Confirm">
-                              <VBox.margin>
-                                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                              </VBox.margin>
-                              <cursor>
-                                 <Cursor fx:constant="HAND" />
-                              </cursor>
-                              <font>
-                                 <Font name="System Bold" size="12.0" />
-                              </font>
-                           </Button>
-                        </children>
-                     </VBox>
+                            <VBox alignment="CENTER" prefWidth="210.0">
+                                <Label text="Change general data" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <PasswordField fx:id="userPassword" maxWidth="1.7976931348623157E308"
+                                               promptText="password">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField fx:id="newName" maxWidth="1.7976931348623157E308" promptText="New name">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <PasswordField fx:id="newSurname" maxWidth="1.7976931348623157E308"
+                                               promptText="New surname">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </PasswordField>
+                                <DatePicker fx:id="newDateBirth" maxWidth="1.7976931348623157E308" prefWidth="176.0"
+                                            promptText="New date of birth">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </DatePicker>
+                                <Button fx:id="confirmData" mnemonicParsing="false"
+                                        style="-fx-background-color: #75cdbf; -fx-background-radius: 12;"
+                                        text="Confirm">
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+                            </VBox>
                      <VBox alignment="CENTER" prefWidth="210.0">
                         <children>
                            <Label text="Change passport data" wrapText="true">
