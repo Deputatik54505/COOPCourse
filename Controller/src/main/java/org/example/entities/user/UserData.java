@@ -1,17 +1,17 @@
 package org.example.entities.user;
 
-import org.example.database.Query;
+import org.example.database.IQuery;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserData {
-    private final Query query;
+    private final IQuery query;
     private int id;
 
-    public UserData() {
-        query = new Query();
+    public UserData(IQuery query) {
+        this.query = query;
     }
 
     public void load(String email) {
@@ -28,6 +28,7 @@ public class UserData {
 
     /**
      * Method for representing essential information about user
+     *
      * @return list with 3 strings.
      * At index 0 firstname
      * At index 1 surname

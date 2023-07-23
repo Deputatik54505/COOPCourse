@@ -65,7 +65,7 @@ public class BuyerData {
         assert userSurname != null : "fx:id=\"userSurname\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
 
         //TODO use general data (name, surname, birth) from DB
-        var generalData = currBuyer.user.data.represent();
+        //var generalData = currBuyer.user.data.represent();
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

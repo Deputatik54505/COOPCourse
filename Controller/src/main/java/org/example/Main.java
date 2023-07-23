@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/sign_in_form.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/buyer_acc_data.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         primaryStage.setTitle("Shop");

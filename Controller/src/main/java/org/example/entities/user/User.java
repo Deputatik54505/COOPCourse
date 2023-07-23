@@ -1,5 +1,6 @@
 package org.example.entities.user;
 
+import org.example.database.IQuery;
 import org.example.database.Query;
 import org.example.forms.log.LogVerification;
 import org.example.forms.sign.SignVerification;
@@ -13,19 +14,20 @@ public class User {
     public final String userType;
     private final String userMail;
     private final String userPassword;
+    private final IQuery query;
 
     public User(String mail, String password, String type) {
         this.userMail = mail;
         this.userPassword = password;
         this.userType = type;
-        data = new UserData();
+        query = new Query();
+        data = new UserData(query);
     }
 
     public void selfRegistration(String repeatPassword) throws Exception {
         new LogVerification().verifyUser(this.userMail, this.userPassword, repeatPassword);
 
-        var query = new Query();
-        query.executeQuery(
+        query.executeWithoutResponse(
                 String.format("insert into \"userTable\" (email, password, type) values ('%s', '%s', '%s')",
                         userMail, userPassword, userType));
         data.load(userMail);

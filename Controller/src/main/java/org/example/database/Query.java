@@ -28,4 +28,15 @@ public class Query implements IQuery {
 
         return resultSet;
     }
+
+    public void executeWithoutResponse(String query) {
+        //var dataSource = connector.dataSource();
+        try (var connection = DriverManager.getConnection("jdbc:postgresql://db.wfbsubesqynyfvpisvtv.supabase.co:5432/postgres", "postgres", "vJGj9uL2$d{wNc$")) {
+            var queryStatement = connection.prepareStatement(query);
+            queryStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

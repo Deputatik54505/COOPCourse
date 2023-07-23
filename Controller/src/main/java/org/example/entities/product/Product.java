@@ -32,13 +32,10 @@ public class Product {
         }
     }
 
-    public boolean delete() {
-        try (ResultSet resultSet = query.executeQuery(
-                String.format("delete from product where id=%d", this.id))) {
-            return resultSet.isLast();
-        } catch (SQLException e) {
-            return false;
-        }
+    public void delete() {
+        query.executeWithoutResponse(
+                String.format("delete from product where id=%d", this.id));
+
     }
 
     /**
@@ -60,37 +57,29 @@ public class Product {
                 currentData.get(1),
                 Float.parseFloat(currentData.get(2)),
                 available);
-        query.executeQuery(
+        query.executeWithoutResponse(
                 String.format("update product set available=%d where id=%d;", available, id));
 
     }
 
-    public boolean editPrice(float price) {
+    public void editPrice(float price) {
         var currentData = data.represent();
         this.data = new ProductData(currentData.get(0),
                 currentData.get(1),
                 price,
                 Integer.parseInt(currentData.get(3)));
-        try (var resultSet = query.executeQuery(
-                String.format("update product set price=%f where id=%d;", price, id))) {
-            return resultSet.isLast();
-        } catch (SQLException e) {
-            return false;
-        }
+        query.executeWithoutResponse(
+                String.format("update product set price=%f where id=%d;", price, id));
     }
 
-    public boolean editDescription(String description) {
+    public void editDescription(String description) {
         var currentData = data.represent();
         this.data = new ProductData(currentData.get(0),
                 description,
                 Float.parseFloat(currentData.get(2)),
                 Integer.parseInt(currentData.get(3)));
-        try (var resultSet = query.executeQuery(
-                String.format("update product set description=%s where id=%d;", description, id))) {
-            return resultSet.isLast();
-        } catch (SQLException e) {
-            return false;
-        }
+        query.executeWithoutResponse(
+                String.format("update product set description=%s where id=%d;", description, id));
     }
 
 }
