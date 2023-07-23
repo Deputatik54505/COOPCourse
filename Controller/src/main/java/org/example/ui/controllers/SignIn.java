@@ -8,9 +8,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import org.example.entities.user.User;
 import org.example.ui.models.DefaultSceneSwitch;
 
 public class SignIn {
@@ -23,6 +25,9 @@ public class SignIn {
 
     @FXML
     private Button btnAuthorize;
+
+    @FXML
+    private Label authorizationError;
 
     @FXML
     private Button userLogIn;
@@ -58,8 +63,20 @@ public class SignIn {
         this.btnAuthorize.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO sign in the user (check its type)
-
+                try {
+                    //TODO check user's type
+                    User user = new User(
+                            userMail.getText(),
+                            userPassword.getText(),
+                            ""
+                    );
+                    user.selfAuthorization();
+                } catch (Exception e) {
+                    authorizationError.setText(e.toString());
+                } finally {
+                    userMail.clear();
+                    userPassword.clear();
+                }
             }
         });
 

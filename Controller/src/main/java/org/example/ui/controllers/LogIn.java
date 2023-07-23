@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Group;
 import javafx.stage.Stage;
@@ -31,6 +28,9 @@ public class LogIn {
 
     @FXML
     private Button btnRegister;
+
+    @FXML
+    private Label registrationError;
 
     @FXML
     private TextField userMail;
@@ -55,6 +55,7 @@ public class LogIn {
 
     @FXML
     void initialize() {
+        assert registrationError != null : "fx:id=\"registrationError\" was not injected: check your FXML file 'log_in_form.fxml'.";
         assert btnRegister != null : "fx:id=\"btnRegister\" was not injected: check your FXML file 'log_in_form.fxml'.";
         assert userMail != null : "fx:id=\"userMail\" was not injected: check your FXML file 'log_in_form.fxml'.";
         assert userPassword != null : "fx:id=\"userPassword\" was not injected: check your FXML file 'log_in_form.fxml'.";
@@ -98,21 +99,17 @@ public class LogIn {
             @Override
             public void handle(MouseEvent event) {
                 try {
-
                     String type;
                     if (userBuyer.isSelected()) {
                         type = "Buyer";
                     } else {
                         type = "Seller";
                     }
-
-
                     User user = new User(
                             userMail.getText(),
                             userPassword.getText(),
                             type
                     );
-
                     user.selfRegistration(userRepeatPassword.getText());
 
                     FXMLLoader loader = new FXMLLoader();
@@ -134,7 +131,7 @@ public class LogIn {
                     primaryStage.show();
 
                 } catch (Exception e) {
-                    System.out.println(e.toString());
+                    registrationError.setText(e.toString());
                 } finally {
                     userMail.clear();
                     userPassword.clear();

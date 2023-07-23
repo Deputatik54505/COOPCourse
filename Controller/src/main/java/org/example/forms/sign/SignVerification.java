@@ -2,6 +2,8 @@ package org.example.forms.sign;
 
 import org.example.database.Query;
 import org.example.entities.user.User;
+import org.example.validation.exceptions.UnequalPasswordExc;
+import org.example.validation.exceptions.UserNotFoundExc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,21 +16,19 @@ public class SignVerification {
         query = new Query();
     }
 
-    public void verifyUser(String email, String password) {
+    public void verifyUser(String email, String password) throws SQLException, UnequalPasswordExc, UserNotFoundExc {
 
         try (ResultSet resultSet = query.executeQuery(
                 String.format("Select password from \"userTable\" where email='%s'", email))) {
             if (resultSet.next()) {
                 if (!password.equals(resultSet.getString("password"))) {
-                    throw new IllegalArgumentException("password and email does not matches");
+                    throw new UnequalPasswordExc();
                 }
             } else {
-                throw new IllegalArgumentException("no user with such email in db");
+                throw new UserNotFoundExc();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException | UserNotFoundExc | UnequalPasswordExc e) {
+            throw e;
         }
-//        this.user = this.users.findUser(email);
-//        this.user.isEqual(password);
     }
 }
