@@ -4,6 +4,9 @@ import org.example.database.Query;
 import org.example.forms.log.LogVerification;
 import org.example.forms.sign.SignVerification;
 import org.example.validation.exceptions.UnequalPasswordExc;
+import org.example.validation.exceptions.UserNotFoundExc;
+
+import java.sql.SQLException;
 
 public class User {
     public UserData data;
@@ -28,7 +31,7 @@ public class User {
         data.load(userMail);
     }
 
-    public void selfAuthorization() {
+    public void selfAuthorization() throws SQLException, UnequalPasswordExc, UserNotFoundExc {
         new SignVerification().verifyUser(this.userMail, this.userPassword);
         data.load(userMail);
     }

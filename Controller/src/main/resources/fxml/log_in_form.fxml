@@ -67,6 +67,7 @@
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #d7f5ff;" VBox.vgrow="ALWAYS">
         <StackPane prefHeight="150.0" prefWidth="200.0">
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <Label fx:id="registrationError" textFill="#f44242" wrapText="true" />
                 <Label text="Registration" textFill="#444444">
                     <VBox.margin>
                         <Insets top="4.0" />
