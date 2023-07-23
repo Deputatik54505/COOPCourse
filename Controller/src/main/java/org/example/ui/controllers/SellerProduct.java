@@ -161,6 +161,22 @@ public class SellerProduct {
                 }
             }
         });
+
+        this.addProduct.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    //TODO add the created product to DB
+                    System.out.println(productTitle.getText());
+                    System.out.println(productDesc.getText());
+                    System.out.println(typeCategory.getText());
+                    System.out.println(productCost.getText());
+                    System.out.println(productsNumber.getText());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
     public void initSeller(Seller seller) {

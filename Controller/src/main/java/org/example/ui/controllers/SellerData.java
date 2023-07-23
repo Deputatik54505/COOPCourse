@@ -32,19 +32,25 @@ public class SellerData {
     private Group home;
 
     @FXML
-    private Label numCategories;
+    private Label passportCode;
 
     @FXML
-    private Label numProducts;
+    private Label passportNumber;
+
+    @FXML
+    private Label passportPublisher;
+
+    @FXML
+    private Label passportSeries;
+
+    @FXML
+    private Label userBirth;
 
     @FXML
     private Circle userAvatar;
 
     @FXML
     private Button userBasket;
-
-    @FXML
-    private DatePicker userBirth;
 
     @FXML
     private Button userGoods;
@@ -68,8 +74,6 @@ public class SellerData {
     void initialize() {
         assert createProduct != null : "fx:id=\"createProduct\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
-        assert numCategories != null : "fx:id=\"numCategories\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
-        assert numProducts != null : "fx:id=\"numProducts\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert userBirth != null : "fx:id=\"userBirth\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
@@ -81,7 +85,15 @@ public class SellerData {
         assert userSurname != null : "fx:id=\"userSurname\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
 
         //TODO use general data (name, surname, birth, number of categories, number of products) from DB
-        var generalData = currSeller.user.data.represent();
+        //var generalData = currSeller.user.data.represent();
+        this.userName.setText("none");
+        this.userSurname.setText("none");
+        this.userBirth.setText("none");
+
+        this.passportSeries.setText("none");
+        this.passportNumber.setText("none");
+        this.passportPublisher.setText("none");
+        this.passportCode.setText("none");
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

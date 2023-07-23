@@ -35,10 +35,22 @@ public class BuyerData {
     private Circle userAvatar;
 
     @FXML
-    private Button basketFavourites;
+    private Label passportCode;
 
     @FXML
-    private DatePicker userBirth;
+    private Label passportNumber;
+
+    @FXML
+    private Label passportPublisher;
+
+    @FXML
+    private Label passportSeries;
+
+    @FXML
+    private Label userBirth;
+
+    @FXML
+    private Button basketFavourites;
 
     @FXML
     private Button userLogOut;
@@ -58,14 +70,26 @@ public class BuyerData {
         assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert basketFavourites != null : "fx:id=\"basketFavourites\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
-        assert userBirth != null : "fx:id=\"userBirth\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert userName != null : "fx:id=\"userName\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert userSurname != null : "fx:id=\"userSurname\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
+        assert passportCode != null : "fx:id=\"passportCode\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
+        assert passportNumber != null : "fx:id=\"passportNumber\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
+        assert passportPublisher != null : "fx:id=\"passportPublisher\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
+        assert passportSeries != null : "fx:id=\"passportSeries\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
+        assert userBirth != null : "fx:id=\"userBirth\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
 
         //TODO use general data (name, surname, birth) from DB
         //var generalData = currBuyer.user.data.represent();
+        this.userName.setText("none");
+        this.userSurname.setText("none");
+        this.userBirth.setText("none");
+
+        this.passportSeries.setText("none");
+        this.passportNumber.setText("none");
+        this.passportPublisher.setText("none");
+        this.passportCode.setText("none");
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
