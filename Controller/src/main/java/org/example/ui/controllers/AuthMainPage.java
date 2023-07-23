@@ -1,10 +1,5 @@
 package org.example.ui.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.Scanner;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -22,46 +17,43 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.example.entities.buyer.Buyer;
+import org.example.entities.product.IProductCategory;
+import org.example.entities.product.Product;
+import org.example.entities.product.ProductCategory;
 import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
 import org.example.ui.models.AccountSwitch;
-import org.example.ui.models.MainBasketSwitch;
 import org.example.ui.models.HomeSwitch;
+import org.example.ui.models.MainBasketSwitch;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class AuthMainPage {
 
+    private final Scanner scanner = new Scanner(System.in);
     private Buyer currBuyer;
-
     private Seller currSeller;
-
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private Group home;
-
     @FXML
     private TilePane listOfProducts;
-
     @FXML
     private VBox listOfCategories;
-
     @FXML
     private Button userAccount;
-
     @FXML
     private Button userBasket;
-
     @FXML
     private TextField userSearch;
-
     @FXML
     private Font x1;
-
-    private final Scanner scanner = new Scanner(System.in);
 
     @FXML
     void initialize() {
@@ -73,9 +65,9 @@ public class AuthMainPage {
         assert userSearch != null : "fx:id=\"userSearch\" was not injected: check your FXML file 'main_page.fxml'.";
         assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
 
-        //TODO load all categories from DB: addAll(this.loadCategories(root, someCategory))
+        IProductCategory rootCategory = new ProductCategory(1);
         TitledPane root = new TitledPane();
-        this.listOfCategories.getChildren().addAll(this.loadCategories(root));
+        this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
 
         BackgroundImage addToCart = new BackgroundImage(
                 new Image("/assets/image/icons/add-to-cart.png"),
@@ -85,10 +77,9 @@ public class AuthMainPage {
                 BackgroundSize.DEFAULT
         );
 
-        //TODO load all products through DB, call loadProduct(someProduct, addToCart)
-        for (int i = 0; i < 20; i++) {
-            VBox product = this.loadProduct(i, addToCart);
-            this.listOfProducts.getChildren().add(product);
+        for (var product : rootCategory.getProducts()) {
+            VBox productVBox = this.loadProduct(product, addToCart);
+            this.listOfProducts.getChildren().add(productVBox);
         }
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -146,7 +137,7 @@ public class AuthMainPage {
         this.currSeller = seller;
     }
 
-    public VBox loadProduct(int i, BackgroundImage addToCart) {
+    public VBox loadProduct(Product product, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
                 //TODO load image from DB
                 new Image("/assets/image/logo.jpg"),
@@ -171,14 +162,15 @@ public class AuthMainPage {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
-        //TODO load title from DB
-        Label title = new Label("Title");
+        String productName = product.data.represent().get(0);
+        String productPrice = product.data.represent().get(2);
+
+        Label title = new Label(productName);
         title.setTextFill(Paint.valueOf("#444444"));
         title.setWrapText(true);
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
-        //TODO load cost from DB, put it inside Integer.toString(...)
-        Label cost = new Label(Integer.toString((i + 1) * 132));
+        Label cost = new Label(productPrice);
         cost.setAlignment(Pos.CENTER);
         cost.setTextFill(Paint.valueOf("#444444"));
         cost.setWrapText(true);
@@ -204,23 +196,21 @@ public class AuthMainPage {
         return container;
     }
 
-    public Accordion loadCategories(TitledPane parent) {
+    public Accordion loadCategories(TitledPane parent, IProductCategory productCategory) {
         Accordion accordion = new Accordion();
         parent.setContent(accordion);
-        //TODO load the number of directed children of particular category: k = cat.loadDirectChild(...)
-        int k = 0;
-        if (k != 0) {
-            for (int i = 0; i < k; i++) {
+
+        var k = productCategory.hierarchy.directSubcategories();
+        if (k.size() != 0) {
+            for (var category : k) {
                 TitledPane container = new TitledPane();
-                //TODO load and set text for the non-leaf category inside setText(...)
-                container.setText(parent.getText() + i + ".");
+                container.setText(parent.getText() + category.specifications.getName() + ".");
                 accordion.getPanes().add(container);
-                loadCategories(container);
+                loadCategories(container, category);
             }
         } else {
             TitledPane container = new TitledPane();
-            //TODO load and set text for the leaf category inside setText(...)
-            container.setText(parent.getText() + "leaf");
+            container.setText(parent.getText() + productCategory.specifications.getName());
             accordion.getPanes().add(container);
         }
         return accordion;

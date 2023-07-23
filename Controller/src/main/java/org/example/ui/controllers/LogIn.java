@@ -114,7 +114,6 @@ public class LogIn {
                     );
 
                     user.selfRegistration(userRepeatPassword.getText());
-                    //TODO add the user to DB
 
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
