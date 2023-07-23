@@ -1,19 +1,12 @@
 package org.example.ui.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -23,9 +16,14 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
+import org.example.entities.product.Product;
 import org.example.ui.models.*;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class BuyerFavourites {
 
@@ -77,9 +75,9 @@ public class BuyerFavourites {
         );
 
         //TODO load all favourite products from DB: loadProduct(someProduct, addToCart)
-
-        for (int i = 0; i < 20; i++) {
-            VBox product = this.loadProduct(i, addToCart);
+        ArrayList<Product> favourites = new ArrayList<>();
+        for (var favor : favourites) {
+            VBox product = this.loadProduct(favor, addToCart);
             this.listOfFavourites.getChildren().add(product);
         }
 
@@ -143,7 +141,7 @@ public class BuyerFavourites {
         this.currBuyer = buyer;
     }
 
-    public VBox loadProduct(int i, BackgroundImage addToCart) {
+    public VBox loadProduct(Product product, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
                 //TODO load image from DB
                 new Image("/assets/image/logo.jpg"), //BD
@@ -168,14 +166,18 @@ public class BuyerFavourites {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
-        //TODO load title from DB
-        Label title = new Label("Title");
+        var productData = product.data.represent();
+
+        String productName = productData.get(0);
+        String productDescription = productData.get(1);
+        String productPrice = productData.get(2);
+
+        Label title = new Label(productName);
         title.setTextFill(Paint.valueOf("#444444"));
         title.setWrapText(true);
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
-        //TODO cost description from DB
-        Label cost = new Label(Integer.toString((i + 1) * 132));
+        Label cost = new Label(productPrice);
         cost.setAlignment(Pos.CENTER);
         cost.setTextFill(Paint.valueOf("#444444"));
         cost.setWrapText(true);

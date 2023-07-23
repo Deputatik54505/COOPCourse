@@ -1,57 +1,65 @@
 package org.example.ui.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.Scanner;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
-import javafx.scene.*;
-import javafx.scene.control.*;
+import javafx.scene.Cursor;
+import javafx.scene.Group;
+import javafx.scene.control.Accordion;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import org.example.entities.product.IProductCategory;
+import org.example.entities.product.Product;
+import org.example.entities.product.ProductCategory;
 import org.example.ui.models.DefaultSceneSwitch;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class MainPage {
 
+    private final Scanner scanner = new Scanner(System.in);
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private Group home;
-
     @FXML
     private TilePane listOfProducts;
-
     @FXML
     private VBox listOfCategories;
-
     @FXML
     private Button userLogIn;
-
     @FXML
     private TextField userSearch;
-
     @FXML
     private Button userSignIn;
-
     @FXML
     private Font x1;
-
-    private final Scanner scanner = new Scanner(System.in);
 
     @FXML
     void initialize() {
@@ -63,9 +71,10 @@ public class MainPage {
         assert userSignIn != null : "fx:id=\"userSignIn\" was not injected: check your FXML file 'main_page.fxml'.";
         assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
 
-        //TODO load all categories from DB: addAll(this.loadCategories(root, someCategory))
         TitledPane root = new TitledPane();
-        this.listOfCategories.getChildren().addAll(this.loadCategories(root));
+        IProductCategory rootCategory = new ProductCategory(1);
+        rootCategory.load();
+        this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
 
         BackgroundImage addToCart = new BackgroundImage(
                 new Image("/assets/image/icons/add-to-cart.png"),
@@ -75,10 +84,9 @@ public class MainPage {
                 BackgroundSize.DEFAULT
         );
 
-        //TODO load all products through DB, call loadProduct(someProduct, addToCart)
-        for (int i = 0; i < 20; i++) {
-            VBox product = this.loadProduct(i, addToCart);
-            this.listOfProducts.getChildren().add(product);
+        for (var product : rootCategory.getProducts()) {
+            VBox productVBox = this.loadProduct(product, addToCart);
+            this.listOfProducts.getChildren().add(productVBox);
         }
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -126,7 +134,7 @@ public class MainPage {
 
     }
 
-    public VBox loadProduct(int i, BackgroundImage addToCart) {
+    public VBox loadProduct(Product product, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
                 //TODO load image from DB
                 new Image("/assets/image/logo.jpg"),
@@ -151,14 +159,15 @@ public class MainPage {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
-        //TODO load title from DB
-        Label title = new Label("Title");
+        String productName = product.data.represent().get(0);
+        String productPrice = product.data.represent().get(2);
+
+        Label title = new Label(productName);
         title.setTextFill(Paint.valueOf("#444444"));
         title.setWrapText(true);
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
-        //TODO load cost from DB, put it inside Integer.toString(...)
-        Label cost = new Label(Integer.toString((i + 1) * 132));
+        Label cost = new Label(productPrice);
         cost.setAlignment(Pos.CENTER);
         cost.setTextFill(Paint.valueOf("#444444"));
         cost.setWrapText(true);
@@ -184,23 +193,20 @@ public class MainPage {
         return container;
     }
 
-    public Accordion loadCategories(TitledPane parent) {
+    public Accordion loadCategories(TitledPane parent, IProductCategory category) {
         Accordion accordion = new Accordion();
         parent.setContent(accordion);
-        //TODO load the number of directed children of particular category: k = cat.loadDirectChild(...)
-        int k = 0;
-        if (k != 0) {
-            for (int i = 0; i < k; i++) {
+        var k = category.hierarchy.directSubcategories();
+        if (!category.specifications.isLeafCategory()) {
+            for (var subcategory : k) {
                 TitledPane container = new TitledPane();
-                //TODO load and set text for the non-leaf category inside setText(...)
-                container.setText(parent.getText() + i + ".");
+                container.setText(parent.getText() + subcategory.specifications.getName() + ".");
                 accordion.getPanes().add(container);
-                loadCategories(container);
+                loadCategories(container, subcategory);
             }
         } else {
             TitledPane container = new TitledPane();
-            //TODO load and set text for the leaf category inside setText(...)
-            container.setText(parent.getText() + "leaf");
+            container.setText(parent.getText() + category.specifications.getName());
             accordion.getPanes().add(container);
         }
         return accordion;

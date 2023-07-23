@@ -4,7 +4,7 @@ import org.example.entities.cart.ShoppingCart;
 import org.example.entities.user.User;
 
 public class Seller {
-    private final User user;
+    public final User user;
 
     protected final ShoppingCart shoppingCart;
 
