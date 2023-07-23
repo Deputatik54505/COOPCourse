@@ -11,16 +11,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import org.example.entities.product.Product;
 import org.example.entities.seller.Seller;
-import org.example.ui.models.*;
+import org.example.ui.models.DefaultSceneSwitch;
+import org.example.ui.models.SellerBasketSwitch;
+import org.example.ui.models.SellerDataSwitch;
+import org.example.ui.models.SellerHomeSwitch;
+import org.example.ui.models.SellerOrdersSwitch;
+import org.example.ui.models.SellerProductSwitch;
+import org.example.ui.models.SellerSettingsSwitch;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SellerGoods {
@@ -81,9 +98,11 @@ public class SellerGoods {
         );
 
         //TODO load all seller's goods from DB: this.loadProduct(product, addToCart)
-        for (int i = 0; i < 20; i++) {
-            VBox product = this.loadProduct(i, addToCart);
-            this.listOfProducts.getChildren().add(product);
+
+        ArrayList<Product> sellersGoods = new ArrayList<>();
+        for (var product : sellersGoods) {
+            VBox productVBox = this.loadProduct(product, addToCart);
+            this.listOfProducts.getChildren().add(productVBox);
         }
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -165,7 +184,7 @@ public class SellerGoods {
 
     }
 
-    public VBox loadProduct(int i, BackgroundImage addToCart) {
+    public VBox loadProduct(Product product, BackgroundImage addToCart) {
         BackgroundImage backgroundImage = new BackgroundImage(
                 //TODO load image from DB
                 new Image("/assets/image/logo.jpg"),
@@ -190,14 +209,15 @@ public class SellerGoods {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
-        //TODO load title from DB
-        Label title = new Label("Title");
+        String productName = product.data.represent().get(0);
+        String productPrice = product.data.represent().get(2);
+
+        Label title = new Label(productName);
         title.setTextFill(Paint.valueOf("#444444"));
         title.setWrapText(true);
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
-        //TODO load cost from DB, put it inside Integer.toString(...)
-        Label cost = new Label(Integer.toString((i + 1) * 132));
+        Label cost = new Label(productPrice);
         cost.setAlignment(Pos.CENTER);
         cost.setTextFill(Paint.valueOf("#444444"));
         cost.setWrapText(true);
