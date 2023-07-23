@@ -3,7 +3,7 @@ package org.example.entities.buyer;
 import org.example.entities.product.Product;
 import org.example.entities.cart.ShoppingCart;
 import org.example.entities.user.User;
-import org.example.validation.exceptions.NotFoundException;
+import org.example.validation.exceptions.ProductNotFoundExc;
 
 public class Buyer {
     private final User user;
@@ -19,7 +19,7 @@ public class Buyer {
         return this.user.userType.equals("Buyer");
     }
 
-    public void buyProduct(Product product) throws NotFoundException {
+    public void buyProduct(Product product) throws ProductNotFoundExc {
         this.shoppingCart.removePurchase(product);
         product.addAmount(-1);
     }

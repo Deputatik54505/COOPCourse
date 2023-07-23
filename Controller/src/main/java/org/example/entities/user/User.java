@@ -3,7 +3,7 @@ package org.example.entities.user;
 import org.example.database.Query;
 import org.example.forms.log.LogVerification;
 import org.example.forms.sign.SignVerification;
-import org.example.validation.exceptions.UnequalException;
+import org.example.validation.exceptions.UnequalPasswordExc;
 
 public class User {
     public final String userType;
@@ -21,17 +21,18 @@ public class User {
 
         var query = new Query();
         query.executeQuery(
-                String.format("insert into \"userTable\" (email, password, type) values ('%s', '%s', '%s')", userMail, userPassword, userType));
+                String.format("insert into \"userTable\" (email, password, type) values ('%s', '%s', '%s')", userMail, userPassword, userType)
+        );
     }
 
     public void selfAuthorization() {
         new SignVerification().verifyUser(this.userMail, this.userPassword);
     }
 
-    public void isEqual(String pass) throws UnequalException {
+    public void isEqual(String pass) throws UnequalPasswordExc {
         if (this.userPassword.equals(pass)) {
             return;
         }
-        throw new UnequalException();
+        throw new UnequalPasswordExc();
     }
 }

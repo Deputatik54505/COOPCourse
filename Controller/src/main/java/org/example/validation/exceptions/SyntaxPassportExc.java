@@ -1,8 +1,8 @@
 package org.example.validation.exceptions;
 
-public class NotFoundException extends Exception {
+public class SyntaxPassportExc extends Exception {
     @Override
     public String toString() {
-        return "Entity not found!";
+        return "Incorrect passport syntax.";
     }
 }
