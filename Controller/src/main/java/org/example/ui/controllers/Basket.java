@@ -2,6 +2,8 @@ package org.example.ui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -21,6 +23,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.example.entities.buyer.Buyer;
+import org.example.entities.product.Product;
 import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
 import org.example.ui.models.AccountSwitch;
@@ -89,14 +92,14 @@ public class Basket {
                 BackgroundSize.DEFAULT
         );
 
-        //TODO load all purchases from user's shopping cart: loadProduct(someProduct, trashCan)
-        for (int i = 0; i < 10; i++) {
-            HBox hBox = loadProduct(i, trashCan);
+// todo: add purchases in the list
+        ArrayList<Product> purchases = new ArrayList<>();
+        for (var product : purchases) {
+            HBox hBox = loadProduct(product, trashCan);
             this.listOfProducts.getChildren().add(hBox);
         }
 
-        //TODO set the number of purchases: setText(...)
-        this.numPurchases.setText(Integer.toString(10));
+        this.numPurchases.setText(String.valueOf(purchases.size()));
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -147,7 +150,7 @@ public class Basket {
         });
     }
 
-    public HBox loadProduct(int i, BackgroundImage trashCan) {
+    public HBox loadProduct(Product product, BackgroundImage trashCan) {
         BackgroundImage backgroundImage = new BackgroundImage(
                 //TODO load image from DB
                 new Image("/assets/image/logo.jpg"), //BD
@@ -166,18 +169,23 @@ public class Basket {
         Pane pane3 = new Pane();
         VBox.setVgrow(pane3, Priority.ALWAYS);
 
-        //TODO load title from DB
-        Label title = new Label("Title");
+
+        var productData = product.data.represent();
+
+        String productName = productData.get(0);
+        String productDescription = productData.get(1);
+        String productPrice = productData.get(2);
+
+
+        Label title = new Label(productName);
         title.setPadding(new Insets(16.0, 0.0, 0.0, 16.0));
         title.setFont(Font.font("System", FontWeight.BOLD, 16.0));
 
-        //TODO load description from DB
-        Label desc = new Label("Description");
+        Label desc = new Label(productDescription);
         desc.setPadding(new Insets(0.0, 0.0, 12.0, 12.0));
         desc.setFont(Font.font(14.0));
 
-        //TODO cost description from DB
-        Label cost = new Label(Integer.toString((i + 1) * 230)); //BD
+        Label cost = new Label(productPrice);
         cost.setPadding(new Insets(0.0, 8.0, 8.0, 0.0));
         cost.setFont(Font.font(16.0));
 
@@ -230,7 +238,6 @@ public class Basket {
         hBox.getChildren().addAll(vBoxL, vBoxR);
         TilePane.setMargin(hBox, new Insets(4));
         hBox.setBackground(new Background(backgroundImage));
-        hBox.setId(Integer.toString(i));
 
         return hBox;
     }
