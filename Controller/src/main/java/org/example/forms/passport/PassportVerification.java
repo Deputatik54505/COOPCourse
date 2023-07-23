@@ -1,8 +1,6 @@
 package org.example.forms.passport;
 
 import org.example.entities.user.User;
-import org.example.entities.user.UserPassport;
-import org.example.validation.passport.Passport;
 import org.example.validation.passport.ValidatePassport;
 
 public class PassportVerification {
