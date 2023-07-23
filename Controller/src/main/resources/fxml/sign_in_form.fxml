@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 
 <VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.SignIn">
-    <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
+    <HBox alignment="CENTER" maxHeight="-Infinity" style="-fx-background-color: #444444;">
         <Group fx:id="home">
             <HBox.margin>
                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -66,6 +66,7 @@
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #d7f5ff;" VBox.vgrow="ALWAYS">
         <StackPane prefHeight="150.0" prefWidth="200.0">
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <Label fx:id="authorizationError" textFill="#f44242" wrapText="true" />
                 <Label text="Authorization" textFill="#444444">
                     <VBox.margin>
                         <Insets top="4.0" />
@@ -103,6 +104,9 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
             <StackPane.margin>
                <Insets left="4.0" right="4.0" />
