@@ -1,13 +1,13 @@
 package org.example.validation.password;
 
 public class MaxPassword {
-    private final Password password;
+    private final int passwordLength;
 
     public MaxPassword(Password password) {
-        this.password = password;
+        this.passwordLength = password.passwordLength;
     }
 
     public boolean isSuitableLength() {
-        return this.password.passwordLength <= PasswordFields.MAX_LEN.requiredLen;
+        return this.passwordLength <= PasswordFields.MAX_LEN.requiredLen;
     }
 }

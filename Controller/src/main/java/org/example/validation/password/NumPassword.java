@@ -1,16 +1,16 @@
 package org.example.validation.password;
 
 public class NumPassword {
-    private final Password password;
+    private final String password;
 
     public NumPassword(Password password) {
-        this.password = password;
+        this.password = password.userPassword;
     }
 
     public boolean isNum() {
-        for (int i = 0; i < this.password.userPassword.length(); i++) {
-            if (this.password.userPassword.charAt(i) >= '0' &&
-                    this.password.userPassword.charAt(i) <= '9') {
+        for (int i = 0; i < this.password.length(); i++) {
+            if (this.password.charAt(i) >= '0' &&
+                    this.password.charAt(i) <= '9') {
                 return true;
             }
         }

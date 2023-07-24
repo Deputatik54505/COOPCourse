@@ -1,14 +1,14 @@
 package org.example.validation.userdata;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import org.example.entities.user.User;
+import org.example.forms.data.DataVerification;
 
 public class Data {
-    private final String name;
+    protected final String name;
 
-    private final String surname;
+    protected final String surname;
 
-    private final String birth;
+    protected final String birth;
 
     public Data(String name, String surname, String birth) {
         this.name = name;
@@ -16,19 +16,8 @@ public class Data {
         this.birth = birth;
     }
 
-    public ArrayList<String> provideData() {
-        return new ArrayList<>(Arrays.asList(
-                this.name,
-                this.surname,
-                this.birth
-        ));
-    }
-
-    public boolean isSuitableLength() {
-        return this.name.length() >= DataFields.MIN_NAME.requiredLen &&
-                this.name.length() <= DataFields.MAX_NAME.requiredLen &&
-                this.surname.length() >= DataFields.MIN_SURNAME.requiredLen &&
-                this.surname.length() <= DataFields.MAX_SURNAME.requiredLen &&
-                this.birth.length() == DataFields.BIRTH.requiredLen;
+    public void selfValidation(User user) throws Exception {
+        //TODO refactor data validation
+        new DataVerification().verifyData(user, this);
     }
 }

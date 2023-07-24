@@ -1,17 +1,14 @@
 package org.example.validation.userdata;
 
 public class DataSurname {
-    private final Data data;
-
-    private String surname;
+    private final String surname;
 
     public DataSurname(Data data) {
-        this.data = data;
+        this.surname = data.surname;
     }
 
     public boolean isValidInput() {
-        this.surname = this.data.provideData().get(DataFields.MIN_SURNAME.ordinal());
-        for (int i = 0; i < this.surname.length(); i++) {
+        for (int i = 1; i < this.surname.length(); i++) {
             if (!(
                     (this.surname.charAt(i) >= 'a' &&
                     this.surname.charAt(i) <= 'z') ||

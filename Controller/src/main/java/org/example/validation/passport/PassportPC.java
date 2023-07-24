@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class PassportPC {
     protected final String publisher;
 
-    private final String code;
+    protected final String code;
 
     private final ArrayList<Character> forbidChar = new ArrayList<>(Arrays.asList(
             '?', '/', '%', '*', '(', ')', '[', ']', '{', '}',
@@ -19,14 +19,7 @@ public class PassportPC {
         this.code = code;
     }
 
-    public boolean checkLen() {
-        return
-                this.publisher.length() >= PassportFields.MIN_PUBLISHER.requiredLen &&
-                this.publisher.length() <= PassportFields.MAX_PUBLISHER.requiredLen &&
-                this.code.length() == PassportFields.CODE.requiredLen;
-    }
-
-    public boolean validate() {
+    public boolean isValid() {
         for (int i = 0; i < this.code.length(); i++) {
             if (!(this.code.charAt(i) >= '0' &&
                     this.code.charAt(i) <= '9')) {

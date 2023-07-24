@@ -1,7 +1,7 @@
 package org.example.validation.userdata;
 
 public enum DMY {
-    DAY,
+    YEAR,
     MONTH,
-    YEAR;
+    DAY;
 }

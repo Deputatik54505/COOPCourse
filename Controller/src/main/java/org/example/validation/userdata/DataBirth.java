@@ -3,21 +3,21 @@ package org.example.validation.userdata;
 import java.util.ArrayList;
 
 public class DataBirth {
-    private final Data data;
+    private final String birth;
 
     private final ArrayList<String> ddmmyyyy;
 
     private int counter;
 
     public DataBirth(Data data) {
-        this.data = data;
+        this.birth = data.birth;
         this.ddmmyyyy = new ArrayList<>(3);
         this.counter = 0;
     }
 
     public boolean isValidInput() {
         return
-                splitBirth(this.data.provideData().get(DataFields.BIRTH.ordinal())) &&
+                splitBirth(this.birth) &&
                 isNum(this.ddmmyyyy.get(DMY.DAY.ordinal())) &&
                 isNum(this.ddmmyyyy.get(DMY.MONTH.ordinal())) &&
                 isNum(this.ddmmyyyy.get(DMY.YEAR.ordinal()));
@@ -34,7 +34,7 @@ public class DataBirth {
 
     private boolean splitBirth(String birth) {
         for (int i = 0; i < birth.length(); i++) {
-            if (birth.charAt(i) == '.') {
+            if (birth.charAt(i) == '-') {
                 this.counter++;
             }
         }
