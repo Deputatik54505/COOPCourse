@@ -170,7 +170,7 @@ public class BuyerFavourites {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO add to User's shopping cart
+                //TODO add to User's basket
             }
         });
 

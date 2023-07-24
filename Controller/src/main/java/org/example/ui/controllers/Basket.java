@@ -102,7 +102,7 @@ public class Basket {
                 BackgroundSize.DEFAULT
         );
 
-// todo: add purchases in the list
+        // todo: add purchases in the list
         ArrayList<Product> purchases = new ArrayList<>();
         for (var product : purchases) {
             HBox hBox = loadProduct(product, trashCan);
@@ -140,9 +140,8 @@ public class Basket {
         this.UserSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                //TODO implement search by pressing ENTER in the basket
                 if (event.getCode().equals(KeyCode.ENTER)) {
-
+                    //TODO implement search in the user's basket
                 }
             }
         });
@@ -150,7 +149,7 @@ public class Basket {
         this.buyPurchase.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO validate place and card number, remove from basket DB
+                //TODO validate place and card number, remove from user's basket and DB
             }
         });
 
@@ -231,7 +230,7 @@ public class Basket {
         button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO delete from user's shopping cart
+                //TODO implement deletion from user's basket
                 listOfProducts.getChildren().remove(hBox);
                 if (include.isSelected()) {
                     subtotalCost.setText(Integer.toString(
