@@ -178,7 +178,7 @@ public class BuyerFavourites {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
-        var productData = product.data.represent();
+        var productData = product.data().represent();
 
         String productName = productData.get(0);
         String productDescription = productData.get(1);

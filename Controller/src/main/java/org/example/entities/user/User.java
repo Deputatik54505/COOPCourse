@@ -53,7 +53,7 @@ public class User {
         return userType.equals("Seller");
     }
 
-    public String getEmail() {
+    public String email() {
         return userMail;
     }
 

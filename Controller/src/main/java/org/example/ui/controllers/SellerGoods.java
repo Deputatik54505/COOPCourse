@@ -216,8 +216,8 @@ public class SellerGoods {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
-        String productName = product.data.represent().get(0);
-        String productPrice = product.data.represent().get(2);
+        String productName = product.data().represent().get(0);
+        String productPrice = product.data().represent().get(2);
 
         Label title = new Label(productName);
         title.setTextFill(Paint.valueOf("#444444"));

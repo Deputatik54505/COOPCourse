@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Product {
     private final IQuery query;
     private final int id;
-    public ProductData data;
+    private ProductData data;
 
     public Product(int id) {
         this.id = id;
@@ -30,12 +30,6 @@ public class Product {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void delete() {
-        query.executeWithoutResponse(
-                String.format("delete from product where id=%d", this.id));
-
     }
 
     /**
@@ -62,24 +56,8 @@ public class Product {
 
     }
 
-    public void editPrice(float price) {
-        var currentData = data.represent();
-        this.data = new ProductData(currentData.get(0),
-                currentData.get(1),
-                price,
-                Integer.parseInt(currentData.get(3)));
-        query.executeWithoutResponse(
-                String.format("update product set price=%f where id=%d;", price, id));
-    }
-
-    public void editDescription(String description) {
-        var currentData = data.represent();
-        this.data = new ProductData(currentData.get(0),
-                description,
-                Float.parseFloat(currentData.get(2)),
-                Integer.parseInt(currentData.get(3)));
-        query.executeWithoutResponse(
-                String.format("update product set description=%s where id=%d;", description, id));
+    public ProductData data() {
+        return data;
     }
 
 }

@@ -1,21 +1,24 @@
 package org.example.ui.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.example.entities.buyer.Buyer;
+import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
+import org.example.ui.models.AuthMainSwitch;
 import org.example.ui.models.LogInSwitch;
 import org.example.ui.models.NotAuthMainSwitch;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class SignIn {
     private final Stage primaryStage;
@@ -78,7 +81,18 @@ public class SignIn {
                             ""
                     );
                     user.selfAuthorization();
-                    //TODO change page
+
+                    if (user.isBuyer()) {
+                        new AuthMainSwitch(
+                                new Buyer(user),
+                                new Seller(new User("", "", "None")))
+                                .changeScene(primaryStage);
+                    } else if (user.isSeller()) {
+                        new AuthMainSwitch(
+                                new Buyer(new User("", "", "None")),
+                                new Seller(user))
+                                .changeScene(primaryStage);
+                    }
                 } catch (Exception e) {
                     authorizationError.setText(e.toString());
                 } finally {

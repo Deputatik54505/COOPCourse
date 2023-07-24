@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ProductCategoryHierarchy implements IProductCategoryHierarchy {
+public class ProductCategoryHierarchy {
     private final List<Integer> directSubcategories;
     private final Integer superCategoryId;
 
@@ -13,9 +13,8 @@ public class ProductCategoryHierarchy implements IProductCategoryHierarchy {
         this.superCategoryId = superCategoryId;
     }
 
-    @Override
-    public Collection<IProductCategory> directSubcategories() {
-        Collection<IProductCategory> collection = new ArrayList<>(directSubcategories.size());
+    public Collection<ProductCategory> child() {
+        Collection<ProductCategory> collection = new ArrayList<>(directSubcategories.size());
         for (var categoryId : directSubcategories) {
             var category = new ProductCategory(categoryId);
             category.load();
@@ -24,25 +23,23 @@ public class ProductCategoryHierarchy implements IProductCategoryHierarchy {
         return collection;
     }
 
-    @Override
-    public Collection<IProductCategory> allSubcategories() {
-        Collection<IProductCategory> ids = new ArrayList<>();
+    public Collection<ProductCategory> subcategories() {
+        Collection<ProductCategory> ids = new ArrayList<>();
         if (directSubcategories == null)
-            return null;
-        for (var category : directSubcategories()) {
+            return ids;
+        for (var category : child()) {
             ids.add(category);
-            if (!category.specifications.isLeafCategory())
+            if (!category.specifications().isLeaf())
                 continue;
 
-            ids.addAll(category.hierarchy.allSubcategories());
+            ids.addAll(category.hierarchy().subcategories());
         }
         return ids;
     }
 
-    @Override
-    public IProductCategory superCategory() {
+    public ProductCategory superCategory() {
         if (superCategoryId == null)
-            return null;
+            throw new RuntimeException("this is root category");
         var category = new ProductCategory(superCategoryId);
         category.load();
         return category;

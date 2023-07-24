@@ -18,7 +18,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
-import org.example.entities.product.IProductCategory;
 import org.example.entities.product.Product;
 import org.example.entities.product.ProductCategory;
 import org.example.entities.seller.Seller;
@@ -167,8 +166,8 @@ public class AuthMainPage {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
-        String productName = product.data.represent().get(0);
-        String productPrice = product.data.represent().get(2);
+        String productName = product.data().represent().get(0);
+        String productPrice = product.data().represent().get(2);
 
         Label title = new Label(productName);
         title.setTextFill(Paint.valueOf("#444444"));
@@ -201,21 +200,21 @@ public class AuthMainPage {
         return container;
     }
 
-    public Accordion loadCategories(TitledPane parent, IProductCategory productCategory) {
+    public Accordion loadCategories(TitledPane parent, ProductCategory productCategory) {
         Accordion accordion = new Accordion();
         parent.setContent(accordion);
 
-        var k = productCategory.hierarchy.directSubcategories();
+        var k = productCategory.hierarchy().child();
         if (k.size() != 0) {
             for (var category : k) {
                 TitledPane container = new TitledPane();
-                container.setText(parent.getText() + category.specifications.getName() + ".");
+                container.setText(parent.getText() + category.specifications().name() + ".");
                 accordion.getPanes().add(container);
                 loadCategories(container, category);
             }
         } else {
             TitledPane container = new TitledPane();
-            container.setText(parent.getText() + productCategory.specifications.getName());
+            container.setText(parent.getText() + productCategory.specifications().name());
             accordion.getPanes().add(container);
         }
         return accordion;

@@ -30,7 +30,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import org.example.entities.product.IProductCategory;
 import org.example.entities.product.Product;
 import org.example.entities.product.ProductCategory;
 import org.example.ui.models.LogInSwitch;
@@ -78,7 +77,7 @@ public class MainPage {
         assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
 
         TitledPane root = new TitledPane();
-        IProductCategory rootCategory = new ProductCategory(1);
+        ProductCategory rootCategory = new ProductCategory(1);
         rootCategory.load();
         this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
 
@@ -164,8 +163,8 @@ public class MainPage {
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
 
-        String productName = product.data.represent().get(0);
-        String productPrice = product.data.represent().get(2);
+        String productName = product.data().represent().get(0);
+        String productPrice = product.data().represent().get(2);
 
         Label title = new Label(productName);
         title.setTextFill(Paint.valueOf("#444444"));
@@ -198,20 +197,20 @@ public class MainPage {
         return container;
     }
 
-    public Accordion loadCategories(TitledPane parent, IProductCategory category) {
+    public Accordion loadCategories(TitledPane parent, ProductCategory category) {
         Accordion accordion = new Accordion();
         parent.setContent(accordion);
-        var k = category.hierarchy.directSubcategories();
+        var k = category.hierarchy().child();
         if (k.size() != 0) {
             for (var subcategory : k) {
                 TitledPane container = new TitledPane();
-                container.setText(parent.getText() + subcategory.specifications.getName() + ".");
+                container.setText(parent.getText() + subcategory.specifications().name() + ".");
                 accordion.getPanes().add(container);
                 loadCategories(container, subcategory);
             }
         } else {
             TitledPane container = new TitledPane();
-            container.setText(parent.getText() + category.specifications.getName());
+            container.setText(parent.getText() + category.specifications().name());
             accordion.getPanes().add(container);
         }
         return accordion;

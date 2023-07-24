@@ -9,12 +9,23 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class ProductCategory extends IProductCategory {
+public class ProductCategory {
     private final IQuery query;
+    private final int id;
+    private ProductCategoryHierarchy hierarchy;
+    private ProductCategorySpecifications specifications;
 
     public ProductCategory(int id) {
         this.id = id;
         query = new Query();
+    }
+
+    public ProductCategorySpecifications specifications() {
+        return specifications;
+    }
+
+    public ProductCategoryHierarchy hierarchy() {
+        return hierarchy;
     }
 
     public void load() {
@@ -35,7 +46,7 @@ public class ProductCategory extends IProductCategory {
             }
 
             this.hierarchy = new ProductCategoryHierarchy(childIds, superCategoryId);
-            this.specifications = new ProductCategorySpecification(superCategoryId != 0,
+            this.specifications = new ProductCategorySpecifications(superCategoryId != 0,
                     childIds.size() != 0,
                     name);
 
@@ -44,9 +55,8 @@ public class ProductCategory extends IProductCategory {
         }
     }
 
-    @Override
     public Collection<Product> getProducts() {
-        var categories = hierarchy.allSubcategories();
+        var categories = hierarchy.subcategories();
         categories.add(this);
         StringBuilder queryBuilder = new StringBuilder("SELECT id FROM Product WHERE \"categoryId\" in (");
         for (var category : categories) {

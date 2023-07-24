@@ -1,6 +1,5 @@
 package org.example.search;
 
-import org.example.entities.product.IProductCategory;
 import org.example.entities.product.Product;
 import org.example.entities.product.ProductCategory;
 import org.example.validation.exceptions.ProductNotFoundExc;
@@ -10,7 +9,7 @@ import java.util.Collection;
 
 public class Search {
 
-    private final IProductCategory productCategory;
+    private final ProductCategory productCategory;
     private Collection<Product> products;
 
     public Search() {
@@ -25,7 +24,7 @@ public class Search {
     public ArrayList<Product> search(String str) throws ProductNotFoundExc {
         var suitableProducts = new ArrayList<Product>();
         for (Product value : this.products) {
-            if (value.data.hasWord(str)) {
+            if (value.data().hasWord(str)) {
                 suitableProducts.add(value);
             }
         }

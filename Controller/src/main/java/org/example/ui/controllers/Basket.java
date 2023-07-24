@@ -183,7 +183,7 @@ public class Basket {
         VBox.setVgrow(pane3, Priority.ALWAYS);
 
 
-        var productData = product.data.represent();
+        var productData = product.data().represent();
 
         String productName = productData.get(0);
         String productDescription = productData.get(1);

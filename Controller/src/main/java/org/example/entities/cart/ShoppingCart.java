@@ -14,15 +14,13 @@ import java.util.Map;
 public class ShoppingCart {
     private final Map<Product, Integer> purchases;
     private final IQuery query;
-    private final int userId;
 
-    public ShoppingCart(int userId) {
+    public ShoppingCart() {
         this.purchases = new HashMap<>();
         query = new Query();
-        this.userId = userId;
     }
 
-    public void load() {
+    public void load(int userId) {
 
         try (ResultSet resultSet = query.executeQuery(
                 String.format("SELECT cart FROM customer WHERE userId=%d", userId))) {

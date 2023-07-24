@@ -1,28 +1,25 @@
 package org.example.entities.product;
 
-public class ProductCategorySpecification implements IProductCategorySpecifications {
+public class ProductCategorySpecifications {
     private final boolean hasParent;
     private final boolean hasChild;
     private final String name;
 
-    public ProductCategorySpecification(boolean hasParent, boolean hasChild, String name) {
+    public ProductCategorySpecifications(boolean hasParent, boolean hasChild, String name) {
         this.hasParent = hasParent;
         this.hasChild = hasChild;
         this.name = name;
     }
 
-    @Override
-    public String getName() {
+    public String name() {
         return name;
     }
 
-    @Override
-    public boolean isRootCategory() {
+    public boolean isRoot() {
         return hasParent;
     }
 
-    @Override
-    public boolean isLeafCategory() {
+    public boolean isLeaf() {
         return hasChild;
     }
 }

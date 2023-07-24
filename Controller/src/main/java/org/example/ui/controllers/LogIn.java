@@ -120,7 +120,7 @@ public class LogIn {
                             userPassword.getText(),
                             type
                     );
-                    //user.selfRegistration(userRepeatPassword.getText());
+                    user.selfRegistration(userRepeatPassword.getText());
                     if (userBuyer.isSelected()) {
                         new AuthMainSwitch(
                                 new Buyer(user),

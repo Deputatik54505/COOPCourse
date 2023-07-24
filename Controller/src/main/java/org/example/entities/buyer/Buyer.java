@@ -10,20 +10,26 @@ import java.sql.SQLException;
 
 public class Buyer {
     public final User user;
-    public final ShoppingCart shoppingCart;
+    public ShoppingCart shoppingCart;
 
     public Buyer(User user) {
         this.user = user;
+        shoppingCart = new ShoppingCart();
+    }
+
+    public Buyer loadBuyer(User user) {
+
+        Buyer buyer = new Buyer(user);
         int buyerId;
         Query query = new Query();
         try (var resultSet = query.executeQuery(String.format("select id from customer " +
-                "where \"userId\" in (SELECT id from \"userTable\" where email='%s');\n", user.getEmail()))) {
+                "where \"userId\" in (SELECT id from \"userTable\" where email='%s');", user.email()))) {
             buyerId = resultSet.getInt("id");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        this.shoppingCart = new ShoppingCart(buyerId);
-        shoppingCart.load();
+        buyer.shoppingCart.load(buyerId);
+        return buyer;
     }
 
 
