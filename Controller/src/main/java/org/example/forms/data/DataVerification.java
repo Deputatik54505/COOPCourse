@@ -7,13 +7,11 @@ import org.example.validation.userdata.ValidateData;
 public class DataVerification {
     private final ValidateData validateData;
 
-    public DataVerification() {
-        this.validateData = new ValidateData();
+    public DataVerification(Data data) {
+        this.validateData = new ValidateData(data);
     }
 
-    public void verifyData(User user, Data data) throws Exception {
-        this.validateData.validate(
-                data
-        );
+    public void verifyData() throws Exception {
+        this.validateData.validate();
     }
 }

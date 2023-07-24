@@ -16,8 +16,8 @@ public class Data {
         this.birth = birth;
     }
 
-    public void selfValidation(User user) throws Exception {
+    public void selfValidation() throws Exception {
         //TODO refactor data validation
-        new DataVerification().verifyData(user, this);
+        new DataVerification(this).verifyData();
     }
 }
