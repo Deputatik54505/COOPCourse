@@ -4,27 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Made unitary tests for mail">
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/MaxPasswordExc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/MinPasswordExc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/MaxPassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/MinPassword.java" afterDir="false" />
+    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Removed NULLS in checking password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/libs/Controller-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/libs/Controller-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/LogVerification.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/log/LogVerification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/LengthPasswordExc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/Password.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/ValidatePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/ValidatePassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/AuthMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/AuthMainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/Basket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerFavourites.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerFavourites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/LogIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerGoods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerOrders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SignIn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +64,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="unitary_tests_for_password" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -325,7 +317,28 @@
       <option name="project" value="LOCAL" />
       <updated>1690164736504</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Made unitary tests for password">
+      <created>1690165733709</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1690165733709</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Removed NULLS in checking mail">
+      <created>1690166797321</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1690166797321</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Removed NULLS in checking password">
+      <created>1690167304931</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1690167304931</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,9 +399,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: added passport validation" />
-    <MESSAGE value="feat: added user's data validation" />
-    <MESSAGE value="Created database&#10;Product.java evolve to use database" />
     <MESSAGE value="Add user's data page" />
     <MESSAGE value="Add user's settings page" />
     <MESSAGE value="Add user's favourites page" />
@@ -411,7 +421,10 @@
     <MESSAGE value="Improved design" />
     <MESSAGE value="Refactored switchers" />
     <MESSAGE value="Made unitary tests for mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made unitary tests for mail" />
+    <MESSAGE value="Made unitary tests for password" />
+    <MESSAGE value="Removed NULLS in checking mail" />
+    <MESSAGE value="Removed NULLS in checking password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed NULLS in checking password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -420,11 +433,6 @@
           <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/validation/processor/RFactory.java</url>
           <line>9</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerFavourites.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerFavourites.java</url>

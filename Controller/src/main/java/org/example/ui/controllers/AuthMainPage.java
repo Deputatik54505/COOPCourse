@@ -71,6 +71,7 @@ public class AuthMainPage {
         assert userSearch != null : "fx:id=\"userSearch\" was not injected: check your FXML file 'main_page.fxml'.";
         assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
 
+        //TODO check that the connection to the DB is correct
         IProductCategory rootCategory = new ProductCategory(1);
         TitledPane root = new TitledPane();
         this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
@@ -83,6 +84,7 @@ public class AuthMainPage {
                 BackgroundSize.DEFAULT
         );
 
+        //TODO check that the connection to the DB is correct
         for (var product : rootCategory.getProducts()) {
             VBox productVBox = this.loadProduct(product, addToCart);
             this.listOfProducts.getChildren().add(productVBox);
@@ -128,9 +130,8 @@ public class AuthMainPage {
         this.userSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                //TODO implement search by pressing ENTER in the basket
                 if (event.getCode().equals(KeyCode.ENTER)) {
-
+                    //TODO implement search on the main page
                 }
             }
         });
@@ -155,7 +156,7 @@ public class AuthMainPage {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO add to Buyer's or Seller's shopping cart (check the type of the user calling isExist())
+                //TODO add to Buyer's or Seller's basket (check the type of the user calling isExist())
             }
         });
 

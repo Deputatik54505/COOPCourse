@@ -127,13 +127,13 @@ public class LogIn {
                                 new Seller(new User("","", "None")))
                                 .changeScene(primaryStage);
                     } else if (userSeller.isSelected()) {
-                        new AuthMainSwitch(new Buyer(new User("","", "None")),
+                        new AuthMainSwitch(
+                                new Buyer(new User("","", "None")),
                                 new Seller(user))
                                 .changeScene(primaryStage);
                     }
                 } catch (Exception e) {
                     registrationError.setText(e.toString());
-                    System.out.println(e);
                 } finally {
                     userMail.clear();
                     userPassword.clear();

@@ -2,101 +2,77 @@ package org.example.validation.mail;
 
 import org.example.validation.exceptions.*;
 
-public class ValidateMail {
-    private final MailProcessor chain;
+import java.util.ArrayList;
+import java.util.Arrays;
 
+public class ValidateMail {
     private final Mail mail;
 
+    private final ArrayList<ICheckMail> chain;
+
     public ValidateMail(String mail) {
-        this.chain = new MinLocalProcessor(new MaxLocalProcessor(new MinDomenProcessor(new MaxDomenProcessor(new ValidProcessor(null)))));
+        this.chain = new ArrayList<>();
         this.mail = new Mail(mail);
     }
 
     public void validate() throws Exception {
         this.mail.initLength();
-        this.chain.process(this.mail);
-    }
-}
-
-abstract class MailProcessor {
-    private final MailProcessor nextProcessor;
-
-    public MailProcessor(MailProcessor nextProcessor){
-        this.nextProcessor = nextProcessor;
-    }
-
-    public void process(Mail request) throws Exception {
-        if (this.nextProcessor != null) {
-            this.nextProcessor.process(request);
+        this.initChain();
+        for (ICheckMail item : this.chain) {
+            item.process(this.mail);
         }
     }
+
+    private void initChain() {
+        this.chain.addAll(Arrays.asList(
+                new MinLocalCheck(),
+                new MaxLocalCheck(),
+                new MinDomenCheck(),
+                new MaxDomenCheck(),
+                new ValidCheck()
+        ));
+    }
 }
 
-class MinLocalProcessor extends MailProcessor {
-    public MinLocalProcessor(MailProcessor nextProcessor) {
-        super(nextProcessor);
-    }
+interface ICheckMail {
+    void process(Mail request) throws Exception;
+}
 
+class MinLocalCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
-        if (new MinLocalPart(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new MinLocalPart(request).isSuitableLength()) {
             throw new MinLocalMailExc();
         }
     }
 }
 
-class MaxLocalProcessor extends MailProcessor {
-    public MaxLocalProcessor(MailProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MaxLocalCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
-        if (new MaxLocalPart(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new MaxLocalPart(request).isSuitableLength()) {
             throw new MaxLocalMailExc();
         }
     }
 }
 
-class MinDomenProcessor extends MailProcessor {
-    public MinDomenProcessor(MailProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MinDomenCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
-        if (new MinDomenPart(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new MinDomenPart(request).isSuitableLength()) {
             throw new MinDomenMailExc();
         }
     }
 }
 
-class MaxDomenProcessor extends MailProcessor {
-    public MaxDomenProcessor(MailProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MaxDomenCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
-        if (new MaxDomenPart(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new MaxDomenPart(request).isSuitableLength()) {
             throw new MaxDomenMailExc();
         }
     }
 }
 
-class ValidProcessor extends MailProcessor {
-    public ValidProcessor(MailProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class ValidCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
-        if (new SyntacticMail(request).isValidInput()) {
-            super.process(request);
-        } else {
+        if (!new SyntacticMail(request).isValidInput()) {
             throw new SyntaxMailExc();
         }
     }

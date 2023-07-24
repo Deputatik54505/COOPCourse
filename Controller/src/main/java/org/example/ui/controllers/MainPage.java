@@ -96,9 +96,8 @@ public class MainPage {
         this.userSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                //TODO implement search by pressing ENTER in the basket
                 if (event.getCode().equals(KeyCode.ENTER)) {
-
+                    //TODO implement search on the main page
                 }
             }
         });
@@ -145,7 +144,7 @@ public class MainPage {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO add to Buyer's or Seller's shopping cart (check the type of the user calling isExist())
+                //TODO add to Buyer's or Seller's basket (check the type of the user calling isExist())
             }
         });
 

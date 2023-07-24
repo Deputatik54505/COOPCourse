@@ -92,8 +92,6 @@ public class SellerProduct {
         assert userOrders != null : "fx:id=\"userOrders\" was not injected: check your FXML file 'seller_create_product.fxml'.";
         assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'seller_create_product.fxml'.";
 
-        //TODO create form for building the product
-
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -181,7 +179,7 @@ public class SellerProduct {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    //TODO add the created product to DB
+                    //TODO add the created product to all products and to seller's goods
                     System.out.println(productTitle.getText());
                     System.out.println(productDesc.getText());
                     System.out.println(typeCategory.getText());

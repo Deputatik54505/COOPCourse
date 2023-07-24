@@ -78,6 +78,7 @@ public class SignIn {
                             ""
                     );
                     user.selfAuthorization();
+                    //TODO change page
                 } catch (Exception e) {
                     authorizationError.setText(e.toString());
                 } finally {
