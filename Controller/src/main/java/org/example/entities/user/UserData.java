@@ -1,6 +1,7 @@
 package org.example.entities.user;
 
 import org.example.database.IQuery;
+import org.example.database.Query;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,9 +10,10 @@ import java.util.List;
 public class UserData {
     private final IQuery query;
     private int id;
+    private String email;
 
-    public UserData(IQuery query) {
-        this.query = query;
+    public UserData() {
+        this.query = new Query();
     }
 
     public void load(String email) {
@@ -24,6 +26,7 @@ public class UserData {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        this.email = email;
     }
 
     /**
@@ -49,7 +52,7 @@ public class UserData {
         }
     }
 
-//    public void fillData(Data data) {
-//        this.user.account = this.user.account.withData(data);
-//    }
+    public String email() {
+        return email;
+    }
 }

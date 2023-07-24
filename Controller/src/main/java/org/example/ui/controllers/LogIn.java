@@ -6,9 +6,6 @@ import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Group;
@@ -120,7 +117,7 @@ public class LogIn {
                             userPassword.getText(),
                             type
                     );
-                    user.selfRegistration(userRepeatPassword.getText());
+                    user.register(userRepeatPassword.getText());
                     if (userBuyer.isSelected()) {
                         new AuthMainSwitch(
                                 new Buyer(user),

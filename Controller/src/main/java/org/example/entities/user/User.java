@@ -1,39 +1,34 @@
 package org.example.entities.user;
 
-import org.example.database.IQuery;
 import org.example.database.Query;
 import org.example.forms.log.LogVerification;
 import org.example.forms.sign.SignVerification;
 import org.example.validation.exceptions.UnequalPasswordExc;
 import org.example.validation.exceptions.UserNotFoundExc;
 
-import java.sql.SQLException;
-
 public class User {
-    private final String userType;
+    private final UserType type;
     private final String userMail;
     private final String userPassword;
-    private final IQuery query;
-    public UserData data;
+    private final UserData data;
 
     public User(String mail, String password, String type) {
         this.userMail = mail;
         this.userPassword = password;
-        this.userType = type;
-        query = new Query();
-        data = new UserData(query);
+        this.type = new UserType(type);
+        data = new UserData();
     }
 
-    public void selfRegistration(String repeatPassword) throws Exception {
+    public void register(String repeatPassword) throws Exception {
         new LogVerification(this.userMail, this.userPassword).verifyUser(this.userPassword, repeatPassword);
-
+        Query query = new Query();
         query.executeWithoutResponse(
                 String.format("insert into \"userTable\" (email, password, type) values ('%s', '%s', '%s')",
-                        userMail, userPassword, userType));
+                        userMail, userPassword, type));
         data.load(userMail);
     }
 
-    public void selfAuthorization() throws SQLException, UnequalPasswordExc, UserNotFoundExc {
+    public void authorise() throws UnequalPasswordExc, UserNotFoundExc {
         new SignVerification().verifyUser(this.userMail, this.userPassword);
         data.load(userMail);
     }
@@ -45,16 +40,11 @@ public class User {
         throw new UnequalPasswordExc();
     }
 
-    public boolean isBuyer() {
-        return userType.equals("Buyer");
+    public UserType type() {
+        return type;
     }
 
-    public boolean isSeller() {
-        return userType.equals("Seller");
+    public UserData data() {
+        return data;
     }
-
-    public String email() {
-        return userMail;
-    }
-
 }

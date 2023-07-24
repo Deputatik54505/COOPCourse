@@ -4,13 +4,12 @@ import org.example.database.Query;
 import org.example.entities.cart.ShoppingCart;
 import org.example.entities.product.Product;
 import org.example.entities.user.User;
-import org.example.validation.exceptions.ProductNotFoundExc;
 
 import java.sql.SQLException;
 
 public class Buyer {
-    public final User user;
-    public ShoppingCart shoppingCart;
+    private final User user;
+    private final ShoppingCart shoppingCart;
 
     public Buyer(User user) {
         this.user = user;
@@ -23,7 +22,7 @@ public class Buyer {
         int buyerId;
         Query query = new Query();
         try (var resultSet = query.executeQuery(String.format("select id from customer " +
-                "where \"userId\" in (SELECT id from \"userTable\" where email='%s');", user.email()))) {
+                "where \"userId\" in (SELECT id from \"userTable\" where email='%s');", user.data().email()))) {
             buyerId = resultSet.getInt("id");
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -33,8 +32,16 @@ public class Buyer {
     }
 
 
-    public void buyProduct(Product product) throws ProductNotFoundExc {
+    public void buyProduct(Product product) {
         this.shoppingCart.removePurchase(product);
         product.addAmount(-1);
+    }
+
+    public User user() {
+        return user;
+    }
+
+    public ShoppingCart cart() {
+        return shoppingCart;
     }
 }

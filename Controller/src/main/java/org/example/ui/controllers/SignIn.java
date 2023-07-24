@@ -80,14 +80,14 @@ public class SignIn {
                             userPassword.getText(),
                             ""
                     );
-                    user.selfAuthorization();
+                    user.authorise();
 
-                    if (user.isBuyer()) {
+                    if (user.type().isBuyer()) {
                         new AuthMainSwitch(
                                 new Buyer(user),
                                 new Seller(new User("", "", "None")))
                                 .changeScene(primaryStage);
-                    } else if (user.isSeller()) {
+                    } else if (user.type().isSeller()) {
                         new AuthMainSwitch(
                                 new Buyer(new User("", "", "None")),
                                 new Seller(user))

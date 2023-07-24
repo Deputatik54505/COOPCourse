@@ -126,9 +126,9 @@ public class Basket {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    if (currBuyer.user.isBuyer()) {
+                    if (currBuyer.user().type().isBuyer()) {
                         new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
-                    } else if (currSeller.user.isSeller()) {
+                    } else if (currSeller.user().type().isSeller()) {
                         new SellerDataSwitch(currSeller).changeScene(primaryStage);
                     }
                 } catch (IOException e) {
@@ -230,11 +230,9 @@ public class Basket {
         button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (currBuyer.user.isBuyer())
-                    currBuyer.shoppingCart.removePurchase(product);
-                else
-                    currSeller.shoppingCart.removePurchase(product);
-                //TODO implement deletion from user's basket
+                if (currBuyer.user().type().isBuyer())
+                    currBuyer.cart().removePurchase(product);
+
                 listOfProducts.getChildren().remove(hBox);
                 if (include.isSelected()) {
                     subtotalCost.setText(Integer.toString(

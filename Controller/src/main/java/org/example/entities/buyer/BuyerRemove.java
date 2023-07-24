@@ -11,6 +11,6 @@ public class BuyerRemove {
     }
 
     public void removeFromCart(Product product) throws ProductNotFoundExc {
-        this.buyer.shoppingCart.removePurchase(product);
+        this.buyer.cart().removePurchase(product);
     }
 }

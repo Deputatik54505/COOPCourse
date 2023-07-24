@@ -170,8 +170,8 @@ public class BuyerFavourites {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (currBuyer.user.isBuyer())
-                    currBuyer.shoppingCart.addPurchase(product);
+                if (currBuyer.user().type().isBuyer())
+                    currBuyer.cart().addPurchase(product);
             }
         });
 

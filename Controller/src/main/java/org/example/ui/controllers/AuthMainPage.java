@@ -115,9 +115,9 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    if (currBuyer.user.isBuyer()) {
+                    if (currBuyer.user().type().isBuyer()) {
                         new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
-                    } else if (currSeller.user.isSeller()) {
+                    } else if (currSeller.user().type().isSeller()) {
                         new SellerDataSwitch(currSeller).changeScene(primaryStage);
                     }
                 } catch (IOException e) {
@@ -155,8 +155,8 @@ public class AuthMainPage {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (currBuyer.user.isBuyer())
-                    currBuyer.shoppingCart.addPurchase(product);
+                if (currBuyer.user().type().isBuyer())
+                    currBuyer.cart().addPurchase(product);
 
                 // I think we should discuss if we have to add shopping cart to seller
                 //TODO add to Buyer's or Seller's basket (check the type of the user calling isExist())

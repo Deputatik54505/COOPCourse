@@ -10,6 +10,6 @@ public class BuyerAdd {
     }
 
     public void addToCart(Product product) {
-        this.buyer.shoppingCart.addPurchase(product);
+        this.buyer.cart().addPurchase(product);
     }
 }

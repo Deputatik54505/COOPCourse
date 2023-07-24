@@ -173,7 +173,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    currBuyer.user.isEqual(userPassword.getText());
+                    currBuyer.user().isEqual(userPassword.getText());
                     System.out.println(userPassword.getText());
                     new Data(
                             newName.getText(),
@@ -200,7 +200,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    currBuyer.user.isEqual(userPassword1.getText());
+                    currBuyer.user().isEqual(userPassword1.getText());
                     System.out.println(userPassword1.getText());
                     new Passport(
                             newSeries.getText(),

@@ -12,7 +12,7 @@ public class BuyerFLocal {
 
     public Product findLocal(Product neededPurchase) throws ProductNotFoundExc {
         try {
-            return this.buyer.shoppingCart.searchPurchase(neededPurchase);
+            return this.buyer.cart().searchPurchase(neededPurchase);
         } catch (Exception e) {
             throw e;
         }

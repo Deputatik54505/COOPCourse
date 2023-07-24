@@ -1,8 +1,6 @@
 package org.example.entities.seller;
 
-import org.example.database.IQuery;
 import org.example.database.Query;
-import org.example.entities.cart.ShoppingCart;
 import org.example.entities.product.Product;
 import org.example.entities.user.User;
 
@@ -12,37 +10,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Seller {
-    public final User user;
-    public final ShoppingCart shoppingCart;
-    private IQuery query;
+    private final User user;
 
     public Seller(User user) {
         this.user = user;
-        shoppingCart = new ShoppingCart();
-
     }
 
-    public Seller loadSeller(User user) {
-        Seller seller = new Seller(user);
-        int sellerId;
-        query = new Query();
-        try (var resultSet = query.executeQuery(String.format("select id from distributor " +
-                "where \"userId\" in (SELECT id from \"userTable\" where email='%s');\n", user.email()))) {
-            sellerId = resultSet.getInt("id");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        seller.shoppingCart.load(sellerId);
-
-        return seller;
+    public User user() {
+        return user;
     }
 
-
-    // TODO DOES NOT WORK
     public ArrayList<Product> goods() {
+        Query query = new Query();
         ArrayList<Product> goods = new ArrayList<>();
         try (ResultSet resultSet = query.executeQuery(
-                String.format("SELECT goods FROM distributor WHERE id=%d"))) {
+                String.format("SELECT goods FROM distributor WHERE \"userId\" " +
+                        "in (SELECT id from \"userTable\" where email='%s');\n", user.data().email()))) {
             if (resultSet.next()) {
                 String products = resultSet.getString("goods");
                 if (products != null && !products.trim().isEmpty()) {
