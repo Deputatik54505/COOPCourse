@@ -2,153 +2,121 @@ package org.example.validation.userdata;
 
 import org.example.validation.exceptions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ValidateData {
-    private final DataProcessor chain;
+    private final ArrayList<ICheckData> chain;
+    
+    private final Data data;
 
-    public ValidateData() {
-        this.chain = new ValidateName(new ValidateSurname(new ValidateBirth(null)));
+    public ValidateData(Data data) {
+        this.chain = new ArrayList<>();
+        this.data = data;
     }
 
-    public void validate(Data data) throws Exception {
-        this.chain.process(data);
-    }
-}
-
-abstract class DataProcessor {
-    private final DataProcessor nextProcessor;
-
-    public DataProcessor(DataProcessor nextProcessor){
-        this.nextProcessor = nextProcessor;
-    };
-
-    public void process(Data request) throws Exception {
-        if (this.nextProcessor != null) {
-            this.nextProcessor.process(request);
+    public void validate() throws Exception {
+        this.initChain();
+        for (ICheckData item : this.chain) {
+            item.process(this.data);
         }
-    };
-}
-
-class UpNameProcessor extends DataProcessor {
-    public UpNameProcessor(DataProcessor nextProcessor) {
-        super(nextProcessor);
     }
 
+    private void initChain() {
+        this.chain.addAll(Arrays.asList(
+                new UpNameCheck(),
+                new UpSurnameCheck(),
+                new MinNameCheck(),
+                new MaxNameCheck(),
+                new MinSurnameCheck(),
+                new MaxSurnameCheck(),
+                new BirthLenCheck(),
+                new ValidateName(),
+                new ValidateSurname(),
+                new ValidateBirth()
+        ));
+    }
+}
+
+interface ICheckData {
+    void process(Data request) throws Exception;
+}
+
+class UpNameCheck implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new NameUpChar(request).isUppercase()) {
-            super.process(request);
-        } else {
+        if (!new NameUpChar(request).isUppercase()) {
             throw new NameUpCharExc();
         }
     }
 }
 
-class UpSurnameProcessor extends DataProcessor {
-    public UpSurnameProcessor(DataProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class UpSurnameCheck implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new SurnameUpChar(request).isUppercase()) {
-            super.process(request);
-        } else {
+        if (!new SurnameUpChar(request).isUppercase()) {
             throw new SurnameUpCharExc();
         }
     }
 }
 
-class MaxNameProcessor extends DataProcessor {
-    public MaxNameProcessor(DataProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MaxNameCheck implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new MaxNameLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new SurnameUpChar(request).isUppercase()) {
             throw new MaxNameExc();
         }
     }
 }
 
-class MaxSurnameProcessor extends DataProcessor {
-    public MaxSurnameProcessor(DataProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MaxSurnameCheck implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new MaxSurnameLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new SurnameUpChar(request).isUppercase()) {
             throw new MaxSurnameExc();
         }
     }
 }
 
-class MinSurnameProcessor extends DataProcessor {
-    public MinSurnameProcessor(DataProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MinSurnameCheck implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new MinSurnameLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new SurnameUpChar(request).isUppercase()) {
             throw new MinSurnameExc();
         }
     }
 }
 
-class MinNameProcessor extends DataProcessor {
-    public MinNameProcessor(DataProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MinNameCheck implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new MinNameLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new SurnameUpChar(request).isUppercase()) {
             throw new MinNameExc();
         }
     }
 }
 
-class ValidateBirth extends DataProcessor {
-    public ValidateBirth(DataProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class BirthLenCheck implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new DataBirth(request).isValidInput()) {
-            super.process(request);
-        } else {
+        if (!new BirthLen(request).isSuitableLength()) {
+            throw new ExcBirthDataExc();
+        }
+    }
+}
+
+class ValidateBirth implements ICheckData {
+    public void process(Data request) throws Exception {
+        if (!new SurnameUpChar(request).isUppercase()) {
             throw new SyntaxBirthExc();
         }
     }
 }
 
-class ValidateName extends DataProcessor {
-    public ValidateName(DataProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class ValidateName implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new DataName(request).isValidInput()) {
-            super.process(request);
-        } else {
+        if (!new SurnameUpChar(request).isUppercase()) {
             throw new SyntaxNameExc();
         }
     }
 }
 
-class ValidateSurname extends DataProcessor {
-    public ValidateSurname(DataProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class ValidateSurname implements ICheckData {
     public void process(Data request) throws Exception {
-        if (new DataSurname(request).isValidInput()) {
-            super.process(request);
-        } else {
+        if (!new SurnameUpChar(request).isUppercase()) {
             throw new SyntaxSurnameExc();
         }
     }

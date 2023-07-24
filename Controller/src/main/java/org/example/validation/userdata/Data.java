@@ -1,6 +1,5 @@
 package org.example.validation.userdata;
 
-import org.example.entities.user.User;
 import org.example.forms.data.DataVerification;
 
 public class Data {
@@ -16,8 +15,8 @@ public class Data {
         this.birth = birth;
     }
 
-    public void selfValidation(User user) throws Exception {
+    public void selfValidation() throws Exception {
         //TODO refactor data validation
-        new DataVerification().verifyData(user, this);
+        new DataVerification(this).verifyData();
     }
 }
