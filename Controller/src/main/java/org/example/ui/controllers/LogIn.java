@@ -16,9 +16,13 @@ import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
-import org.example.ui.models.DefaultSceneSwitch;
+import org.example.ui.models.AuthMainSwitch;
+import org.example.ui.models.NotAuthMainSwitch;
+import org.example.ui.models.SignInSwitch;
 
 public class LogIn {
+
+    private final Stage primaryStage;
 
     @FXML
     private ResourceBundle resources;
@@ -53,6 +57,10 @@ public class LogIn {
     @FXML
     private RadioButton userSeller;
 
+    public LogIn(Stage stage) {
+        this.primaryStage = stage;
+    }
+
     @FXML
     void initialize() {
         assert registrationError != null : "fx:id=\"registrationError\" was not injected: check your FXML file 'log_in_form.fxml'.";
@@ -72,7 +80,7 @@ public class LogIn {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new NotAuthMainSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -102,8 +110,10 @@ public class LogIn {
                     String type;
                     if (userBuyer.isSelected()) {
                         type = "Buyer";
-                    } else {
+                    } else if (userSeller.isSelected()) {
                         type = "Seller";
+                    } else {
+                        type = "None";
                     }
                     User user = new User(
                             userMail.getText(),
@@ -111,27 +121,19 @@ public class LogIn {
                             type
                     );
                     user.selfRegistration(userRepeatPassword.getText());
-
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
-                    Parent root = loader.load();
-                    Scene newScene = new Scene(root);
-
-                    AuthMainPage authMainPage = loader.getController();
                     if (userBuyer.isSelected()) {
-                        //TODO add the buyer to DB
-                        authMainPage.initBuyer(new Buyer(user));
-                    } else {
-                        //TODO add the seller to DB
-                        authMainPage.initSeller(new Seller(user));
+                        new AuthMainSwitch(
+                                new Buyer(user),
+                                new Seller(new User("","", "None")))
+                                .changeScene(primaryStage);
+                    } else if (userSeller.isSelected()) {
+                        new AuthMainSwitch(new Buyer(new User("","", "None")),
+                                new Seller(user))
+                                .changeScene(primaryStage);
                     }
-
-                    Stage primaryStage = (Stage) btnRegister.getScene().getWindow();
-                    primaryStage.setScene(newScene);
-                    primaryStage.show();
-
                 } catch (Exception e) {
                     registrationError.setText(e.toString());
+                    System.out.println(e);
                 } finally {
                     userMail.clear();
                     userPassword.clear();
@@ -144,13 +146,12 @@ public class LogIn {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/sign_in_form.fxml");
+                    new SignInSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
             }
         });
-
     }
 }
 

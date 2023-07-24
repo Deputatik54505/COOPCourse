@@ -1,33 +1,32 @@
 package org.example.ui.models;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.example.entities.seller.Seller;
-import org.example.ui.controllers.SellerOrders;
 import org.example.ui.controllers.SellerProduct;
 
 import java.io.IOException;
 
 public class SellerProductSwitch {
-    public SellerProductSwitch() { }
+    private final FXMLLoader loader;
 
-    public void changeScene(Seller currSeller, MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/seller_create_product.fxml"));
-        Parent root = loader.load();
-        Scene newScene = new Scene(root);
+    private final Seller currSeller;
+    public SellerProductSwitch(Seller seller) {
+        this.loader = new FXMLLoader();
+        this.currSeller = seller;
+    }
+    public void changeScene(Stage stage) throws IOException {
+        initLocation();
+        initController(stage);
+        stage.setScene(new Scene(this.loader.load()));
+    }
 
-        SellerProduct sellerProduct = loader.getController();
-        if (currSeller.isExist()) {
-            sellerProduct.initSeller(currSeller);
-        }
+    private void initLocation() {
+        this.loader.setLocation(getClass().getResource("/fxml/seller_create_product.fxml"));
+    }
 
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(newScene);
-        primaryStage.show();
+    private void initController(Stage stage) {
+        this.loader.setController(new SellerProduct(this.currSeller, stage));
     }
 }

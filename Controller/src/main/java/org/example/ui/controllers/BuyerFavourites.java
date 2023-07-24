@@ -16,8 +16,11 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.product.Product;
+import org.example.entities.seller.Seller;
+import org.example.entities.user.User;
 import org.example.ui.models.*;
 
 import java.io.IOException;
@@ -26,8 +29,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BuyerFavourites {
+    private final Buyer currBuyer;
 
-    private Buyer currBuyer;
+    private final Stage primaryStage;
 
     @FXML
     private ResourceBundle resources;
@@ -55,6 +59,11 @@ public class BuyerFavourites {
 
     @FXML
     private Button userSettings;
+
+    public BuyerFavourites(Buyer buyer, Stage stage) {
+        this.currBuyer = buyer;
+        this.primaryStage = stage;
+    }
 
     @FXML
     void initialize() {
@@ -85,7 +94,10 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerHomeSwitch().changeScene(currBuyer, event);
+                    new AuthMainSwitch(
+                            currBuyer,
+                            new Seller(new User("", "", "None")))
+                            .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -96,7 +108,10 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerBasketSwitch().changeScene(currBuyer, event);
+                    new BasketSwitch(
+                            currBuyer,
+                            new Seller(new User("", "","None")))
+                            .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -107,7 +122,7 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerDataSwitch().changeScene(currBuyer, event);
+                    new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -118,7 +133,7 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerSettingsSwitch().changeScene(currBuyer, event);
+                    new BuyerSettingsSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -129,16 +144,12 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new NotAuthMainSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
             }
         });
-    }
-
-    public void initBuyer(Buyer buyer) {
-        this.currBuyer = buyer;
     }
 
     public VBox loadProduct(Product product, BackgroundImage addToCart) {

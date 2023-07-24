@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ui.controllers.BuyerFavourites">
+<VBox minHeight="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" style="-fx-background-color: #444444;">
         <Group fx:id="home">
             <HBox.margin>
@@ -145,9 +145,9 @@
                     </Label>
                 </HBox>
                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="577.0">
-               <content>
-                  <TilePane fx:id="listOfFavourites" alignment="TOP_CENTER" hgap="20.0" prefHeight="200.0" prefTileHeight="150.0" prefTileWidth="150.0" prefWidth="200.0" style="-fx-background-color: #c4eaf7;" vgap="20.0" />
-               </content>
+                    <TilePane fx:id="listOfFavourites" alignment="TOP_CENTER" hgap="20.0" prefHeight="200.0"
+                              prefTileHeight="150.0" prefTileWidth="150.0" prefWidth="200.0"
+                              style="-fx-background-color: #c4eaf7;" vgap="20.0"/>
                 </ScrollPane>
             </SplitPane>
         </SplitPane>

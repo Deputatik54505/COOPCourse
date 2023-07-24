@@ -3,17 +3,14 @@ package org.example.ui.models;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.entities.buyer.Buyer;
-import org.example.ui.controllers.BuyerFavourites;
+import org.example.ui.controllers.LogIn;
 
 import java.io.IOException;
 
-public class BuyerFavouritesSwitch {
+public class LogInSwitch {
     private final FXMLLoader loader;
-    private final Buyer currBuyer;
-    public BuyerFavouritesSwitch(Buyer buyer) {
+    public LogInSwitch() {
         this.loader = new FXMLLoader();
-        this.currBuyer = buyer;
     }
     public void changeScene(Stage stage) throws IOException {
         initLocation();
@@ -22,10 +19,10 @@ public class BuyerFavouritesSwitch {
     }
 
     private void initLocation() {
-        this.loader.setLocation(getClass().getResource("/fxml/buyer_acc_favourites.fxml"));
+        this.loader.setLocation(getClass().getResource("/fxml/log_in_form.fxml"));
     }
 
     private void initController(Stage stage) {
-        this.loader.setController(new BuyerFavourites(this.currBuyer, stage));
+        this.loader.setController(new LogIn(stage));
     }
 }

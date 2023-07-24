@@ -4,16 +4,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
-import org.example.ui.controllers.BuyerFavourites;
+import org.example.entities.seller.Seller;
+import org.example.ui.controllers.Basket;
 
 import java.io.IOException;
 
-public class BuyerFavouritesSwitch {
+public class BasketSwitch {
     private final FXMLLoader loader;
+
     private final Buyer currBuyer;
-    public BuyerFavouritesSwitch(Buyer buyer) {
+
+    private final Seller currSeller;
+    public BasketSwitch(Buyer buyer, Seller seller) {
         this.loader = new FXMLLoader();
         this.currBuyer = buyer;
+        this.currSeller = seller;
     }
     public void changeScene(Stage stage) throws IOException {
         initLocation();
@@ -22,10 +27,10 @@ public class BuyerFavouritesSwitch {
     }
 
     private void initLocation() {
-        this.loader.setLocation(getClass().getResource("/fxml/buyer_acc_favourites.fxml"));
+        this.loader.setLocation(getClass().getResource("/fxml/shopping_cart.fxml"));
     }
 
     private void initController(Stage stage) {
-        this.loader.setController(new BuyerFavourites(this.currBuyer, stage));
+        loader.setController(new Basket(this.currBuyer, this.currSeller, stage));
     }
 }

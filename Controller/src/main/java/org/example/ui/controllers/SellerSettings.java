@@ -4,9 +4,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import org.example.entities.buyer.Buyer;
 import org.example.entities.seller.Seller;
+import org.example.entities.user.User;
 import org.example.ui.models.*;
 
 import java.io.IOException;
@@ -14,7 +19,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SellerSettings {
-    private Seller currSeller;
+    private final Seller currSeller;
+
+    private final Stage primaryStage;
 
     @FXML
     private ResourceBundle resources;
@@ -23,19 +30,37 @@ public class SellerSettings {
     private URL location;
 
     @FXML
-    private Button confirmDateBirth;
+    private DatePicker newDateBirth;
 
     @FXML
-    private Button confirmMail;
+    private PasswordField newName;
 
     @FXML
-    private Button confirmName;
+    private PasswordField newSurname;
 
     @FXML
-    private Button confirmPassword;
+    private PasswordField userPassword;
 
     @FXML
-    private Button confirmSurname;
+    private PasswordField userPassword1;
+
+    @FXML
+    private Button confirmData;
+
+    @FXML
+    private Button confirmPassport;
+
+    @FXML
+    private PasswordField newCode;
+
+    @FXML
+    private PasswordField newNumber;
+
+    @FXML
+    private PasswordField newPublisher;
+
+    @FXML
+    private PasswordField newSeries;
 
     @FXML
     private Button createProduct;
@@ -61,13 +86,24 @@ public class SellerSettings {
     @FXML
     private Button userOrders;
 
+    public SellerSettings(Seller seller, Stage stage) {
+        this.currSeller = seller;
+        this.primaryStage = stage;
+    }
+
     @FXML
     void initialize() {
-        assert confirmDateBirth != null : "fx:id=\"confirmDateBirth\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
-        assert confirmMail != null : "fx:id=\"confirmMail\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
-        assert confirmName != null : "fx:id=\"confirmName\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
-        assert confirmPassword != null : "fx:id=\"confirmPassword\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
-        assert confirmSurname != null : "fx:id=\"confirmSurname\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
+        assert confirmPassport != null : "fx:id=\"confirmPassport\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert confirmData != null : "fx:id=\"confirmData\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert newDateBirth != null : "fx:id=\"newDateBirth\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert newName != null : "fx:id=\"newName\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert newSurname != null : "fx:id=\"newSurname\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert userPassword != null : "fx:id=\"userPassword\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert newCode != null : "fx:id=\"newCode\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert newNumber != null : "fx:id=\"newNumber\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert newPublisher != null : "fx:id=\"newPublisher\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert newSeries != null : "fx:id=\"newSeries\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
+        assert userPassword1 != null : "fx:id=\"userPassword1\" was not injected: check your FXML file 'buyer_acc_settings.fxml'.";
         assert createProduct != null : "fx:id=\"createProduct\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
         assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
         assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'seller_acc_settings.fxml'.";
@@ -81,7 +117,10 @@ public class SellerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerHomeSwitch().changeScene(currSeller, event);
+                    new AuthMainSwitch(
+                            new Buyer(new User("", "", "None")),
+                            currSeller)
+                            .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -92,7 +131,10 @@ public class SellerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerBasketSwitch().changeScene(currSeller, event);
+                    new BasketSwitch(
+                            new Buyer(new User("", "", "None")),
+                            currSeller)
+                            .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -103,7 +145,7 @@ public class SellerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerDataSwitch().changeScene(currSeller, event);
+                    new SellerDataSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -114,7 +156,7 @@ public class SellerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerGoodsSwitch().changeScene(currSeller, event);
+                    new SellerGoodsSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -125,7 +167,7 @@ public class SellerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerOrdersSwitch().changeScene(currSeller, event);
+                    new SellerOrdersSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -136,7 +178,7 @@ public class SellerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerProductSwitch().changeScene(currSeller, event);
+                    new SellerProductSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -147,15 +189,53 @@ public class SellerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new NotAuthMainSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
             }
         });
-    }
 
-    public void initSeller(Seller seller) {
-        this.currSeller = seller;
+        this.confirmData.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    //TODO insert this info into UserData
+                    System.out.println(userPassword.getText());
+                    System.out.println(newName.getText());
+                    System.out.println(newSurname.getText());
+                    System.out.println(newDateBirth.getValue().toString());
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                } finally {
+                    userPassword.clear();
+                    newName.clear();
+                    newSurname.clear();
+                    newDateBirth.getEditor().clear();
+                }
+            }
+        });
+
+        this.confirmPassport.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    //TODO insert this into PassportData
+                    System.out.println(userPassword1.getText());
+                    System.out.println(newSeries.getText());
+                    System.out.println(newNumber.getText());
+                    System.out.println(newPublisher.getText());
+                    System.out.println(newCode.getText());
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                } finally {
+                    userPassword1.clear();
+                    newSeries.clear();
+                    newNumber.clear();
+                    newPublisher.clear();
+                    newCode.clear();
+                }
+            }
+        });
     }
 }

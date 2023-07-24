@@ -16,26 +16,26 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.product.IProductCategory;
 import org.example.entities.product.Product;
 import org.example.entities.product.ProductCategory;
 import org.example.entities.seller.Seller;
-import org.example.entities.user.User;
-import org.example.ui.models.AccountSwitch;
-import org.example.ui.models.HomeSwitch;
-import org.example.ui.models.MainBasketSwitch;
+import org.example.ui.models.AuthMainSwitch;
+import org.example.ui.models.BasketSwitch;
+import org.example.ui.models.BuyerDataSwitch;
+import org.example.ui.models.SellerDataSwitch;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class AuthMainPage {
+    private final Buyer currBuyer;
+    private final Seller currSeller;
 
-    private final Scanner scanner = new Scanner(System.in);
-    private Buyer currBuyer;
-    private Seller currSeller;
+    private final Stage primaryStage;
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -54,6 +54,12 @@ public class AuthMainPage {
     private TextField userSearch;
     @FXML
     private Font x1;
+
+    public AuthMainPage(Buyer buyer, Seller seller, Stage stage) {
+        this.currBuyer = buyer;
+        this.currSeller = seller;
+        this.primaryStage = stage;
+    }
 
     @FXML
     void initialize() {
@@ -86,7 +92,7 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new HomeSwitch().changeScene(currBuyer, currSeller, event);
+                    new AuthMainSwitch(currBuyer, currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -97,7 +103,7 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new MainBasketSwitch().changeScene(currBuyer, currSeller, event);
+                    new BasketSwitch(currBuyer, currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -108,7 +114,11 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AccountSwitch().changeScene(currBuyer, currSeller, event);
+                    if (currBuyer.isExist()) {
+                        new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
+                    } else if (currSeller.isExist()) {
+                        new SellerDataSwitch(currSeller).changeScene(primaryStage);
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -125,16 +135,6 @@ public class AuthMainPage {
             }
         });
 
-    }
-
-    public void initBuyer(Buyer buyer) {
-        this.currBuyer = buyer;
-        this.currSeller = new Seller(new User("", "", "None"));
-    }
-
-    public void initSeller(Seller seller) {
-        this.currBuyer = new Buyer(new User("", "", "None"));
-        this.currSeller = seller;
     }
 
     public VBox loadProduct(Product product, BackgroundImage addToCart) {

@@ -16,19 +16,21 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import org.example.entities.product.IProductCategory;
 import org.example.entities.product.Product;
 import org.example.entities.product.ProductCategory;
-import org.example.ui.models.DefaultSceneSwitch;
+import org.example.ui.models.LogInSwitch;
+import org.example.ui.models.NotAuthMainSwitch;
+import org.example.ui.models.SignInSwitch;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class MainPage {
+    private final Stage primaryStage;
 
-    private final Scanner scanner = new Scanner(System.in);
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -47,6 +49,10 @@ public class MainPage {
     private Button userSignIn;
     @FXML
     private Font x1;
+
+    public MainPage(Stage stage) {
+        this.primaryStage = stage;
+    }
 
     @FXML
     void initialize() {
@@ -80,7 +86,7 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/main_page.fxml");
+                    new NotAuthMainSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -101,7 +107,7 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/log_in_form.fxml");
+                    new LogInSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -112,7 +118,7 @@ public class MainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new DefaultSceneSwitch().changeScene(event, "/fxml/sign_in_form.fxml");
+                    new SignInSwitch().changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

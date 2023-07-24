@@ -4,28 +4,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
-import org.example.ui.controllers.BuyerFavourites;
+import org.example.entities.seller.Seller;
+import org.example.ui.controllers.AuthMainPage;
 
 import java.io.IOException;
 
-public class BuyerFavouritesSwitch {
+public class AuthMainSwitch {
     private final FXMLLoader loader;
+
     private final Buyer currBuyer;
-    public BuyerFavouritesSwitch(Buyer buyer) {
+
+    private final Seller currSeller;
+    public AuthMainSwitch(Buyer buyer, Seller seller) {
         this.loader = new FXMLLoader();
         this.currBuyer = buyer;
+        this.currSeller = seller;
     }
     public void changeScene(Stage stage) throws IOException {
         initLocation();
         initController(stage);
         stage.setScene(new Scene(this.loader.load()));
     }
-
     private void initLocation() {
-        this.loader.setLocation(getClass().getResource("/fxml/buyer_acc_favourites.fxml"));
+        this.loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
     }
-
     private void initController(Stage stage) {
-        this.loader.setController(new BuyerFavourites(this.currBuyer, stage));
+        this.loader.setController(new AuthMainPage(this.currBuyer, this.currSeller, stage));
     }
 }
