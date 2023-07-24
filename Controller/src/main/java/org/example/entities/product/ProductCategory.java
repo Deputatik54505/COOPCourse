@@ -30,7 +30,6 @@ public class ProductCategory {
 
     public void load() {
         try (var resultSet = query.executeQuery(String.format("SELECT * FROM Category WHERE id=%d", id))) {
-
             if (!resultSet.next())
                 throw new IllegalArgumentException("Id is not exists in database");
             var name = resultSet.getString("name");

@@ -25,6 +25,9 @@ import org.example.ui.models.AuthMainSwitch;
 import org.example.ui.models.BasketSwitch;
 import org.example.ui.models.BuyerDataSwitch;
 import org.example.ui.models.SellerDataSwitch;
+import org.example.entities.product.*;
+import org.example.entities.product.ProductCategory;
+import org.example.entities.product.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -70,10 +73,10 @@ public class AuthMainPage {
         assert userSearch != null : "fx:id=\"userSearch\" was not injected: check your FXML file 'main_page.fxml'.";
         assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
 
-        //TODO check that the connection to the DB is correct
-//        IProductCategory rootCategory = new ProductCategory(1);
-//        TitledPane root = new TitledPane();
-//        this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
+        ProductCategory rootCategory = new ProductCategory(1);
+        rootCategory.load();
+        TitledPane root = new TitledPane();
+        this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
 
         BackgroundImage addToCart = new BackgroundImage(
                 new Image("/assets/image/icons/add-to-cart.png"),
@@ -83,11 +86,10 @@ public class AuthMainPage {
                 BackgroundSize.DEFAULT
         );
 
-        //TODO check that the connection to the DB is correct
-//        for (var product : rootCategory.getProducts()) {
-//            VBox productVBox = this.loadProduct(product, addToCart);
-//            this.listOfProducts.getChildren().add(productVBox);
-//        }
+        for (var product : rootCategory.getProducts()) {
+            VBox productVBox = this.loadProduct(product, addToCart);
+            this.listOfProducts.getChildren().add(productVBox);
+        }
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -157,9 +159,6 @@ public class AuthMainPage {
             public void handle(MouseEvent event) {
                 if (currBuyer.user().type().isBuyer())
                     currBuyer.cart().addPurchase(product);
-
-                // I think we should discuss if we have to add shopping cart to seller
-                //TODO add to Buyer's or Seller's basket (check the type of the user calling isExist())
             }
         });
 

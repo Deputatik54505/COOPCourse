@@ -74,7 +74,6 @@ public class SignIn {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    //TODO check user's type
                     User user = new User(
                             userMail.getText(),
                             userPassword.getText(),

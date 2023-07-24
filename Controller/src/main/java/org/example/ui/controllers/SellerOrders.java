@@ -202,7 +202,6 @@ public class SellerOrders {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO add to Buyer's or Seller's basket (check the type of the user calling isExist())
             }
         });
 

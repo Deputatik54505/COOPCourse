@@ -25,13 +25,12 @@ public class ProductCategoryHierarchy {
 
     public Collection<ProductCategory> subcategories() {
         Collection<ProductCategory> ids = new ArrayList<>();
-        if (directSubcategories == null)
+        if (directSubcategories.isEmpty())
             return ids;
         for (var category : child()) {
             ids.add(category);
             if (!category.specifications().isLeaf())
                 continue;
-
             ids.addAll(category.hierarchy().subcategories());
         }
         return ids;

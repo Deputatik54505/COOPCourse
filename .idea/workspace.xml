@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="refactoring">
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/UserType.java" afterDir="false" />
+    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Refactored Seller.java and Buyer.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
@@ -14,83 +13,28 @@
       <change beforePath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/buyer/Buyer.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/buyer/Buyer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/buyer/BuyerAdd.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/buyer/BuyerFLocal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/buyer/BuyerRemove.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/seller/Seller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/seller/Seller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/user/UserData.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/user/UserData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/forms/data/FData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/forms/passport/FPassport.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/search/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/search/Search.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/Basket$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/Basket$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/Basket$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/Basket$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/Basket$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/Basket$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/Basket$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/Basket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerData$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerData$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerData$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerData$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerData$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerFavourites$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerFavourites$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerFavourites$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerFavourites$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerFavourites$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerFavourites$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerFavourites.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerSettings$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerSettings$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerSettings$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerSettings$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerSettings$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/BuyerSettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/LogIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerData$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerData$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerGoods$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerGoods$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerOrders$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerOrders$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerProduct$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerProduct$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerSettings$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SellerSettings$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/SignIn$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/product/ProductCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/product/ProductCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/product/ProductCategoryHierarchy.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/entities/product/ProductCategoryHierarchy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/classes/java/main/org/example/ui/controllers/AuthMainPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/build/libs/Controller-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/libs/Controller-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/Buyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/Buyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/BuyerAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/BuyerAdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/BuyerFLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/BuyerFLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/BuyerRemove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/BuyerRemove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/seller/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/seller/Seller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductCategoryHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductCategoryHierarchy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/AuthMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/AuthMainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/Basket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerFavourites.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerFavourites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/BuyerSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/LogIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerGoods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/SellerOrders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/Model/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/View/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/View/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/View/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/View/.gradle/file-system.probe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +99,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Rmn4VWFwXFcZsUokzzIyLc2xb1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -462,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690232637727</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Refactored Seller.java and Buyer.java">
+      <created>1690236072038</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1690236072038</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +477,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add seller's create product page" />
     <MESSAGE value="Added getProducts, delete, editPrice, and editDescription methods to Product.java" />
     <MESSAGE value="Fixed main page" />
     <MESSAGE value="Fixed buyer's account" />
@@ -551,7 +501,8 @@
     <MESSAGE value="Added unit tests for user's passport" />
     <MESSAGE value="Removed nulls in mail validation" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="Refactored Seller.java and Buyer.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Seller.java and Buyer.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -567,24 +518,24 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/UserData.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/entities/user/User.java</url>
           <line>31</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/LogIn.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/AuthMainPage.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/entities/buyer/Buyer.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="22" />
+          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/ui/controllers/AuthMainPage.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Controller/src/main/java/org/example/entities/product/ProductCategoryHierarchy.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
