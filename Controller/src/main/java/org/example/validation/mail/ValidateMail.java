@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class ValidateMail {
     private final Mail mail;
 
-    private final ArrayList<ICheck> chain;
+    private final ArrayList<ICheckMail> chain;
 
     public ValidateMail(String mail) {
         this.chain = new ArrayList<>();
@@ -18,7 +18,7 @@ public class ValidateMail {
     public void validate() throws Exception {
         this.mail.initLength();
         this.initChain();
-        for (ICheck item : this.chain) {
+        for (ICheckMail item : this.chain) {
             item.process(this.mail);
         }
     }
@@ -34,11 +34,11 @@ public class ValidateMail {
     }
 }
 
-interface ICheck {
+interface ICheckMail {
     void process(Mail request) throws Exception;
 }
 
-class MinLocalCheck implements ICheck {
+class MinLocalCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new MinLocalPart(request).isSuitableLength()) {
             throw new MinLocalMailExc();
@@ -46,7 +46,7 @@ class MinLocalCheck implements ICheck {
     }
 }
 
-class MaxLocalCheck implements ICheck {
+class MaxLocalCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new MaxLocalPart(request).isSuitableLength()) {
             throw new MaxLocalMailExc();
@@ -54,7 +54,7 @@ class MaxLocalCheck implements ICheck {
     }
 }
 
-class MinDomenCheck implements ICheck {
+class MinDomenCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new MinDomenPart(request).isSuitableLength()) {
             throw new MinDomenMailExc();
@@ -62,7 +62,7 @@ class MinDomenCheck implements ICheck {
     }
 }
 
-class MaxDomenCheck implements ICheck {
+class MaxDomenCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new MaxDomenPart(request).isSuitableLength()) {
             throw new MaxDomenMailExc();
@@ -70,7 +70,7 @@ class MaxDomenCheck implements ICheck {
     }
 }
 
-class ValidCheck implements ICheck {
+class ValidCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new SyntacticMail(request).isValidInput()) {
             throw new SyntaxMailExc();

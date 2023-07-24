@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Made unitary tests for password">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Removed NULLS in checking mail">
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/ValidateMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/mail/ValidateMail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/ValidatePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/password/ValidatePassword.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="unitary_tests_for_mail" />
+        <entry key="$PROJECT_DIR$" value="unitary_tests_for_password" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -314,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690165733709</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Removed NULLS in checking mail">
+      <created>1690166797321</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1690166797321</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +382,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: added user's data validation" />
     <MESSAGE value="Created database&#10;Product.java evolve to use database" />
     <MESSAGE value="Add user's data page" />
     <MESSAGE value="Add user's settings page" />
@@ -400,7 +406,8 @@
     <MESSAGE value="Refactored switchers" />
     <MESSAGE value="Made unitary tests for mail" />
     <MESSAGE value="Made unitary tests for password" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made unitary tests for password" />
+    <MESSAGE value="Removed NULLS in checking mail" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed NULLS in checking mail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
