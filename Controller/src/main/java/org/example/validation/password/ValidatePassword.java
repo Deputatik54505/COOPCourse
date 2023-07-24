@@ -5,12 +5,16 @@ import org.example.validation.exceptions.*;
 public class ValidatePassword {
     private final PasswordProcessor chain;
 
-    public ValidatePassword() {
-        this.chain = new LengthProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(new SpecialProcessor(null))))));
+    private final Password password;
+
+    public ValidatePassword(String password) {
+        this.chain = new MinPasswordProcessor(new MaxPasswordProcessor(new LowProcessor(new UpProcessor(new NumProcessor(new ValidateProcessor(new SpecialProcessor(null)))))));
+        this.password = new Password(password);
     }
 
-    public void validate(String password) throws Exception {
-        this.chain.process(new Password(password));
+    public void validate() throws Exception {
+        this.password.initLength();
+        this.chain.process(this.password);
     }
 }
 
@@ -28,16 +32,30 @@ abstract class PasswordProcessor {
     }
 }
 
-class LengthProcessor extends PasswordProcessor {
-    public LengthProcessor(PasswordProcessor nextProcessor) {
+class MinPasswordProcessor extends PasswordProcessor {
+    public MinPasswordProcessor(PasswordProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Password request) throws Exception {
-        if (request.isSuitableLength()) {
+        if (new MinPassword(request).isSuitableLength()) {
             super.process(request);
         } else {
-            throw new LengthPasswordExc();
+            throw new MinPasswordExc();
+        }
+    }
+}
+
+class MaxPasswordProcessor extends PasswordProcessor {
+    public MaxPasswordProcessor(PasswordProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Password request) throws Exception {
+        if (new MaxPassword(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MaxPasswordExc();
         }
     }
 }
