@@ -1,15 +1,12 @@
 package org.example.validation.userdata;
 
-import org.example.validation.exceptions.LengthDataExc;
-import org.example.validation.exceptions.SyntaxBirthExc;
-import org.example.validation.exceptions.SyntaxNameExc;
-import org.example.validation.exceptions.SyntaxSurnameExc;
+import org.example.validation.exceptions.*;
 
 public class ValidateData {
     private final DataProcessor chain;
 
     public ValidateData() {
-        this.chain = new LengthProcessor(new ValidateName(new ValidateSurname(new ValidateBirth(null))));
+        this.chain = new ValidateName(new ValidateSurname(new ValidateBirth(null)));
     }
 
     public void validate(String name, String surname, String birth) throws Exception {
@@ -31,16 +28,86 @@ abstract class DataProcessor {
     };
 }
 
-class LengthProcessor extends DataProcessor {
-    public LengthProcessor(DataProcessor nextProcessor) {
+class UpNameProcessor extends DataProcessor {
+    public UpNameProcessor(DataProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Data request) throws Exception {
-        if (request.isSuitableLength()) {
+        if (new NameUpChar(request).isUppercase()) {
             super.process(request);
         } else {
-            throw new LengthDataExc();
+            throw new NameUpCharExc();
+        }
+    }
+}
+
+class UpSurnameProcessor extends DataProcessor {
+    public UpSurnameProcessor(DataProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Data request) throws Exception {
+        if (new SurnameUpChar(request).isUppercase()) {
+            super.process(request);
+        } else {
+            throw new SurnameUpCharExc();
+        }
+    }
+}
+
+class MaxNameProcessor extends DataProcessor {
+    public MaxNameProcessor(DataProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Data request) throws Exception {
+        if (new MaxNameLen(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MaxNameExc();
+        }
+    }
+}
+
+class MaxSurnameProcessor extends DataProcessor {
+    public MaxSurnameProcessor(DataProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Data request) throws Exception {
+        if (new MaxSurnameLen(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MaxSurnameExc();
+        }
+    }
+}
+
+class MinSurnameProcessor extends DataProcessor {
+    public MinSurnameProcessor(DataProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Data request) throws Exception {
+        if (new MinSurnameLen(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MinSurnameExc();
+        }
+    }
+}
+
+class MinNameProcessor extends DataProcessor {
+    public MinNameProcessor(DataProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Data request) throws Exception {
+        if (new MinNameLen(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MinNameExc();
         }
     }
 }

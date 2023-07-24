@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SpecialPassword {
-    private final Password password;
+    private final String password;
 
     private final ArrayList<Character> specChars;
 
     public SpecialPassword(Password password) {
-        this.password = password;
+        this.password = password.userPassword;
         this.specChars = new ArrayList<>();
     }
 
     public boolean isSpecialChar() {
         this.initSpecChars();
 
-        for (int i = 0; i < this.password.userPassword.length(); i++) {
+        for (int i = 0; i < this.password.length(); i++) {
             for (Character character : this.specChars) {
-                if (this.password.userPassword.charAt(i) == character) {
+                if (this.password.charAt(i) == character) {
                     return true;
                 }
             }

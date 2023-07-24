@@ -1,13 +1,13 @@
 package org.example.validation.mail;
 
 public class MinLocalPart {
-    private final Mail mail;
+    private final int localPart;
 
     public MinLocalPart(Mail mail) {
-        this.mail = mail;
+        this.localPart = mail.localPart;
     }
 
     public boolean isSuitableLength() {
-        return this.mail.localPart >= MailFields.MIN_LOCAL_PART.requiredLen;
+        return this.localPart >= MailFields.MIN_LOCAL_PART.requiredLen;
     }
 }
