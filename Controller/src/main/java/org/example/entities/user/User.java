@@ -25,7 +25,7 @@ public class User {
     }
 
     public void selfRegistration(String repeatPassword) throws Exception {
-        new LogVerification().verifyUser(this.userMail, this.userPassword, repeatPassword);
+        new LogVerification(this.userMail).verifyUser(this.userPassword, repeatPassword);
 
         query.executeWithoutResponse(
                 String.format("insert into \"userTable\" (email, password, type) values ('%s', '%s', '%s')",

@@ -1,17 +1,20 @@
 package org.example.validation.mail;
 
-import org.example.validation.exceptions.LengthMailExc;
-import org.example.validation.exceptions.SyntaxMailExc;
+import org.example.validation.exceptions.*;
 
 public class ValidateMail {
     private final MailProcessor chain;
 
-    public ValidateMail() {
-        this.chain = new LengthProcessor(new ValidProcessor(null));
+    private final Mail mail;
+
+    public ValidateMail(String mail) {
+        this.chain = new MinLocalProcessor(new MaxLocalProcessor(new MinDomenProcessor(new MaxDomenProcessor(new ValidProcessor(null)))));
+        this.mail = new Mail(mail);
     }
 
-    public void validate(String mail) throws Exception {
-        this.chain.process(new Mail(mail));
+    public void validate() throws Exception {
+        this.mail.initLength();
+        this.chain.process(this.mail);
     }
 }
 
@@ -29,16 +32,58 @@ abstract class MailProcessor {
     }
 }
 
-class LengthProcessor extends MailProcessor {
-    public LengthProcessor(MailProcessor nextProcessor) {
+class MinLocalProcessor extends MailProcessor {
+    public MinLocalProcessor(MailProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Mail request) throws Exception {
-        if (request.isSuitableLength()) {
+        if (new MinLocalPart(request).isSuitableLength()) {
             super.process(request);
         } else {
-            throw new LengthMailExc();
+            throw new MinLocalMailExc();
+        }
+    }
+}
+
+class MaxLocalProcessor extends MailProcessor {
+    public MaxLocalProcessor(MailProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Mail request) throws Exception {
+        if (new MaxLocalPart(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MaxLocalMailExc();
+        }
+    }
+}
+
+class MinDomenProcessor extends MailProcessor {
+    public MinDomenProcessor(MailProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Mail request) throws Exception {
+        if (new MinDomenPart(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MinDomenMailExc();
+        }
+    }
+}
+
+class MaxDomenProcessor extends MailProcessor {
+    public MaxDomenProcessor(MailProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Mail request) throws Exception {
+        if (new MaxDomenPart(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MaxDomenMailExc();
         }
     }
 }

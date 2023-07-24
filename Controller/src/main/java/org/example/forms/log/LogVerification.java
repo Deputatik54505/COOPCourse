@@ -9,15 +9,15 @@ public class LogVerification {
 
     private final ValidatePassword validatePassword;
 
-    public LogVerification() {
-        this.validateMail = new ValidateMail();
+    public LogVerification(String userMail) {
+        this.validateMail = new ValidateMail(userMail);
         this.validatePassword = new ValidatePassword();
     }
 
-    public void verifyUser(String userMail, String userPassword, String repeatPassword) throws Exception {
+    public void verifyUser(String userPassword, String repeatPassword) throws Exception {
         try {
             this.isEqual(userPassword, repeatPassword);
-            this.validateMail.validate(userMail);
+            this.validateMail.validate();
             this.validatePassword.validate(userPassword);
         } catch (Exception e) {
             throw e;

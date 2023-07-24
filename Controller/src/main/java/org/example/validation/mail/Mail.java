@@ -3,9 +3,9 @@ package org.example.validation.mail;
 public class Mail {
     protected final String userMail;
 
-    private int localPart;
+    protected int localPart;
 
-    private int domenPart;
+    protected int domenPart;
 
 
     public Mail(String mail) {
@@ -14,15 +14,9 @@ public class Mail {
         this.domenPart = 0;
     }
 
-    public boolean isSuitableLength() {
+    public void initLength() {
         this.localPartLen();
         this.domenPartLen();
-
-        return
-                this.localPart >= MailFields.MIN_LOCAL_PART.requiredLen &&
-                this.localPart <= MailFields.MAX_LOCAL_PART.requiredLen &&
-                this.domenPart >= MailFields.MIN_DOMEN_PART.requiredLen &&
-                this.domenPart <= MailFields.MAX_DOMEN_PART.requiredLen;
     }
 
     private void localPartLen() {
