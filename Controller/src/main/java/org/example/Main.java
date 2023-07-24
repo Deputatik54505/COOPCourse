@@ -4,10 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.entities.buyer.Buyer;
-import org.example.entities.seller.Seller;
-import org.example.entities.user.User;
-import org.example.ui.controllers.AuthMainPage;
 import org.example.ui.controllers.MainPage;
 
 public class Main extends Application {

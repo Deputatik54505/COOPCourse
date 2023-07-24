@@ -14,8 +14,9 @@ public class Passport {
         this.passportSN = new PassportSN(series, number);
     }
 
-    public void selfValidation(User user) throws Exception {
+    public void selfValidation() throws Exception {
         //TODO refactor passport validation
+        new PassportVerification(this).verifyPassport();
     }
 
     public boolean isValidInput() {

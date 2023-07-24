@@ -72,9 +72,9 @@ public class AuthMainPage {
         assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
 
         //TODO check that the connection to the DB is correct
-        IProductCategory rootCategory = new ProductCategory(1);
-        TitledPane root = new TitledPane();
-        this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
+//        IProductCategory rootCategory = new ProductCategory(1);
+//        TitledPane root = new TitledPane();
+//        this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
 
         BackgroundImage addToCart = new BackgroundImage(
                 new Image("/assets/image/icons/add-to-cart.png"),
@@ -85,10 +85,10 @@ public class AuthMainPage {
         );
 
         //TODO check that the connection to the DB is correct
-        for (var product : rootCategory.getProducts()) {
-            VBox productVBox = this.loadProduct(product, addToCart);
-            this.listOfProducts.getChildren().add(productVBox);
-        }
+//        for (var product : rootCategory.getProducts()) {
+//            VBox productVBox = this.loadProduct(product, addToCart);
+//            this.listOfProducts.getChildren().add(productVBox);
+//        }
 
         this.home.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

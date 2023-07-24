@@ -16,7 +16,6 @@ public class Data {
     }
 
     public void selfValidation() throws Exception {
-        //TODO refactor data validation
         new DataVerification(this).verifyData();
     }
 }

@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.seller.Seller;
 import org.example.ui.controllers.AuthMainPage;
+import org.example.validation.exceptions.UserNotFoundExc;
 
 import java.io.IOException;
 

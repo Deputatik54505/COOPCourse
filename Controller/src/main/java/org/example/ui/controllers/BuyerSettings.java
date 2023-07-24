@@ -13,6 +13,8 @@ import org.example.entities.buyer.Buyer;
 import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
 import org.example.ui.models.*;
+import org.example.validation.passport.Passport;
+import org.example.validation.userdata.Data;
 
 import java.io.IOException;
 import java.net.URL;
@@ -171,8 +173,15 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    //TODO insert this info into UserData
+                    currBuyer.user.isEqual(userPassword.getText());
                     System.out.println(userPassword.getText());
+                    new Data(
+                            newName.getText(),
+                            newSurname.getText(),
+                            newSurname.getText()
+                    ).selfValidation();
+
+                    //TODO insert this info into DB
                     System.out.println(newName.getText());
                     System.out.println(newSurname.getText());
                     System.out.println(newDateBirth.getValue().toString());
@@ -191,8 +200,16 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    //TODO insert this into PassportData
+                    currBuyer.user.isEqual(userPassword1.getText());
                     System.out.println(userPassword1.getText());
+                    new Passport(
+                            newSeries.getText(),
+                            newNumber.getText(),
+                            newPublisher.getText(),
+                            newCode.getText()
+                    ).selfValidation();
+
+                    //TODO insert this into DB
                     System.out.println(newSeries.getText());
                     System.out.println(newNumber.getText());
                     System.out.println(newPublisher.getText());
