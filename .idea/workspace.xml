@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Added unit tests for user's passport">
-      <change afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/exceptions/ExcBirthDataExc.java" afterDir="false" />
+    <list default="true" id="386acb2e-eb47-4432-91fd-ad0b26ee2546" name="Changes" comment="Removed nulls in mail validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/data/DataVerification.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/data/DataVerification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/passport/FPassport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/passport/PassportVerification.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/forms/passport/PassportVerification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/passport/ValidatePassport.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/passport/ValidatePassport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/ValidateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/validation/userdata/ValidateData.java" afterDir="false" />
     </list>
@@ -57,7 +58,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="unit_tests" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -367,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690212302585</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Removed nulls in mail validation">
+      <created>1690214517922</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1690214517922</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +439,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add seller's goods page" />
     <MESSAGE value="Add seller's orders page" />
     <MESSAGE value="Add seller's create product page" />
     <MESSAGE value="Added getProducts, delete, editPrice, and editDescription methods to Product.java" />
@@ -456,7 +463,8 @@
     <MESSAGE value="WARNING: added getEmail to the user&#10;&#10;added  possibility to load cart of customer" />
     <MESSAGE value="Added unit tests for user's data" />
     <MESSAGE value="Added unit tests for user's passport" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unit tests for user's passport" />
+    <MESSAGE value="Removed nulls in mail validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed nulls in mail validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

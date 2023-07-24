@@ -1,6 +1,5 @@
 package org.example.validation.userdata;
 
-import org.example.entities.user.User;
 import org.example.forms.data.DataVerification;
 
 public class Data {

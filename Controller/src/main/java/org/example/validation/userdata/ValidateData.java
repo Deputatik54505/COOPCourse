@@ -1,7 +1,6 @@
 package org.example.validation.userdata;
 
 import org.example.validation.exceptions.*;
-import org.example.validation.password.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

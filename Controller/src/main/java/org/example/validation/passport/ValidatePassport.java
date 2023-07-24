@@ -2,167 +2,121 @@ package org.example.validation.passport;
 
 import org.example.validation.exceptions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ValidatePassport {
-    private final PassportProcessor chain;
+    private final ArrayList<ICheckPassport> chain;
 
-    public ValidatePassport() {
-        this.chain = new ValidProcessor(new UpProcessor(new LowProcessor(new NumProcessor(null))));
+    private final Passport passport;
+
+    public ValidatePassport(Passport passport) {
+        this.chain = new ArrayList<>();
+        this.passport = passport;
     }
 
-    public void validate(String publisher, String code, String series, String number) throws Exception {
-        this.chain.process(new Passport(publisher, code, series, number));
-    }
-}
-
-abstract class PassportProcessor {
-    private final PassportProcessor nextProcessor;
-
-    public PassportProcessor(PassportProcessor nextProcessor){
-        this.nextProcessor = nextProcessor;
-    }
-
-    public void process(Passport request) throws Exception {
-        if (this.nextProcessor != null) {
-            this.nextProcessor.process(request);
+    public void validate() throws Exception {
+        this.initChain();
+        for (ICheckPassport item : this.chain) {
+            item.process(this.passport);
         }
     }
+
+    private void initChain() {
+        this.chain.addAll(Arrays.asList(
+                new SeriesLenCheck(),
+                new NumberLenCheck(),
+                new MinPublisherCheck(),
+                new MaxPublisherCheck(),
+                new CodeLenCheck(),
+                new UpCheck(),
+                new LowCheck(),
+                new NumCheck(),
+                new ValidCheck(),
+                new SpecialCheck()
+        ));
+    }
 }
 
-class CodeLenProcessor extends PassportProcessor {
-    public CodeLenProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
+interface ICheckPassport {
+    void process(Passport request) throws Exception;
+}
 
+class CodeLenCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new CodeLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new CodeLen(request).isSuitableLength()) {
             throw new ExcPassportCodeExc();
         }
     }
 }
 
-class SeriesLenProcessor extends PassportProcessor {
-    public SeriesLenProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class SeriesLenCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new SeriesLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new SeriesLen(request).isSuitableLength()) {
             throw new ExcPassportSeriesExc();
         }
     }
 }
 
-class NumberLenProcessor extends PassportProcessor {
-    public NumberLenProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class NumberLenCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new NumberLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new NumberLen(request).isSuitableLength()) {
             throw new ExcPassportNumberExc();
         }
     }
 }
 
-class MinPublisherProcessor extends PassportProcessor {
-    public MinPublisherProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MinPublisherCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new MinPublisherLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new MinPublisherLen(request).isSuitableLength()) {
             throw new MinPublisherExc();
         }
     }
 }
 
-class MaxPublisherProcessor extends PassportProcessor {
-    public MaxPublisherProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class MaxPublisherCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new MaxPublisherLen(request).isSuitableLength()) {
-            super.process(request);
-        } else {
+        if (!new MaxPublisherLen(request).isSuitableLength()) {
             throw new MaxPublisherExc();
         }
     }
 }
 
-class ValidProcessor extends PassportProcessor {
-    public ValidProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class ValidCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (request.isValidInput()) {
-            super.process(request);
-        } else {
+        if (!request.isValidInput()) {
             throw new SyntaxPassportExc();
         }
     }
 }
 
-class UpProcessor extends PassportProcessor {
-    public UpProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class UpCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new UpPassport(request).isUpLetter()) {
-            super.process(request);
-        } else {
+        if (!new UpPassport(request).isUpLetter()) {
             throw new UpPassportExc();
         }
     }
 }
 
-class LowProcessor extends PassportProcessor {
-    public LowProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class LowCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new LowPassport(request).isLowLetter()) {
-            super.process(request);
-        } else {
+        if (!new LowPassport(request).isLowLetter()) {
             throw new LowPassportExc();
         }
     }
 }
 
-class NumProcessor extends PassportProcessor {
-    public NumProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class NumCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new NumPassport(request).isNum()) {
-            super.process(request);
-        } else {
+        if (!new NumPassport(request).isNum()) {
             throw new NumPassportExc();
         }
     }
 }
 
-class SpecialProcessor extends PassportProcessor {
-    public SpecialProcessor(PassportProcessor nextProcessor) {
-        super(nextProcessor);
-    }
-
+class SpecialCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
-        if (new SpecialPassport(request).isSpecialChar()) {
-            super.process(request);
-        } else {
+        if (!new SpecialPassport(request).isSpecialChar()) {
             throw new SpecialPassportExc();
         }
     }
