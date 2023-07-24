@@ -1,9 +1,12 @@
 package org.example.entities.buyer;
 
+import org.example.database.Query;
 import org.example.entities.cart.ShoppingCart;
 import org.example.entities.product.Product;
 import org.example.entities.user.User;
 import org.example.validation.exceptions.ProductNotFoundExc;
+
+import java.sql.SQLException;
 
 public class Buyer {
     public final User user;
@@ -16,7 +19,14 @@ public class Buyer {
     }
 
     public void loadCart() {
-
+        Query query = new Query();
+        try (var resultSet = query.executeQuery(String.format("select id from customer " +
+                "where \"userId\" in (SELECT id from \"userTable\" where email='%s');\n", user.getEmail()))) {
+            buyerId = resultSet.getInt("id");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        shoppingCart.load(buyerId);
     }
 
     public void buyProduct(Product product) throws ProductNotFoundExc {

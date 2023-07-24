@@ -165,6 +165,9 @@ public class AuthMainPage {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                if(currBuyer.user.isBuyer())
+                    currBuyer.shoppingCart.addPurchase(product);
+                // I think we should discuss if we have to add shopping cart to seller
                 //TODO add to Buyer's or Seller's basket (check the type of the user calling isExist())
             }
         });
