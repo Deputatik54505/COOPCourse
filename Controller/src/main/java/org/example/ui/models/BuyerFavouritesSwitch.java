@@ -9,11 +9,23 @@ import org.example.ui.controllers.BuyerFavourites;
 import java.io.IOException;
 
 public class BuyerFavouritesSwitch {
-    public BuyerFavouritesSwitch() { }
-    public void changeScene(Buyer buyer, Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/buyer_acc_favourites.fxml"));
-        loader.setController(new BuyerFavourites(buyer, stage));
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
+    private final FXMLLoader loader;
+    private final Buyer currBuyer;
+    public BuyerFavouritesSwitch(Buyer buyer) {
+        this.loader = new FXMLLoader();
+        this.currBuyer = buyer;
+    }
+    public void changeScene(Stage stage) throws IOException {
+        initLocation();
+        initController(stage);
+        stage.setScene(new Scene(this.loader.load()));
+    }
+
+    private void initLocation() {
+        this.loader.setLocation(getClass().getResource("/fxml/buyer_acc_favourites.fxml"));
+    }
+
+    private void initController(Stage stage) {
+        this.loader.setController(new BuyerFavourites(this.currBuyer, stage));
     }
 }

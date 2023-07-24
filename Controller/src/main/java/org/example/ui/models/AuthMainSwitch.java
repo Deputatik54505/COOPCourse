@@ -10,11 +10,25 @@ import org.example.ui.controllers.AuthMainPage;
 import java.io.IOException;
 
 public class AuthMainSwitch {
-    public AuthMainSwitch() {}
-    public void changeScene(Buyer buyer, Seller seller, Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/auth_main_page.fxml"));
-        loader.setController(new AuthMainPage(buyer, seller, stage));
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
+    private final FXMLLoader loader;
+
+    private final Buyer currBuyer;
+
+    private final Seller currSeller;
+    public AuthMainSwitch(Buyer buyer, Seller seller) {
+        this.loader = new FXMLLoader();
+        this.currBuyer = buyer;
+        this.currSeller = seller;
+    }
+    public void changeScene(Stage stage) throws IOException {
+        initLocation();
+        initController(stage);
+        stage.setScene(new Scene(this.loader.load()));
+    }
+    private void initLocation() {
+        this.loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
+    }
+    private void initController(Stage stage) {
+        this.loader.setController(new AuthMainPage(this.currBuyer, this.currSeller, stage));
     }
 }

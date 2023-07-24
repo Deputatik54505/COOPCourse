@@ -122,17 +122,14 @@ public class LogIn {
                     );
                     //user.selfRegistration(userRepeatPassword.getText());
                     if (userBuyer.isSelected()) {
-                        new AuthMainSwitch().changeScene(
+                        new AuthMainSwitch(
                                 new Buyer(user),
-                                new Seller(new User("","", "None")),
-                                primaryStage
-                        );
+                                new Seller(new User("","", "None")))
+                                .changeScene(primaryStage);
                     } else if (userSeller.isSelected()) {
-                        new AuthMainSwitch().changeScene(
-                                new Buyer(new User("","", "None")),
-                                new Seller(user),
-                                primaryStage
-                        );
+                        new AuthMainSwitch(new Buyer(new User("","", "None")),
+                                new Seller(user))
+                                .changeScene(primaryStage);
                     }
                 } catch (Exception e) {
                     registrationError.setText(e.toString());

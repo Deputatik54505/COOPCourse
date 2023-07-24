@@ -8,11 +8,21 @@ import org.example.ui.controllers.MainPage;
 import java.io.IOException;
 
 public class NotAuthMainSwitch {
-    public NotAuthMainSwitch() { }
+    private final FXMLLoader loader;
+    public NotAuthMainSwitch() {
+        this.loader = new FXMLLoader();
+    }
     public void changeScene(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main_page.fxml"));
-        loader.setController(new MainPage(stage));
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
+        initLocation();
+        initController(stage);
+        stage.setScene(new Scene(this.loader.load()));
+    }
+
+    private void initLocation() {
+        this.loader.setLocation(getClass().getResource("/fxml/main_page.fxml"));
+    }
+
+    private void initController(Stage stage) {
+        this.loader.setController(new MainPage(stage));
     }
 }

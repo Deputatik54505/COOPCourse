@@ -10,11 +10,27 @@ import org.example.ui.controllers.Basket;
 import java.io.IOException;
 
 public class BasketSwitch {
-    public BasketSwitch() { }
-    public void changeScene(Buyer buyer, Seller seller, Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/shopping_cart.fxml"));
-        loader.setController(new Basket(buyer, seller, stage));
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
+    private final FXMLLoader loader;
+
+    private final Buyer currBuyer;
+
+    private final Seller currSeller;
+    public BasketSwitch(Buyer buyer, Seller seller) {
+        this.loader = new FXMLLoader();
+        this.currBuyer = buyer;
+        this.currSeller = seller;
+    }
+    public void changeScene(Stage stage) throws IOException {
+        initLocation();
+        initController(stage);
+        stage.setScene(new Scene(this.loader.load()));
+    }
+
+    private void initLocation() {
+        this.loader.setLocation(getClass().getResource("/fxml/shopping_cart.fxml"));
+    }
+
+    private void initController(Stage stage) {
+        loader.setController(new Basket(this.currBuyer, this.currSeller, stage));
     }
 }

@@ -9,11 +9,24 @@ import org.example.ui.controllers.SellerProduct;
 import java.io.IOException;
 
 public class SellerProductSwitch {
-    public SellerProductSwitch() { }
-    public void changeScene(Seller seller, Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/seller_create_product.fxml"));
-        loader.setController(new SellerProduct(seller, stage));
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
+    private final FXMLLoader loader;
+
+    private final Seller currSeller;
+    public SellerProductSwitch(Seller seller) {
+        this.loader = new FXMLLoader();
+        this.currSeller = seller;
+    }
+    public void changeScene(Stage stage) throws IOException {
+        initLocation();
+        initController(stage);
+        stage.setScene(new Scene(this.loader.load()));
+    }
+
+    private void initLocation() {
+        this.loader.setLocation(getClass().getResource("/fxml/seller_create_product.fxml"));
+    }
+
+    private void initController(Stage stage) {
+        this.loader.setController(new SellerProduct(this.currSeller, stage));
     }
 }

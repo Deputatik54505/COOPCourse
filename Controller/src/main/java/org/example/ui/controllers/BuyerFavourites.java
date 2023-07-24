@@ -94,11 +94,10 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch().changeScene(
+                    new AuthMainSwitch(
                             currBuyer,
-                            new Seller(new User("", "", "None")),
-                            primaryStage
-                    );
+                            new Seller(new User("", "", "None")))
+                            .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -109,11 +108,10 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BasketSwitch().changeScene(
+                    new BasketSwitch(
                             currBuyer,
-                            new Seller(new User("", "", "None")),
-                            primaryStage
-                    );
+                            new Seller(new User("", "","None")))
+                            .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -124,7 +122,7 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerDataSwitch().changeScene(currBuyer, primaryStage);
+                    new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -135,7 +133,7 @@ public class BuyerFavourites {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BuyerSettingsSwitch().changeScene(currBuyer, primaryStage);
+                    new BuyerSettingsSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

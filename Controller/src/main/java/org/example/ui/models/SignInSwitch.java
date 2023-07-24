@@ -8,11 +8,21 @@ import org.example.ui.controllers.SignIn;
 import java.io.IOException;
 
 public class SignInSwitch {
-    public SignInSwitch() { }
+    private final FXMLLoader loader;
+    public SignInSwitch() {
+        this.loader = new FXMLLoader();
+    }
     public void changeScene(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sign_in_form.fxml"));
-        loader.setController(new SignIn(stage));
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
+        initLocation();
+        initController(stage);
+        stage.setScene(new Scene(this.loader.load()));
+    }
+
+    private void initLocation() {
+        this.loader.setLocation(getClass().getResource("/fxml/sign_in_form.fxml"));
+    }
+
+    private void initController(Stage stage) {
+        this.loader.setController(new SignIn(stage));
     }
 }

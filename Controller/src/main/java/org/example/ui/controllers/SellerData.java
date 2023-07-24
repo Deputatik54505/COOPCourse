@@ -106,11 +106,10 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch().changeScene(
+                    new AuthMainSwitch(
                             new Buyer(new User("", "", "None")),
-                            currSeller,
-                            primaryStage
-                    );
+                            currSeller)
+                            .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -121,11 +120,10 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BasketSwitch().changeScene(
+                    new BasketSwitch(
                             new Buyer(new User("", "", "None")),
-                            currSeller,
-                            primaryStage
-                    );
+                            currSeller)
+                            .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -136,7 +134,7 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerGoodsSwitch().changeScene(currSeller, primaryStage);
+                    new SellerGoodsSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -147,7 +145,7 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerOrdersSwitch().changeScene(currSeller, primaryStage);
+                    new SellerOrdersSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -158,7 +156,7 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerProductSwitch().changeScene(currSeller, primaryStage);
+                    new SellerProductSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -169,7 +167,7 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new SellerSettingsSwitch().changeScene(currSeller, primaryStage);
+                    new SellerSettingsSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

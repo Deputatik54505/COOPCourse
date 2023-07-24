@@ -30,7 +30,6 @@ import org.example.ui.models.SellerDataSwitch;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class AuthMainPage {
     private final Buyer currBuyer;
@@ -93,7 +92,7 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch().changeScene(currBuyer, currSeller, primaryStage);
+                    new AuthMainSwitch(currBuyer, currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -104,7 +103,7 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BasketSwitch().changeScene(currBuyer, currSeller, primaryStage);
+                    new BasketSwitch(currBuyer, currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -116,9 +115,9 @@ public class AuthMainPage {
             public void handle(MouseEvent event) {
                 try {
                     if (currBuyer.isExist()) {
-                        new BuyerDataSwitch().changeScene(currBuyer, primaryStage);
+                        new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
                     } else if (currSeller.isExist()) {
-                        new SellerDataSwitch().changeScene(currSeller, primaryStage);
+                        new SellerDataSwitch(currSeller).changeScene(primaryStage);
                     }
                 } catch (IOException e) {
                     throw new RuntimeException();

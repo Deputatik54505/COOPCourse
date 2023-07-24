@@ -115,7 +115,7 @@ public class Basket {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch().changeScene(currBuyer, currSeller, primaryStage);
+                    new AuthMainSwitch(currBuyer, currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -127,9 +127,9 @@ public class Basket {
             public void handle(MouseEvent event) {
                 try {
                     if (currBuyer.isExist()) {
-                        new BuyerDataSwitch().changeScene(currBuyer, primaryStage);
+                        new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
                     } else if (currSeller.isExist()) {
-                        new SellerDataSwitch().changeScene(currSeller, primaryStage);
+                        new SellerDataSwitch(currSeller).changeScene(primaryStage);
                     }
                 } catch (IOException e) {
                     throw new RuntimeException();
