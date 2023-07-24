@@ -92,11 +92,10 @@ public class SellerData {
         assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert userSurname != null : "fx:id=\"userSurname\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
 
-        //TODO use general data (name, surname, birth, passport data) from DB
-        //var generalData = currSeller.user.data.represent();
-        this.userName.setText("none");
-        this.userSurname.setText("none");
-        this.userBirth.setText("none");
+        var generalData = currSeller.user.data.represent();
+        this.userName.setText(generalData.get(0));
+        this.userSurname.setText(generalData.get(1));
+        this.userBirth.setText(generalData.get(2));
 
         this.passportSeries.setText("none");
         this.passportNumber.setText("none");

@@ -110,7 +110,7 @@ public class BuyerFavourites {
                 try {
                     new BasketSwitch(
                             currBuyer,
-                            new Seller(new User("", "","None")))
+                            new Seller(new User("", "", "None")))
                             .changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
@@ -170,7 +170,8 @@ public class BuyerFavourites {
         add.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO add to User's basket
+                if (currBuyer.user.isBuyer())
+                    currBuyer.shoppingCart.addPurchase(product);
             }
         });
 

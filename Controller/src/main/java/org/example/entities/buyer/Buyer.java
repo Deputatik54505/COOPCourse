@@ -1,23 +1,31 @@
 package org.example.entities.buyer;
 
-import org.example.entities.product.Product;
+import org.example.database.Query;
 import org.example.entities.cart.ShoppingCart;
+import org.example.entities.product.Product;
 import org.example.entities.user.User;
 import org.example.validation.exceptions.ProductNotFoundExc;
 
+import java.sql.SQLException;
+
 public class Buyer {
     public final User user;
-
-    protected final ShoppingCart shoppingCart;
+    public final ShoppingCart shoppingCart;
 
     public Buyer(User user) {
         this.user = user;
-        this.shoppingCart = new ShoppingCart();
+        int buyerId;
+        Query query = new Query();
+        try (var resultSet = query.executeQuery(String.format("select id from customer " +
+                "where \"userId\" in (SELECT id from \"userTable\" where email='%s');\n", user.getEmail()))) {
+            buyerId = resultSet.getInt("id");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        this.shoppingCart = new ShoppingCart(buyerId);
+        shoppingCart.load();
     }
 
-    public boolean isExist() {
-        return this.user.userType.equals("Buyer");
-    }
 
     public void buyProduct(Product product) throws ProductNotFoundExc {
         this.shoppingCart.removePurchase(product);

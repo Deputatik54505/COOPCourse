@@ -10,11 +10,11 @@ import org.example.validation.exceptions.UserNotFoundExc;
 import java.sql.SQLException;
 
 public class User {
-    public UserData data;
-    public final String userType;
+    private final String userType;
     private final String userMail;
     private final String userPassword;
     private final IQuery query;
+    public UserData data;
 
     public User(String mail, String password, String type) {
         this.userMail = mail;
@@ -44,4 +44,17 @@ public class User {
         }
         throw new UnequalPasswordExc();
     }
+
+    public boolean isBuyer() {
+        return userType.equals("Buyer");
+    }
+
+    public boolean isSeller() {
+        return userType.equals("Seller");
+    }
+
+    public String getEmail() {
+        return userMail;
+    }
+
 }
