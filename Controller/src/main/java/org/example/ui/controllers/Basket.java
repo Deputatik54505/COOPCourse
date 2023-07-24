@@ -23,8 +23,8 @@ import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.product.Product;
 import org.example.entities.seller.Seller;
-import org.example.ui.models.BuyerDataSwitch;
 import org.example.ui.models.AuthMainSwitch;
+import org.example.ui.models.BuyerDataSwitch;
 import org.example.ui.models.SellerDataSwitch;
 
 import java.io.IOException;
@@ -126,9 +126,9 @@ public class Basket {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    if (currBuyer.isExist()) {
+                    if (currBuyer.user.isBuyer()) {
                         new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
-                    } else if (currSeller.isExist()) {
+                    } else if (currSeller.user.isSeller()) {
                         new SellerDataSwitch(currSeller).changeScene(primaryStage);
                     }
                 } catch (IOException e) {

@@ -13,7 +13,4 @@ public class Seller {
         this.shoppingCart = new ShoppingCart();
     }
 
-    public boolean isExist() {
-        return this.user.userType.equals("Seller");
-    }
 }

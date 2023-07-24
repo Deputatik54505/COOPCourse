@@ -12,7 +12,16 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -116,9 +125,9 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    if (currBuyer.isExist()) {
+                    if (currBuyer.user.isBuyer()) {
                         new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
-                    } else if (currSeller.isExist()) {
+                    } else if (currSeller.user.isSeller()) {
                         new SellerDataSwitch(currSeller).changeScene(primaryStage);
                     }
                 } catch (IOException e) {
