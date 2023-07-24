@@ -1,5 +1,9 @@
 package org.example.validation.passport;
 
+import org.example.entities.user.User;
+import org.example.forms.data.DataVerification;
+import org.example.forms.passport.PassportVerification;
+
 public class Passport {
     protected final PassportPC passportPC;
 
@@ -10,12 +14,12 @@ public class Passport {
         this.passportSN = new PassportSN(series, number);
     }
 
-    public boolean isSuitableLength() {
-        return this.passportSN.checkLen() && this.passportPC.checkLen();
+    public void selfValidation(User user) throws Exception {
+        //TODO refactor passport validation
     }
 
     public boolean isValidInput() {
-        return this.passportSN.validate() && this.passportPC.validate();
+        return this.passportSN.isValid() && this.passportPC.isValid();
     }
 
 }

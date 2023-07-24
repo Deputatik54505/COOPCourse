@@ -6,7 +6,7 @@ public class ValidatePassport {
     private final PassportProcessor chain;
 
     public ValidatePassport() {
-        this.chain = new LengthProcessor(new ValidProcessor(new UpProcessor(new LowProcessor(new NumProcessor(null)))));
+        this.chain = new ValidProcessor(new UpProcessor(new LowProcessor(new NumProcessor(null))));
     }
 
     public void validate(String publisher, String code, String series, String number) throws Exception {
@@ -28,16 +28,72 @@ abstract class PassportProcessor {
     }
 }
 
-class LengthProcessor extends PassportProcessor {
-    public LengthProcessor(PassportProcessor nextProcessor) {
+class CodeLenProcessor extends PassportProcessor {
+    public CodeLenProcessor(PassportProcessor nextProcessor) {
         super(nextProcessor);
     }
 
     public void process(Passport request) throws Exception {
-        if (request.isSuitableLength()) {
+        if (new CodeLen(request).isSuitableLength()) {
             super.process(request);
         } else {
-            throw new LengthPassportExc();
+            throw new ExcPassportCodeExc();
+        }
+    }
+}
+
+class SeriesLenProcessor extends PassportProcessor {
+    public SeriesLenProcessor(PassportProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Passport request) throws Exception {
+        if (new SeriesLen(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new ExcPassportSeriesExc();
+        }
+    }
+}
+
+class NumberLenProcessor extends PassportProcessor {
+    public NumberLenProcessor(PassportProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Passport request) throws Exception {
+        if (new NumberLen(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new ExcPassportNumberExc();
+        }
+    }
+}
+
+class MinPublisherProcessor extends PassportProcessor {
+    public MinPublisherProcessor(PassportProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Passport request) throws Exception {
+        if (new MinPublisherLen(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MinPublisherExc();
+        }
+    }
+}
+
+class MaxPublisherProcessor extends PassportProcessor {
+    public MaxPublisherProcessor(PassportProcessor nextProcessor) {
+        super(nextProcessor);
+    }
+
+    public void process(Passport request) throws Exception {
+        if (new MaxPublisherLen(request).isSuitableLength()) {
+            super.process(request);
+        } else {
+            throw new MaxPublisherExc();
         }
     }
 }

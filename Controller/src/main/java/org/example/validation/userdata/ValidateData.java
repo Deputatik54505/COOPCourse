@@ -9,8 +9,8 @@ public class ValidateData {
         this.chain = new ValidateName(new ValidateSurname(new ValidateBirth(null)));
     }
 
-    public void validate(String name, String surname, String birth) throws Exception {
-        this.chain.process(new Data(name, surname, birth));
+    public void validate(Data data) throws Exception {
+        this.chain.process(data);
     }
 }
 
