@@ -11,14 +11,10 @@ import java.sql.SQLException;
 public class Buyer {
     public final User user;
     public final ShoppingCart shoppingCart;
-    private int buyerId;
 
     public Buyer(User user) {
         this.user = user;
-        this.shoppingCart = new ShoppingCart();
-    }
-
-    public void loadCart() {
+        int buyerId;
         Query query = new Query();
         try (var resultSet = query.executeQuery(String.format("select id from customer " +
                 "where \"userId\" in (SELECT id from \"userTable\" where email='%s');\n", user.getEmail()))) {
@@ -26,8 +22,10 @@ public class Buyer {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        shoppingCart.load(buyerId);
+        this.shoppingCart = new ShoppingCart(buyerId);
+        shoppingCart.load();
     }
+
 
     public void buyProduct(Product product) throws ProductNotFoundExc {
         this.shoppingCart.removePurchase(product);

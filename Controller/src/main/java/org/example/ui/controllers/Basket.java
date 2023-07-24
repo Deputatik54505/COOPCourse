@@ -230,6 +230,10 @@ public class Basket {
         button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                if (currBuyer.user.isBuyer())
+                    currBuyer.shoppingCart.removePurchase(product);
+                else
+                    currSeller.shoppingCart.removePurchase(product);
                 //TODO implement deletion from user's basket
                 listOfProducts.getChildren().remove(hBox);
                 if (include.isSelected()) {

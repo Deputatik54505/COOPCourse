@@ -1,5 +1,6 @@
 package org.example.entities.cart;
 
+import org.example.database.IQuery;
 import org.example.database.Query;
 import org.example.entities.product.Product;
 import org.example.validation.exceptions.ProductNotFoundExc;
@@ -12,13 +13,16 @@ import java.util.Map;
 
 public class ShoppingCart {
     private final Map<Product, Integer> purchases;
+    private final IQuery query;
+    private final int userId;
 
-    public ShoppingCart() {
+    public ShoppingCart(int userId) {
         this.purchases = new HashMap<>();
+        query = new Query();
+        this.userId = userId;
     }
 
-    public void load(int userId) {
-        Query query = new Query();
+    public void load() {
 
         try (ResultSet resultSet = query.executeQuery(
                 String.format("SELECT cart FROM customer WHERE userId=%d", userId))) {
@@ -50,14 +54,15 @@ public class ShoppingCart {
         }
     }
 
-    public void removePurchase(Product remPurchase) throws ProductNotFoundExc {
+    public void removePurchase(Product remPurchase) {
         if (!this.purchases.containsKey(remPurchase)) {
-            throw new ProductNotFoundExc();
+            throw new RuntimeException(new ProductNotFoundExc());
         }
         this.purchases.put(remPurchase, this.purchases.get(remPurchase) - 1);
         if (this.purchases.get(remPurchase) == 0) {
             this.purchases.remove(remPurchase);
         }
+        query.executeWithoutResponse("");
     }
 
     public Product searchPurchase(Product neededPurchase) throws ProductNotFoundExc {

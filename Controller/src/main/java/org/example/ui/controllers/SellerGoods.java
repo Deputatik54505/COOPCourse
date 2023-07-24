@@ -100,9 +100,7 @@ public class SellerGoods {
                 BackgroundSize.DEFAULT
         );
 
-        //TODO load all seller's goods from DB: this.loadProduct(product, addToCart)
-
-        ArrayList<Product> sellersGoods = new ArrayList<>();
+        ArrayList<Product> sellersGoods = currSeller.goods();
         for (var product : sellersGoods) {
             VBox productVBox = this.loadProduct(product, addToCart);
             this.listOfProducts.getChildren().add(productVBox);
