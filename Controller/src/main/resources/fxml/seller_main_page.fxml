@@ -52,17 +52,6 @@
                     <Font name="System Bold" size="16.0" />
                 </font>
             </TextField>
-            <Button fx:id="userBasket" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: node;" text="Basket" textFill="#aee1f2" wrapText="true">
-                <opaqueInsets>
-                    <Insets />
-                </opaqueInsets>
-                <cursor>
-                    <Cursor fx:constant="HAND" />
-                </cursor>
-                <font>
-                    <Font name="System Bold" size="16.0" />
-                </font>
-            </Button>
             <Button fx:id="userAccount" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: none;" text="Account" textFill="#aee1f2" wrapText="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />

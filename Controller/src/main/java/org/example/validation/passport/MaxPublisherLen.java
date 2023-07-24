@@ -1,13 +1,13 @@
 package org.example.validation.passport;
 
 public class MaxPublisherLen {
-    private final String publisher;
+    private final Passport passport;
 
     public MaxPublisherLen(Passport passport) {
-        this.publisher = passport.passportPC.publisher;
+        this.passport = passport;
     }
 
     public boolean isSuitableLength() {
-        return this.publisher.length() <= PassportFields.MAX_PUBLISHER.requiredLen;
+        return this.passport.provideData().get(2).length() <= 64;
     }
 }

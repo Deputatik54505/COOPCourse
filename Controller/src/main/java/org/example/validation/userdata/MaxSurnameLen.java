@@ -1,13 +1,13 @@
 package org.example.validation.userdata;
 
 public class MaxSurnameLen {
-    private final String surname;
+    private final Data data;
 
     public MaxSurnameLen(Data data) {
-        this.surname = data.surname;
+        this.data = data;
     }
 
     public boolean isSuitableLength() {
-        return this.surname.length() <= DataFields.MAX_SURNAME.requiredLen;
+        return this.data.provideData().get(1).length() <= 20;
     }
 }

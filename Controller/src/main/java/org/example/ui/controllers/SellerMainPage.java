@@ -7,77 +7,66 @@ import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.product.Product;
+import org.example.entities.product.ProductCategory;
 import org.example.entities.seller.Seller;
-import org.example.entities.user.User;
 import org.example.ui.models.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SellerGoods {
+public class SellerMainPage {
     private final Seller currSeller;
 
     private final Stage primaryStage;
 
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
-    @FXML
-    private TilePane listOfProducts;
-
-    @FXML
-    private Button createProduct;
-
     @FXML
     private Group home;
-
     @FXML
-    private Circle userAvatar;
-
+    private TilePane listOfProducts;
     @FXML
-    private Button userData;
-
+    private VBox listOfCategories;
     @FXML
-    private Button userLogOut;
-
+    private Button userAccount;
     @FXML
-    private Button userOrders;
-
+    private TextField userSearch;
     @FXML
-    private Button userSettings;
+    private Font x1;
 
-    public SellerGoods(Seller seller, Stage stage) {
+    public SellerMainPage(Seller seller, Stage stage) {
         this.currSeller = seller;
         this.primaryStage = stage;
     }
 
     @FXML
     void initialize() {
-        assert createProduct != null : "fx:id=\"createProduct\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert listOfProducts != null : "fx:id=\"listOfProducts\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userData != null : "fx:id=\"userData\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userOrders != null : "fx:id=\"userOrders\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
-        assert userSettings != null : "fx:id=\"userSettings\" was not injected: check your FXML file 'seller_acc_goods.fxml'.";
+        assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'main_page.fxml'.";
+        assert listOfProducts != null : "fx:id=\"listOfProducts\" was not injected: check your FXML file 'main_page.fxml'.";
+        assert userAccount != null : "fx:id=\"userAccount\" was not injected: check your FXML file 'buyer_main_page.fxml'.";
+        assert listOfCategories != null : "fx:id=\"listOfCategories\" was not injected: check your FXML file 'main_page.fxml'.";
+        assert userSearch != null : "fx:id=\"userSearch\" was not injected: check your FXML file 'main_page.fxml'.";
+        assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
+
+        ProductCategory rootCategory = new ProductCategory(1);
+        rootCategory.load();
+        TitledPane root = new TitledPane();
+        this.listOfCategories.getChildren().addAll(this.loadCategories(root, rootCategory));
 
         BackgroundImage addToCart = new BackgroundImage(
                 new Image("/assets/image/icons/add-to-cart.png"),
@@ -87,8 +76,7 @@ public class SellerGoods {
                 BackgroundSize.DEFAULT
         );
 
-        ArrayList<Product> sellersGoods = currSeller.goods();
-        for (var product : sellersGoods) {
+        for (var product : rootCategory.getProducts()) {
             VBox productVBox = this.loadProduct(product, addToCart);
             this.listOfProducts.getChildren().add(productVBox);
         }
@@ -104,7 +92,7 @@ public class SellerGoods {
             }
         });
 
-        this.userData.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.userAccount.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 try {
@@ -115,46 +103,11 @@ public class SellerGoods {
             }
         });
 
-        this.userOrders.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.userSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new SellerOrdersSwitch(currSeller).changeScene(primaryStage);
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.createProduct.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new SellerProductSwitch(currSeller).changeScene(primaryStage);
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.userSettings.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new SellerSettingsSwitch(currSeller).changeScene(primaryStage);
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.userLogOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new NotAuthMainSwitch().changeScene(primaryStage);
-                } catch (IOException e) {
-                    throw new RuntimeException();
+            public void handle(KeyEvent event) {
+                if (event.getCode().equals(KeyCode.ENTER)) {
+                    //TODO implement search on the main page
                 }
             }
         });
@@ -175,12 +128,6 @@ public class SellerGoods {
         add.setPrefSize(32.0, 32.0);
         add.setBackground(new Background(addToCart));
         add.setCursor(Cursor.HAND);
-
-        add.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-            }
-        });
 
         VBox container = new VBox();
         TilePane.setMargin(container, new Insets(4));
@@ -218,4 +165,27 @@ public class SellerGoods {
 
         return container;
     }
+
+    public Accordion loadCategories(TitledPane parent, ProductCategory productCategory) {
+        Accordion accordion = new Accordion();
+        parent.setContent(accordion);
+
+        var k = productCategory.hierarchy().child();
+        if (k.size() != 0) {
+            for (var category : k) {
+                TitledPane container = new TitledPane();
+                container.setText(parent.getText() + category.specifications().name() + ".");
+                accordion.getPanes().add(container);
+                loadCategories(container, category);
+            }
+        } else {
+            TitledPane container = new TitledPane();
+            container.setText(parent.getText() + productCategory.specifications().name());
+            accordion.getPanes().add(container);
+        }
+        return accordion;
+    }
+
 }
+
+

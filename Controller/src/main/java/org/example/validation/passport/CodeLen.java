@@ -1,13 +1,14 @@
 package org.example.validation.passport;
 
 public class CodeLen {
-    private final String code;
+    private final Passport passport;
 
     public CodeLen(Passport passport) {
-        this.code = passport.passportPC.code;
+        this.passport = passport;
     }
 
     public boolean isSuitableLength() {
-        return this.code.length() == PassportFields.CODE.requiredLen;
+        return this.passport.provideData().get(3).length() == 6;
     }
+
 }

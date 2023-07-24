@@ -22,8 +22,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.product.Product;
-import org.example.entities.seller.Seller;
-import org.example.ui.models.AuthMainSwitch;
+import org.example.ui.models.BuyerMainSwitch;
 import org.example.ui.models.BuyerDataSwitch;
 import org.example.ui.models.SellerDataSwitch;
 
@@ -32,10 +31,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Basket {
+public class BuyerBasket {
     private final Buyer currBuyer;
-
-    private final Seller currSeller;
 
     private final Stage primaryStage;
 
@@ -75,9 +72,8 @@ public class Basket {
     @FXML
     private Font x1;
 
-    public Basket(Buyer buyer, Seller seller, Stage stage) {
+    public BuyerBasket(Buyer buyer, Stage stage) {
         this.currBuyer = buyer;
-        this.currSeller = seller;
         this.primaryStage = stage;
     }
 
@@ -115,7 +111,7 @@ public class Basket {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch(currBuyer, currSeller).changeScene(primaryStage);
+                    new BuyerMainSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -126,11 +122,7 @@ public class Basket {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    if (currBuyer.user().type().isBuyer()) {
-                        new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
-                    } else if (currSeller.user().type().isSeller()) {
-                        new SellerDataSwitch(currSeller).changeScene(primaryStage);
-                    }
+                    new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

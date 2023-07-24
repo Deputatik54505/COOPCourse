@@ -53,9 +53,6 @@ public class SellerData {
     private Circle userAvatar;
 
     @FXML
-    private Button userBasket;
-
-    @FXML
     private Button userGoods;
 
     @FXML
@@ -83,7 +80,6 @@ public class SellerData {
         assert createProduct != null : "fx:id=\"createProduct\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
-        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert userBirth != null : "fx:id=\"userBirth\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert userGoods != null : "fx:id=\"userGoods\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
         assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'seller_acc_data.fxml'.";
@@ -105,24 +101,7 @@ public class SellerData {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch(
-                            new Buyer(new User("", "", "None")),
-                            currSeller)
-                            .changeScene(primaryStage);
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.userBasket.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new BasketSwitch(
-                            new Buyer(new User("", "", "None")),
-                            currSeller)
-                            .changeScene(primaryStage);
+                    new SellerMainSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

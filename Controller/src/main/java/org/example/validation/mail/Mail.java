@@ -1,11 +1,14 @@
 package org.example.validation.mail;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Mail {
-    protected final String userMail;
+    private final String userMail;
 
-    protected int localPart;
+    private int localPart;
 
-    protected int domenPart;
+    private int domenPart;
 
 
     public Mail(String mail) {
@@ -15,25 +18,29 @@ public class Mail {
     }
 
     public void initLength() {
-        this.localPartLen();
-        this.domenPartLen();
-    }
-
-    private void localPartLen() {
         for (int i = 0; i < this.userMail.length(); i++) {
             if (this.userMail.charAt(i) == '@') {
                 break;
             }
             this.localPart++;
         }
-    }
-
-    private void domenPartLen() {
         for (int i = this.userMail.length() - 1; i >= 0; i--) {
             if (this.userMail.charAt(i) == '@') {
                 break;
             }
             this.domenPart++;
         }
+    }
+
+    public ArrayList<String> provideData() {
+        return new ArrayList<>(Arrays.asList(
+                this.userMail,
+                Integer.toString(this.localPart),
+                Integer.toString(this.domenPart)
+        ));
+    }
+
+    public ArrayList<Integer> provideLength() {
+        return new ArrayList<>(Arrays.asList(this.localPart, this.domenPart));
     }
 }

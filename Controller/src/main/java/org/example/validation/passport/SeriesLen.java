@@ -1,13 +1,13 @@
 package org.example.validation.passport;
 
 public class SeriesLen {
-    private final String series;
+    private final Passport passport;
 
     public SeriesLen(Passport passport) {
-        this.series = passport.passportSN.series;
+        this.passport = passport;
     }
 
     public boolean isSuitableLength() {
-        return this.series.length() == PassportFields.SERIES.requiredLen;
+        return this.passport.provideData().get(0).length() == 6;
     }
 }

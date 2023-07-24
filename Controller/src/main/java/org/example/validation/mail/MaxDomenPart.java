@@ -1,13 +1,13 @@
 package org.example.validation.mail;
 
 public class MaxDomenPart {
-    private final int domenPart;
+    private final Mail mail;
 
     public MaxDomenPart(Mail mail) {
-        this.domenPart = mail.domenPart;
+        this.mail = mail;
     }
 
     public boolean isSuitableLength() {
-        return this.domenPart <= MailFields.MAX_DOMEN_PART.requiredLen;
+        return this.mail.provideLength().get(1) <= 255;
     }
 }

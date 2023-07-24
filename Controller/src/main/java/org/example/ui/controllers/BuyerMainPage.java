@@ -21,23 +21,20 @@ import org.example.entities.buyer.Buyer;
 import org.example.entities.product.Product;
 import org.example.entities.product.ProductCategory;
 import org.example.entities.seller.Seller;
-import org.example.ui.models.AuthMainSwitch;
+import org.example.ui.models.BuyerMainSwitch;
 import org.example.ui.models.BasketSwitch;
 import org.example.ui.models.BuyerDataSwitch;
 import org.example.ui.models.SellerDataSwitch;
-import org.example.entities.product.*;
-import org.example.entities.product.ProductCategory;
-import org.example.entities.product.Product;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AuthMainPage {
+public class BuyerMainPage {
     private final Buyer currBuyer;
-    private final Seller currSeller;
 
     private final Stage primaryStage;
+
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -57,9 +54,8 @@ public class AuthMainPage {
     @FXML
     private Font x1;
 
-    public AuthMainPage(Buyer buyer, Seller seller, Stage stage) {
+    public BuyerMainPage(Buyer buyer, Stage stage) {
         this.currBuyer = buyer;
-        this.currSeller = seller;
         this.primaryStage = stage;
     }
 
@@ -67,8 +63,8 @@ public class AuthMainPage {
     void initialize() {
         assert home != null : "fx:id=\"home\" was not injected: check your FXML file 'main_page.fxml'.";
         assert listOfProducts != null : "fx:id=\"listOfProducts\" was not injected: check your FXML file 'main_page.fxml'.";
-        assert userAccount != null : "fx:id=\"userAccount\" was not injected: check your FXML file 'auth_main_page.fxml'.";
-        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'auth_main_page.fxml'.";
+        assert userAccount != null : "fx:id=\"userAccount\" was not injected: check your FXML file 'buyer_main_page.fxml'.";
+        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'buyer_main_page.fxml'.";
         assert listOfCategories != null : "fx:id=\"listOfCategories\" was not injected: check your FXML file 'main_page.fxml'.";
         assert userSearch != null : "fx:id=\"userSearch\" was not injected: check your FXML file 'main_page.fxml'.";
         assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main_page.fxml'.";
@@ -95,7 +91,7 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch(currBuyer, currSeller).changeScene(primaryStage);
+                    new BuyerMainSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -106,7 +102,7 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BasketSwitch(currBuyer, currSeller).changeScene(primaryStage);
+                    new BasketSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -117,11 +113,7 @@ public class AuthMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    if (currBuyer.user().type().isBuyer()) {
-                        new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
-                    } else if (currSeller.user().type().isSeller()) {
-                        new SellerDataSwitch(currSeller).changeScene(primaryStage);
-                    }
+                    new BuyerDataSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

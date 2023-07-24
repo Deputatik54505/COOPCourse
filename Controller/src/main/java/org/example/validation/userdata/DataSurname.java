@@ -1,19 +1,23 @@
 package org.example.validation.userdata;
 
 public class DataSurname {
-    private final String surname;
+    private final Data data;
 
     public DataSurname(Data data) {
-        this.surname = data.surname;
+        this.data = data;
     }
 
     public boolean isValidInput() {
-        for (int i = 1; i < this.surname.length(); i++) {
+        return this.validateSurname(this.data.provideData().get(1));
+    }
+
+    private boolean validateSurname(String surname) {
+        for (int i = 1; i < surname.length(); i++) {
             if (!(
-                    (this.surname.charAt(i) >= 'a' &&
-                    this.surname.charAt(i) <= 'z') ||
-                    (this.surname.charAt(i) >= 'A' &&
-                    this.surname.charAt(i) <= 'Z')
+                    (surname.charAt(i) >= 'a' &&
+                            surname.charAt(i) <= 'z') ||
+                            (surname.charAt(i) >= 'A' &&
+                                    surname.charAt(i) <= 'Z')
             )) {
                 return false;
             }

@@ -1,19 +1,29 @@
 package org.example.validation.password;
 
 public class UpPassword {
-    private final String password;
+    private final Password cPassword;
+
+    private String password;
+
+    private int passwordLen;
 
     public UpPassword(Password password) {
-        this.password = password.userPassword;
+        this.cPassword = password;
     }
 
     public boolean isUpLetter() {
-        for (int i = 0; i < this.password.length(); i++) {
+        this.initData();
+        for (int i = 0; i < this.passwordLen; i++) {
             if (this.password.charAt(i) >= 'A' &&
                     this.password.charAt(i) <= 'Z') {
                 return true;
             }
         }
         return false;
+    }
+
+    private void initData() {
+        this.password = this.cPassword.provideData().get(0);
+        this.passwordLen = Integer.parseInt(this.cPassword.provideData().get(1));
     }
 }

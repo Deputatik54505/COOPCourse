@@ -1,13 +1,13 @@
 package org.example.validation.mail;
 
 public class MinDomenPart {
-    private final int domenPart;
+    private final Mail mail;
 
     public MinDomenPart(Mail mail) {
-        this.domenPart = mail.domenPart;
+        this.mail = mail;
     }
 
     public boolean isSuitableLength() {
-        return this.domenPart >= MailFields.MIN_DOMEN_PART.requiredLen;
+        return this.mail.provideLength().get(1) >= 1;
     }
 }

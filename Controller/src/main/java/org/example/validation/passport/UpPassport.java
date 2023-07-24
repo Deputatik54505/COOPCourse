@@ -1,20 +1,23 @@
 package org.example.validation.passport;
 
 public class UpPassport {
-    private final PassportPC passportPC;
+    private final Passport passport;
 
     public UpPassport(Passport passport) {
-        this.passportPC = passport.passportPC;
+        this.passport = passport;
     }
 
     public boolean isUpLetter() {
-        for (int i = 0; i < this.passportPC.publisher.length(); i++) {
-            if (this.passportPC.publisher.charAt(i) >= 'A' &&
-                    this.passportPC.publisher.charAt(i) <= 'Z') {
+        return this.validatePublisher(this.passport.provideData().get(2));
+    }
+
+    private boolean validatePublisher(String publisher) {
+        for (int i = 0; i < publisher.length(); i++) {
+            if (publisher.charAt(i) >= 'A' &&
+                    publisher.charAt(i) <= 'Z') {
                 return true;
             }
         }
-
         return false;
     }
 }

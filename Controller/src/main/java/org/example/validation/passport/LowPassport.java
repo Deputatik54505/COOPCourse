@@ -1,20 +1,23 @@
 package org.example.validation.passport;
 
 public class LowPassport {
-    private final PassportPC passportPC;
+    private final Passport passport;
 
     public LowPassport(Passport passport) {
-        this.passportPC = passport.passportPC;
+        this.passport = passport;
     }
 
     public boolean isLowLetter() {
-        for (int i = 0; i < this.passportPC.publisher.length(); i++) {
-            if (this.passportPC.publisher.charAt(i) >= 'a' &&
-                    this.passportPC.publisher.charAt(i) <= 'z') {
+        return this.validatePublisher(this.passport.provideData().get(2));
+    }
+
+    private boolean validatePublisher(String publisher) {
+        for (int i = 0; i < publisher.length(); i++) {
+            if (publisher.charAt(i) >= 'a' &&
+                    publisher.charAt(i) <= 'z') {
                 return true;
             }
         }
-
         return false;
     }
 }

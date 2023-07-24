@@ -1,13 +1,20 @@
 package org.example.validation.passport;
 
-public class PassportSN {
-    protected final String series;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-    protected final String number;
+public class PassportSN {
+    private final String series;
+
+    private final String number;
 
     public PassportSN(String series, String number) {
         this.series = series;
         this.number = number;
+    }
+
+    public ArrayList<String> provideData() {
+        return new ArrayList<>(Arrays.asList(this.series, this.number));
     }
 
     public boolean isValid() {

@@ -4,18 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SpecialPassword {
-    private final String password;
+    private final Password cPassword;
+
+    private String password;
 
     private final ArrayList<Character> specChars;
 
     public SpecialPassword(Password password) {
-        this.password = password.userPassword;
+        this.cPassword = password;
         this.specChars = new ArrayList<>();
     }
 
     public boolean isSpecialChar() {
         this.initSpecChars();
-
+        this.initData();
         for (int i = 0; i < this.password.length(); i++) {
             for (Character character : this.specChars) {
                 if (this.password.charAt(i) == character) {
@@ -23,7 +25,6 @@ public class SpecialPassword {
                 }
             }
         }
-
         return false;
     }
     /**
@@ -34,5 +35,9 @@ public class SpecialPassword {
         this.specChars.addAll(Arrays.asList(
                 '\u201e', '\u2013', '@', '&'
         ));
+    }
+
+    private void initData() {
+        this.password = this.cPassword.provideData().get(0);
     }
 }
