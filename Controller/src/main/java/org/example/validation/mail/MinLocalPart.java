@@ -1,6 +1,6 @@
 package org.example.validation.mail;
 
-public class MinLocalPart {
+public final class MinLocalPart {
     private final Mail mail;
 
     public MinLocalPart(Mail mail) {

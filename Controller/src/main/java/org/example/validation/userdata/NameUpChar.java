@@ -1,6 +1,6 @@
 package org.example.validation.userdata;
 
-public class NameUpChar {
+public final class NameUpChar {
     private final Data data;
 
     public NameUpChar(Data data) {

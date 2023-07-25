@@ -1,6 +1,6 @@
 package org.example.validation.mail;
 
-public class MaxLocalPart {
+public final class MaxLocalPart {
     private final Mail mail;
 
     public MaxLocalPart(Mail mail) {

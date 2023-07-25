@@ -1,6 +1,6 @@
 package org.example.validation.passport;
 
-public class LowPassport {
+public final class LowPassport {
     private final Passport passport;
 
     public LowPassport(Passport passport) {

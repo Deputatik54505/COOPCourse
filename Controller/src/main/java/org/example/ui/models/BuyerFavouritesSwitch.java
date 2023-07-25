@@ -8,7 +8,7 @@ import org.example.ui.controllers.BuyerFavourites;
 
 import java.io.IOException;
 
-public class BuyerFavouritesSwitch {
+public final class BuyerFavouritesSwitch {
     private final FXMLLoader loader;
     private final Buyer currBuyer;
     public BuyerFavouritesSwitch(Buyer buyer) {

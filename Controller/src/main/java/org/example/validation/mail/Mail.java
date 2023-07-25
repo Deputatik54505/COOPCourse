@@ -3,7 +3,7 @@ package org.example.validation.mail;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Mail {
+public final class Mail {
     private final String userMail;
 
     private int localPart;

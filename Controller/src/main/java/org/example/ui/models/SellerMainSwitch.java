@@ -10,7 +10,7 @@ import org.example.ui.controllers.SellerMainPage;
 
 import java.io.IOException;
 
-public class SellerMainSwitch {
+public final class SellerMainSwitch {
     private final FXMLLoader loader;
 
     private final Seller currSeller;

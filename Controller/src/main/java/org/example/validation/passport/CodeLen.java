@@ -1,6 +1,6 @@
 package org.example.validation.passport;
 
-public class CodeLen {
+public final class CodeLen {
     private final Passport passport;
 
     public CodeLen(Passport passport) {

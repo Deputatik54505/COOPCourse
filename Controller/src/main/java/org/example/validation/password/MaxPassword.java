@@ -1,6 +1,6 @@
 package org.example.validation.password;
 
-public class MaxPassword {
+public final class MaxPassword {
     private final Password password;
 
     public MaxPassword(Password password) {

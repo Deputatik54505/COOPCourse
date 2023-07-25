@@ -1,6 +1,6 @@
 package org.example.validation.userdata;
 
-public class MinSurnameLen {
+public final class MinSurnameLen {
     private final Data data;
 
     public MinSurnameLen(Data data) {

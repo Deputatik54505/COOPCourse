@@ -7,7 +7,7 @@ import org.example.ui.controllers.MainPage;
 
 import java.io.IOException;
 
-public class NotAuthMainSwitch {
+public final class NotAuthMainSwitch {
     private final FXMLLoader loader;
     public NotAuthMainSwitch() {
         this.loader = new FXMLLoader();

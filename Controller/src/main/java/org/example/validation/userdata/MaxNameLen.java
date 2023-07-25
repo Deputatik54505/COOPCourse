@@ -1,6 +1,6 @@
 package org.example.validation.userdata;
 
-public class MaxNameLen {
+public final class MaxNameLen {
     private final Data data;
 
     public MaxNameLen(Data data) {

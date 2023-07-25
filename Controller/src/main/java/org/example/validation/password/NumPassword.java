@@ -1,6 +1,6 @@
 package org.example.validation.password;
 
-public class NumPassword {
+public final class NumPassword {
     private final Password cPassword;
 
     private String password;

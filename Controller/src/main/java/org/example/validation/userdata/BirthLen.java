@@ -1,6 +1,6 @@
 package org.example.validation.userdata;
 
-public class BirthLen {
+public final class BirthLen {
     private final Data data;
 
     public BirthLen(Data data) {
