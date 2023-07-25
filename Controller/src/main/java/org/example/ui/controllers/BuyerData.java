@@ -87,11 +87,9 @@ public class BuyerData {
         assert passportSeries != null : "fx:id=\"passportSeries\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert userBirth != null : "fx:id=\"userBirth\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
 
-        //WARNING (скорее всего забыл вызвать load())
-//        var generalData = currBuyer.user().data().represent();
-//        this.userName.setText(generalData.get(0));
-//        this.userSurname.setText(generalData.get(1));
-//        this.userBirth.setText(generalData.get(2));
+        this.userName.setText("");
+        this.userSurname.setText("");
+        this.userBirth.setText("");
 
         this.passportSeries.setText("none");
         this.passportNumber.setText("none");

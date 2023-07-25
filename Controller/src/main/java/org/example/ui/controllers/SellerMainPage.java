@@ -96,8 +96,7 @@ public class SellerMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    //new SellerDataSwitch(currSeller).changeScene(primaryStage);
-                    new SellerGoodsSwitch(currSeller).changeScene(primaryStage);
+                    new SellerDataSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
