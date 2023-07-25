@@ -18,7 +18,7 @@ import org.example.ui.models.NotAuthMainSwitch;
 import org.example.ui.models.SellerMainSwitch;
 import org.example.ui.models.SignInSwitch;
 
-public class LogIn {
+public final class LogIn {
 
     private final Stage primaryStage;
 

@@ -40,7 +40,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainPage {
+public final class MainPage {
     private final Stage primaryStage;
 
     @FXML

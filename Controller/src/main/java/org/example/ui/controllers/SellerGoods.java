@@ -28,7 +28,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SellerGoods {
+public final class SellerGoods {
     private final Seller currSeller;
 
     private final Stage primaryStage;

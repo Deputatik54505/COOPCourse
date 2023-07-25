@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BuyerMainPage {
+public final class BuyerMainPage {
     private final Buyer currBuyer;
 
     private final Stage primaryStage;

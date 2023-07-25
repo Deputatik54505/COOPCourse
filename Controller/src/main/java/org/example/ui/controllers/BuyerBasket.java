@@ -31,7 +31,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class BuyerBasket {
+public final class BuyerBasket {
     private final Buyer currBuyer;
 
     private final Stage primaryStage;
