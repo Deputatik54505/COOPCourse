@@ -1,6 +1,6 @@
 package org.example.validation.password;
 
-public class MinPassword {
+public final class MinPassword {
     private final Password password;
 
     public MinPassword(Password password) {

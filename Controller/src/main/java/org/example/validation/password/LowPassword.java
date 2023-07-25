@@ -1,6 +1,6 @@
 package org.example.validation.password;
 
-public class LowPassword {
+public final class LowPassword {
     private final Password cPassword;
 
     private String password;

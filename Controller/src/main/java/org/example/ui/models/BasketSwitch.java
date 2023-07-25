@@ -8,7 +8,7 @@ import org.example.ui.controllers.BuyerBasket;
 
 import java.io.IOException;
 
-public class BasketSwitch {
+public final class BasketSwitch {
     private final FXMLLoader loader;
 
     private final Buyer currBuyer;

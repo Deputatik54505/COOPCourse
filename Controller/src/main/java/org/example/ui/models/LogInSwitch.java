@@ -7,7 +7,7 @@ import org.example.ui.controllers.LogIn;
 
 import java.io.IOException;
 
-public class LogInSwitch {
+public final class LogInSwitch {
     private final FXMLLoader loader;
     public LogInSwitch() {
         this.loader = new FXMLLoader();

@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BuyerSettings {
+public final class BuyerSettings {
 
     private final Buyer currBuyer;
 

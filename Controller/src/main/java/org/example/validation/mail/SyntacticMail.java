@@ -3,7 +3,7 @@ package org.example.validation.mail;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SyntacticMail {
+public final class SyntacticMail {
     private final Mail mail;
 
     private Pattern pattern;

@@ -1,6 +1,6 @@
 package org.example.entities.user;
 
-public class UserType {
+public final class UserType {
     private final String type;
 
     public UserType(String type) {

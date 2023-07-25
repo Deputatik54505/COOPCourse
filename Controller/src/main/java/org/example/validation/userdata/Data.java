@@ -5,7 +5,7 @@ import org.example.forms.data.DataVerification;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Data {
+public final class Data {
     private final String name;
 
     private final String surname;

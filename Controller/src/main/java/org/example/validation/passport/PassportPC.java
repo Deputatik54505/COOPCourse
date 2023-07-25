@@ -3,20 +3,17 @@ package org.example.validation.passport;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class PassportPC {
+public final class PassportPC {
     private final String publisher;
 
     private final String code;
 
-    private final ArrayList<Character> forbidChar = new ArrayList<>(Arrays.asList(
-            '?', '/', '%', '*', '(', ')', '[', ']', '{', '}',
-            '<', '>', '$', '^', '"', '!',
-            ';','+','=','_'
-    ));
+    private final ArrayList<Character> forbidChars;
 
     public PassportPC(String publisher, String code) {
         this.publisher = publisher;
         this.code = code;
+        this.forbidChars = new ArrayList<>();
     }
 
     public ArrayList<String> provideData() {
@@ -31,12 +28,20 @@ public class PassportPC {
             }
         }
         for (int i = 0; i < this.publisher.length(); i++) {
-            for (Character character : this.forbidChar) {
+            for (Character character : this.forbidChars) {
                 if (this.publisher.charAt(i) == character) {
                     return false;
                 }
             }
         }
         return true;
+    }
+
+    private void initForbidChars() {
+        this.forbidChars.addAll(Arrays.asList(
+                '?', '/', '%', '*', '(', ')', '[', ']', '{', '}',
+                '<', '>', '$', '^', '"', '!',
+                ';','+','=','_'
+        ));
     }
 }

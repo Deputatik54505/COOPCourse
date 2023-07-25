@@ -8,7 +8,7 @@ import org.example.ui.controllers.SellerSettings;
 
 import java.io.IOException;
 
-public class SellerSettingsSwitch {
+public final class SellerSettingsSwitch {
     private final FXMLLoader loader;
 
     private final Seller currSeller;

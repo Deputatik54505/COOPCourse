@@ -5,7 +5,7 @@ import org.example.validation.exceptions.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ValidateMail {
+public final class ValidateMail {
     private final Mail mail;
 
     private final ArrayList<ICheckMail> chain;
@@ -38,7 +38,7 @@ interface ICheckMail {
     void process(Mail request) throws Exception;
 }
 
-class MinLocalCheck implements ICheckMail {
+final class MinLocalCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new MinLocalPart(request).isSuitableLength()) {
             throw new MinLocalMailExc();
@@ -46,7 +46,7 @@ class MinLocalCheck implements ICheckMail {
     }
 }
 
-class MaxLocalCheck implements ICheckMail {
+final class MaxLocalCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new MaxLocalPart(request).isSuitableLength()) {
             throw new MaxLocalMailExc();
@@ -54,7 +54,7 @@ class MaxLocalCheck implements ICheckMail {
     }
 }
 
-class MinDomenCheck implements ICheckMail {
+final class MinDomenCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new MinDomenPart(request).isSuitableLength()) {
             throw new MinDomenMailExc();
@@ -62,7 +62,7 @@ class MinDomenCheck implements ICheckMail {
     }
 }
 
-class MaxDomenCheck implements ICheckMail {
+final class MaxDomenCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new MaxDomenPart(request).isSuitableLength()) {
             throw new MaxDomenMailExc();
@@ -70,7 +70,7 @@ class MaxDomenCheck implements ICheckMail {
     }
 }
 
-class ValidCheck implements ICheckMail {
+final class ValidCheck implements ICheckMail {
     public void process(Mail request) throws Exception {
         if (!new SyntacticMail(request).isValidInput()) {
             throw new SyntaxMailExc();

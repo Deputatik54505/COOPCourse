@@ -4,7 +4,7 @@ import org.example.forms.passport.PassportVerification;
 
 import java.util.ArrayList;
 
-public class Passport {
+public final class Passport {
     private final PassportSN passportSN;
 
     private final PassportPC passportPC;

@@ -5,7 +5,7 @@ import org.example.validation.exceptions.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ValidateData {
+public final class ValidateData {
     private final ArrayList<ICheckData> chain;
     
     private final Data data;
@@ -42,7 +42,7 @@ interface ICheckData {
     void process(Data request) throws Exception;
 }
 
-class UpNameCheck implements ICheckData {
+final class UpNameCheck implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new NameUpChar(request).isUppercase()) {
             throw new NameUpCharExc();
@@ -50,7 +50,7 @@ class UpNameCheck implements ICheckData {
     }
 }
 
-class UpSurnameCheck implements ICheckData {
+final class UpSurnameCheck implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new SurnameUpChar(request).isUppercase()) {
             throw new SurnameUpCharExc();
@@ -58,7 +58,7 @@ class UpSurnameCheck implements ICheckData {
     }
 }
 
-class MaxNameCheck implements ICheckData {
+final class MaxNameCheck implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new MaxNameLen(request).isSuitableLength()) {
             throw new MaxNameExc();
@@ -66,7 +66,7 @@ class MaxNameCheck implements ICheckData {
     }
 }
 
-class MaxSurnameCheck implements ICheckData {
+final class MaxSurnameCheck implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new MaxSurnameLen(request).isSuitableLength()) {
             throw new MaxSurnameExc();
@@ -74,7 +74,7 @@ class MaxSurnameCheck implements ICheckData {
     }
 }
 
-class MinSurnameCheck implements ICheckData {
+final class MinSurnameCheck implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new MinSurnameLen(request).isSuitableLength()) {
             throw new MinSurnameExc();
@@ -82,7 +82,7 @@ class MinSurnameCheck implements ICheckData {
     }
 }
 
-class MinNameCheck implements ICheckData {
+final class MinNameCheck implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new MinNameLen(request).isSuitableLength()) {
             throw new MinNameExc();
@@ -90,7 +90,7 @@ class MinNameCheck implements ICheckData {
     }
 }
 
-class BirthLenCheck implements ICheckData {
+final class BirthLenCheck implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new BirthLen(request).isSuitableLength()) {
             throw new ExcBirthDataExc();
@@ -98,7 +98,7 @@ class BirthLenCheck implements ICheckData {
     }
 }
 
-class ValidateBirth implements ICheckData {
+final class ValidateBirth implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new DataBirth(request).isValidInput()) {
             throw new SyntaxBirthExc();
@@ -106,7 +106,7 @@ class ValidateBirth implements ICheckData {
     }
 }
 
-class ValidateName implements ICheckData {
+final class ValidateName implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new DataName(request).isValidInput()) {
             throw new SyntaxNameExc();
@@ -114,7 +114,7 @@ class ValidateName implements ICheckData {
     }
 }
 
-class ValidateSurname implements ICheckData {
+final class ValidateSurname implements ICheckData {
     public void process(Data request) throws Exception {
         if (!new DataSurname(request).isValidInput()) {
             throw new SyntaxSurnameExc();

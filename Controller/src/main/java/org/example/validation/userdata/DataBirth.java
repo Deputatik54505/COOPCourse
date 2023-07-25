@@ -2,7 +2,7 @@ package org.example.validation.userdata;
 
 import java.util.ArrayList;
 
-public class DataBirth {
+public final class DataBirth {
     private final Data data;
 
     private final ArrayList<String> ddmmyyyy;

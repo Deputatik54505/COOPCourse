@@ -8,7 +8,7 @@ import org.example.ui.controllers.BuyerSettings;
 
 import java.io.IOException;
 
-public class BuyerSettingsSwitch {
+public final class BuyerSettingsSwitch {
     private final FXMLLoader loader;
 
     private final Buyer currBuyer;

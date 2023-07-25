@@ -1,6 +1,6 @@
 package org.example.validation.passport;
 
-public class MaxPublisherLen {
+public final class MaxPublisherLen {
     private final Passport passport;
 
     public MaxPublisherLen(Passport passport) {

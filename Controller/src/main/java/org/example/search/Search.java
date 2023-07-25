@@ -7,7 +7,7 @@ import org.example.validation.exceptions.ProductNotFoundExc;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Search {
+public final class Search {
 
     private final ProductCategory productCategory;
     private Collection<Product> products;

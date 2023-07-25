@@ -1,6 +1,6 @@
 package org.example.validation.mail;
 
-public class MaxDomenPart {
+public final class MaxDomenPart {
     private final Mail mail;
 
     public MaxDomenPart(Mail mail) {

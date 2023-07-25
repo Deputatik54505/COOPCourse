@@ -3,7 +3,7 @@ package org.example.validation.passport;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SpecialPassport {
+public final class SpecialPassport {
     private final Passport passport;
 
     /**

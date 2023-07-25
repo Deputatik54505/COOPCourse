@@ -5,7 +5,7 @@ import org.example.validation.exceptions.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ValidatePassport {
+public final class ValidatePassport {
     private final ArrayList<ICheckPassport> chain;
 
     private final Passport passport;
@@ -42,7 +42,7 @@ interface ICheckPassport {
     void process(Passport request) throws Exception;
 }
 
-class CodeLenCheck implements ICheckPassport {
+final class CodeLenCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new CodeLen(request).isSuitableLength()) {
             throw new ExcPassportCodeExc();
@@ -50,7 +50,7 @@ class CodeLenCheck implements ICheckPassport {
     }
 }
 
-class SeriesLenCheck implements ICheckPassport {
+final class SeriesLenCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new SeriesLen(request).isSuitableLength()) {
             throw new ExcPassportSeriesExc();
@@ -58,7 +58,7 @@ class SeriesLenCheck implements ICheckPassport {
     }
 }
 
-class NumberLenCheck implements ICheckPassport {
+final class NumberLenCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new NumberLen(request).isSuitableLength()) {
             throw new ExcPassportNumberExc();
@@ -66,7 +66,7 @@ class NumberLenCheck implements ICheckPassport {
     }
 }
 
-class MinPublisherCheck implements ICheckPassport {
+final class MinPublisherCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new MinPublisherLen(request).isSuitableLength()) {
             throw new MinPublisherExc();
@@ -74,7 +74,7 @@ class MinPublisherCheck implements ICheckPassport {
     }
 }
 
-class MaxPublisherCheck implements ICheckPassport {
+final class MaxPublisherCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new MaxPublisherLen(request).isSuitableLength()) {
             throw new MaxPublisherExc();
@@ -82,7 +82,7 @@ class MaxPublisherCheck implements ICheckPassport {
     }
 }
 
-class ValidCheck implements ICheckPassport {
+final class ValidCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!request.isValidInput()) {
             throw new SyntaxPassportExc();
@@ -90,7 +90,7 @@ class ValidCheck implements ICheckPassport {
     }
 }
 
-class UpCheck implements ICheckPassport {
+final class UpCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new UpPassport(request).isUpLetter()) {
             throw new UpPassportExc();
@@ -98,7 +98,7 @@ class UpCheck implements ICheckPassport {
     }
 }
 
-class LowCheck implements ICheckPassport {
+final class LowCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new LowPassport(request).isLowLetter()) {
             throw new LowPassportExc();
@@ -106,7 +106,7 @@ class LowCheck implements ICheckPassport {
     }
 }
 
-class NumCheck implements ICheckPassport {
+final class NumCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new NumPassport(request).isNum()) {
             throw new NumPassportExc();
@@ -114,7 +114,7 @@ class NumCheck implements ICheckPassport {
     }
 }
 
-class SpecialCheck implements ICheckPassport {
+final class SpecialCheck implements ICheckPassport {
     public void process(Passport request) throws Exception {
         if (!new SpecialPassport(request).isSpecialChar()) {
             throw new SpecialPassportExc();

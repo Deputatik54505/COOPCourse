@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SellerProduct {
+public final class SellerProduct {
     private final Seller currSeller;
 
     private final Stage primaryStage;

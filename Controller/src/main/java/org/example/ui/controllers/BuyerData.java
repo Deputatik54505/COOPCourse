@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BuyerData {
+public final class BuyerData {
 
     private final Buyer currBuyer;
 

@@ -3,7 +3,7 @@ package org.example.validation.passport;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class PassportSN {
+public final class PassportSN {
     private final String series;
 
     private final String number;

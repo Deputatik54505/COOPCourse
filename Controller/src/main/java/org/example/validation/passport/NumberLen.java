@@ -1,6 +1,6 @@
 package org.example.validation.passport;
 
-public class NumberLen {
+public final class NumberLen {
     private final Passport passport;
 
     public NumberLen(Passport passport) {

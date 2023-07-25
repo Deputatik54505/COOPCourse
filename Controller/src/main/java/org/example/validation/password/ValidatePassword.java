@@ -5,7 +5,7 @@ import org.example.validation.exceptions.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ValidatePassword {
+public final class ValidatePassword {
     private final ArrayList<ICheckPassword> chain;
 
     private final Password password;
@@ -40,7 +40,7 @@ interface ICheckPassword {
     void process(Password request) throws Exception;
 }
 
-class MinPasswordCheck implements ICheckPassword {
+final class MinPasswordCheck implements ICheckPassword {
     public void process(Password request) throws Exception {
         if (!new MinPassword(request).isSuitableLength()) {
             throw new MinPasswordExc();
@@ -48,7 +48,7 @@ class MinPasswordCheck implements ICheckPassword {
     }
 }
 
-class MaxPasswordCheck implements ICheckPassword {
+final class MaxPasswordCheck implements ICheckPassword {
     public void process(Password request) throws Exception {
         if (!new MaxPassword(request).isSuitableLength()) {
             throw new MaxPasswordExc();
@@ -56,7 +56,7 @@ class MaxPasswordCheck implements ICheckPassword {
     }
 }
 
-class UpCheck implements ICheckPassword {
+final class UpCheck implements ICheckPassword {
     public void process(Password request) throws Exception {
         if (!new UpPassword(request).isUpLetter()) {
             throw new UpPasswordExc();
@@ -64,7 +64,7 @@ class UpCheck implements ICheckPassword {
     }
 }
 
-class LowCheck implements ICheckPassword {
+final class LowCheck implements ICheckPassword {
     public void process(Password request) throws Exception {
         if (!new LowPassword(request).isLowLetter()) {
             throw new LowPasswordExc();
@@ -72,7 +72,7 @@ class LowCheck implements ICheckPassword {
     }
 }
 
-class NumCheck implements ICheckPassword {
+final class NumCheck implements ICheckPassword {
     public void process(Password request) throws Exception {
         if (!new NumPassword(request).isNum()) {
             throw new NumPasswordExc();
@@ -80,7 +80,7 @@ class NumCheck implements ICheckPassword {
     }
 }
 
-class SpecialCheck implements ICheckPassword {
+final class SpecialCheck implements ICheckPassword {
     public void process(Password request) throws Exception {
         if (!new SpecialPassword(request).isSpecialChar()) {
             throw new SpecialPasswordExc();
@@ -88,7 +88,7 @@ class SpecialCheck implements ICheckPassword {
     }
 }
 
-class ValidateCheck implements ICheckPassword {
+final class ValidateCheck implements ICheckPassword {
     public void process(Password request) throws Exception {
         if (!new SyntacticPassword(request).isValidInput()) {
             throw new SyntaxPasswordExc();

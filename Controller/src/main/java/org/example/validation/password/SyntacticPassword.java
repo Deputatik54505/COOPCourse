@@ -3,7 +3,7 @@ package org.example.validation.password;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SyntacticPassword {
+public final class SyntacticPassword {
     private final Password cPassword;
 
     private String password;

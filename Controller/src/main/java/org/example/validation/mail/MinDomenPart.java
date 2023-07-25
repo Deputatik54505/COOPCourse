@@ -1,6 +1,6 @@
 package org.example.validation.mail;
 
-public class MinDomenPart {
+public final class MinDomenPart {
     private final Mail mail;
 
     public MinDomenPart(Mail mail) {

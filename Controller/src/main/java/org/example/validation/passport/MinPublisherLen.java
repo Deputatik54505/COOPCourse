@@ -1,6 +1,6 @@
 package org.example.validation.passport;
 
-public class MinPublisherLen {
+public final class MinPublisherLen {
     private final Passport passport;
 
     public MinPublisherLen(Passport passport) {
