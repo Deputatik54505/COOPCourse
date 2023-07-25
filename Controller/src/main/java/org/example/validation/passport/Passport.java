@@ -1,17 +1,27 @@
 package org.example.validation.passport;
 
-import org.example.entities.user.User;
-import org.example.forms.data.DataVerification;
 import org.example.forms.passport.PassportVerification;
 
+import java.util.ArrayList;
+
 public class Passport {
-    protected final PassportPC passportPC;
+    private final PassportSN passportSN;
 
-    protected final PassportSN passportSN;
+    private final PassportPC passportPC;
 
-    public Passport(String publisher, String code, String series, String number) {
-        this.passportPC = new PassportPC(publisher, code);
+    private final ArrayList<String> data;
+
+    public Passport(String series, String number, String publisher, String code) {
         this.passportSN = new PassportSN(series, number);
+        this.passportPC = new PassportPC(publisher, code);
+        this.data = new ArrayList<>();
+    }
+
+    public ArrayList<String> provideData() {
+        this.data.addAll(this.passportSN.provideData());
+        this.data.addAll(this.passportPC.provideData());
+
+        return this.data;
     }
 
     public void selfValidation() throws Exception {

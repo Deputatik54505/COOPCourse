@@ -2,12 +2,15 @@ package org.example.validation.userdata;
 
 import org.example.forms.data.DataVerification;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Data {
-    protected final String name;
+    private final String name;
 
-    protected final String surname;
+    private final String surname;
 
-    protected final String birth;
+    private final String birth;
 
     public Data(String name, String surname, String birth) {
         this.name = name;
@@ -17,5 +20,13 @@ public class Data {
 
     public void selfValidation() throws Exception {
         new DataVerification(this).verifyData();
+    }
+
+    public ArrayList<String> provideData() {
+        return new ArrayList<>(Arrays.asList(
+           this.name,
+           this.surname,
+           this.birth
+        ));
     }
 }

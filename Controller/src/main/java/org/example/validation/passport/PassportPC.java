@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PassportPC {
-    protected final String publisher;
+    private final String publisher;
 
-    protected final String code;
+    private final String code;
 
     private final ArrayList<Character> forbidChar = new ArrayList<>(Arrays.asList(
             '?', '/', '%', '*', '(', ')', '[', ']', '{', '}',
@@ -17,6 +17,10 @@ public class PassportPC {
     public PassportPC(String publisher, String code) {
         this.publisher = publisher;
         this.code = code;
+    }
+
+    public ArrayList<String> provideData() {
+        return new ArrayList<>(Arrays.asList(this.publisher, this.code));
     }
 
     public boolean isValid() {

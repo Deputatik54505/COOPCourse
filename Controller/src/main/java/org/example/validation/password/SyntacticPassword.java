@@ -4,18 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SyntacticPassword {
-    private final String password;
+    private final Password cPassword;
+
+    private String password;
 
     private final ArrayList<Character> forbidChars;
 
     public SyntacticPassword(Password password) {
-        this.password = password.userPassword;
+        this.cPassword = password;
         this.forbidChars = new ArrayList<>();
     }
 
     public boolean isValidInput() {
         this.initForbidChars();
-
+        this.initData();
         for (int i = 0; i < this.password.length(); i++) {
             for (Character character : this.forbidChars) {
                 if (this.password.charAt(i) == character) {
@@ -23,7 +25,6 @@ public class SyntacticPassword {
                 }
             }
         }
-
         return true;
     }
 
@@ -33,5 +34,9 @@ public class SyntacticPassword {
                 '<', '>', '$', '^', '"', ' ', '!',
                 ',','.',';','-','+','=','_'
         ));
+    }
+
+    private void initData() {
+        this.password = this.cPassword.provideData().get(0);
     }
 }

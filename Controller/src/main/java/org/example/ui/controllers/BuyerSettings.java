@@ -112,10 +112,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch(
-                            currBuyer,
-                            new Seller(new User("", "", "None")))
-                            .changeScene(primaryStage);
+                    new BuyerMainSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }
@@ -126,10 +123,7 @@ public class BuyerSettings {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BasketSwitch(
-                            currBuyer,
-                            new Seller(new User("", "", "None")))
-                            .changeScene(primaryStage);
+                    new BasketSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

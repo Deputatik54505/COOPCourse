@@ -1,13 +1,13 @@
 package org.example.validation.mail;
 
 public class MaxLocalPart {
-    private final int localPart;
+    private final Mail mail;
 
     public MaxLocalPart(Mail mail) {
-        this.localPart = mail.localPart;
+        this.mail = mail;
     }
 
     public boolean isSuitableLength() {
-        return this.localPart <= MailFields.MAX_LOCAL_PART.requiredLen;
+        return this.mail.provideLength().get(0) <= 64;
     }
 }

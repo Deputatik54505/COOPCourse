@@ -1,13 +1,17 @@
 package org.example.validation.userdata;
 
 public class SurnameUpChar {
-    private final char firstChar;
+    private final Data data;
 
     public SurnameUpChar(Data data) {
-        this.firstChar = data.name.charAt(1);
+        this.data = data;
     }
 
     public boolean isUppercase() {
-        return this.firstChar >= 'A' && this.firstChar <= 'Z';
+        return this.validateSurname(this.data.provideData().get(1));
+    }
+
+    private boolean validateSurname(String surname) {
+        return surname.charAt(0) >= 'A' && surname.charAt(0) <= 'Z';
     }
 }

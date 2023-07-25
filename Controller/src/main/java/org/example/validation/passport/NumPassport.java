@@ -1,20 +1,23 @@
 package org.example.validation.passport;
 
 public class NumPassport {
-    private final PassportPC passportPC;
+    private final Passport passport;
 
     public NumPassport(Passport passport) {
-        this.passportPC = passport.passportPC;
+        this.passport = passport;
     }
 
     public boolean isNum() {
-        for (int i = 0; i < this.passportPC.publisher.length(); i++) {
-            if (this.passportPC.publisher.charAt(i) >= '0' &&
-                    this.passportPC.publisher.charAt(i) <= '9') {
+        return this.validatePublisher(this.passport.provideData().get(2));
+    }
+
+    private boolean validatePublisher(String publisher) {
+        for (int i = 0; i < publisher.length(); i++) {
+            if (publisher.charAt(i) >= '0' &&
+                    publisher.charAt(i) <= '9') {
                 return true;
             }
         }
-
         return false;
     }
 }

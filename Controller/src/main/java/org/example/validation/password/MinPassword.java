@@ -1,13 +1,13 @@
 package org.example.validation.password;
 
 public class MinPassword {
-    private final int passwordLength;
+    private final Password password;
 
     public MinPassword(Password password) {
-        this.passwordLength = password.passwordLength;
+        this.password = password;
     }
 
     public boolean isSuitableLength() {
-        return this.passwordLength >= PasswordFields.MIN_LEN.requiredLen;
+        return Integer.parseInt(this.password.provideData().get(1)) >= 8;
     }
 }

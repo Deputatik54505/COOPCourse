@@ -1,19 +1,30 @@
 package org.example.validation.password;
 
 public class NumPassword {
-    private final String password;
+    private final Password cPassword;
+
+    private String password;
+
+    private int passwordLen;
 
     public NumPassword(Password password) {
-        this.password = password.userPassword;
+        this.cPassword = password;
+        this.passwordLen = 0;
     }
 
     public boolean isNum() {
-        for (int i = 0; i < this.password.length(); i++) {
+        this.initData();
+        for (int i = 0; i < this.passwordLen; i++) {
             if (this.password.charAt(i) >= '0' &&
                     this.password.charAt(i) <= '9') {
                 return true;
             }
         }
         return false;
+    }
+
+    private void initData() {
+        this.password = this.cPassword.provideData().get(0);
+        this.passwordLen = Integer.parseInt(this.cPassword.provideData().get(1));
     }
 }

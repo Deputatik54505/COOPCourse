@@ -12,9 +12,10 @@ import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
-import org.example.ui.models.AuthMainSwitch;
+import org.example.ui.models.BuyerMainSwitch;
 import org.example.ui.models.LogInSwitch;
 import org.example.ui.models.NotAuthMainSwitch;
+import org.example.ui.models.SellerMainSwitch;
 
 import java.io.IOException;
 import java.net.URL;
@@ -82,15 +83,9 @@ public class SignIn {
                     user.authorise();
 
                     if (user.type().isBuyer()) {
-                        new AuthMainSwitch(
-                                new Buyer(user),
-                                new Seller(new User("", "", "None")))
-                                .changeScene(primaryStage);
+                        new BuyerMainSwitch(new Buyer(user)).changeScene(primaryStage);
                     } else if (user.type().isSeller()) {
-                        new AuthMainSwitch(
-                                new Buyer(new User("", "", "None")),
-                                new Seller(user))
-                                .changeScene(primaryStage);
+                        new SellerMainSwitch(new Seller(user)).changeScene(primaryStage);
                     }
                 } catch (Exception e) {
                     authorizationError.setText(e.toString());

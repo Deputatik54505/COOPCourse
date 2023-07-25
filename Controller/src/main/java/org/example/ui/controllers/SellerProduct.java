@@ -53,9 +53,6 @@ public class SellerProduct {
     private Circle userAvatar;
 
     @FXML
-    private Button userBasket;
-
-    @FXML
     private Button userData;
 
     @FXML
@@ -85,7 +82,6 @@ public class SellerProduct {
         assert productsNumber != null : "fx:id=\"productsNumber\" was not injected: check your FXML file 'seller_create_product.fxml'.";
         assert typeCategory != null : "fx:id=\"typeCategory\" was not injected: check your FXML file 'seller_create_product.fxml'.";
         assert userAvatar != null : "fx:id=\"userAvatar\" was not injected: check your FXML file 'seller_create_product.fxml'.";
-        assert userBasket != null : "fx:id=\"userBasket\" was not injected: check your FXML file 'seller_create_product.fxml'.";
         assert userData != null : "fx:id=\"userData\" was not injected: check your FXML file 'seller_create_product.fxml'.";
         assert userGoods != null : "fx:id=\"userGoods\" was not injected: check your FXML file 'seller_create_product.fxml'.";
         assert userLogOut != null : "fx:id=\"userLogOut\" was not injected: check your FXML file 'seller_create_product.fxml'.";
@@ -96,24 +92,7 @@ public class SellerProduct {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new AuthMainSwitch(
-                            new Buyer(new User("", "", "None")),
-                            currSeller)
-                            .changeScene(primaryStage);
-                } catch (IOException e) {
-                    throw new RuntimeException();
-                }
-            }
-        });
-
-        this.userBasket.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    new BasketSwitch(
-                            new Buyer(new User("", "", "None")),
-                            currSeller)
-                            .changeScene(primaryStage);
+                    new SellerMainSwitch(currSeller).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException();
                 }

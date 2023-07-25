@@ -13,8 +13,9 @@ import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.seller.Seller;
 import org.example.entities.user.User;
-import org.example.ui.models.AuthMainSwitch;
+import org.example.ui.models.BuyerMainSwitch;
 import org.example.ui.models.NotAuthMainSwitch;
+import org.example.ui.models.SellerMainSwitch;
 import org.example.ui.models.SignInSwitch;
 
 public class LogIn {
@@ -119,18 +120,13 @@ public class LogIn {
                     );
                     user.register(userRepeatPassword.getText());
                     if (userBuyer.isSelected()) {
-                        new AuthMainSwitch(
-                                new Buyer(user),
-                                new Seller(new User("","", "None")))
-                                .changeScene(primaryStage);
+                        new BuyerMainSwitch(new Buyer(user)).changeScene(primaryStage);
                     } else if (userSeller.isSelected()) {
-                        new AuthMainSwitch(
-                                new Buyer(new User("","", "None")),
-                                new Seller(user))
-                                .changeScene(primaryStage);
+                        new SellerMainSwitch(new Seller(user)).changeScene(primaryStage);
                     }
                 } catch (Exception e) {
                     registrationError.setText(e.toString());
+                    System.out.println(e.toString());
                 } finally {
                     userMail.clear();
                     userPassword.clear();

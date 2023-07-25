@@ -4,16 +4,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
-import org.example.ui.controllers.BuyerBasket;
+import org.example.ui.controllers.BuyerMainPage;
 
 import java.io.IOException;
 
-public class BasketSwitch {
+public class BuyerMainSwitch {
     private final FXMLLoader loader;
 
     private final Buyer currBuyer;
 
-    public BasketSwitch(Buyer buyer) {
+    public BuyerMainSwitch(Buyer buyer) {
         this.loader = new FXMLLoader();
         this.currBuyer = buyer;
     }
@@ -24,10 +24,10 @@ public class BasketSwitch {
     }
 
     private void initLocation() {
-        this.loader.setLocation(getClass().getResource("/fxml/shopping_cart.fxml"));
+        this.loader.setLocation(getClass().getResource("/fxml/buyer_main_page.fxml"));
     }
 
     private void initController(Stage stage) {
-        loader.setController(new BuyerBasket(this.currBuyer, stage));
+        loader.setController(new BuyerMainPage(this.currBuyer, stage));
     }
 }

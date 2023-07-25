@@ -1,13 +1,13 @@
 package org.example.validation.userdata;
 
 public class BirthLen {
-    private final String birth;
+    private final Data data;
 
     public BirthLen(Data data) {
-        this.birth = data.birth;
+        this.data = data;
     }
 
     public boolean isSuitableLength() {
-        return this.birth.length() == DataFields.BIRTH.requiredLen;
+        return this.data.provideData().get(2).length() == 10;
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SpecialPassport {
-    private final PassportPC passportPC;
+    private final Passport passport;
 
     /**
      * \u201e - is a code of sharp(#) symbol
@@ -15,13 +15,17 @@ public class SpecialPassport {
     ));
 
     public SpecialPassport(Passport passport) {
-        this.passportPC = passport.passportPC;
+        this.passport = passport;
     }
 
     public boolean isSpecialChar() {
-        for (int i = 0; i < this.passportPC.publisher.length(); i++) {
+        return this.validatePublisher(this.passport.provideData().get(2));
+    }
+
+    private boolean validatePublisher(String publisher) {
+        for (int i = 0; i < publisher.length(); i++) {
             for (Character character : this.specChar) {
-                if (this.passportPC.publisher.charAt(i) == character) {
+                if (publisher.charAt(i) == character) {
                     return true;
                 }
             }

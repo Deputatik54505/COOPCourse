@@ -5,20 +5,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
 import org.example.entities.seller.Seller;
-import org.example.ui.controllers.AuthMainPage;
-import org.example.validation.exceptions.UserNotFoundExc;
+import org.example.ui.controllers.BuyerMainPage;
+import org.example.ui.controllers.SellerMainPage;
 
 import java.io.IOException;
 
-public class AuthMainSwitch {
+public class SellerMainSwitch {
     private final FXMLLoader loader;
 
-    private final Buyer currBuyer;
-
     private final Seller currSeller;
-    public AuthMainSwitch(Buyer buyer, Seller seller) {
+
+    public SellerMainSwitch(Seller seller) {
         this.loader = new FXMLLoader();
-        this.currBuyer = buyer;
         this.currSeller = seller;
     }
     public void changeScene(Stage stage) throws IOException {
@@ -27,9 +25,9 @@ public class AuthMainSwitch {
         stage.setScene(new Scene(this.loader.load()));
     }
     private void initLocation() {
-        this.loader.setLocation(getClass().getResource("/fxml/auth_main_page.fxml"));
+        this.loader.setLocation(getClass().getResource("/fxml/seller_main_page.fxml"));
     }
     private void initController(Stage stage) {
-        this.loader.setController(new AuthMainPage(this.currBuyer, this.currSeller, stage));
+        this.loader.setController(new SellerMainPage(this.currSeller, stage));
     }
 }

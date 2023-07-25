@@ -3,24 +3,24 @@ package org.example.validation.userdata;
 import java.util.ArrayList;
 
 public class DataBirth {
-    private final String birth;
+    private final Data data;
 
     private final ArrayList<String> ddmmyyyy;
 
     private int counter;
 
     public DataBirth(Data data) {
-        this.birth = data.birth;
+        this.data = data;
         this.ddmmyyyy = new ArrayList<>(3);
         this.counter = 0;
     }
 
     public boolean isValidInput() {
         return
-                splitBirth(this.birth) &&
-                isNum(this.ddmmyyyy.get(DMY.DAY.ordinal())) &&
-                isNum(this.ddmmyyyy.get(DMY.MONTH.ordinal())) &&
-                isNum(this.ddmmyyyy.get(DMY.YEAR.ordinal()));
+                splitBirth(this.data.provideData().get(2)) &&
+                isNum(this.ddmmyyyy.get(2)) &&
+                isNum(this.ddmmyyyy.get(1)) &&
+                isNum(this.ddmmyyyy.get(0));
     }
 
     private boolean isNum(String str) {
