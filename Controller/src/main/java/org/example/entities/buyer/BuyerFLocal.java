@@ -3,7 +3,7 @@ package org.example.entities.buyer;
 import org.example.entities.product.Product;
 import org.example.validation.exceptions.ProductNotFoundExc;
 
-public class BuyerFLocal {
+public final class BuyerFLocal {
     private final Buyer buyer;
 
     public BuyerFLocal(Buyer buyer) {

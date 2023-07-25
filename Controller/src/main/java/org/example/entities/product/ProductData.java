@@ -3,7 +3,7 @@ package org.example.entities.product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductData {
+public final class ProductData {
     private final float price;
     private final String name;
     private final String description;

@@ -3,7 +3,7 @@ package org.example.entities.buyer;
 import org.example.entities.product.Product;
 import org.example.validation.exceptions.ProductNotFoundExc;
 
-public class BuyerRemove {
+public final class BuyerRemove {
     private final Buyer buyer;
 
     public BuyerRemove(Buyer buyer) {

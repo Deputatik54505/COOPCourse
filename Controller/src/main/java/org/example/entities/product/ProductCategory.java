@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class ProductCategory {
+public final class ProductCategory {
     private final IQuery query;
     private final int id;
     private ProductCategoryHierarchy hierarchy;

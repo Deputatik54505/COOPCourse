@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ProductCategoryHierarchy {
+public final class ProductCategoryHierarchy {
     private final List<Integer> directSubcategories;
     private final Integer superCategoryId;
 

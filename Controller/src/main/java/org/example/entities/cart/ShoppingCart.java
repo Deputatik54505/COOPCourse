@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ShoppingCart {
+public final class ShoppingCart {
     private final Map<Product, Integer> purchases;
     private final IQuery query;
 

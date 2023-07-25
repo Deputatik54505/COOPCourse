@@ -6,7 +6,7 @@ import org.example.forms.sign.SignVerification;
 import org.example.validation.exceptions.UnequalPasswordExc;
 import org.example.validation.exceptions.UserNotFoundExc;
 
-public class User {
+public final class User {
     private final UserType type;
     private final String userMail;
     private final String userPassword;

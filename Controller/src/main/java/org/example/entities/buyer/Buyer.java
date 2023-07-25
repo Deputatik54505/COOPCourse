@@ -7,7 +7,7 @@ import org.example.entities.user.User;
 
 import java.sql.SQLException;
 
-public class Buyer {
+public final class Buyer {
     private final User user;
     private final ShoppingCart shoppingCart;
 

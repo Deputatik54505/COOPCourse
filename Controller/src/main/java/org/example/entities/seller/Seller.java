@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Seller {
+public final class Seller {
     private final User user;
 
     public Seller(User user) {

@@ -2,7 +2,7 @@ package org.example.entities.buyer;
 
 import org.example.entities.product.Product;
 
-public class BuyerAdd {
+public final class BuyerAdd {
     private final Buyer buyer;
 
     public BuyerAdd(Buyer buyer) {

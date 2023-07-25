@@ -1,6 +1,6 @@
 package org.example.entities.product;
 
-public class ProductCategorySpecifications {
+public final class ProductCategorySpecifications {
     private final boolean hasParent;
     private final boolean hasChild;
     private final String name;

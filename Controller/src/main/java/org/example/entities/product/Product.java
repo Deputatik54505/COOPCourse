@@ -6,7 +6,7 @@ import org.example.database.Query;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Product {
+public final class Product {
     private final IQuery query;
     private final int id;
     private ProductData data;

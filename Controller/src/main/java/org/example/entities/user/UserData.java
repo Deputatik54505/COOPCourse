@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserData {
+public final class UserData {
     private final IQuery query;
     private int id;
     private String email;
