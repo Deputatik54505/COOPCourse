@@ -126,6 +126,7 @@ public class LogIn {
                     }
                 } catch (Exception e) {
                     registrationError.setText(e.toString());
+                    System.out.println(e.toString());
                 } finally {
                     userMail.clear();
                     userPassword.clear();

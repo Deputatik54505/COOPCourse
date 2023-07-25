@@ -21,10 +21,7 @@ import org.example.entities.buyer.Buyer;
 import org.example.entities.product.Product;
 import org.example.entities.product.ProductCategory;
 import org.example.entities.seller.Seller;
-import org.example.ui.models.BuyerMainSwitch;
-import org.example.ui.models.BasketSwitch;
-import org.example.ui.models.BuyerDataSwitch;
-import org.example.ui.models.SellerDataSwitch;
+import org.example.ui.models.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -102,7 +99,7 @@ public class BuyerMainPage {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    new BasketSwitch(currBuyer).changeScene(primaryStage);
+                    new BuyerMainSwitch(currBuyer).changeScene(primaryStage);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

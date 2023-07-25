@@ -4,7 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
-import org.example.entities.seller.Seller;
 import org.example.ui.controllers.BuyerMainPage;
 
 import java.io.IOException;
@@ -23,10 +22,12 @@ public class BuyerMainSwitch {
         initController(stage);
         stage.setScene(new Scene(this.loader.load()));
     }
+
     private void initLocation() {
         this.loader.setLocation(getClass().getResource("/fxml/buyer_main_page.fxml"));
     }
+
     private void initController(Stage stage) {
-        this.loader.setController(new BuyerMainPage(this.currBuyer, stage));
+        loader.setController(new BuyerMainPage(this.currBuyer, stage));
     }
 }

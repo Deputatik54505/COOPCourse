@@ -9,8 +9,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
-import org.example.entities.seller.Seller;
-import org.example.entities.user.User;
 import org.example.ui.models.*;
 
 import java.io.IOException;
@@ -89,10 +87,11 @@ public class BuyerData {
         assert passportSeries != null : "fx:id=\"passportSeries\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
         assert userBirth != null : "fx:id=\"userBirth\" was not injected: check your FXML file 'buyer_acc_data.fxml'.";
 
-        var generalData = currBuyer.user().data().represent();
-        this.userName.setText(generalData.get(0));
-        this.userSurname.setText(generalData.get(1));
-        this.userBirth.setText(generalData.get(2));
+        //WARNING (скорее всего забыл вызвать load())
+//        var generalData = currBuyer.user().data().represent();
+//        this.userName.setText(generalData.get(0));
+//        this.userSurname.setText(generalData.get(1));
+//        this.userBirth.setText(generalData.get(2));
 
         this.passportSeries.setText("none");
         this.passportNumber.setText("none");

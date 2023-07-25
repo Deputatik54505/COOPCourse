@@ -4,7 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.entities.buyer.Buyer;
-import org.example.entities.seller.Seller;
 import org.example.ui.controllers.BuyerBasket;
 
 import java.io.IOException;
